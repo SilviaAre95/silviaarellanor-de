@@ -43,6 +43,10 @@ portfolio/
 ├── public/
 ├── src/
 │   ├── assets/
+│   │   ├── css/
+│   │   │   ├── index.css
+│   │   │   └── tomorrow.css
+│   │   └── images/
 │   ├── components/
 │   │   ├── ui/
 │   │   │   ├── Reusable Components/
@@ -71,6 +75,23 @@ portfolio/
 │   │   │   │   ├── Projects.jsx
 │   │   │   │   └── Skills.jsx
 │   │   └── lib/
+│   │       └── utils.js
+│   ├── pages/
+│   │   ├── About/
+│   │   │   └── About.jsx
+│   │   ├── Contact/
+│   │   │   └── Contact.jsx
+│   │   ├── Experience/
+│   │   │   └── Experience.jsx
+│   │   ├── Header/
+│   │   │   └── Header.jsx
+│   │   ├── Hero/
+│   │   │   └── Hero.jsx
+│   │   ├── Projects/
+│   │   │   ├── Projects.jsx
+│   │   │   └── testProjects.jsx
+│   │   └── Skills/
+│   │       └── Skills.jsx
 │   ├── App.jsx
 │   └── main.jsx
 ├── Configuration Files/
@@ -84,8 +105,8 @@ portfolio/
 │   ├── postcss.config.js
 │   ├── README.md
 │   ├── tailwind.config.js
-    └── vite.config.js
-
+│   ├── vercel.json
+│   └── vite.config.js
 
 ```
 ---
