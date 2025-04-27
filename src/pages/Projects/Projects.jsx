@@ -1,6 +1,6 @@
 import { ReactLenis } from "lenis/react";
 import { useTransform, motion, useScroll } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 
 const projects = [
@@ -53,6 +53,50 @@ export default function Projects() {
     offset: ["start start", "end end"],
   });
 
+  useEffect(() => {
+    // Add specific styles for 1366x768 resolution
+    const style = document.createElement("style");
+    style.textContent = `
+      @media screen and (width: 1366px) and (height: 768px),
+             screen and (width: 1367px) and (height: 768px),
+             screen and (width: 1368px) and (height: 769px) {
+        .project-card {
+          scale: 0.85;
+          margin-top: -5vh;
+        }
+        .project-container {
+          height: 90vh;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Resolution check function
+    const checkResolution = () => {
+      const isTargetResolution =
+        window.innerWidth >= 1360 &&
+        window.innerWidth <= 1370 &&
+        window.innerHeight >= 760 &&
+        window.innerHeight <= 775;
+
+      if (isTargetResolution) {
+        document.documentElement.style.setProperty("--project-scale", "0.85");
+        document.documentElement.style.setProperty("--project-margin", "-5vh");
+      } else {
+        document.documentElement.style.setProperty("--project-scale", "1");
+        document.documentElement.style.setProperty("--project-margin", "0");
+      }
+    };
+
+    checkResolution();
+    window.addEventListener("resize", checkResolution);
+
+    return () => {
+      document.head.removeChild(style);
+      window.removeEventListener("resize", checkResolution);
+    };
+  }, []);
+
   return (
     <ReactLenis root>
       <main className="bg-black" ref={container}>
@@ -99,14 +143,16 @@ function Card({
   return (
     <div
       ref={container}
-      className="h-screen flex items-center justify-center sticky top-0"
+      className="h-screen flex items-center justify-center sticky top-0 project-container"
     >
       <motion.div
         style={{
           scale,
           top: `calc(-5vh + ${i * 25}px)`,
+          transform: `scale(var(--project-scale, 1))`,
+          marginTop: "var(--project-margin, 0)",
         }}
-        className="relative -top-[25%] h-auto w-[90%] md:w-[85%] lg:w-[75%] xl:w-[65%] origin-top"
+        className="relative -top-[25%] h-auto w-[90%] md:w-[85%] lg:w-[75%] xl:w-[65%] origin-top project-card"
         whileHover={{
           y: -8,
           transition: { duration: 0.3 },
