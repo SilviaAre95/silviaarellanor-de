@@ -15,18 +15,18 @@ const EducationSection = () => {
 
   const educationData = [
     {
-      degree: "Secondary School Certificate (SSC)",
-      school: "Natore Textile Institute",
+      degree: "Masters in Open Source Software",
+      school: "Autonomous University of Chihuahua",
       mascot: "📘",
-      year: "2019-2021",
+      year: "2018-2020",
       achievements: ["GPA: 4.89", "Subject: Science"],
       skills: ["Mathematics", "Physics", "Chemistry", "Biology"],
       description:
         "Focused on core science subjects with emphasis on practical laboratory work and scientific research methodologies.",
     },
     {
-      degree: "Higher Secondary Certificate (HSC)",
-      school: "Dottopara Model Degree College",
+      degree: "Bachelor of Physics",
+      school: "Benemeirtus ",
       mascot: "📗",
       year: "2021-2023",
       achievements: ["GPA: 4.25", "Subject: Arts"],
@@ -59,7 +59,7 @@ const EducationSection = () => {
   };
 
   return (
-    <section className="min-h-screen relative overflow-hidden py-40 bg-[#04081A]">
+    <section id="education" className="min-h-screen relative overflow-hidden py-20 bg-main-white">
       {/* Grid Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-[length:50px_50px]" />
@@ -74,10 +74,10 @@ const EducationSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-main-darkGrey mb-6">
             Educational Journey
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto text-lg">
+          <p className="text-main-mediumGrey max-w-2xl mx-auto text-lg">
             Discover how academic excellence shapes innovative thinking and
             professional growth.
           </p>
@@ -93,10 +93,10 @@ const EducationSection = () => {
             <motion.div
               key={index}
               variants={cardVariants}
-              className={`relative border rounded-xl p-8 transition-all duration-300 bg-gray-900/50 backdrop-blur-sm ${
+              className={`relative border rounded-xl p-8 transition-all duration-300 bg-main-lightGrey ${
                 hoveredIndex === index
-                  ? "border-teal-500 scale-[1.02]"
-                  : "border-blue-400/20"
+                  ? "border-accent-softBlue scale-[1.02]"
+                  : "border-main-mediumGrey/30"
               }`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
@@ -105,34 +105,34 @@ const EducationSection = () => {
                 <div className="space-y-2">
                   <div className="flex items-center gap-3">
                     <span className="text-3xl">{edu.mascot}</span>
-                    <h3 className="text-2xl font-bold text-white">
+                    <h3 className="text-2xl font-bold text-main-darkGrey">
                       {edu.degree}
                     </h3>
                   </div>
-                  <p className="text-lg text-gray-300 flex items-center gap-2">
-                    <BookOpen className="w-5 h-5 text-teal-500" />
+                  <p className="text-lg text-main-mediumGrey flex items-center gap-2">
+                    <BookOpen className="w-5 h-5 text-accent-mutedTeal" />
                     {edu.school}
                   </p>
-                  <p className="text-gray-400 flex items-center gap-2">
+                  <p className="text-main-mediumGrey flex items-center gap-2">
                     <Calendar className="w-4 h-4" />
                     {edu.year}
                   </p>
                 </div>
 
-                <p className="text-gray-300 text-sm italic border-l-2 border-teal-500 pl-3">
+                <p className="text-main-mediumGrey text-sm italic border-l-2 border-accent-mutedTeal pl-3">
                   {edu.description}
                 </p>
 
                 <div className="space-y-3">
-                  <h4 className="text-sm font-semibold text-white flex items-center gap-2">
-                    <Trophy className="w-4 h-4 text-yellow-500" />
+                  <h4 className="text-sm font-semibold text-main-darkGrey flex items-center gap-2">
+                    <Trophy className="w-4 h-4 text-accent-subtleYellow" />
                     Key Achievements
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {edu.achievements.map((achievement, i) => (
                       <div
                         key={i}
-                        className="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 flex items-center gap-2 text-sm"
+                        className="px-3 py-1 rounded-full bg-accent-mutedTeal/10 text-accent-mutedTeal flex items-center gap-2 text-sm"
                       >
                         <Award className="w-4 h-4" />
                         <span>{achievement}</span>
@@ -145,7 +145,7 @@ const EducationSection = () => {
                   {edu.skills.map((skill, i) => (
                     <span
                       key={i}
-                      className="px-2 py-1 text-xs rounded bg-blue-500/10 text-blue-300"
+                      className="px-2 py-1 text-xs rounded bg-accent-softBlue/10 text-accent-softBlue"
                     >
                       {skill}
                     </span>

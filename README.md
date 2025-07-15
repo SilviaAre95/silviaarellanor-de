@@ -1,17 +1,31 @@
-# Portfolio Website
+# Silvia Arellano - Data Engineer Profile
+
 <div align="center">
   <pre>
-    _____           _    __      _ _       
-   |  __ \         | |  / _|    | (_)      
-   | |__) |__  _ __| |_| |_ ___ | |_  ___  
-   |  ___/ _ \| '__| __|  _/ _ \| | |/ _ \ 
-   | |  | (_) | |  | |_| || (_) | | | (_) |
-   |_|   \___/|_|   \__|_| \___/|_|_|\___/ 
+   ____        _          _____             _                       
+  |  _ \  __ _| |_ __ _  | ____|_ __   __ _(_)_ __   ___  ___ _ __ 
+  | | | |/ _` | __/ _` | |  _| | '_ \ / _` | | '_ \ / _ \/ _ \ '__|
+  | |_| | (_| | || (_| | | |___| | | | (_| | | | | |  __/  __/ |   
+  |____/ \__,_|\__\__,_| |_____|_| |_|\__, |_|_| |_|\___|\___|_|   
+                                      |___/                         
   </pre>
 </div>
 
- 
-Welcome to my **portfolio website**! This site showcases my skills, experience, education, projects, and how to get in touch with me. It's built with **React** and **Vite** for a fast, modern web experience. You can explore my work, learn about my journey, and contact me directly.
+## About This Project
+
+This is my personal profile webpage showcasing my journey as a Senior Data Engineer. The site highlights my expertise in building scalable data infrastructure, ETL pipelines, and cloud-based data solutions.
+
+## Credits & Attribution
+
+This project is based on the original portfolio template created by **[Nazmul Hossain](https://github.com/seraprogrammer/portfolio)**. I've made significant modifications to adapt it for my data engineering profile, including:
+
+- Complete redesign focused on data engineering skills and projects
+- Added new sections for Blog (Medium articles) and Digital Products
+- Customized color scheme and styling
+- Updated content to reflect data engineering expertise
+- Integration with data-specific tools and technologies showcase
+
+Special thanks to Nazmul Hossain for creating the excellent foundation that made this profile webpage possible.
 
 ---
 
@@ -23,8 +37,8 @@ Welcome to my **portfolio website**! This site showcases my skills, experience, 
 
 ## Live Preview
 
-Check out the live preview of the portfolio website here:  
-[**Live Demo**](https://codervai.vercel.app/)
+Check out the live version of my data engineering profile:  
+[**Live Demo**](https://silvia-datadev.vercel.app/)
 ---
 ### 🎯 Project Structure
 ```bash
@@ -101,16 +115,18 @@ portfolio/
 ```
 ---
 
-## Sections of the Portfolio
+## Sections of the Profile
 
-The portfolio website consists of the following sections:
+This profile webpage consists of the following sections:
 
-- **Home**: Introduction and a brief overview.
-- **Skills**: A detailed list of my technical skills.
-- **Experience**: My professional journey and work experience.
-- **Education**: Academic background and certifications.
-- **Projects**: A showcase of the projects I've worked on.
-- **Contact**: Information on how to reach out to me.
+- **Hero**: Introduction and overview of my data engineering expertise
+- **Skills**: Comprehensive list of data engineering tools and technologies
+- **Experience**: Professional journey in data engineering and analytics
+- **Education**: Academic background and relevant certifications
+- **Projects**: Showcase of data engineering projects and solutions
+- **Blog**: Featured articles from my Medium blog on data engineering topics
+- **Products**: Digital products and resources for data engineers
+- **Contact**: Professional contact information and social links
 
 ---
 
@@ -151,7 +167,7 @@ You will need to download **Git** and **Node** to run this project.
 2. After forking, open your terminal and run the following commands to clone the repo:
 
   ```bash
-  git clone https://github.com/seraprogrammer/portfolio.git
+  git clone https://github.com/SilviaAre95/portfolio.git
   ```
 Navigate to the Project Directory 📂
 Once the repository is cloned, change your directory to the project folder:
@@ -189,5 +205,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-<div align="center"> Made with ❤️ by Nazmul Hossain </div>
+<div align="center">
+  <p>Original template by <a href="https://github.com/seraprogrammer">Nazmul Hossain</a></p>
+  <p>Adapted and modified by <a href="https://github.com/SilviaAre95">Silvia Arellano</a> for Data Engineering Profile</p>
+</div>
 
