@@ -21,9 +21,12 @@ This project is based on the original portfolio template created by **[Nazmul Ho
 
 - Complete redesign focused on data engineering skills and projects
 - Added new sections for Blog (Medium articles) and Digital Products
+- Custom Experience timeline with professional journey
+- Industry banner showing sectors I've worked in
 - Customized color scheme and styling
 - Updated content to reflect data engineering expertise
 - Integration with data-specific tools and technologies showcase
+- Mobile-responsive design optimizations
 
 Special thanks to Nazmul Hossain for creating the excellent foundation that made this profile webpage possible.
 
@@ -38,51 +41,30 @@ Special thanks to Nazmul Hossain for creating the excellent foundation that made
 ## Live Preview
 
 Check out the live version of my data engineering profile:  
-[**Live Demo**](https://silvia-datadev.vercel.app/)
+[**Live Demo**](https://silviaare95.github.io/silviaarellanor-de/)
 ---
 ### 🎯 Project Structure
 ```bash
 portfolio/
-├── node_modules/
 ├── public/
+│   ├── favicon files (apple-touch-icon.png, favicon-32x32.png, etc.)
+│   └── site.webmanifest
 ├── src/
 │   ├── assets/
 │   │   ├── css/
-│   │   │   ├── index.css
-│   │   │   └── tomorrow.css
+│   │   │   └── index.css
 │   │   └── images/
+│   │       ├── portfolio.png
+│   │       └── silvia.png
 │   ├── components/
 │   │   ├── ui/
-│   │   │   ├── Reusable Components/
-│   │   │   │   ├── badge.jsx
-│   │   │   │   ├── button.jsx
-│   │   │   │   ├── card.jsx
-│   │   │   │   ├── EducationLoader.jsx
-│   │   │   │   ├── evervault-card.jsx
-│   │   │   │   ├── flip-words.jsx
-│   │   │   │   ├── icon-cloud.jsx
-│   │   │   │   ├── meteors.jsx
-│   │   │   │   ├── sparkles-text.jsx
-│   │   │   │   └── tooltip.jsx
-│   │   │   │
-│   │   │   ├── Main Components/
-│   │   │   │   ├── AnimatedGrid.jsx
-│   │   │   │   ├── Contact.jsx
-│   │   │   │   ├── Education.jsx
-│   │   │   │   ├── enhanced-portfolio-card.jsx
-│   │   │   │   ├── Experience.jsx
-│   │   │   │   ├── global.jsx
-│   │   │   │   ├── Header.jsx
-│   │   │   │   ├── Hero.jsx
-│   │   │   │   ├── Home.jsx
-│   │   │   │   ├── PortfolioPage.jsx
-│   │   │   │   ├── Projects.jsx
-│   │   │   │   └── Skills.jsx
-│   │   └── lib/
-│   │       └── utils.js
+│   │   │   ├── flip-words.jsx
+│   │   │   └── other reusable components
+│   │   ├── Footer.jsx
+│   │   └── IndustryBanner.jsx
 │   ├── pages/
-│   │   ├── About/
-│   │   │   └── About.jsx
+│   │   ├── Blog/
+│   │   │   └── Blog.jsx
 │   │   ├── Contact/
 │   │   │   └── Contact.jsx
 │   │   ├── Experience/
@@ -91,27 +73,20 @@ portfolio/
 │   │   │   └── Header.jsx
 │   │   ├── Hero/
 │   │   │   └── Hero.jsx
+│   │   ├── Products/
+│   │   │   └── Products.jsx
 │   │   ├── Projects/
-│   │   │   ├── Projects.jsx
-│   │   │   └── testProjects.jsx
+│   │   │   └── Projects.jsx
 │   │   └── Skills/
 │   │       └── Skills.jsx
 │   ├── App.jsx
 │   └── main.jsx
-├── Configuration Files/
-│   ├── .eslintrc.js
-│   ├── .gitignore
-│   ├── components.json
-│   ├── index.html
-│   ├── jsconfig.json
-│   ├── package-lock.json
-│   ├── package.json
-│   ├── postcss.config.js
-│   ├── README.md
-│   ├── tailwind.config.js
-│   ├── vercel.json
-│   └── vite.config.js
-
+├── .env.example
+├── .gitignore
+├── index.html
+├── package.json
+├── tailwind.config.js
+└── vite.config.js
 ```
 ---
 
@@ -119,22 +94,26 @@ portfolio/
 
 This profile webpage consists of the following sections:
 
-- **Hero**: Introduction and overview of my data engineering expertise
-- **Skills**: Comprehensive list of data engineering tools and technologies
-- **Experience**: Professional journey in data engineering and analytics
-- **Projects**: Showcase of data engineering projects and solutions
+- **Hero**: Introduction with personal photo and overview of data engineering expertise
+- **Skills**: Comprehensive list of data engineering tools and technologies with interactive cards
+- **Experience**: Professional timeline showcasing both full-time and independent projects
+- **Projects**: Two-column layout featuring professional and open-source projects
+- **Industry Banner**: Animated banner displaying industries I've worked in
 - **Blog**: Featured articles from my Medium blog on data engineering topics
-- **Products**: Digital products and resources for data engineers
-- **Contact**: Professional contact information and social links
+- **Products**: Dedicated page for digital products and resources (accessible via navigation)
+- **Contact**: Professional contact form with EmailJS integration and social links
 
 ---
 
 ## 💻 Technologies Used
 - **Frontend:** React.js with Vite
-- **Styling:** Tailwind CSS
-- **Animations:** Framer Motion
-- **Icons:** React Icons
-- **Deployment:** Vercel
+- **Routing:** React Router DOM
+- **Styling:** Tailwind CSS with custom color scheme
+- **Animations:** Framer Motion & custom CSS animations
+- **Icons:** React Icons (FontAwesome)
+- **Email Service:** EmailJS for contact form
+- **Deployment:** GitHub Pages
+- **Build Tool:** Vite with custom GitHub Pages configuration
 
 ---
 
@@ -166,12 +145,12 @@ You will need to download **Git** and **Node** to run this project.
 2. After forking, open your terminal and run the following commands to clone the repo:
 
   ```bash
-  git clone https://github.com/SilviaAre95/portfolio.git
+  git clone https://github.com/SilviaAre95/silviaarellanor-de.git
   ```
 Navigate to the Project Directory 📂
 Once the repository is cloned, change your directory to the project folder:
 ```bash
-cd portfolio
+cd silviaarellanor-de
 ```
 
 Install Dependencies ⚙️
@@ -188,6 +167,32 @@ npm run dev
 
 View the Project 🌐
 Open your browser and visit http://localhost:5173/ to see the result! 🎉
+
+## 🚀 Deployment to GitHub Pages
+
+This project is configured for easy deployment to GitHub Pages:
+
+### Environment Setup
+1. Copy `.env.example` to `.env` and add your EmailJS credentials:
+   ```bash
+   cp .env.example .env
+   ```
+
+### Deploy to GitHub Pages
+1. Push your changes to the main branch
+2. Run the deployment command:
+   ```bash
+   npm run deploy
+   ```
+   This will:
+   - Build the project for production
+   - Deploy to the `gh-pages` branch
+   - Make your site available at `https://yourusername.github.io/repositoryname/`
+
+### GitHub Pages Configuration
+- The site is configured with the correct base path for GitHub Pages
+- Vite automatically handles asset paths for subdirectory deployment
+- React Router is configured with the appropriate basename for production
 
 ## 📝 License
 This project is licensed under the MIT License - see the LICENSE file for details.
