@@ -9,5 +9,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/silviaarellano-de/",
+  base: process.env.NODE_ENV === 'production' ? "/silviaarellano-de/" : "/",
 });
