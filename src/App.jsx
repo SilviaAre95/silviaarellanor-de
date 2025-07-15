@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useLocation } from "react-router-dom";
 import "./assets/css/index.css";
 import Experience from "./pages/Experience/Experience";
 import Contact from "./pages/Contact/Contact";
@@ -7,36 +8,39 @@ import Header from "./pages/Header/Header";
 import Hero from "./pages/Hero/Hero";
 import Skills from "./pages/Skills/Skills";
 import Education from "./pages/Education/Education";
+import Blog from "./pages/Blog/Blog";
+import Products from "./pages/Products/Products";
+import Footer from "./components/Footer";
 
 import { Route, Routes } from "react-router-dom";
 
 export default function App() {
-  const [isOnePage, setIsOnePage] = useState(false); // Toggle state
+  const location = useLocation();
+  const isProductsPage = location.pathname === '/products';
+
+  // Home page component that contains all sections
+  const HomePage = () => (
+    <>
+      <Hero />
+      <Skills />
+      <Experience />
+      <Education />
+      <Projects />
+      <Blog />
+      <Contact />
+    </>
+  );
 
   return (
-    <>
-      <Header />
-      {/* Conditional Rendering */}
-      {isOnePage ? (
-        // One-Page Mode: Render all components together
-        <>
-          <Hero />
-          <Skills />
-          <Experience />
-          <Education />
-          <Contact />
-        </>
-      ) : (
-        // Router Mode: Use routes for navigation
-        <Routes>`
-          <Route path="/" element={<Hero />} />
-          <Route path="/skills" element={<Skills />} />
-          <Route path="/experience" element={<Experience />} />
-          <Route path="/education" element={<Education />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/projects" element={<Projects />} />
+    <div className="min-h-screen flex flex-col bg-main-white">
+      {!isProductsPage && <Header />}
+      <main className="flex-grow pb-20">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/products" element={<Products />} />
         </Routes>
-      )}
-    </>
+      </main>
+      {!isProductsPage && <Footer />}
+    </div>
   );
 }

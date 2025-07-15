@@ -68,6 +68,19 @@ module.exports = {
           4: "hsl(var(--chart-4))",
           5: "hsl(var(--chart-5))",
         },
+        // Professional color palette
+        main: {
+          white: "#FFFFFF",
+          lightGrey: "#F5F5F5",
+          mediumGrey: "#A7A8AA",
+          darkGrey: "#4B4D4F",
+        },
+        accent: {
+          softBlue: "#607D8B",
+          mutedTeal: "#546E7A",
+          subtleYellow: "#FFD600",
+          gentleCoral: "#FF8A65",
+        },
       },
     },
   },
