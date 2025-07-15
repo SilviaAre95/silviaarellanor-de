@@ -9,6 +9,7 @@ import Hero from "./pages/Hero/Hero";
 import Skills from "./pages/Skills/Skills";
 import Blog from "./pages/Blog/Blog";
 import Products from "./pages/Products/Products";
+import IndustryBanner from "./components/IndustryBanner";
 import Footer from "./components/Footer";
 
 import { Route, Routes } from "react-router-dom";
@@ -24,6 +25,7 @@ export default function App() {
       <Skills />
       <Experience />
       <Projects />
+      <IndustryBanner />
       <Blog />
       <Contact />
     </>

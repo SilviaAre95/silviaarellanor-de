@@ -3,11 +3,11 @@ import { FaMedium, FaExternalLinkAlt, FaCalendarAlt } from "react-icons/fa";
 
 const articles = [
   {
-    title: "Building Scalable Data Pipelines with Apache Airflow",
-    excerpt: "Learn how to design and implement robust data pipelines using Apache Airflow, including best practices for task orchestration and monitoring.",
-    date: "Dec 15, 2024",
-    readTime: "8 min read",
-    link: "https://medium.com/@yourusername/building-scalable-data-pipelines",
+    title: "Parallelizing BigQuery Stored Procedures with Google Cloud Functions",
+    excerpt: "A case study in squeezing speed out of serverless stored procedures in BigQueryices for task orchestration and monitoring.",
+    date: "Jul 15, 2025",
+    readTime: "5 min read",
+    link: "https://medium.com/@silvia.datadev/parallelizing-bigquery-stored-procedures-with-google-cloud-functions-af7ddcb8f899",
   },
   {
     title: "Modern ETL Patterns with Python and PySpark",

@@ -1,14 +1,15 @@
 import React from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
+// Import local images
+import portfolioImage from "@/assets/images/portfolio.png";
+
 const professionalProjects = [
   {
-    title: "Enterprise Data Pipeline Architecture",
+    title: "Enterprise-Level MongoDB CDC Data Service",
     description:
       "Designed and implemented a scalable ETL pipeline processing 10TB+ daily data using Apache Airflow, Spark, and AWS services.",
-    src: "pipeline.jpg",
-    link: "https://i.postimg.cc/DwgWTfP0/Annotation-2025-03-19-113338.png",
-    color: "#B0BEC5",
+    backgroundImage: portfolioImage,
     githubLink: null, // Professional projects might not have public repos
     liveLink: null,
     company: "TechCorp",
@@ -18,9 +19,7 @@ const professionalProjects = [
     title: "Real-time Analytics Dashboard",
     description:
       "Built a real-time analytics platform using Kafka, PostgreSQL, and React, serving 100k+ daily active users.",
-    src: "analytics.jpg",
-    link: "https://i.postimg.cc/J75CKyrs/Annotation-2025-04-01-203959.png",
-    color: "#B0BEC5",
+    backgroundImage: portfolioImage,
     githubLink: null,
     liveLink: null,
     company: "DataFlow Inc",
@@ -33,31 +32,17 @@ const independentProjects = [
     title: "Olova! A Lightweight JavaScript Library",
     description:
       "A lightweight JavaScript library for creating beautiful, responsive UI components.",
-    src: "rock.jpg",
-    link: "https://i.postimg.cc/DwgWTfP0/Annotation-2025-03-19-113338.png",
-    color: "#B0BEC5",
+    backgroundImage: portfolioImage,
     githubLink: "https://github.com/olovajs/olova",
     liveLink: "https://olova.js.org/",
   },
   {
-    title: "CodeWhisperer",
+    title: "Data Engineer Portfolio",
     description:
-      "A powerful online code editor built with React and Tailwind CSS. Featuring real-time code execution, syntax highlighting, multi-language support, and a sleek UI.",
-    src: "water.jpg",
-    link: "https://i.postimg.cc/J4jPVFY0/Annotation-2025-04-01-204723.png",
-    color: "#B0BEC5",
-    githubLink: "https://github.com/seraprogrammer/codewhisperer",
+      "The complete code of how I built my protofolio using and contributing to open source.",
+    backgroundImage: portfolioImage,
+    githubLink: "https://github.com/SilviaAre95/silviaarellanor-de",
     liveLink: "https://codewhisperer.vercel.app/",
-  },
-  {
-    title: "CodeKori",
-    description:
-      "CodeKori is a powerful online code editor built with React and Tailwind CSS. Featuring real-time code execution, syntax highlighting, multi-language support, and a sleek UI.",
-    src: "house.jpg",
-    link: "https://i.postimg.cc/cHQr4fpR/Annotation-2025-04-01-205350.png",
-    color: "#B0BEC5",
-    githubLink: "https://github.com/seraprogrammer/CodeKori",
-    liveLink: "https://codekori.js.org",
   },
 ];
 
@@ -65,10 +50,11 @@ const ProjectCard = ({ project, isProfessional = false }) => (
   <div className="bg-main-lightGrey rounded-lg overflow-hidden border border-main-mediumGrey/20 hover:border-main-mediumGrey/40 transition-all duration-300 hover:shadow-lg">
     {/* Project Image */}
     <div className="relative h-48 overflow-hidden bg-main-mediumGrey/10">
-      <img
-        src={project.link}
-        alt={project.title}
-        className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300"
+      <div
+        className="w-full h-full bg-cover bg-center opacity-90 hover:opacity-100 transition-opacity duration-300"
+        style={{
+          backgroundImage: `linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%), url(${project.backgroundImage})`,
+        }}
       />
       <div className="absolute top-4 left-4 bg-main-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
         <span className="text-sm text-main-darkGrey font-medium">
