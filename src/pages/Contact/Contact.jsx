@@ -5,7 +5,7 @@ import emailjs from '@emailjs/browser';
 export default function Contact() {
   // Initialize EmailJS
   useEffect(() => {
-    emailjs.init('[REDACTED_EMAILJS_PUBLIC_KEY]'); // Replace with your public key
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
   }, []);
   const [formData, setFormData] = useState({
     name: "",
@@ -59,15 +59,15 @@ export default function Contact() {
     try {
       // Using EmailJS to send email
       const result = await emailjs.send(
-        '[REDACTED_EMAILJS_SERVICE_ID]',        // Replace with your EmailJS service ID
-        '[REDACTED_EMAILJS_TEMPLATE_ID]',       // Replace with your EmailJS template ID
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject || "New Contact Form Submission",
           message: formData.message,
         },
-        '[REDACTED_EMAILJS_PUBLIC_KEY]'    // Replace with your EmailJS public key
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
       console.log('EmailJS result:', result); // Debug log
