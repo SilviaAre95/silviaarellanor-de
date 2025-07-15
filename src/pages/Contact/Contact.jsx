@@ -127,7 +127,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-main-darkGrey">Location</h3>
-                    <p className="text-main-mediumGrey">Mexico City | Vienna | Arvada | Tulum</p>
+                    <p className="text-main-mediumGrey">Mexico City</p>
                   </div>
                 </div>
               </div>

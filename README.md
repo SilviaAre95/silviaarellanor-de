@@ -122,7 +122,6 @@ This profile webpage consists of the following sections:
 - **Hero**: Introduction and overview of my data engineering expertise
 - **Skills**: Comprehensive list of data engineering tools and technologies
 - **Experience**: Professional journey in data engineering and analytics
-- **Education**: Academic background and relevant certifications
 - **Projects**: Showcase of data engineering projects and solutions
 - **Blog**: Featured articles from my Medium blog on data engineering topics
 - **Products**: Digital products and resources for data engineers

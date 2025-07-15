@@ -7,7 +7,6 @@ import Projects from "./pages/Projects/Projects";
 import Header from "./pages/Header/Header";
 import Hero from "./pages/Hero/Hero";
 import Skills from "./pages/Skills/Skills";
-import Education from "./pages/Education/Education";
 import Blog from "./pages/Blog/Blog";
 import Products from "./pages/Products/Products";
 import Footer from "./components/Footer";
@@ -24,7 +23,6 @@ export default function App() {
       <Hero />
       <Skills />
       <Experience />
-      <Education />
       <Projects />
       <Blog />
       <Contact />

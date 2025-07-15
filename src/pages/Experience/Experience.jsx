@@ -1,136 +1,157 @@
 import React from "react";
-import { Code2, Activity, Cpu, Layers, Network, Binary } from "lucide-react";
+import { Briefcase, Users } from "lucide-react";
 
-const ExperienceCard = ({
-  title,
-  company,
-  period,
-  description,
-  icon: Icon,
-}) => (
-  <div className="group relative overflow-hidden transform hover:-translate-y-2 transition-all duration-300">
-    {/* Glass morphism effect */}
-    <div className="absolute inset-0 backdrop-blur-lg bg-white/5 rounded-lg" />
-
-    {/* Animated gradient border */}
-    <div className="absolute -inset-[2px] bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-lg opacity-0 group-hover:opacity-100 animate-gradient-xy transition-all duration-500" />
-
-    <div className="relative bg-main-lightGrey rounded-lg p-8 h-full border border-main-mediumGrey/30 shadow-xl">
-      {/* Floating icon with pulse effect */}
-      <div className="relative mb-6">
-        <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500 to-blue-500 opacity-25 rounded-full blur-xl group-hover:opacity-75 animate-pulse transition-all duration-500" />
-        <Icon className="w-12 h-12 text-accent-softBlue relative z-10 transform group-hover:rotate-12 transition-transform duration-300" />
-      </div>
-
-      {/* Content with improved typography */}
-      <div className="space-y-3">
-        <h3 className="text-2xl font-bold text-main-darkGrey">
-          {title}
-        </h3>
-        <div className="flex justify-between items-center">
-          <span className="font-semibold text-accent-softBlue">{company}</span>
-          <span className="text-sm font-mono bg-accent-softBlue/10 px-3 py-1 rounded-full text-main-darkGrey">
-            {period}
-          </span>
+const TimelineItem = ({ experience }) => {
+  return (
+    <div className="relative flex items-start mb-8">
+      {/* Timeline dot */}
+      <div className="flex-shrink-0 w-4 h-4 bg-accent-softBlue rounded-full border-4 border-main-white shadow-lg mt-3 mr-6 z-10"></div>
+      
+      {/* Content card */}
+      <div className="flex-1">
+        <div className="bg-main-white rounded-lg shadow-md border border-main-mediumGrey/30 p-4 hover:shadow-lg transition-shadow duration-300">
+          {/* Date badge */}
+          <div className="inline-block mb-2 px-3 py-1 rounded-full text-xs font-medium bg-accent-softBlue/20 text-accent-softBlue">
+            {experience.title}
+          </div>
+          
+          {/* Job title and company */}
+          <h3 className="text-lg font-bold text-main-darkGrey mb-1">{experience.cardTitle}</h3>
+          <h4 className="text-md font-semibold text-accent-softBlue">{experience.cardSubtitle}</h4>
         </div>
-        <p className="text-main-mediumGrey border-l-4 border-accent-softBlue/50 pl-4 mt-4 leading-relaxed">
-          {description}
-        </p>
-      </div>
-
-      {/* Decorative elements */}
-      <div className="absolute top-4 right-4 w-20 h-20">
-        <div className="absolute top-0 right-0 w-6 h-[2px] bg-cyan-500/50" />
-        <div className="absolute top-0 right-0 w-[2px] h-6 bg-cyan-500/50" />
-      </div>
-      <div className="absolute bottom-4 left-4 w-20 h-20">
-        <div className="absolute bottom-0 left-0 w-6 h-[2px] bg-purple-500/50" />
-        <div className="absolute bottom-0 left-0 w-[2px] h-6 bg-purple-500/50" />
       </div>
     </div>
-  </div>
-);
+  );
+};
 
-const ExperienceSection = () => {
-  const experiences = [
-    {
-      icon: Network,
-      title: "WordPress Developer",
-      company: "Fiverr",
-      period: "2019 - 2020",
-      description:
-        "Worked on developing and customizing WordPress websites for clients globally.",
-    },
-    {
-      icon: Layers,
-      title: "Junior Frontend Developer",
-      company: "Sera Programmer",
-      period: "2021 - 2023",
-      description:
-        "Assisted in building and optimizing user interfaces with a focus on responsive and interactive designs.",
-    },
-    {
-      icon: Code2,
-      title: "JavaScript Developer",
-      company: "OlovJS (Sera Programmer)",
-      period: "2023 - Present",
-      description:
-        "Contributed to developing JavaScript libraries and enhancing framework functionalities.",
-    },
-  ];
-
+const CustomTimeline = ({ experiences, title, icon: Icon, accentColor }) => {
   return (
-    <>
-      <section id="experience" className="min-h-screen bg-main-white relative overflow-hidden py-20">
-        {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-main-lightGrey via-main-white to-main-lightGrey" />
-
-        {/* Grid background */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(50,50,70,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(50,50,70,0.15)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_70%,transparent_100%)]" />
-
-        {/* Animated particles */}
-        <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-blue-500/20 rounded-full animate-float"
-              style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-              }}
+    <div className="mb-16">
+      <div className="flex items-center gap-3 mb-8">
+        <Icon className={`w-8 h-8 ${accentColor}`} />
+        <h3 className="text-2xl font-bold text-main-darkGrey">{title}</h3>
+      </div>
+      
+      <div className="bg-main-lightGrey rounded-lg p-6 border border-main-mediumGrey/30">
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-2 top-0 w-0.5 h-full bg-accent-softBlue/30"></div>
+          
+          {/* Timeline items */}
+          {experiences.map((experience, index) => (
+            <TimelineItem
+              key={index}
+              experience={experience}
             />
           ))}
         </div>
+      </div>
+    </div>
+  );
+};
 
-        {/* Content container */}
-        <div className="relative container mx-auto px-6 mt-10">
-          {/* Section header with enhanced effects */}
-          <div className="flex flex-col items-center space-y-8 mb-20">
-            <div className="relative">
-              <h2 className="text-5xl md:text-7xl font-black text-main-darkGrey text-center">
-                Professional Journey
-              </h2>
-              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 blur-3xl rounded-full" />
-            </div>
-            <p className="text-lg md:text-xl text-main-mediumGrey font-medium tracking-wide text-center max-w-2xl">
-              "Transforming ideas into digital reality, one project at a time"
-            </p>
-          </div>
+const ExperienceSection = () => {
+  const fullTimeExperience = [
+    {
+      title: "April 2024 - Present",
+      cardTitle: "Global Senior Data Engineer",
+      cardSubtitle: "Playtomic"
+    },
+    {
+      title: "Feb 2023 - April 2024",
+      cardTitle: "Data Engineer / Data Product Developer",
+      cardSubtitle: "Siftia Data Company"
+    },
+    {
+      title: "Jun 2022 - Feb 2023",
+      cardTitle: "Data Engineer/Analyst",
+      cardSubtitle: "Worky"
+    },
+    {
+      title: "Feb 2021 - Jul 2022",
+      cardTitle: "Business Data Engineer",
+      cardSubtitle: "MatchCraft"
+    },
+    {
+      title: "Oct 2020 - Dec 2023",
+      cardTitle: "Database Engineer (Seasonal)",
+      cardSubtitle: "MMI Business Consulting"
+    },
+    {
+      title: "Sept 2019 - Oct 2020",
+      cardTitle: "Biomechanical Data Engineer",
+      cardSubtitle: "B-Metrics"
+    }
+  ];
 
-          {/* Experience grid with improved layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-            {experiences.map((exp, index) => (
-              <ExperienceCard key={index} {...exp} />
-            ))}
-          </div>
+  const independentProjects = [
+    {
+      title: "June 2024 - Sept 2024",
+      cardTitle: "Data Product Developer (Contractor)",
+      cardSubtitle: "Worky"
+    },
+    {
+      title: "Jan 2022 - Jan 2023",
+      cardTitle: "Data Solutions Architect (Contractor)",
+      cardSubtitle: "GRUPO HOMA Real Estate Developers"
+    }
+  ];
+
+  return (
+    <section id="experience" className="min-h-screen bg-main-white relative py-20">
+      {/* Hero section background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-main-lightGrey via-main-white to-main-lightGrey pointer-events-none"></div>
+
+      {/* Content container */}
+      <div className="relative container mx-auto px-4 md:px-8">
+        {/* Section header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-main-darkGrey mb-4">Professional Journey</h2>
+          <p className="text-lg text-main-mediumGrey max-w-2xl mx-auto">
+            Building scalable data infrastructure and transforming businesses through data engineering excellence
+          </p>
         </div>
 
-        {/* Enhanced background effects */}
-        <div className="absolute top-20 left-20 w-96 h-96 bg-cyan-500/10 rounded-full filter blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl animate-pulse delay-1000" />
-      </section>
-    </>
+        {/* Two-column layout for timelines */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          {/* Professional Experience */}
+          <CustomTimeline
+            experiences={fullTimeExperience}
+            title="Professional Experience"
+            icon={Briefcase}
+            accentColor="text-accent-softBlue"
+          />
+
+          {/* Independent Projects */}
+          <CustomTimeline
+            experiences={independentProjects}
+            title="Independent Projects"
+            icon={Users}
+            accentColor="text-accent-mutedTeal"
+          />
+        </div>
+
+        {/* Resume Download CTA */}
+        <div className="text-center">
+          <div className="mb-8">
+            <h3 className="text-2xl font-bold text-main-darkGrey mb-4">Want more info about my experience?</h3>
+            <p className="text-lg text-main-mediumGrey max-w-xl mx-auto">
+              Download my complete resume with detailed project descriptions, technical skills, and achievements.
+            </p>
+          </div>
+          
+          <a
+            href="https://drive.google.com/file/d/1JeufhD5nm2EDt2PVQKtxptWcRrz6ITY1/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-accent-softBlue hover:bg-accent-mutedTeal text-white font-medium transition-colors duration-200 shadow-lg hover:shadow-xl"
+          >
+            <span>Get Resume</span>
+            <i className="fas fa-download ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
   );
 };
 

@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-import Prism from "prismjs";
-import "prismjs/components/prism-javascript";
-import "@/assets/css/tomorrow.css";
 import { FlipWords } from "@/components/ui/flip-words";
+import silviaPhoto from "@/assets/images/silvia.png";
 
 export default function Hero() {
   const words = [
@@ -12,26 +10,9 @@ export default function Hero() {
     "Big Data Analytics Engineer",
   ];
 
-  const code = `const dataEngineer = {
-  name: "Silvia Arellano",
-  role: "Senior Data Engineer",
-  experience: "5+ years",
-  skills: {
-    languages: ["Python", "SQL", "Node.js"],
-    tools: ["Apache Beam", "Airflow", "Kafka"],
-    cloud: ["AWS", "GCP", "Azure"],
-    databases: ["PostgreSQL", "MongoDB", "BigQuery"]
-  },
-  passion: "Building scalable data infrastructure"
-};
-
-console.log("Ready to transform your data!");`;
-
   const [showContent, setShowContent] = useState(true);
 
   useEffect(() => {
-    Prism.highlightAll();
-
     const handleResize = () => {
       const isSmallHeight = window.innerHeight < 750;
       setShowContent(!isSmallHeight);
@@ -118,23 +99,28 @@ console.log("Ready to transform your data!");`;
               </div>
             </div>
 
-            {/* Right column - Code window */}
-            <div className="w-full lg:w-1/2">
-              <div className="rounded-lg overflow-hidden border border-main-mediumGrey/30">
-                <div className="code-window bg-main-lightGrey">
-                  <div className="window-header bg-main-mediumGrey/20 px-4 py-3">
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 rounded-full bg-accent-gentleCoral"></div>
-                      <div className="w-3 h-3 rounded-full bg-accent-subtleYellow"></div>
-                      <div className="w-3 h-3 rounded-full bg-accent-mutedTeal"></div>
-                      <span className="ml-4 text-sm text-main-darkGrey">
-                        data_engineer.js
-                      </span>
-                    </div>
+            {/* Right column - Photo */}
+            <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+              <div className="relative">
+                {/* Decorative background elements */}
+                <div className="absolute inset-0 bg-gradient-to-br from-accent-softBlue/20 to-accent-mutedTeal/20 rounded-full blur-3xl"></div>
+                
+                {/* Photo container */}
+                <div className="relative rounded-2xl overflow-hidden border-4 border-main-lightGrey shadow-2xl">
+                  <img 
+                    src={silviaPhoto} 
+                    alt="Silvia Arellano - Senior Data Engineer"
+                    className="w-full h-full object-cover max-w-md"
+                  />
+                  
+                  {/* Gradient overlay at bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-main-darkGrey/50 to-transparent"></div>
+                  
+                  {/* Title overlay */}
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <p className="text-sm font-medium opacity-90">Data Engineer Professional</p>
+                    <p className="text-xs opacity-75">Building reliable Data Infrastructure</p>
                   </div>
-                  <pre className="language-javascript !bg-main-darkGrey">
-                    <code className="language-javascript">{code}</code>
-                  </pre>
                 </div>
               </div>
             </div>
