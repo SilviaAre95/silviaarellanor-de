@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import { FlipWords } from "@/components/ui/flip-words";
 import silviaPhoto from "@/assets/images/silvia.png";
 
@@ -10,28 +10,11 @@ export default function Hero() {
     "Big Data Analytics Engineer",
   ];
 
-  const [showContent, setShowContent] = useState(true);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const isSmallHeight = window.innerHeight < 750;
-      setShowContent(!isSmallHeight);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <section
       id="hero"
-      className={`hero-section relative min-h-screen bg-main-white ${
-        showContent ? "" : "hidden"
-      } py-20 md:py-32 flex items-center`}
+      className="hero-section relative min-h-screen bg-main-white py-16 sm:py-20 md:py-32 flex items-center"
     >
       {/* Simple background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-main-lightGrey via-main-white to-main-lightGrey pointer-events-none"></div>
@@ -39,7 +22,7 @@ export default function Hero() {
           {/* Main content container */}
           <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between relative z-10 px-4 md:px-8">
             {/* Left column - Text content */}
-            <div className="w-full lg:w-1/2 mb-12 lg:mb-0">
+            <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
               {/* Welcome badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-main-lightGrey backdrop-blur-sm border border-main-mediumGrey/30 mb-8">
                 <div className="w-2 h-2 rounded-full bg-accent-mutedTeal"></div>
