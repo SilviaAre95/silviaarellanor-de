@@ -82,7 +82,7 @@ export default function Header() {
                 }}
                 className="text-main-darkGrey font-bold"
               >
-                Portfolio
+                {navLinks.find(link => link.id === activeLink)?.text || "Portfolio"}
               </a>
               <button 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
