@@ -27,14 +27,9 @@ This project is based on the original portfolio template created by **[Nazmul Ho
 - Updated content to reflect data engineering expertise
 - Integration with data-specific tools and technologies showcase
 - Mobile-responsive design optimizations
+- Change to deploy page using GitHub Pages
 
 Special thanks to Nazmul Hossain for creating the excellent foundation that made this profile webpage possible.
-
----
-
-## Demo
-
-![Portfolio Demo](https://i.postimg.cc/Dfr5jCQp/Screenshot-2025-01-02-120901.png)
 
 ---
 

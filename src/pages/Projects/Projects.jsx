@@ -4,49 +4,50 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 // Import local images
 import portfolioImage from "@/assets/images/portfolio.png";
 
-const professionalProjects = [
+const allProjects = [
   {
     title: "Enterprise-Level MongoDB CDC Data Service",
     description:
-      "Designed and implemented a scalable ETL pipeline processing 10TB+ daily data using Apache Airflow, Spark, and AWS services.",
-    backgroundImage: portfolioImage,
-    githubLink: null, // Professional projects might not have public repos
-    liveLink: null,
-    company: "TechCorp",
-    year: "2024"
-  },
-  {
-    title: "Real-time Analytics Dashboard",
-    description:
-      "Built a real-time analytics platform using Kafka, PostgreSQL, and React, serving 100k+ daily active users.",
+      "Built a scalable CDC pipeline from MongoDB to BigQuery using Pub/Sub and Dataflow, with dynamic table routing and resume token handling. Automated collection detection and supported schema evolution for continuous integration.",
     backgroundImage: portfolioImage,
     githubLink: null,
     liveLink: null,
-    company: "DataFlow Inc",
+    company: "Playtomic",
+    year: "2025"
+  },
+  {
+    title: "Real Estate Data Analytics Platform",
+    description:
+      "Developed a GCP-based data product with BigQuery and Looker Studio, automating operations and centralizing construction and sales monitoring.",
+    backgroundImage: portfolioImage,
+    githubLink: null,
+    liveLink: null,
+    company: "Grupo Homa - Real Estate Developers",
     year: "2023"
   },
-];
-
-const independentProjects = [
   {
-    title: "Olova! A Lightweight JavaScript Library",
+    title: "End-to-end Data Product: Assitance control dashboard",
     description:
-      "A lightweight JavaScript library for creating beautiful, responsive UI components.",
+      "Built a reusable Power BI data product with BigQuery ELT pipelines and optimized modelling, enabling insights on workers assitance management. This product was sold by the company to a large national client.",
     backgroundImage: portfolioImage,
-    githubLink: "https://github.com/olovajs/olova",
-    liveLink: "https://olova.js.org/",
+    githubLink: null,
+    liveLink: null,
+    company: "Worky",
+    year: "2024"
   },
   {
     title: "Data Engineer Portfolio",
     description:
-      "The complete code of how I built my protofolio using and contributing to open source.",
+      "The complete code of how I built my portfolio using and contributing to open source.",
     backgroundImage: portfolioImage,
     githubLink: "https://github.com/SilviaAre95/silviaarellanor-de",
-    liveLink: "https://codewhisperer.vercel.app/",
+    liveLink: null,
+    company: "Open Source",
+    year: "2024"
   },
 ];
 
-const ProjectCard = ({ project, isProfessional = false }) => (
+const ProjectCard = ({ project }) => (
   <div className="bg-main-lightGrey rounded-lg overflow-hidden border border-main-mediumGrey/20 hover:border-main-mediumGrey/40 transition-all duration-300 hover:shadow-lg">
     {/* Project Image */}
     <div className="relative h-48 overflow-hidden bg-main-mediumGrey/10">
@@ -58,14 +59,12 @@ const ProjectCard = ({ project, isProfessional = false }) => (
       />
       <div className="absolute top-4 left-4 bg-main-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
         <span className="text-sm text-main-darkGrey font-medium">
-          {isProfessional ? project.company : 'Open Source'}
+          {project.company}
         </span>
       </div>
-      {isProfessional && (
-        <div className="absolute top-4 right-4 bg-accent-softBlue/90 backdrop-blur-sm px-3 py-1 rounded-full">
-          <span className="text-sm text-white font-medium">{project.year}</span>
-        </div>
-      )}
+      <div className="absolute top-4 right-4 bg-accent-softBlue/90 backdrop-blur-sm px-3 py-1 rounded-full">
+        <span className="text-sm text-white font-medium">{project.year}</span>
+      </div>
     </div>
 
     {/* Project Content */}
@@ -101,7 +100,7 @@ const ProjectCard = ({ project, isProfessional = false }) => (
             <span className="text-sm">Live Demo</span>
           </a>
         )}
-        {isProfessional && !project.githubLink && !project.liveLink && (
+        {project.company !== "Open Source" && !project.githubLink && !project.liveLink && (
           <span className="text-sm text-main-mediumGrey italic">Proprietary Project</span>
         )}
       </div>
@@ -120,41 +119,11 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* Desktop: Side-by-side layout, Mobile: Stacked */}
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-12">
-          {/* Professional Experience */}
-          <div className="space-y-6">
-            <div className="text-center xl:text-left">
-              <h3 className="text-2xl font-semibold text-main-darkGrey mb-2">
-                Professional Experience
-              </h3>
-              <p className="text-main-mediumGrey">
-                Enterprise-scale data engineering projects
-              </p>
-            </div>
-            <div className="space-y-6">
-              {professionalProjects.map((project, index) => (
-                <ProjectCard key={index} project={project} isProfessional={true} />
-              ))}
-            </div>
-          </div>
-
-          {/* Independent Projects */}
-          <div className="space-y-6">
-            <div className="text-center xl:text-left">
-              <h3 className="text-2xl font-semibold text-main-darkGrey mb-2">
-                Independent Projects
-              </h3>
-              <p className="text-main-mediumGrey">
-                Open source contributions and personal projects
-              </p>
-            </div>
-            <div className="space-y-6">
-              {independentProjects.map((project, index) => (
-                <ProjectCard key={index} project={project} isProfessional={false} />
-              ))}
-            </div>
-          </div>
+        {/* Unified grid layout - dynamic distribution */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-8">
+          {allProjects.map((project, index) => (
+            <ProjectCard key={index} project={project} />
+          ))}
         </div>
       </div>
     </section>
