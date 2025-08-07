@@ -122,8 +122,8 @@ export default function Header() {
                     <span className="inline">{text}</span>
                   </a>
                 ))}
-                {/* Products Link */}
-                <a
+                {/* Products Link - Temporarily hidden until Gumroad page is ready */}
+                {/* <a
                   href="/products"
                   onClick={(e) => {
                     e.preventDefault();
@@ -146,7 +146,7 @@ export default function Header() {
                     }`}
                   />
                   <span className="inline">Products</span>
-                </a>
+                </a> */}
               </div>
             </div>
           </nav>

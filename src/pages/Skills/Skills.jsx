@@ -38,7 +38,8 @@ import {
   SiApachekafka,
   SiGooglepubsub,
   SiApacheairflow,
-  SiPrefect
+  SiPrefect,
+  SiApachedruid
 } from "react-icons/si";
 import { LuWorkflow } from "react-icons/lu";
 import { VscGraph } from "react-icons/vsc";
@@ -121,7 +122,7 @@ const SkillsSection = () => {
         },
         {
           name: "ApacheBeam",
-          icon: <SiGraphql className="w-4 h-4 text-[#E10098]" />,
+          icon: <SiApachedruid className="w-4 h-4 text-[#E10098]" />,
         },
       ],
     },
@@ -194,7 +195,7 @@ const SkillsSection = () => {
           name: "BigQuery",
           icon: <TbBrandVscode className="w-4 h-4 text-[#007ACC]" />,
         },
-        { name: "Snoflake", icon: <SiJest className="w-4 h-4 text-[#C21325]" /> },
+        { name: "Snowflake", icon: <SiJest className="w-4 h-4 text-[#C21325]" /> },
         {
           name: "Dataflow",
           icon: <SiWebpack className="w-4 h-4 text-[#8DD6F9]" />,

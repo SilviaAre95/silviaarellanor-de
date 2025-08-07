@@ -10,11 +10,11 @@ const articles = [
     link: "https://medium.com/@silvia.datadev/parallelizing-bigquery-stored-procedures-with-google-cloud-functions-af7ddcb8f899",
   },
   {
-    title: "Modern ETL Patterns with Python and PySpark",
-    excerpt: "Explore modern ETL design patterns using Python and PySpark for processing large-scale data efficiently in distributed environments.",
-    date: "Dec 1, 2024",
-    readTime: "12 min read",
-    link: "https://medium.com/@yourusername/modern-etl-patterns",
+    title: "How to Load Billions of MongoDB Records Without a Date Field",
+    excerpt: "A practical guide to loading billions of MongoDB documents without a date field by leveraging UUID-based range scanning and built-in indexing.",
+    date: "July 31, 2025",
+    readTime: "10 min read",
+    link: "https://medium.com/@silvia.datadev/how-to-efficiently-load-billions-of-mongodb-records-without-a-date-field-30594957108a",
   },
   {
     title: "Data Quality Engineering: Beyond Basic Validation",
