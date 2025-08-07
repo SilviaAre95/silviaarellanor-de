@@ -19,7 +19,6 @@ import {
   SiPostgresql,
   SiMongodb,
   SiGraphql,
-  SiJest,
   SiWebpack,
   SiRedux,
   SiFirebase,
@@ -44,7 +43,7 @@ import {
 import { LuWorkflow } from "react-icons/lu";
 import { VscGraph } from "react-icons/vsc";
 import { PiFileSqlBold } from "react-icons/pi";
-import { TbBrandVscode,TbApi,TbDatabaseCog } from "react-icons/tb";
+import { TbApi,TbDatabaseCog } from "react-icons/tb";
 import { BsFileEarmarkCode, BsGrid1X2 } from "react-icons/bs";
 import { MdAnimation } from "react-icons/md";
 import { FcWorkflow } from "react-icons/fc";
@@ -84,9 +83,9 @@ const SkillCard = ({ icon: Icon, title, skills, color }) => (
 const SkillsSection = () => {
   const skillCategories = [
     {
-      icon: Database,
-      title: "Backend Data Dev",
-      color: "text-green-400",
+      icon: Code2,
+      title: "Programming & Development",
+      color: "text-blue-400",
       skills: [
         {
           name: "Python",
@@ -97,9 +96,52 @@ const SkillsSection = () => {
           icon: <PiFileSqlBold className="w-4 h-4 text-[#339933]" />,
         },
         {
+          name: "T-SQL",
+          icon: <PiFileSqlBold className="w-4 h-4 text-[#9CA3AF]" />,
+        },
+        {
           name: "Node.js",
           icon: <FaNodeJs className="w-4 h-4 text-[#339933]" />,
         },
+        {
+          name: "REST APIs",
+          icon: <TbApi className="w-4 h-4 text-[#FF6C37]" />,
+        },
+        {
+          name: "GraphQL",
+          icon: <SiGraphql className="w-4 h-4 text-[#E10098]" />,
+        },
+        { name: "React", icon: <FaReact className="w-4 h-4 text-[#61DAFB]" /> },
+      ],
+    },
+    {
+      icon: Database,
+      title: "Data Engineering & ETL",
+      color: "text-green-400",
+      skills: [
+        {
+          name: "ETL/rETL",
+          icon: <LuWorkflow className="w-4 h-4 text-[#FF6C37]" />,
+        },
+        {
+          name: "ApacheBeam",
+          icon: <SiApachedruid className="w-4 h-4 text-[#E10098]" />,
+        },
+        { name: "Kafka", icon: <SiApachekafka className="w-4 h-4 text-[#764ABC]" /> },
+        {
+          name: "Dataflow",
+          icon: <SiWebpack className="w-4 h-4 text-[#8DD6F9]" />,
+        },
+        { name: "Airflow", icon: <SiApacheairflow className="w-4 h-4 text-[#646CFF]" /> },
+        { name: "Prefect", icon: <SiPrefect className="w-4 h-4 text-[#646CFF]" /> },
+        { name: "Pub/Sub", icon: <SiGooglepubsub className="w-4 h-4 text-white" /> },
+      ],
+    },
+    {
+      icon: Cpu,
+      title: "Databases & Warehouses",
+      color: "text-purple-400",
+      skills: [
         {
           name: "PostgreSQL",
           icon: <SiPostgresql className="w-4 h-4 text-[#336791]" />,
@@ -109,26 +151,15 @@ const SkillsSection = () => {
           icon: <SiMongodb className="w-4 h-4 text-[#47A248]" />,
         },
         {
-          name: "REST APIs",
-          icon: <TbApi className="w-4 h-4 text-[#FF6C37]" />,
+          name: "BigQuery",
+          icon: <SiGooglebigquery className="w-4 h-4 text-[#007ACC]" />,
         },
-        {
-          name: "ETL/rETL",
-          icon: <LuWorkflow className="w-4 h-4 text-[#FF6C37]" />,
-        },
-        {
-          name: "GraphQL",
-          icon: <SiGraphql className="w-4 h-4 text-[#E10098]" />,
-        },
-        {
-          name: "ApacheBeam",
-          icon: <SiApachedruid className="w-4 h-4 text-[#E10098]" />,
-        },
+        { name: "Snowflake", icon: <SiSnowflake className="w-4 h-4 text-[#29B5E8]" /> },
       ],
     },
     {
       icon: Cloud,
-      title: "Cloud & DevOps",
+      title: "Cloud & Infrastructure",
       color: "text-orange-400",
       skills: [
         { name: "GCP", icon: <SiGooglecloud className="w-4 h-4 text-[#FF9900]" /> },
@@ -137,7 +168,6 @@ const SkillsSection = () => {
           name: "Docker",
           icon: <FaDocker className="w-4 h-4 text-[#2496ED]" />,
         },
-        { name: "CI/CD", icon: <FcWorkflow className="w-4 h-4" /> },
         {
           name: "Kubernetes",
           icon: <SiKubernetes className="w-4 h-4 text-[#326CE5]" />,
@@ -146,12 +176,17 @@ const SkillsSection = () => {
         { name: "Terraform", icon: <SiTerraform className="w-4 h-4 text-[#F05032]" /> },
         { name: "Pulumi", icon: <SiPulumi className="w-4 h-4 text-[#F05032]" /> },
         { name: "Linux", icon: <FaLinux className="w-4 h-4 text-[#FCC624]" /> },
+        { name: "CI/CD", icon: <FcWorkflow className="w-4 h-4" /> },
+        {
+          name: "Cloud Run",
+          icon: <FaCode className="w-4 h-4 text-[#FFCA28]" />,
+        },
       ],
     },
     {
       icon: Layout,
-      title: "Modelling",
-      color: "text-purple-400",
+      title: "Analytics & BI Tools",
+      color: "text-pink-400",
       skills: [
         {
           name: "DBT",
@@ -162,57 +197,17 @@ const SkillsSection = () => {
           icon: <TbDatabaseCog className="w-4 h-4 text-[#9CA3AF]" />,
         },
         {
-          name: "T-SQL",
-          icon: <PiFileSqlBold className="w-4 h-4 text-[#9CA3AF]" />,
-        },
-      ],
-    },
-    {
-      icon: Code2,
-      title: "Frontend Data Dev",
-      color: "text-blue-400",
-      skills: [
-        { name: "Streamlit", icon: <SiStreamlit className="w-4 h-4 text-[#61DAFB]" /> },
-        {
           name: "Looker",
           icon: <SiLooker className="w-4 h-4 text-white" />,
         },
-        {
-          name: "Looker Core",
-          icon: <SiLooker className="w-4 h-4 text-[#3178C6]" />,
-        },
         { name: "PowerBI", icon: <VscGraph className="w-4 h-4 text-[#61DAFB]" /> },
         { name: "Metabase", icon: <SiMetabase className="w-4 h-4 text-[#61DAFB]" /> },
-        { name: "React", icon: <FaReact className="w-4 h-4 text-[#61DAFB]" /> },
-      ],
-    },
-    {
-      icon: Cpu,
-      title: "Tools & Technologies",
-      color: "text-pink-400",
-      skills: [
-        {
-          name: "BigQuery",
-          icon: <TbBrandVscode className="w-4 h-4 text-[#007ACC]" />,
-        },
-        { name: "Snowflake", icon: <SiJest className="w-4 h-4 text-[#C21325]" /> },
-        {
-          name: "Dataflow",
-          icon: <SiWebpack className="w-4 h-4 text-[#8DD6F9]" />,
-        },
-        { name: "Kafka", icon: <SiApachekafka className="w-4 h-4 text-[#764ABC]" /> },
-        {
-          name: "Cloud Run",
-          icon: <FaCode className="w-4 h-4 text-[#FFCA28]" />,
-        },
-        { name: "Pub/Sub", icon: <SiGooglepubsub className="w-4 h-4 text-white" /> },
-        { name: "Airflow", icon: <SiApacheairflow className="w-4 h-4 text-[#646CFF]" /> },
-        { name: "Prefect", icon: <SiPrefect className="w-4 h-4 text-[#646CFF]" /> },
+        { name: "Streamlit", icon: <SiStreamlit className="w-4 h-4 text-[#61DAFB]" /> },
       ],
     },
     {
       icon: Paintbrush,
-      title: "Creative Skills",
+      title: "Professional Skills",
       color: "text-yellow-400",
       skills: [
         {
