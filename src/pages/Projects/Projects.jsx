@@ -3,13 +3,17 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 // Import local images
 import portfolioImage from "@/assets/images/portfolio.png";
+import homaImage from "@/assets/images/homa_ss.png";
+import profileImage from "@/assets/images/profile_gh.png";
+import mongoImage from "@/assets/images/mongo.png";
+import demoImage from "@/assets/images/demo.png";
 
 const allProjects = [
   {
     title: "Enterprise-Level MongoDB CDC Data Service",
     description:
       "Built a scalable CDC pipeline from MongoDB to BigQuery using Pub/Sub and Dataflow, with dynamic table routing and resume token handling. Automated collection detection and supported schema evolution for continuous integration.",
-    backgroundImage: portfolioImage,
+    backgroundImage: mongoImage,
     githubLink: null,
     liveLink: null,
     company: "Playtomic",
@@ -19,7 +23,7 @@ const allProjects = [
     title: "Real Estate Data Analytics Platform",
     description:
       "Developed a GCP-based data product with BigQuery and Looker Studio, automating operations and centralizing construction and sales monitoring.",
-    backgroundImage: portfolioImage,
+    backgroundImage: homaImage,
     githubLink: null,
     liveLink: null,
     company: "Grupo Homa - Real Estate Developers",
@@ -29,7 +33,7 @@ const allProjects = [
     title: "End-to-end Data Product: Assitance control dashboard",
     description:
       "Built a reusable Power BI data product with BigQuery ELT pipelines and optimized modelling, enabling insights on workers assitance management. This product was sold by the company to a large national client.",
-    backgroundImage: portfolioImage,
+    backgroundImage: demoImage,
     githubLink: null,
     liveLink: null,
     company: "Worky",
@@ -39,7 +43,7 @@ const allProjects = [
     title: "Data Engineer Portfolio",
     description:
       "The complete code of how I built my portfolio using and contributing to open source.",
-    backgroundImage: portfolioImage,
+    backgroundImage: profileImage,
     githubLink: "https://github.com/SilviaAre95/silviaarellanor-de",
     liveLink: null,
     company: "Open Source",
