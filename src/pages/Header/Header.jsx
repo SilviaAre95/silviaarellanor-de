@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
 import {
   FaHome,
   FaLaptopCode,
-  FaUser,
   FaBriefcase,
   FaCode,
   FaEnvelope,
@@ -15,15 +13,7 @@ import {
 export default function Header() {
   const [activeLink, setActiveLink] = useState("hero");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const navigate = useNavigate();
-  const location = useLocation();
 
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   const navLinks = [
     { id: "hero", icon: FaHome, text: "Home" },
@@ -122,31 +112,20 @@ export default function Header() {
                     <span className="inline">{text}</span>
                   </a>
                 ))}
-                {/* Products Link - Temporarily hidden until Gumroad page is ready */}
-                {/* <a
-                  href="/products"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    navigate('/products');
-                    setIsMenuOpen(false);
-                  }}
-                  className={`px-3 py-2 md:py-1.5 rounded-lg md:rounded-full text-sm font-medium
+                {/* Products Link - External redirect to Gumroad */}
+                <a
+                  href="https://silviadatadev.gumroad.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="px-3 py-2 md:py-1.5 rounded-lg md:rounded-full text-sm font-medium
                     transition-all duration-300 flex items-center gap-2
                     hover:bg-main-mediumGrey/10 cursor-pointer
-                    ${
-                      location.pathname === '/products'
-                        ? "bg-accent-softBlue/20 text-accent-softBlue"
-                        : "text-main-mediumGrey hover:text-main-darkGrey"
-                    }
-                  `}
+                    text-main-mediumGrey hover:text-main-darkGrey"
                 >
-                  <FaShoppingBag
-                    className={`text-base ${
-                      location.pathname === '/products' ? "scale-110" : ""
-                    }`}
-                  />
+                  <FaShoppingBag className="text-base" />
                   <span className="inline">Products</span>
-                </a> */}
+                </a>
               </div>
             </div>
           </nav>

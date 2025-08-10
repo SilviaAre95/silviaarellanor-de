@@ -62,10 +62,10 @@ export default function Hero() {
               <div className="flex flex-col sm:flex-row gap-4">
                 {/* View Projects Button */}
                 <a
-                  href="#projects"
+                  href="#contact"
                   className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-accent-softBlue hover:bg-accent-mutedTeal text-white font-medium transition-colors duration-200"
                 >
-                  <span>View Projects</span>
+                  <span>Solve a Data Problem</span>
                   <i className="fas fa-arrow-right ml-2"></i>
                 </a>
 

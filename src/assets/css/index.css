@@ -9,6 +9,16 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* Medium Embed Styles */
+.medium-embed-container {
+  min-height: 200px;
+}
+
+.medium-embed-container .m-story {
+  display: block;
+  width: 100%;
+}
+
 .gradient-border {
   position: relative;
   background: linear-gradient(45deg, #B0BEC5, #90A4AE);
