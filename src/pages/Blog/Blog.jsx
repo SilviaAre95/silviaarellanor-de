@@ -31,14 +31,14 @@ const mediumArticles = [
 // Medium-style card component matching the design
 const MediumCard = ({ article }) => {
   return (
-    <a 
+    <article 
       href={article.url}
       target="_blank"
       rel="noopener noreferrer"
       className="block bg-main-white rounded-lg p-6 border border-main-mediumGrey/20 hover:border-main-mediumGrey/40 transition-all duration-300 hover:shadow-lg group cursor-pointer"
     >
       {/* Author Section */}
-      <div className="flex items-center mb-4">
+      <header className="flex items-center mb-4">
         <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-accent-mutedTeal/20">
           <img 
             src={silviaPhoto} 
@@ -47,7 +47,7 @@ const MediumCard = ({ article }) => {
           />
         </div>
         <span className="ml-3 text-main-darkGrey font-medium">{article.author}</span>
-      </div>
+      </header>
 
       {/* Title Section with Emoji */}
       <div className="mb-3">
@@ -63,7 +63,7 @@ const MediumCard = ({ article }) => {
       </p>
 
       {/* Footer */}
-      <div className="flex items-center justify-between text-sm text-main-mediumGrey">
+      <footer className="flex items-center justify-between text-sm text-main-mediumGrey">
         <div className="flex items-center gap-4">
           <span>{article.publishDate}</span>
           <span className="flex items-center gap-1">
@@ -75,8 +75,8 @@ const MediumCard = ({ article }) => {
           <HiOutlineBookmark className="text-lg hover:text-main-darkGrey transition-colors cursor-pointer" />
           <HiDotsHorizontal className="text-lg hover:text-main-darkGrey transition-colors cursor-pointer" />
         </div>
-      </div>
-    </a>
+      </footer>
+    </article>
   );
 };
 

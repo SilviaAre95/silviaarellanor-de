@@ -32,12 +32,12 @@ export default function Hero() {
               </div>
 
               {/* Name section */}
-              <div className="mb-8">
+              <header className="mb-8">
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-main-darkGrey">
                   Silvia Arellano
                   <span className="block gradient-text">Data Platform Architect</span>
                 </h1>
-              </div>
+              </header>
 
               {/* Role badge */}
               <div className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-main-lightGrey border border-main-mediumGrey/30 mb-8">
@@ -83,10 +83,10 @@ export default function Hero() {
             </div>
 
             {/* Right column - Photo */}
-            <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-              <div className="relative">
+            <aside className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+              <figure className="relative">
                 {/* Decorative background elements */}
-                <div className="absolute inset-0 bg-gradient-to-br from-accent-softBlue/20 to-accent-mutedTeal/20 rounded-full blur-3xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-accent-softBlue/20 to-accent-mutedTeal/20 rounded-full blur-3xl" aria-hidden="true"></div>
                 
                 {/* Photo container */}
                 <div className="relative rounded-2xl overflow-hidden border-4 border-main-lightGrey shadow-2xl">
@@ -100,13 +100,13 @@ export default function Hero() {
                   <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-main-darkGrey/50 to-transparent"></div>
                   
                   {/* Title overlay */}
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <figcaption className="absolute bottom-4 left-4 right-4 text-white">
                     <p className="text-sm font-medium opacity-90">Data Engineer Professional</p>
                     <p className="text-xs opacity-75">Building reliable Data Infrastructure</p>
-                  </div>
+                  </figcaption>
                 </div>
-              </div>
-            </div>
+              </figure>
+            </aside>
           </div>
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2">

@@ -51,26 +51,26 @@ import { FcWorkflow } from "react-icons/fc";
 const SkillCard = ({ icon: Icon, title, skills, color }) => (
   <Card className="group relative overflow-hidden bg-main-lightGrey border-main-mediumGrey/30 hover:scale-[1.02] transition-all duration-300 hover:shadow-xl">
     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(100,100,255,0.1)] to-transparent group-hover:via-[rgba(100,100,255,0.2)] animate-shimmer"></div>
-    <CardContent className="p-6 relative z-10">
-      <div className="flex items-center gap-4 mb-6">
+    <CardContent className="p-4 sm:p-6 relative z-10">
+      <div className="flex items-center gap-3 mb-4">
         <div
-          className={`p-3 rounded-xl bg-main-mediumGrey/20 ${color} group-hover:scale-110 transition-transform duration-300`}
+          className={`p-2 sm:p-3 rounded-xl bg-main-mediumGrey/20 ${color} group-hover:scale-110 transition-transform duration-300`}
         >
-          <Icon className="w-8 h-8" />
+          <Icon className="w-6 h-6 sm:w-8 sm:h-8" />
         </div>
-        <h3 className="text-2xl font-bold text-main-darkGrey">
+        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-main-darkGrey">
           {title}
         </h3>
       </div>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-1.5 sm:gap-2">
         {skills.map((skill, index) => (
           <Badge
             key={index}
             variant="outline"
-            className="group/badge relative bg-main-lightGrey hover:bg-main-mediumGrey/20 text-main-darkGrey border-main-mediumGrey/30 flex items-center gap-2 py-2 px-3 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            className="group/badge relative bg-main-lightGrey hover:bg-main-mediumGrey/20 text-main-darkGrey border-main-mediumGrey/30 flex items-center gap-1.5 py-1.5 px-2 sm:py-2 sm:px-3 transition-all duration-300 hover:scale-105 hover:shadow-lg text-xs sm:text-sm"
           >
             <span className="transform group-hover/badge:scale-110 transition-transform duration-300">
-              {skill.icon}
+              {React.cloneElement(skill.icon, { className: "w-3 h-3 sm:w-4 sm:h-4" })}
             </span>
             <span className="font-medium">{skill.name}</span>
           </Badge>
@@ -235,16 +235,16 @@ const SkillsSection = () => {
       {/* Grid Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
 
-      <section className="container mx-auto px-4 py-20 relative z-10">
+      <section className="container mx-auto px-4 py-10 sm:py-16 lg:py-20 relative z-10">
         {/* Title Section */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-main-darkGrey mb-4">Skills</h2>
-          <p className="text-lg text-main-mediumGrey max-w-2xl mx-auto">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-main-darkGrey mb-2 sm:mb-4">Skills</h2>
+          <p className="text-sm sm:text-base lg:text-lg text-main-mediumGrey max-w-2xl mx-auto">
             Technologies and tools I use to build scalable data solutions
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {skillCategories.map((category, index) => (
             <SkillCard
               key={index}

@@ -61,7 +61,7 @@ export default function Header() {
     <header className="fixed top-0 left-0 w-full z-50 bg-main-white/95 backdrop-blur-md md:bg-transparent md:backdrop-blur-none">
       <div className="md:fixed md:top-4 md:left-1/2 md:transform md:-translate-x-1/2 w-full md:w-auto">
         <div className="p-[2px] md:rounded-full bg-gradient-to-r from-accent-softBlue via-accent-mutedTeal to-accent-softBlue animate-gradient-x">
-          <nav className="bg-main-white/90 backdrop-blur-md md:rounded-full px-4 md:px-6 py-2.5 md:shadow-lg">
+          <nav className="bg-main-white/90 backdrop-blur-md md:rounded-full px-4 md:px-6 py-2.5 md:shadow-lg" role="navigation" aria-label="Main navigation">
             {/* Mobile Menu Button */}
             <div className="flex justify-between items-center md:hidden px-2">
               <a 
@@ -77,8 +77,10 @@ export default function Header() {
               <button 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-main-darkGrey p-2"
+                aria-label="Toggle navigation menu"
+                aria-expanded={isMenuOpen}
               >
-                <FaBars />
+                <FaBars aria-hidden="true" />
               </button>
             </div>
 

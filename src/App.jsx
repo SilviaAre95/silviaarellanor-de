@@ -9,6 +9,7 @@ import Skills from "./pages/Skills/Skills";
 import Blog from "./pages/Blog/Blog";
 import IndustryBanner from "./components/IndustryBanner";
 import Footer from "./components/Footer";
+import SEO from "./components/SEO";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -17,6 +18,7 @@ export default function App() {
   // Home page component that contains all sections
   const HomePage = () => (
     <>
+      <SEO />
       <Hero />
       <Skills />
       <Experience />
@@ -30,7 +32,7 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-main-white">
       <Header />
-      <main className="flex-grow pb-20">
+      <main className="flex-grow pb-20" role="main">
         <Routes>
           <Route path="/" element={<HomePage />} />
         </Routes>
