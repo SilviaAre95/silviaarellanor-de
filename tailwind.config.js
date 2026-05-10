@@ -68,16 +68,16 @@ module.exports = {
           4: "hsl(var(--chart-4))",
           5: "hsl(var(--chart-5))",
         },
-        // Professional color palette
+        // OBEX light palette
         main: {
           white: "#FFFFFF",
-          lightGrey: "#F5F5F5",
-          mediumGrey: "#A7A8AA",
-          darkGrey: "#4B4D4F",
+          lightGrey: "#F0F2F5",
+          mediumGrey: "#9BA5B4",
+          darkGrey: "#0A0E17",
         },
         accent: {
-          softBlue: "#607D8B",
-          mutedTeal: "#546E7A",
+          softBlue: "#007A6B",
+          mutedTeal: "#005A4E",
           subtleYellow: "#FFD600",
           gentleCoral: "#FF8A65",
         },
