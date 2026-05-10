@@ -30,3 +30,6 @@ tasks/
 
 # Environment variables
 .env
+
+# Visual brainstorming sessions
+.superpowers/
