@@ -2,8 +2,22 @@ import { FaMedium, FaExternalLinkAlt, FaCalendarAlt } from "react-icons/fa";
 
 const articles = [
   {
+    title: "The Secret to High-Performance Tech Teams: It's Not Agile, It's Not AI — It's You",
+    excerpt: "What actually moves the needle in tech teams — beyond process frameworks and tooling hype.",
+    date: "2026",
+    readTime: "4 min read",
+    link: "https://medium.com/p/3ee6b573ae7e",
+  },
+  {
+    title: "Building a Scalable ETL Framework on Apache Beam + Dataflow",
+    excerpt: "Designing a reusable ETL framework on Apache Beam and Google Cloud Dataflow that scales across pipelines instead of reinventing each one.",
+    date: "2026",
+    readTime: "5 min read",
+    link: "https://medium.com/p/6f2eb471d2b3",
+  },
+  {
     title: "Parallelizing BigQuery Stored Procedures with Google Cloud Functions",
-    excerpt: "A case study in squeezing speed out of serverless stored procedures in BigQueryices for task orchestration and monitoring.",
+    excerpt: "A case study in squeezing speed out of serverless stored procedures in BigQuery with Cloud Functions for task orchestration and monitoring.",
     date: "Jul 15, 2025",
     readTime: "3 min read",
     link: "https://medium.com/@silvia.datadev/parallelizing-bigquery-stored-procedures-with-google-cloud-functions-af7ddcb8f899",
@@ -21,13 +35,6 @@ const articles = [
     date: "Aug 06, 2025",
     readTime: "3 min read",
     link: "https://medium.com/@silvia.datadev/how-i-future-proof-my-career-as-a-data-engineer-3f438079b072",
-  },
-  {
-    title: "Real-time Data Processing with Kafka and Flink",
-    excerpt: "A practical guide to building real-time data processing systems using Apache Kafka and Apache Flink for streaming analytics.",
-    date: "Nov 5, 2024",
-    readTime: "15 min read",
-    link: "https://medium.com/@yourusername/realtime-data-processing",
   },
 ];
 
