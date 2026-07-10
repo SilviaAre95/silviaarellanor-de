@@ -30,9 +30,9 @@ const allProjects = [
     year: "2023"
   },
   {
-    title: "End-to-end Data Product: Assitance control dashboard",
+    title: "End-to-end Data Product: Attendance control dashboard",
     description:
-      "Built a reusable Power BI data product with BigQuery ELT pipelines and optimized modelling, enabling insights on workers assitance management. This product was sold by the company to a large national client.",
+      "Built a reusable Power BI data product with BigQuery ELT pipelines and optimized modelling, enabling insights on worker attendance management. This product was sold by the company to a large national client.",
     backgroundImage: demoImage,
     githubLink: null,
     liveLink: null,

@@ -74,8 +74,9 @@ export default function Header() {
           <nav className="bg-main-white/90 backdrop-blur-md md:rounded-full px-4 md:px-6 py-2.5 md:shadow-lg">
             {/* Mobile Menu Button */}
             <div className="flex justify-between items-center md:hidden px-2">
-              <a 
-                href="#hero" 
+              <a
+                href="#hero"
+                aria-label="Back to top"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection('hero');
