@@ -1,0 +1,18 @@
+{
+  "extraKnownMarketplaces": {
+    "wayworks": {
+      "source": { "source": "github", "repo": "SilviaAre95/wayworks" }
+    }
+  },
+  "enabledPlugins": {
+    "shared@wayworks": true,
+    "harness@wayworks": true,
+    "security@wayworks": true,
+    "test-builder@wayworks": true,
+    "feature-bank@wayworks": true,
+    "frontend-dev@wayworks": true,
+    "design@wayworks": true,
+    "web-tester@wayworks": true,
+    "superpowers@claude-plugins-official": true
+  }
+}
