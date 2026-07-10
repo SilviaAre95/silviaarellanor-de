@@ -13,7 +13,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="hero-section relative min-h-screen bg-main-white py-16 sm:py-20 md:py-32 flex items-center"
+      className="hero-section relative min-h-screen bg-main-white py-16 sm:py-20 md:py-32 flex items-center overflow-x-clip"
     >
       {/* Simple background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-main-lightGrey via-main-white to-main-lightGrey pointer-events-none"></div>
@@ -38,11 +38,12 @@ export default function Hero() {
                 </h1>
               </div>
 
-              {/* Role badge */}
-              <div className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-main-lightGrey border border-main-mediumGrey/30 mb-8">
-                <span>
+              {/* Role badge — max-w-full + responsive text so long titles wrap instead of
+                  overflowing the viewport on small screens (XARI-76) */}
+              <div className="inline-flex items-center gap-3 px-4 sm:px-6 py-3 rounded-xl bg-main-lightGrey border border-main-mediumGrey/30 mb-8 max-w-full">
+                <span className="min-w-0">
                   <FlipWords
-                    className="text-xl text-accent-softBlue font-medium"
+                    className="text-lg sm:text-xl text-accent-softBlue font-medium"
                     words={words}
                   />
                 </span>
