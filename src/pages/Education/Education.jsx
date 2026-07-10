@@ -1,11 +1,8 @@
-import React, { useState } from "react";
-import EducationLoader from "@/components/ui/EducationLoader";
+import { useState } from "react";
 import {
-  Star,
   Award,
   Calendar,
   BookOpen,
-  GraduationCap,
   Trophy,
 } from "lucide-react";
 import { motion } from "framer-motion";

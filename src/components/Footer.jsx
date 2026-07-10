@@ -1,4 +1,3 @@
-import React from "react";
 import { FaLinkedin, FaGithub, FaEnvelope, FaMedium } from "react-icons/fa";
 import { SiGumroad } from "react-icons/si";
 

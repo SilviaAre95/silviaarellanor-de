@@ -1,8 +1,6 @@
-import React from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 // Import local images
-import portfolioImage from "@/assets/images/portfolio.png";
 import homaImage from "@/assets/images/homa_ss.png";
 import profileImage from "@/assets/images/profile_gh.png";
 import mongoImage from "@/assets/images/mongo.png";

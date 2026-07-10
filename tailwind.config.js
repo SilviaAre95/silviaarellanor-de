@@ -53,6 +53,10 @@ module.exports = {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          softBlue: "#007A6B",
+          mutedTeal: "#005A4E",
+          subtleYellow: "#FFD600",
+          gentleCoral: "#FF8A65",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -75,12 +79,8 @@ module.exports = {
           mediumGrey: "#9BA5B4",
           darkGrey: "#0A0E17",
         },
-        accent: {
-          softBlue: "#007A6B",
-          mutedTeal: "#005A4E",
-          subtleYellow: "#FFD600",
-          gentleCoral: "#FF8A65",
-        },
+        // merged into the shadcn accent block above — duplicate key was
+        // silently discarding DEFAULT/foreground (bg-accent etc.)
       },
     },
   },

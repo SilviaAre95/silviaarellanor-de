@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Send, Phone, MapPin, Mail } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Send, MapPin, Mail } from "lucide-react";
 import emailjs from '@emailjs/browser';
 
 export default function Contact() {

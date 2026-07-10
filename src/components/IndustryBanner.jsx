@@ -1,7 +1,5 @@
-import React from "react";
-import { 
-  FaGamepad, 
-  FaHome, 
+import {
+  FaHome,
   FaBuilding, 
   FaChartLine, 
   FaRunning, 
@@ -64,7 +62,7 @@ const IndustryBanner = () => {
         </p>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes scroll-left {
           0% {
             transform: translateX(0);

@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Code2, Paintbrush, Database, Layout, Cpu, Cloud } from "lucide-react";
@@ -9,21 +8,14 @@ import {
   FaDocker,
   FaGitAlt,
   FaLinux,
-  FaFigma,
   FaAws,
   FaCode,
 } from "react-icons/fa";
 import {
-  SiNextdotjs,
-  SiTypescript,
   SiPostgresql,
   SiMongodb,
   SiGraphql,
   SiWebpack,
-  SiRedux,
-  SiFirebase,
-  SiVercel,
-  SiVite,
   SiGooglecloud,
   SiKubernetes,
   SiTerraform,
@@ -44,7 +36,6 @@ import { LuWorkflow } from "react-icons/lu";
 import { VscGraph } from "react-icons/vsc";
 import { PiFileSqlBold } from "react-icons/pi";
 import { TbApi,TbDatabaseCog } from "react-icons/tb";
-import { BsFileEarmarkCode, BsGrid1X2 } from "react-icons/bs";
 import { MdAnimation } from "react-icons/md";
 import { FcWorkflow } from "react-icons/fc";
 
@@ -256,7 +247,7 @@ const SkillsSection = () => {
           ))}
         </div>
       </section>
-      <style jsx>{`
+      <style>{`
         @keyframes shimmer {
           0% {
             transform: translateX(-100%);
