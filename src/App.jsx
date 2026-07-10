@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import "./assets/css/index.css";
-import Experience from "./pages/Experience/Experience";
+import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import Projects from "./pages/Projects/Projects";
 import Header from "./pages/Header/Header";
@@ -17,12 +18,25 @@ export default function App() {
   const location = useLocation();
   const isProductsPage = location.pathname === '/products';
 
+  useEffect(() => {
+    const hash = location.hash.slice(1);
+    if (hash && location.pathname === '/') {
+      const timer = setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.pageYOffset - 80;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, [location]);
+
   // Home page component that contains all sections
   const HomePage = () => (
     <>
       <Hero />
       <Skills />
-      <Experience />
       <Projects />
       <IndustryBanner />
       <Blog />
@@ -36,6 +50,7 @@ export default function App() {
       <main className="flex-grow pb-20">
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
         </Routes>
       </main>

@@ -23,7 +23,6 @@ export default function Header() {
   const navLinks = [
     { id: "hero", icon: FaHome, text: "Home" },
     { id: "skills", icon: FaCode, text: "Skills" },
-    { id: "experience", icon: FaBriefcase, text: "Experience" },
     { id: "projects", icon: FaLaptopCode, text: "Projects" },
     { id: "blog", icon: FaBlog, text: "Blog" },
     { id: "contact", icon: FaEnvelope, text: "Contact" },
@@ -97,7 +96,11 @@ export default function Header() {
                     href={`#${id}`}
                     onClick={(e) => {
                       e.preventDefault();
-                      scrollToSection(id);
+                      if (location.pathname !== '/') {
+                        navigate(`/#${id}`);
+                      } else {
+                        scrollToSection(id);
+                      }
                       setIsMenuOpen(false);
                     }}
                     className={`px-3 py-2 md:py-1.5 rounded-lg md:rounded-full text-sm font-medium
@@ -118,6 +121,28 @@ export default function Header() {
                     <span className="inline">{text}</span>
                   </a>
                 ))}
+                {/* About page link */}
+                <a
+                  href="/about"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate('/about');
+                    setIsMenuOpen(false);
+                  }}
+                  className={`px-3 py-2 md:py-1.5 rounded-lg md:rounded-full text-sm font-medium
+                    transition-all duration-300 flex items-center gap-2
+                    hover:bg-main-mediumGrey/10 cursor-pointer
+                    ${
+                      location.pathname === '/about'
+                        ? "bg-accent-softBlue/20 text-accent-softBlue"
+                        : "text-main-mediumGrey hover:text-main-darkGrey"
+                    }
+                  `}
+                >
+                  <FaUser className={`text-base ${location.pathname === '/about' ? "scale-110" : ""}`} />
+                  <span className="inline">About</span>
+                </a>
+
                 {/* Products Link - Temporarily hidden until Gumroad page is ready */}
                 {/* <a
                   href="/products"
