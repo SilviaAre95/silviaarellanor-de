@@ -63,7 +63,7 @@ export default function Footer() {
 
           {/* Tech Stack or Role */}
           <div className="text-main-mediumGrey text-sm">
-            Senior Data Engineer
+            Data Platform Architect
           </div>
         </div>
       </div>
