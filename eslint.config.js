@@ -7,6 +7,11 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 export default [
   { ignores: ['dist'] },
   {
+    // Node-context config files (tailwind is CommonJS, vite is bundled with __dirname)
+    files: ['*.config.js'],
+    languageOptions: { globals: { ...globals.node } },
+  },
+  {
     files: ['**/*.{js,jsx}'],
     languageOptions: {
       ecmaVersion: 2020,
@@ -29,6 +34,12 @@ export default [
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
       'react/jsx-no-target-blank': 'off',
+      // Plain-JS app with no prop-types library — the rule only produces noise here.
+      // Revisit if the project migrates to TypeScript.
+      'react/prop-types': 'off',
+      // Copy contains natural apostrophes/quotes; escaping them hurts readability
+      // and the JSX is not user-supplied.
+      'react/no-unescaped-entities': 'off',
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },

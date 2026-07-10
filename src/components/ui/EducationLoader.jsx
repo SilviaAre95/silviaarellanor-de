@@ -1,5 +1,3 @@
-import React from "react";
-
 const EducationLoader = () => {
   return (
     <div className="flex flex-col items-center justify-center text-white pt-20">

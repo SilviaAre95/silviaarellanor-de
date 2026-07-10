@@ -1,5 +1,4 @@
-import React from "react";
-import { FaShoppingCart, FaDollarSign, FaRocket, FaCode, FaDatabase, FaChartLine } from "react-icons/fa";
+import { FaShoppingCart, FaRocket, FaCode, FaDatabase, FaChartLine } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const products = [

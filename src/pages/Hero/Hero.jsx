@@ -1,4 +1,3 @@
-import React from "react";
 import { FlipWords } from "@/components/ui/flip-words";
 import silviaPhoto from "@/assets/images/silvia.png";
 

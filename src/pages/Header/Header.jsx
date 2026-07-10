@@ -1,23 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import {
   FaHome,
   FaLaptopCode,
-  FaUser,
   FaBriefcase,
   FaCode,
   FaEnvelope,
   FaBars,
   FaBlog,
-  FaShoppingBag,
 } from "react-icons/fa";
 
 export default function Header() {
   const [activeLink, setActiveLink] = useState("hero");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);

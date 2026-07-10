@@ -1,4 +1,3 @@
-import React from "react";
 import { FaMedium, FaExternalLinkAlt, FaCalendarAlt } from "react-icons/fa";
 
 const articles = [
