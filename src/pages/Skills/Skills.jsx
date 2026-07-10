@@ -198,6 +198,33 @@ const SkillsSection = () => {
     },
     {
       icon: Paintbrush,
+      title: "AI & Agents",
+      color: "text-purple-400",
+      skills: [
+        {
+          name: "Claude Code",
+          icon: <Cpu className="w-4 h-4 text-[#D97706]" />,
+        },
+        {
+          name: "Agent Workflows & MCP",
+          icon: <Cpu className="w-4 h-4 text-[#7C3AED]" />,
+        },
+        {
+          name: "AI-Assisted Delivery (wayworks)",
+          icon: <FaCode className="w-4 h-4 text-[#0EA5E9]" />,
+        },
+        {
+          name: "Local LLMs (Ollama)",
+          icon: <Cpu className="w-4 h-4 text-[#059669]" />,
+        },
+        {
+          name: "LLM Data Pipelines",
+          icon: <Cpu className="w-4 h-4 text-[#DC2626]" />,
+        },
+      ],
+    },
+    {
+      icon: Cpu,
       title: "Professional Skills",
       color: "text-yellow-400",
       skills: [

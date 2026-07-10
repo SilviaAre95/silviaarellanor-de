@@ -52,32 +52,42 @@ export default function Hero() {
               {/* Description */}
               <div className="mb-12 max-w-xl">
                 <p className="text-lg text-main-darkGrey/80 leading-relaxed">
-                  Architecting robust data solutions and transforming complex datasets 
-                  into actionable insights. Specialized in building scalable ETL pipelines 
-                  and data infrastructure.
+                  Architecting robust data solutions and transforming complex datasets
+                  into actionable insights. Specialized in scalable ETL pipelines and
+                  data infrastructure — and building open-source tools for AI-assisted
+                  development.
                 </p>
               </div>
 
-              {/* CTA Buttons */}
+              {/* CTA Buttons — consulting-primary (XARI-78) */}
               <div className="flex flex-col sm:flex-row gap-4">
-                {/* View Projects Button */}
+                {/* Work with me (primary) */}
                 <a
-                  href="#projects"
+                  href="#contact"
                   className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-accent-softBlue hover:bg-accent-mutedTeal text-white font-medium transition-colors duration-200"
                 >
-                  <span>View Projects</span>
+                  <span>Work with me</span>
                   <i className="fas fa-arrow-right ml-2"></i>
                 </a>
 
-                {/* Resume Button */}
+                {/* View Projects (secondary) */}
+                <a
+                  href="#projects"
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-main-white hover:bg-main-lightGrey text-main-darkGrey font-medium border border-main-mediumGrey/30 transition-colors duration-200"
+                >
+                  <span>View Projects</span>
+                </a>
+              </div>
+
+              {/* Resume: available, deliberately not a primary CTA */}
+              <div className="mt-4">
                 <a
                   href="https://drive.google.com/file/d/1JeufhD5nm2EDt2PVQKtxptWcRrz6ITY1/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-main-white hover:bg-main-lightGrey text-main-darkGrey font-medium border border-main-mediumGrey/30 transition-colors duration-200"
+                  className="text-sm text-main-mediumGrey hover:text-accent-softBlue underline underline-offset-4 transition-colors duration-200"
                 >
-                  <span>Get Resume</span>
-                  <i className="fas fa-download ml-2"></i>
+                  Looking to hire full-time? Get my resume
                 </a>
               </div>
             </div>

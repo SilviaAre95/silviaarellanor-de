@@ -102,11 +102,17 @@ export default function Contact() {
             <div className="space-y-8">
               <div>
                 <h2 className="text-4xl font-bold mb-4 text-main-darkGrey">
-                  Get in Touch
+                  Work with me
                 </h2>
                 <p className="text-main-mediumGrey text-lg">
-                  Working on a project or just curious about all things data?
-                  Drop me a message!
+                  I take on consulting engagements in data platform architecture,
+                  GCP/BigQuery, and AI-assisted delivery — from audits and pipeline
+                  rescues to building your data platform end to end. For larger
+                  engagements I work with a small, trusted team of specialists.
+                </p>
+                <p className="text-main-mediumGrey text-lg mt-3">
+                  Tell me what you&apos;re building and I&apos;ll get back to you
+                  within a couple of days.
                 </p>
               </div>
 
