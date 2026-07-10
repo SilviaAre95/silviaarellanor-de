@@ -5,8 +5,19 @@ import homaImage from "@/assets/images/homa_ss.png";
 import profileImage from "@/assets/images/profile_gh.png";
 import mongoImage from "@/assets/images/mongo.png";
 import demoImage from "@/assets/images/demo.png";
+import wayworksImage from "@/assets/images/wayworks_gh.png";
 
 const allProjects = [
+  {
+    title: "wayworks — an open-source way of work",
+    description:
+      "Claude Code plugin marketplace for AI-assisted building: 15 plugins with workflow loops, feature-spec governance, and browser testing — linked to a second brain (Obsidian) and a tracker (Linear). Install: claude plugin marketplace add SilviaAre95/wayworks",
+    backgroundImage: wayworksImage,
+    githubLink: "https://github.com/SilviaAre95/wayworks",
+    liveLink: null,
+    company: "Open Source",
+    year: "2026"
+  },
   {
     title: "Enterprise-Level MongoDB CDC Data Service",
     description:
@@ -103,7 +114,15 @@ const ProjectCard = ({ project }) => (
           </a>
         )}
         {project.company !== "Open Source" && !project.githubLink && !project.liveLink && (
-          <span className="text-sm text-main-mediumGrey italic">Proprietary Project</span>
+          <div className="flex items-center justify-between w-full">
+            <span className="text-sm text-main-mediumGrey italic">Proprietary Project</span>
+            <a
+              href="#contact"
+              className="text-sm text-accent-softBlue hover:text-accent-mutedTeal transition-colors duration-200"
+            >
+              Ask me about this →
+            </a>
+          </div>
         )}
       </div>
     </div>
