@@ -12,6 +12,10 @@ const allProjects = [
     title: "wayworks — an open-source way of work",
     description:
       "Claude Code plugin marketplace for AI-assisted building: 15 plugins with workflow loops, feature-spec governance, and browser testing — linked to a second brain (Obsidian) and a tracker (Linear). Install: claude plugin marketplace add SilviaAre95/wayworks",
+    outcomes: [
+      { value: "15", label: "plugins" },
+      { value: "43", label: "skills" },
+    ],
     backgroundImage: wayworksImage,
     githubLink: "https://github.com/SilviaAre95/wayworks",
     liveLink: null,
@@ -19,9 +23,13 @@ const allProjects = [
     year: "2026"
   },
   {
-    title: "Enterprise-Level MongoDB CDC Data Service",
+    title: "Near-Real-Time MongoDB CDC Pipeline",
     description:
-      "Built a scalable CDC pipeline from MongoDB to BigQuery using Pub/Sub and Dataflow, with dynamic table routing and resume token handling. Automated collection detection and supported schema evolution for continuous integration.",
+      "Replaced SQL-based ingestion with a private Python library using storage_write_api and CDC — cutting resource waste by ~80%. Redesigned the streaming architecture on Pub/Sub + Dataflow with dynamic table routing and schema evolution, achieving a 76% cost reduction.",
+    outcomes: [
+      { value: "76%", label: "cost reduction" },
+      { value: "~80%", label: "less resource waste" },
+    ],
     backgroundImage: mongoImage,
     githubLink: null,
     liveLink: null,
@@ -31,17 +39,24 @@ const allProjects = [
   {
     title: "Real Estate Data Analytics Platform",
     description:
-      "Developed a GCP-based data product with BigQuery and Looker Studio, automating operations and centralizing construction and sales monitoring.",
+      "GCP data product centralising construction and sales monitoring for a major property developer. Automated the full operational lifecycle — from build status to sales pipeline — into a single BigQuery + Looker Studio platform.",
+    outcomes: [
+      { value: "1", label: "unified platform" },
+      { value: "100%", label: "ops automated" },
+    ],
     backgroundImage: homaImage,
     githubLink: null,
     liveLink: null,
-    company: "Grupo Homa - Real Estate Developers",
+    company: "Grupo Homa",
     year: "2023"
   },
   {
-    title: "End-to-end Data Product: Attendance control dashboard",
+    title: "Attendance Control Data Product",
     description:
-      "Built a reusable Power BI data product with BigQuery ELT pipelines and optimized modelling, enabling insights on worker attendance management. This product was sold by the company to a large national client.",
+      "Reusable Power BI data product backed by optimised BigQuery ELT pipelines. Built to be white-labelled — the company sold it to a large national enterprise client as their own product.",
+    outcomes: [
+      { value: "Enterprise", label: "client deal closed" },
+    ],
     backgroundImage: demoImage,
     githubLink: null,
     liveLink: null,
@@ -51,7 +66,8 @@ const allProjects = [
   {
     title: "Data Engineer Portfolio",
     description:
-      "The complete code of how I built my portfolio using and contributing to open source.",
+      "The complete code of how I built this site — open source and built with React, Vite, and Tailwind.",
+    outcomes: [],
     backgroundImage: profileImage,
     githubLink: "https://github.com/SilviaAre95/silviaarellanor-de",
     liveLink: null,
@@ -85,6 +101,23 @@ const ProjectCard = ({ project }) => (
       <h3 className="text-lg font-semibold text-main-darkGrey mb-2 line-clamp-2">
         {project.title}
       </h3>
+
+      {/* Outcome metrics */}
+      {project.outcomes?.length > 0 && (
+        <div className="flex gap-4 mb-3 pb-3 border-b border-main-mediumGrey/20">
+          {project.outcomes.map((outcome, i) => (
+            <div key={i}>
+              <div className="text-accent-softBlue font-bold text-base leading-tight">
+                {outcome.value}
+              </div>
+              <div className="text-main-mediumGrey text-xs leading-tight">
+                {outcome.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
       <p className="text-main-mediumGrey mb-4 line-clamp-3 text-sm">
         {project.description}
       </p>
