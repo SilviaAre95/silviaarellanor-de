@@ -78,18 +78,6 @@ export default function Hero() {
                   <span>View Projects</span>
                 </a>
               </div>
-
-              {/* Resume: available, deliberately not a primary CTA */}
-              <div className="mt-4">
-                <a
-                  href="https://drive.google.com/file/d/1JeufhD5nm2EDt2PVQKtxptWcRrz6ITY1/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-main-mediumGrey hover:text-accent-softBlue underline underline-offset-4 transition-colors duration-200"
-                >
-                  Looking to hire full-time? Get my resume
-                </a>
-              </div>
             </div>
 
             {/* Right column - Photo */}
