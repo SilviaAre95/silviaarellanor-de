@@ -19,6 +19,7 @@ export default function Legal() {
               <p className="text-main-darkGrey font-medium">OBEXDATA OÜ</p>
               <p>Registry code: 16916965</p>
               <p>Registered address: Lätte, Tsirgu küla, Setomaa vald, Võru maakond 65346, Estonia</p>
+              <p>VAT number: EE102706675</p>
               <p>
                 Email:{" "}
                 <a href="mailto:info@obexdata.io" className="text-accent-softBlue hover:text-accent-mutedTeal">
