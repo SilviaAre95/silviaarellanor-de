@@ -10,7 +10,10 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           {/* Copyright */}
           <div className="text-main-mediumGrey text-sm">
-            © {currentYear} Silvia Arellano · Consulting via OBEXDATA OÜ
+            © {currentYear} Silvia Arellano · Consulting via OBEXDATA OÜ ·{" "}
+            <a href="/legal" className="hover:text-accent-softBlue underline underline-offset-2">
+              Legal &amp; privacy
+            </a>
           </div>
 
           {/* Professional Links */}

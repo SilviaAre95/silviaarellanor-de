@@ -9,6 +9,7 @@ import Hero from "./pages/Hero/Hero";
 import Skills from "./pages/Skills/Skills";
 import Blog from "./pages/Blog/Blog";
 import Products from "./pages/Products/Products";
+import Legal from "./pages/Legal/Legal";
 import IndustryBanner from "./components/IndustryBanner";
 import Footer from "./components/Footer";
 
@@ -52,6 +53,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/legal" element={<Legal />} />
         </Routes>
       </main>
       {!isProductsPage && <Footer />}
