@@ -17,16 +17,14 @@ export default function Legal() {
             <p>Consulting engagements offered through this site are contracted by:</p>
             <div className="mt-3 pl-4 border-l-2 border-main-mediumGrey/30 space-y-1">
               <p className="text-main-darkGrey font-medium">OBEXDATA OÜ</p>
-              <p>Registry code: [REGISTRY_CODE]</p>
-              <p>Registered address: [REGISTERED_ADDRESS]</p>
+              <p>Registry code: 16916965</p>
+              <p>Registered address: Lätte, Tsirgu küla, Setomaa vald, Võru maakond 65346, Estonia</p>
               <p>
                 Email:{" "}
-                <a href="mailto:[LEGAL_EMAIL]" className="text-accent-softBlue hover:text-accent-mutedTeal">
-                  [LEGAL_EMAIL]
+                <a href="mailto:info@obexdata.io" className="text-accent-softBlue hover:text-accent-mutedTeal">
+                  info@obexdata.io
                 </a>
               </p>
-              {/* Uncomment if VAT-registered:
-              <p>VAT number: [VAT_NUMBER]</p> */}
             </div>
           </div>
         </div>
