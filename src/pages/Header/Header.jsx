@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   FaHome,
   FaLaptopCode,
-  FaBriefcase,
+  FaUser,
   FaCode,
   FaEnvelope,
   FaBars,
@@ -13,6 +14,8 @@ export default function Header() {
   const [activeLink, setActiveLink] = useState("hero");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [, setWindowWidth] = useState(window.innerWidth);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
