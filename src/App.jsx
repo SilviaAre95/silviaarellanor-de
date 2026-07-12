@@ -31,6 +31,9 @@ export default function App() {
       }, 150);
       return () => clearTimeout(timer);
     }
+    // Route changes without a hash (e.g. /about, /legal) start at the top —
+    // React Router preserves scroll position otherwise, opening pages mid-scroll.
+    window.scrollTo(0, 0);
   }, [location]);
 
   // Home page component that contains all sections
