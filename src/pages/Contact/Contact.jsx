@@ -105,10 +105,11 @@ export default function Contact() {
                   Work with me
                 </h2>
                 <p className="text-main-mediumGrey text-lg">
-                  I take on consulting engagements in data platform architecture,
-                  GCP/BigQuery, and AI-assisted delivery — from audits and pipeline
-                  rescues to building your data platform end to end. For larger
-                  engagements I work with a small, trusted team of specialists.
+                  I take on consulting engagements in data platform architecture
+                  and GCP/BigQuery, with AI-assisted delivery. That can be a
+                  two-week audit, a pipeline rescue, or building your data
+                  platform end to end. For bigger engagements I bring in a small
+                  team I&apos;ve worked with for years.
                 </p>
                 <p className="text-main-mediumGrey text-lg mt-3">
                   Tell me what you&apos;re building and I&apos;ll get back to you
@@ -120,16 +121,19 @@ export default function Contact() {
                   <h3 className="font-semibold text-main-darkGrey">How I work</h3>
                   <ul className="text-main-mediumGrey space-y-1.5">
                     <li>
-                      <span className="text-main-darkGrey">Senior-only, no hand-offs</span>{" "}
-                      — you work with me directly, start to finish.
+                      <span className="text-main-darkGrey">Senior-only.</span>{" "}
+                      You work with me directly, from first call to handover.
+                      Nothing gets passed to a junior.
                     </li>
                     <li>
-                      <span className="text-main-darkGrey">Documentation-first</span>{" "}
-                      — everything I build arrives explained, so your team owns it after I leave.
+                      <span className="text-main-darkGrey">Documentation-first.</span>{" "}
+                      Everything I build arrives explained, so your team owns it
+                      after I leave.
                     </li>
                     <li>
-                      <span className="text-main-darkGrey">Honest scoping</span>{" "}
-                      — if something shouldn&apos;t be built, I&apos;ll say so before you pay for it.
+                      <span className="text-main-darkGrey">Honest scoping.</span>{" "}
+                      If something shouldn&apos;t be built, I&apos;ll tell you
+                      before you pay for it.
                     </li>
                   </ul>
                 </div>
