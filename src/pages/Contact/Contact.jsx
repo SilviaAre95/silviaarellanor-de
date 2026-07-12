@@ -114,6 +114,25 @@ export default function Contact() {
                   Tell me what you&apos;re building and I&apos;ll get back to you
                   within a couple of days.
                 </p>
+
+                {/* How I work */}
+                <div className="mt-6 space-y-2">
+                  <h3 className="font-semibold text-main-darkGrey">How I work</h3>
+                  <ul className="text-main-mediumGrey space-y-1.5">
+                    <li>
+                      <span className="text-main-darkGrey">Senior-only, no hand-offs</span>{" "}
+                      — you work with me directly, start to finish.
+                    </li>
+                    <li>
+                      <span className="text-main-darkGrey">Documentation-first</span>{" "}
+                      — everything I build arrives explained, so your team owns it after I leave.
+                    </li>
+                    <li>
+                      <span className="text-main-darkGrey">Honest scoping</span>{" "}
+                      — if something shouldn&apos;t be built, I&apos;ll say so before you pay for it.
+                    </li>
+                  </ul>
+                </div>
               </div>
 
               <div className="space-y-6">
