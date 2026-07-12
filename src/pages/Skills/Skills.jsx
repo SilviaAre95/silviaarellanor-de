@@ -210,39 +210,20 @@ const SkillsSection = () => {
           icon: <Cpu className="w-4 h-4 text-[#7C3AED]" />,
         },
         {
-          name: "AI-Assisted Delivery (wayworks)",
+          name: "AI-Assisted Delivery",
           icon: <FaCode className="w-4 h-4 text-[#0EA5E9]" />,
         },
         {
-          name: "Local LLMs (Ollama)",
+          name: "Local LLMs",
           icon: <Cpu className="w-4 h-4 text-[#059669]" />,
         },
         {
           name: "LLM Data Pipelines",
           icon: <Cpu className="w-4 h-4 text-[#DC2626]" />,
         },
-      ],
-    },
-    {
-      icon: Cpu,
-      title: "Professional Skills",
-      color: "text-yellow-400",
-      skills: [
-        {
-          name: "Bussiness Oriented",
-          icon: <MdAnimation className="w-4 h-4 text-[#FF4081]" />,
-        },
         {
           name: "Prompt Engineering",
           icon: <MdAnimation className="w-4 h-4 text-[#00C853]" />,
-        },
-        {
-          name: "Planning and Management",
-          icon: <Cpu className="w-4 h-4 text-[#7C4DFF]" />,
-        },
-        {
-          name: "Innovation",
-          icon: <MdAnimation className="w-4 h-4 text-[#FF6D00]" />,
         },
       ],
     },
