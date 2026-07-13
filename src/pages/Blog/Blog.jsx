@@ -1,42 +1,7 @@
 import { FaMedium, FaExternalLinkAlt, FaCalendarAlt } from "react-icons/fa";
-
-const articles = [
-  {
-    title: "The Secret to High-Performance Tech Teams: It's Not Agile, It's Not AI — It's You",
-    excerpt: "Process frameworks and tooling get the credit, but team performance mostly comes down to the people in the room.",
-    date: "2026",
-    readTime: "4 min read",
-    link: "https://medium.com/p/3ee6b573ae7e",
-  },
-  {
-    title: "Building a Scalable ETL Framework on Apache Beam + Dataflow",
-    excerpt: "A reusable ETL framework on Apache Beam and Dataflow, so each new pipeline starts from a working base instead of from zero.",
-    date: "2026",
-    readTime: "5 min read",
-    link: "https://medium.com/p/6f2eb471d2b3",
-  },
-  {
-    title: "Parallelizing BigQuery Stored Procedures with Google Cloud Functions",
-    excerpt: "A case study in squeezing speed out of serverless stored procedures in BigQuery with Cloud Functions for task orchestration and monitoring.",
-    date: "Jul 15, 2025",
-    readTime: "3 min read",
-    link: "https://medium.com/@silvia.datadev/parallelizing-bigquery-stored-procedures-with-google-cloud-functions-af7ddcb8f899",
-  },
-  {
-    title: "How to Load Billions of MongoDB Records Without a Date Field",
-    excerpt: "How to load billions of MongoDB documents without a date field, using UUID range scanning and the indexes MongoDB already gives you.",
-    date: "July 31, 2025",
-    readTime: "4 min read",
-    link: "https://medium.com/@silvia.datadev/how-to-efficiently-load-billions-of-mongodb-records-without-a-date-field-30594957108a",
-  },
-  {
-    title: "How I Future-Proof my Career as a Data Engineer",
-    excerpt: "Why I bet early on AI tooling, and what I'd tell other data engineers about staying employable as the field changes.",
-    date: "Aug 06, 2025",
-    readTime: "3 min read",
-    link: "https://medium.com/@silvia.datadev/how-i-future-proof-my-career-as-a-data-engineer-3f438079b072",
-  },
-];
+// Generated at build time from the Medium RSS feed by scripts/fetch-blog.mjs;
+// the committed copy is the fallback when the feed is unreachable.
+import articles from "@/data/articles.json";
 
 export default function Blog() {
   return (
