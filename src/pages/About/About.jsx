@@ -1,5 +1,5 @@
 import { Briefcase, Zap } from "lucide-react";
-import silviaPhoto from "@/assets/images/silvia.png";
+import silviaPhoto from "@/assets/images/silvia.webp";
 
 const TimelineItem = ({ experience }) => (
   <div className="relative flex items-start mb-6">

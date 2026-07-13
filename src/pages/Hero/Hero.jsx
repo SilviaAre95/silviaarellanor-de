@@ -1,5 +1,5 @@
 import { FlipWords } from "@/components/ui/flip-words";
-import silviaPhoto from "@/assets/images/silvia.png";
+import silviaPhoto from "@/assets/images/silvia.webp";
 
 export default function Hero() {
   const words = [
