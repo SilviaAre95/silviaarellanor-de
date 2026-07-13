@@ -1,11 +1,11 @@
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 // Import local images
-import homaImage from "@/assets/images/homa_ss.png";
-import profileImage from "@/assets/images/profile_gh.png";
-import mongoImage from "@/assets/images/mongo.png";
-import demoImage from "@/assets/images/demo.png";
-import wayworksImage from "@/assets/images/wayworks_gh.png";
+import homaImage from "@/assets/images/homa_ss.webp";
+import profileImage from "@/assets/images/profile_gh.webp";
+import mongoImage from "@/assets/images/mongo.webp";
+import demoImage from "@/assets/images/demo.webp";
+import wayworksImage from "@/assets/images/wayworks_gh.webp";
 
 const allProjects = [
   {
