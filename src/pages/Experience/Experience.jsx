@@ -140,7 +140,7 @@ const ExperienceSection = () => {
           </div>
           
           <a
-            href="https://drive.google.com/file/d/1JeufhD5nm2EDt2PVQKtxptWcRrz6ITY1/view?usp=sharing"
+            href="/silvia-arellano-cv.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-accent-softBlue hover:bg-accent-mutedTeal text-white font-medium transition-colors duration-200 shadow-lg hover:shadow-xl"

@@ -108,7 +108,7 @@ export default function About() {
 
             <div className="mt-8 flex gap-4">
               <a
-                href="https://drive.google.com/file/d/1JeufhD5nm2EDt2PVQKtxptWcRrz6ITY1/view?usp=sharing"
+                href="/silvia-arellano-cv.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent-softBlue hover:bg-accent-mutedTeal text-white text-sm font-medium transition-colors duration-200"
