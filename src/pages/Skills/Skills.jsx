@@ -239,7 +239,7 @@ const SkillsSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-main-darkGrey mb-4">Skills</h2>
           <p className="text-lg text-main-mediumGrey max-w-2xl mx-auto">
-            Technologies and tools I use to build scalable data solutions
+            What I work with day to day
           </p>
         </div>
         

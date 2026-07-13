@@ -26,7 +26,7 @@ export default function Hero() {
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-main-lightGrey backdrop-blur-sm border border-main-mediumGrey/30 mb-8">
                 <div className="w-2 h-2 rounded-full bg-accent-mutedTeal"></div>
                 <span className="text-main-darkGrey text-sm font-medium">
-                  Data Engineering Professional
+                  Available for consulting engagements
                 </span>
               </div>
 
@@ -52,9 +52,9 @@ export default function Hero() {
               {/* Description */}
               <div className="mb-12 max-w-xl">
                 <p className="text-lg text-main-darkGrey/80 leading-relaxed">
-                  Architecting robust data solutions and transforming complex datasets
-                  into actionable insights. Specialized in scalable ETL pipelines and
-                  data infrastructure — and building open-source tools for AI-assisted
+                  I design and run data platforms on GCP. Most of my work is ETL
+                  pipelines, BigQuery warehouses, and the infrastructure around
+                  them. Lately I also build open-source tools for AI-assisted
                   development.
                 </p>
               </div>
@@ -99,8 +99,8 @@ export default function Hero() {
                   
                   {/* Title overlay */}
                   <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <p className="text-sm font-medium opacity-90">Data Engineer Professional</p>
-                    <p className="text-xs opacity-75">Building reliable Data Infrastructure</p>
+                    <p className="text-sm font-medium opacity-90">Data Platform Architect</p>
+                    <p className="text-xs opacity-75">Mexico City · working with teams worldwide</p>
                   </div>
                 </div>
               </div>

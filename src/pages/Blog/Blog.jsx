@@ -3,14 +3,14 @@ import { FaMedium, FaExternalLinkAlt, FaCalendarAlt } from "react-icons/fa";
 const articles = [
   {
     title: "The Secret to High-Performance Tech Teams: It's Not Agile, It's Not AI — It's You",
-    excerpt: "What actually moves the needle in tech teams — beyond process frameworks and tooling hype.",
+    excerpt: "Process frameworks and tooling get the credit, but team performance mostly comes down to the people in the room.",
     date: "2026",
     readTime: "4 min read",
     link: "https://medium.com/p/3ee6b573ae7e",
   },
   {
     title: "Building a Scalable ETL Framework on Apache Beam + Dataflow",
-    excerpt: "Designing a reusable ETL framework on Apache Beam and Google Cloud Dataflow that scales across pipelines instead of reinventing each one.",
+    excerpt: "A reusable ETL framework on Apache Beam and Dataflow, so each new pipeline starts from a working base instead of from zero.",
     date: "2026",
     readTime: "5 min read",
     link: "https://medium.com/p/6f2eb471d2b3",
@@ -24,14 +24,14 @@ const articles = [
   },
   {
     title: "How to Load Billions of MongoDB Records Without a Date Field",
-    excerpt: "A practical guide to loading billions of MongoDB documents without a date field by leveraging UUID-based range scanning and built-in indexing.",
+    excerpt: "How to load billions of MongoDB documents without a date field, using UUID range scanning and the indexes MongoDB already gives you.",
     date: "July 31, 2025",
     readTime: "4 min read",
     link: "https://medium.com/@silvia.datadev/how-to-efficiently-load-billions-of-mongodb-records-without-a-date-field-30594957108a",
   },
   {
     title: "How I Future-Proof my Career as a Data Engineer",
-    excerpt: "Embracing AI , machine learning, and cloud computing to stay relevant in the rapidly evolving field of data engineering.",
+    excerpt: "Why I bet early on AI tooling, and what I'd tell other data engineers about staying employable as the field changes.",
     date: "Aug 06, 2025",
     readTime: "3 min read",
     link: "https://medium.com/@silvia.datadev/how-i-future-proof-my-career-as-a-data-engineer-3f438079b072",
@@ -45,7 +45,7 @@ export default function Blog() {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-main-darkGrey mb-4">Blog</h2>
           <p className="text-lg text-main-mediumGrey max-w-2xl mx-auto">
-            Insights and tutorials on data engineering, software development, and technology
+            Notes from real projects, mostly data engineering and AI tooling
           </p>
         </div>
 

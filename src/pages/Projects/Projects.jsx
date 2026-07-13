@@ -9,9 +9,9 @@ import wayworksImage from "@/assets/images/wayworks_gh.png";
 
 const allProjects = [
   {
-    title: "wayworks — an open-source way of work",
+    title: "wayworks: an open-source way of work",
     description:
-      "Claude Code plugin marketplace for AI-assisted building: 15 plugins with workflow loops, feature-spec governance, and browser testing — linked to a second brain (Obsidian) and a tracker (Linear). Install: claude plugin marketplace add SilviaAre95/wayworks",
+      "My way of building with coding agents, packaged as a Claude Code plugin marketplace. It wires the code to a second brain (Obsidian) and a tracker (Linear). Try it: claude plugin marketplace add SilviaAre95/wayworks",
     outcomes: [
       { value: "15", label: "plugins" },
       { value: "43", label: "skills" },
@@ -25,7 +25,7 @@ const allProjects = [
   {
     title: "Near-Real-Time MongoDB CDC Pipeline",
     description:
-      "Replaced SQL-based ingestion with a private Python library using storage_write_api and CDC — cutting resource waste by ~80%. Redesigned the streaming architecture on Pub/Sub + Dataflow with dynamic table routing and schema evolution, achieving a 76% cost reduction.",
+      "Replaced SQL-based ingestion with a private Python library on storage_write_api and CDC, which cut resource waste by about 80%. The redesigned Pub/Sub + Dataflow streaming architecture handles dynamic table routing and schema evolution, and cut costs 76%.",
     outcomes: [
       { value: "76%", label: "cost reduction" },
       { value: "~80%", label: "less resource waste" },
@@ -39,7 +39,7 @@ const allProjects = [
   {
     title: "Real Estate Data Analytics Platform",
     description:
-      "GCP data product centralising construction and sales monitoring for a major property developer. Automated the full operational lifecycle — from build status to sales pipeline — into a single BigQuery + Looker Studio platform.",
+      "GCP data product for a property developer: construction and sales monitoring centralised into one BigQuery + Looker Studio platform, replacing manual reporting across the operation.",
     outcomes: [
       { value: "1", label: "unified platform" },
       { value: "100%", label: "ops automated" },
@@ -53,7 +53,7 @@ const allProjects = [
   {
     title: "Attendance Control Data Product",
     description:
-      "Reusable Power BI data product backed by optimised BigQuery ELT pipelines. Built to be white-labelled — the company sold it to a large national enterprise client as their own product.",
+      "Reusable Power BI data product backed by optimised BigQuery ELT pipelines. Built to be white-labelled: the company sold it to a large national enterprise client as their own product.",
     outcomes: [
       { value: "Enterprise", label: "client deal closed" },
     ],
@@ -66,7 +66,7 @@ const allProjects = [
   {
     title: "Data Engineer Portfolio",
     description:
-      "The complete code of how I built this site — open source and built with React, Vite, and Tailwind.",
+      "The complete code of this site, open source. React, Vite, and Tailwind.",
     outcomes: [],
     backgroundImage: profileImage,
     githubLink: "https://github.com/SilviaAre95/silviaarellanor-de",
@@ -169,7 +169,7 @@ export default function Projects() {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-main-darkGrey mb-4">Projects</h2>
           <p className="text-lg text-main-mediumGrey max-w-2xl mx-auto">
-            A collection of my recent work in data engineering and software development
+            Recent work and what it did for the business
           </p>
         </div>
 
