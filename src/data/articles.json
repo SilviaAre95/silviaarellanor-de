@@ -1,0 +1,37 @@
+[
+  {
+    "title": "The Secret to High-Performance Tech Teams: It’s Not Agile, It’s Not AI — It’s You",
+    "excerpt": "In tech, everyone talks about process . Agile. Scrum. SAFe. Kanban. Others talk about technology . We’re AI-powered. We’re serverless. We’re cloud-native. But…",
+    "date": "Aug 19, 2025",
+    "readTime": "5 min read",
+    "link": "https://python.plainenglish.io/the-secret-to-high-performance-tech-teams-its-not-agile-it-s-not-ai-it-s-you-3ee6b573ae7e"
+  },
+  {
+    "title": "Building a Scalable ETL Framework on Apache Beam + Dataflow",
+    "excerpt": "How to turn messy API data into structured BigQuery tables on autopilot. Architecture Overview Here’s a high-level look at the pipeline components:…",
+    "date": "Aug 7, 2025",
+    "readTime": "2 min read",
+    "link": "https://python.plainenglish.io/%EF%B8%8F-building-a-scalable-etl-framework-on-apache-beam-dataflow-6f2eb471d2b3"
+  },
+  {
+    "title": "How I Future-Proof my Career as a Data Engineer",
+    "excerpt": "My Journey (and Why I Keep Reinventing) A few years ago, you’d find me buried in the details; writing ETL scripts, fine-tuning dashboards, and obsessing over…",
+    "date": "Aug 6, 2025",
+    "readTime": "4 min read",
+    "link": "https://python.plainenglish.io/how-i-future-proof-my-career-as-a-data-engineer-3f438079b072"
+  },
+  {
+    "title": "How to Efficiently Load Billions of MongoDB Records Without a Date Field",
+    "excerpt": "How to Load Billions of MongoDB Records Without a Date Field TL;DR: When faced with loading billions of MongoDB documents lacking date fields or usable…",
+    "date": "Jul 31, 2025",
+    "readTime": "4 min read",
+    "link": "https://medium.com/@silvia.datadev/how-to-efficiently-load-billions-of-mongodb-records-without-a-date-field-30594957108a"
+  },
+  {
+    "title": "Parallelizing BigQuery Stored Procedures with Google Cloud Functions",
+    "excerpt": "A case study in squeezing speed out of serverless stored procedures in BigQuery Imagine this: You have over 50 stored procedures in BigQuery, each doing its…",
+    "date": "Jul 15, 2025",
+    "readTime": "3 min read",
+    "link": "https://towardsdev.com/parallelizing-bigquery-stored-procedures-with-google-cloud-functions-af7ddcb8f899"
+  }
+]

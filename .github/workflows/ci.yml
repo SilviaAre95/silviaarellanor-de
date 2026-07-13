@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
   pull_request:
+  schedule:
+    # Weekly rebuild (Mondays 07:00 UTC) so the blog section picks up new
+    # Medium posts via scripts/fetch-blog.mjs without a code change.
+    - cron: "0 7 * * 1"
 
 jobs:
   verify:
@@ -19,13 +23,13 @@ jobs:
       - run: npm run lint
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'schedule'
         with:
           path: dist
 
   deploy:
     name: Deploy to GitHub Pages
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'schedule'
     needs: verify
     runs-on: ubuntu-latest
     permissions:

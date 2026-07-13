@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
-import { Send, MapPin, Mail } from "lucide-react";
+import { Send, MapPin, Mail, CalendarDays } from "lucide-react";
 import emailjs from '@emailjs/browser';
+
+// Google Calendar appointment-schedule link. Create it in Google Calendar
+// (click a slot -> "Appointment schedule" -> set availability -> copy the
+// booking-page link) and paste it here; the button renders once set.
+const BOOKING_URL = "https://calendar.app.google/oJb2PxzPov8obgdD7";
 
 export default function Contact() {
   // Initialize EmailJS
@@ -115,6 +120,18 @@ export default function Contact() {
                   Tell me what you&apos;re building and I&apos;ll get back to you
                   within a couple of days.
                 </p>
+
+                {BOOKING_URL && (
+                  <a
+                    href={BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent-softBlue hover:bg-accent-mutedTeal text-white font-medium transition-colors duration-200"
+                  >
+                    <CalendarDays className="w-5 h-5" />
+                    Book an intro call
+                  </a>
+                )}
 
                 {/* How I work */}
                 <div className="mt-6 space-y-2">
