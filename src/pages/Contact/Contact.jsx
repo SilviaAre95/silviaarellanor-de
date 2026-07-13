@@ -5,7 +5,7 @@ import emailjs from '@emailjs/browser';
 // Google Calendar appointment-schedule link. Create it in Google Calendar
 // (click a slot -> "Appointment schedule" -> set availability -> copy the
 // booking-page link) and paste it here; the button renders once set.
-const BOOKING_URL = "";
+const BOOKING_URL = "https://calendar.app.google/oJb2PxzPov8obgdD7";
 
 export default function Contact() {
   // Initialize EmailJS
