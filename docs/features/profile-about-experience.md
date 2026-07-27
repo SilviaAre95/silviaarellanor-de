@@ -12,7 +12,7 @@ acceptance_criteria:
   - Experience is separated into Long-term Engagements and Contracts and Advisory.
   - Every timeline entry displays its date range, role, and organization.
   - The timelines shift from two columns on wider screens to one column on smaller screens.
-  - A Download CV action opens the public resume separately.
+  - A Download Senior Data Engineer résumé action directly downloads the public Senior resume.
   - A Get in Touch action returns visitors to the Home page's Contact section.
   - The page provides career context without requiring interactive controls.
 non_goals:
@@ -24,7 +24,7 @@ non_goals:
 test_plan:
   - Visit the About route at narrow and wide viewport widths and verify the biography, portrait, actions, and timeline layout.
   - Verify every long-term and contract timeline entry displays its date range, role, and organization.
-  - Activate Download CV and verify the public resume opens separately.
+  - Activate Download Senior Data Engineer résumé and verify the public Senior resume downloads directly.
   - Activate Get in Touch and verify the Home page opens at the Contact section.
 ---
 

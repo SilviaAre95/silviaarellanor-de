@@ -6,6 +6,17 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ## 2026-07-27
 
+- **Verified**: About's Senior résumé action directly downloads the stable public PDF with the selected filename and consistent action text
+- **Files touched**: src/pages/About/About.jsx, scripts/resume/website-resume-links.test.mjs
+
+## 2026-07-27
+
+- **Changed**: specified that the public Senior Data Engineer résumé action downloads directly instead of opening separately
+- **Files touched**: docs/features/profile-about-experience.md
+- **Approved via**: user-approved feature-bank correction
+
+## 2026-07-27
+
 - **Backfilled from existing code** as part of the V0 feature bank
 - **Status**: implemented (inferred from code presence)
 - **Acceptance criteria**: extracted behaviorally from code

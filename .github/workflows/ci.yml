@@ -20,6 +20,12 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      - uses: wtfjoke/setup-tectonic@v3
+        with:
+          tectonic-version: 0.16.9
+      - run: sudo apt-get update
+      - run: sudo apt-get install -y poppler-utils
+      - run: npm run test:resume
       - run: npm run lint
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3

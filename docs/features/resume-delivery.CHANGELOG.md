@@ -6,6 +6,24 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ## 2026-07-27
 
+- **Fixed**: removed the empty Worky contract role from the Forward Deployed Engineer consulting history while retaining its approved product evidence in Selected Forward-Deployed Impact
+- **Verified**: the rebuilt FDE PDF has no empty role, remains two pages, and passes repeated rendered-page and ATS extraction review
+- **Files touched**: resume/variants/forward-deployed-engineer.tex, scripts/resume/forward-deployed-engineer.test.mjs
+
+## 2026-07-27
+
+- **Implemented**: CI installs pinned Tectonic and Poppler before resume tests; both website actions directly download the Senior PDF; README documents the compatible local toolchain
+- **Verified**: 26 resume tests, lint (zero errors), production build, Senior-only deployed artifact boundary, byte-for-byte publication copies, six-page render review, and ATS extraction
+- **Files touched**: .github/workflows/ci.yml, src/pages/About/About.jsx, src/pages/Experience/Experience.jsx, README.md, scripts/resume/website-resume-links.test.mjs
+
+## 2026-07-27
+
+- **Changed**: specified that website CV actions directly download the generated Senior Data Engineer PDF
+- **Files touched**: docs/features/resume-delivery.md
+- **Approved via**: user-approved feature-bank correction
+
+## 2026-07-27
+
 - **Fixed**: selected only one copy of the Worky contract product for FDE and partitioned Leadership technical outcomes between employment history and selected impact, preserving every approved fact without repeated claims
 - **Verified**: pinned Tectonic PDFs remain two balanced US Letter pages with one extracted-text occurrence for each affected fact, clean 150-DPI renders, no overfull or underfull boxes, and 14/14 resume tests passing
 - **Files touched**: resume/variants/forward-deployed-engineer.tex, resume/variants/data-leadership.tex, docs/features/resume-delivery.CHANGELOG.md

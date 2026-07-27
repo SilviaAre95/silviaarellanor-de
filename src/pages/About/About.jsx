@@ -109,11 +109,10 @@ export default function About() {
             <div className="mt-8 flex gap-4">
               <a
                 href="/silvia-arellano-cv.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+                download="silvia-arellano-senior-data-engineer.pdf"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent-softBlue hover:bg-accent-mutedTeal text-white text-sm font-medium transition-colors duration-200"
               >
-                Download CV
+                Download Senior Data Engineer résumé
                 <i className="fas fa-download text-xs"></i>
               </a>
               <a

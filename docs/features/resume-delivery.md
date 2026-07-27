@@ -1,7 +1,7 @@
 ---
 id: resume-delivery
 title: Resume Delivery
-status: in-progress
+status: implemented
 created_at: 2026-07-27
 last_modified: 2026-07-27
 owner: Silvia Arellano
@@ -19,7 +19,7 @@ acceptance_criteria:
   - The site build compiles resumes before the web application is bundled and fails clearly if required resume data or compilation is invalid.
   - Only the Senior Data Engineer PDF is published at the site's stable CV URL.
   - Forward Deployed Engineer and Data Leadership PDFs are generated for local or manual applications but are not linked or deployed with the website.
-  - Existing website CV actions continue to open the newly generated Senior Data Engineer PDF.
+  - Existing website CV actions directly download the newly generated Senior Data Engineer PDF.
 non_goals:
   - Compile LaTeX in the visitor's browser or when the download action is selected.
   - Publish the Forward Deployed Engineer or Data Leadership variants on the website.
@@ -35,7 +35,7 @@ test_plan:
   - Extract PDF text and verify required career history and approved role-specific evidence without forbidden title or headcount claims.
   - Inspect all six rendered pages for clipping, overlap, illegible typography, incorrect links, or inconsistent branding.
   - Build the site and verify the stable public CV URL contains the Senior variant while the other variants are absent from deployed output.
-  - Activate every website CV action and verify it opens the generated Senior resume.
+  - Activate every website CV action and verify it directly downloads the generated Senior resume.
 ---
 
 # Resume Delivery

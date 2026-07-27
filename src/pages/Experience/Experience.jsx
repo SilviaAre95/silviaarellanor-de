@@ -141,11 +141,10 @@ const ExperienceSection = () => {
           
           <a
             href="/silvia-arellano-cv.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+            download="silvia-arellano-senior-data-engineer.pdf"
             className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-accent-softBlue hover:bg-accent-mutedTeal text-white font-medium transition-colors duration-200 shadow-lg hover:shadow-xl"
           >
-            <span>Get Resume</span>
+            <span>Download Senior Data Engineer résumé</span>
             <i className="fas fa-download ml-2"></i>
           </a>
         </div>
