@@ -21,7 +21,7 @@ Source of truth for what this product **does** and **does not** do. Every code c
 | `contact-inquiry` | Contact Inquiry | implemented | Validated inquiry form sends consulting messages through configured email delivery. | File uploads; CRM or account storage |
 | `contact-booking` | Contact Booking | implemented | External calendar action lets prospective clients schedule an introductory call. | Embedded scheduling; payment collection |
 | `profile-about-experience` | About and Experience | implemented | Biography and timelines provide concise professional and personal context. | Full resume duplication; sensitive employment details |
-| `resume-delivery` | Resume Delivery | proposed | Build-time LaTeX produces three truthful, role-targeted, ATS-readable resumes. | Browser compilation; publishing non-Senior variants |
+| `resume-delivery` | Resume Delivery | in-progress | Build-time LaTeX produces three truthful, role-targeted, ATS-readable resumes. | Browser compilation; publishing non-Senior variants |
 | `site-footer-social` | Footer and Social Links | in-progress | Persistent footer connects legal, professional, social, and email destinations. | Live social feeds; embedded contact or commerce |
 | `legal-privacy` | Legal and Privacy | implemented | Provider and privacy disclosures explain site ownership and data handling. | Contract replacement; external-provider guarantees |
 | `products-catalog` | Products Catalog | in-progress | Standalone catalog previews Gumroad products pending launch confirmation. | On-site commerce; pre-launch navigation promotion |

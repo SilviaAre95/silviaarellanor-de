@@ -1,7 +1,7 @@
 ---
 id: resume-delivery
 title: Resume Delivery
-status: proposed
+status: in-progress
 created_at: 2026-07-27
 last_modified: 2026-07-27
 owner: Silvia Arellano

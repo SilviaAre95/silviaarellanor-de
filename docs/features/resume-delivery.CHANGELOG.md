@@ -6,6 +6,11 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ## 2026-07-27
 
+- **Added**: pinned resume-variant manifest and deterministic PDF validation primitives
+- **Files touched**: scripts/resume/config.mjs, scripts/resume/validate-resume.mjs, package.json
+
+## 2026-07-27
+
 - **Created**: feature scaffolded through the feature-bank workflow
 - **Status**: proposed
 - **Acceptance criteria**: confirmed interactively with the user
