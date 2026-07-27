@@ -42,3 +42,6 @@ docs/superpowers/specs/
 resume/build/
 public/silvia-arellano-cv.pdf
 tmp/pdfs/resume-qa/
+
+# Local job-specific résumé applications
+resume/applications/
