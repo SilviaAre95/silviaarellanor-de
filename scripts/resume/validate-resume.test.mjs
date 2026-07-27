@@ -34,6 +34,17 @@ test("rejects a font without embedding or Unicode mapping", () => {
   assert.equal(rows[0].unicode, false);
 });
 
+test("ignores the pdffonts table separator when parsing embedded fonts", () => {
+  const rows = parseFontRows(`name type encoding emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+TeXGyreHeros CID Type 0C Identity-H yes yes yes 12 0
+`);
+
+  assert.deepEqual(rows, [
+    { embedded: true, subset: true, unicode: true, object: "12", id: "0" },
+  ]);
+});
+
 test("reports the variant when required extracted text is absent", async () => {
   await assert.rejects(
     validateResumePdf({
@@ -52,6 +63,44 @@ test("reports the variant when required extracted text is absent", async () => {
       },
     }),
     /senior-data-engineer.*Required phrase/,
+  );
+});
+
+test("accepts required text whose PDF presentation is uppercase", async () => {
+  await assert.doesNotReject(
+    validateResumePdf({
+      variant: { id: "senior-data-engineer", requiredText: ["Senior Data Engineer"] },
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: async (command, args) => {
+        if (command === "pdfinfo" && args[0] === "-url") {
+          return "mailto:silvia.datadev@gmail.com\nhttps://www.silviadata.dev\nhttps://www.linkedin.com/in/silvia-arellano-de";
+        }
+        if (command === "pdfinfo") return validInfo;
+        if (command === "pdffonts") return validFonts;
+        if (command === "pdftotext") return "SENIOR DATA ENGINEER";
+        throw new Error(`Unexpected command: ${command}`);
+      },
+    }),
+  );
+});
+
+test("accepts the canonical LinkedIn URL embedded by the resume sources", async () => {
+  await assert.doesNotReject(
+    validateResumePdf({
+      variant: { id: "senior-data-engineer", requiredText: [] },
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: async (command, args) => {
+        if (command === "pdfinfo" && args[0] === "-url") {
+          return "mailto:silvia.datadev@gmail.com\nhttps://www.silviadata.dev\nhttps://www.linkedin.com/in/silvia-arellano-de";
+        }
+        if (command === "pdfinfo") return validInfo;
+        if (command === "pdffonts") return validFonts;
+        if (command === "pdftotext") return "";
+        throw new Error(`Unexpected command: ${command}`);
+      },
+    }),
   );
 });
 
@@ -167,6 +216,14 @@ test("requires the approved compiler and available Poppler commands", async () =
   await assert.doesNotReject(
     assertRequiredTools(async (command) => {
       if (command === "tectonic") return "tectonic 0.16.9";
+      if (["pdfinfo", "pdftotext", "pdffonts"].includes(command)) return "available";
+      throw new Error(`Unexpected command: ${command}`);
+    }),
+  );
+
+  await assert.doesNotReject(
+    assertRequiredTools(async (command) => {
+      if (command === "tectonic") return "Tectonic 0.16.9";
       if (["pdfinfo", "pdftotext", "pdffonts"].includes(command)) return "available";
       throw new Error(`Unexpected command: ${command}`);
     }),

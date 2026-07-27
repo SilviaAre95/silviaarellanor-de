@@ -4,7 +4,7 @@ import { stat } from "node:fs/promises";
 const REQUIRED_URLS = [
   "mailto:silvia.datadev@gmail.com",
   "https://www.silviadata.dev",
-  "https://linkedin.com/in/silvia-arellano-de",
+  "https://www.linkedin.com/in/silvia-arellano-de",
 ];
 
 function execFileRun(command, args) {
@@ -52,7 +52,7 @@ export function parseFontRows(text) {
   return text
     .split("\n")
     .map((line) => line.trim())
-    .filter((line) => line && !line.startsWith("name"))
+    .filter((line) => line && !line.startsWith("name") && !/^[-\s]+$/.test(line))
     .map((line) => {
       const [embedded, subset, unicode, object, id] = line.split(/\s+/).slice(-5);
       return {
@@ -113,7 +113,10 @@ export async function validateResumePdf({ variant, pdfPath, logText, run }) {
   }
 
   const extractedText = await runValidationCommand(variant, runner, "pdftotext", [pdfPath, "-"]);
-  const missingText = variant.requiredText.find((requiredText) => !extractedText.includes(requiredText));
+  const normalizedExtractedText = extractedText.toLowerCase();
+  const missingText = variant.requiredText.find(
+    (requiredText) => !normalizedExtractedText.includes(requiredText.toLowerCase()),
+  );
   if (missingText) {
     throw validationError(variant, `PDF is missing required text: ${missingText}`);
   }
@@ -127,7 +130,7 @@ export async function validateResumePdf({ variant, pdfPath, logText, run }) {
 
 export async function assertRequiredTools(run = execFileRun) {
   const tectonicVersion = await run("tectonic", ["--version"]);
-  if (!/^tectonic 0\.16\.9(?:\s|$)/m.test(tectonicVersion)) {
+  if (!/^tectonic 0\.16\.9(?:\s|$)/im.test(tectonicVersion)) {
     throw new Error("Required compiler version is tectonic 0.16.9");
   }
 

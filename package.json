@@ -8,11 +8,12 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "resume:build": "node scripts/resume/build-resumes.mjs",
     "test:resume": "node --test scripts/resume/*.test.mjs",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "postbuild": "cp dist/index.html dist/404.html",
-    "prebuild": "node scripts/fetch-blog.mjs"
+    "prebuild": "node scripts/fetch-blog.mjs && npm run resume:build"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

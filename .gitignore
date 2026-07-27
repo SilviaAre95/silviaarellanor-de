@@ -38,5 +38,7 @@ docs/superpowers/specs/
 # Local isolated worktrees
 .worktrees/
 
-# Generated non-public resume variants
+# Generated résumé PDFs and validation output
 resume/build/
+public/silvia-arellano-cv.pdf
+tmp/pdfs/resume-qa/
