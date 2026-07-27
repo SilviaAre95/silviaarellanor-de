@@ -1,0 +1,122 @@
+\documentclass{template/silvia-resume}
+
+\input{content/identity}
+\input{content/skills}
+\input{content/experience}
+\input{content/consulting}
+\input{content/education}
+
+\renewcommand{\small}{\fontsize{9.75pt}{11.4pt}\selectfont}
+\renewcommand{\ResumeContactLine}{%
+  \ResumeEmail\,\textbar\,\ResumeMexicoPhone\,\textbar\,\ResumeSpainPhone\par
+  \ResumeWebsite\,\textbar\,\ResumeLinkedIn
+}
+
+\newcommand{\PlaytomicMcpAndAdk}{%
+  \begingroup
+    \def\ResumeBullet##1{\global\def\SeniorMcpEvidence{##1}}%
+    \PlaytomicMcpSemanticLayer
+    \def\ResumeBullet##1{\global\def\SeniorAdkEvidence{##1}}%
+    \PlaytomicAdkAgents
+  \endgroup
+  \ResumeBullet{\SeniorMcpEvidence\ \SeniorAdkEvidence}%
+}
+
+\newcommand{\SeniorEducation}{%
+  \begingroup
+    \renewcommand{\ResumeCredential}[2]{}%
+    \SharedEducation
+  \endgroup
+}
+
+\newcommand{\SeniorCertification}{%
+  \begingroup
+    \renewcommand{\ResumeEducation}[3]{}%
+    \SharedEducation
+  \endgroup
+}
+
+\begin{document}
+
+\ResumeHeader{Senior Data Engineer}
+
+\ResumeSection{Summary}
+Senior data engineer and GCP data architect with 7+ years of experience building production data platforms from ingestion through trusted models. I design streaming and batch systems, reusable engineering frameworks, infrastructure as code, and operating practices that make platforms faster, more reliable, and easier for teams to own.
+
+\ResumeSection{Technical Skills}
+\SeniorEngineeringSkills
+
+\ResumeSection{Professional Experience}
+
+\PlaytomicLeadRole
+\begin{ResumeBullets}
+  \PlaytomicIngestion
+  \PlaytomicBeamFramework
+  \PlaytomicDeliverySpeed
+  \PlaytomicTerraform
+  \PlaytomicObservability
+\end{ResumeBullets}
+
+\PlaytomicSeniorRole
+\begin{ResumeBullets}
+  \PlaytomicLatencyAndLiveProducts
+  \PlaytomicCostReduction
+  \PlaytomicMcpAndAdk
+\end{ResumeBullets}
+
+\SiftiaRole
+\begin{ResumeBullets}
+  \SiftiaQueryRefactor
+  \SiftiaRefreshTime
+  \SiftiaReporting
+  \SiftiaMigration
+\end{ResumeBullets}
+
+\newpage
+\ResumeSection{Professional Experience (continued)}
+
+\WorkyRole
+\begin{ResumeBullets}
+  \WorkyPipelines
+  \WorkyWarehouse
+\end{ResumeBullets}
+
+\MatchCraftRole
+\begin{ResumeBullets}
+  \MatchCraftImpact
+\end{ResumeBullets}
+
+\MmiRole
+\begin{ResumeBullets}
+  \MmiGeolocation
+\end{ResumeBullets}
+
+\BMetricsRole
+\begin{ResumeBullets}
+  \BMetricsImpact
+\end{ResumeBullets}
+
+\ResumeSection{Selected Consulting}
+
+\ThomsonReutersRole
+\begin{ResumeBullets}
+  \ThomsonReutersDelivery
+\end{ResumeBullets}
+
+\WorkyContractRole
+\begin{ResumeBullets}
+  \WorkyContractProduct
+\end{ResumeBullets}
+
+\GrupoHomaRole
+\begin{ResumeBullets}
+  \GrupoHomaProduct
+\end{ResumeBullets}
+
+\ResumeSection{Education}
+\SeniorEducation
+
+\ResumeSection{Certification}
+\SeniorCertification
+
+\end{document}

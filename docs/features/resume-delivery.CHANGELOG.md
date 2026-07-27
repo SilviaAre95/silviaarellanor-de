@@ -6,6 +6,12 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ## 2026-07-27
 
+- **Added**: public Senior Data Engineer variant with the approved summary, technical evidence priority, complete earlier career history, selected consulting, education, and certification
+- **Verified**: pinned Tectonic output is exactly two US Letter pages with linear ATS extraction, 10pt body and 9.75pt supporting text, embedded Unicode fonts, five live contact links, no overfull boxes, and clean 150-DPI renders
+- **Files touched**: resume/variants/senior-data-engineer.tex, docs/features/resume-delivery.CHANGELOG.md
+
+## 2026-07-27
+
 - **Added**: canonical atomic employment and consulting role and achievement macros for all approved career history
 - **Verified**: required role dates appear once in employment role macros; forbidden copy, unpublished titles, and management-headcount claims are absent
 - **Files touched**: resume/content/experience.tex, resume/content/consulting.tex
