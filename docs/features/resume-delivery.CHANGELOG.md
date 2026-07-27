@@ -6,6 +6,11 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ## 2026-07-27
 
+- **Fixed**: aligned the feature-bank index status with the implemented Resume Delivery feature
+- **Files touched**: docs/features/INDEX.md
+
+## 2026-07-27
+
 - **Fixed**: removed the empty Worky contract role from the Forward Deployed Engineer consulting history while retaining its approved product evidence in Selected Forward-Deployed Impact
 - **Verified**: the rebuilt FDE PDF has no empty role, remains two pages, and passes repeated rendered-page and ATS extraction review
 - **Files touched**: resume/variants/forward-deployed-engineer.tex, scripts/resume/forward-deployed-engineer.test.mjs

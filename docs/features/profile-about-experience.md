@@ -38,7 +38,7 @@ The About page adds professional depth to the portfolio through a narrative biog
 
 Visitors can read Silvia's senior data-engineering biography alongside a professional portrait. The narrative covers her experience across several industries, GCP-focused toolkit, a representative cost-reduction result, preference for durable and maintainable delivery, knowledge-sharing approach, and a small amount of personal context.
 
-Career history is divided into Long-term Engagements and Contracts and Advisory. Each entry shows a date range, role, and organization. The two timelines appear side by side when space permits and stack on smaller screens. Visitors can open the public CV separately or return to the Contact section.
+Career history is divided into Long-term Engagements and Contracts and Advisory. Each entry shows a date range, role, and organization. The two timelines appear side by side when space permits and stack on smaller screens. Visitors can directly download the public Senior Data Engineer résumé or return to the Contact section.
 
 ## Out of scope
 
