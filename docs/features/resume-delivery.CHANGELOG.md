@@ -6,6 +6,12 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ## 2026-07-27
 
+- **Fixed**: selected only one copy of the Worky contract product for FDE and partitioned Leadership technical outcomes between employment history and selected impact, preserving every approved fact without repeated claims
+- **Verified**: pinned Tectonic PDFs remain two balanced US Letter pages with one extracted-text occurrence for each affected fact, clean 150-DPI renders, no overfull or underfull boxes, and 14/14 resume tests passing
+- **Files touched**: resume/variants/forward-deployed-engineer.tex, resume/variants/data-leadership.tex, docs/features/resume-delivery.CHANGELOG.md
+
+## 2026-07-27
+
 - **Added**: private Forward Deployed Engineer and Data Leadership variants with role-specific summaries, section ordering, skills, and approved canonical evidence
 - **Verified**: both PDFs are exactly two US Letter pages at 11pt body and 10pt supporting text, with balanced clean renders, linear ATS extraction, embedded Unicode fonts, five live contact links, no overfull boxes, no invented FDE employment title, and no leadership management headcount
 - **Files touched**: resume/variants/forward-deployed-engineer.tex, resume/variants/data-leadership.tex, docs/features/resume-delivery.CHANGELOG.md
