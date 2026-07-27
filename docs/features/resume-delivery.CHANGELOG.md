@@ -6,6 +6,12 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ## 2026-07-27
 
+- **Added**: canonical atomic employment and consulting role and achievement macros for all approved career history
+- **Verified**: required role dates appear once in employment role macros; forbidden copy, unpublished titles, and management-headcount claims are absent
+- **Files touched**: resume/content/experience.tex, resume/content/consulting.tex
+
+## 2026-07-27
+
 - **Fixed**: committed `resume/variants/template` and `resume/variants/content` relative symlinks preserve the planned shared-source imports under Tectonic
 - **Verified**: pinned Tectonic 0.16.9 compiles a variant using `template/silvia-resume` and `content/*` without an untracked path workaround
 - **Files touched**: resume/variants/template, resume/variants/content
