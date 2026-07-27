@@ -37,3 +37,6 @@ docs/superpowers/specs/
 
 # Local isolated worktrees
 .worktrees/
+
+# Generated non-public resume variants
+resume/build/

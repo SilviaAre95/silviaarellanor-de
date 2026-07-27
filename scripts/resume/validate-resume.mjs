@@ -24,6 +24,19 @@ function validationError(variant, message) {
   return new Error(`[${variant.id}] ${message}`);
 }
 
+async function runValidationCommand(variant, runner, command, args) {
+  try {
+    return await runner(command, args);
+  } catch (error) {
+    if (error instanceof Error && error.message.startsWith("[")) {
+      throw error;
+    }
+
+    const message = error instanceof Error ? error.message : String(error);
+    throw validationError(variant, message);
+  }
+}
+
 export function parsePdfInfo(text) {
   const pages = text.match(/^Pages:\s+(\d+)\s*$/m);
   const pageSize = text.match(/^Page size:\s+([\d.]+)\s+x\s+([\d.]+)\s+pts/m);
@@ -81,12 +94,12 @@ export async function validateResumePdf({ variant, pdfPath, logText, run }) {
     throw validationError(variant, overfull[0]);
   }
 
-  const info = parsePdfInfo(await runner("pdfinfo", [pdfPath]));
+  const info = parsePdfInfo(await runValidationCommand(variant, runner, "pdfinfo", [pdfPath]));
   if (info.pages !== 2 || info.width !== 612 || info.height !== 792) {
     throw validationError(variant, "PDF must contain two US Letter pages (612 x 792 pts)");
   }
 
-  const fonts = parseFontRows(await runner("pdffonts", [pdfPath]));
+  const fonts = parseFontRows(await runValidationCommand(variant, runner, "pdffonts", [pdfPath]));
   if (fonts.length === 0) {
     throw validationError(variant, "PDF contains no readable font rows");
   }
@@ -99,13 +112,13 @@ export async function validateResumePdf({ variant, pdfPath, logText, run }) {
     throw validationError(variant, "PDF contains fonts without Unicode mappings");
   }
 
-  const extractedText = await runner("pdftotext", [pdfPath, "-"]);
+  const extractedText = await runValidationCommand(variant, runner, "pdftotext", [pdfPath, "-"]);
   const missingText = variant.requiredText.find((requiredText) => !extractedText.includes(requiredText));
   if (missingText) {
     throw validationError(variant, `PDF is missing required text: ${missingText}`);
   }
 
-  const urls = await runner("pdfinfo", ["-url", pdfPath]);
+  const urls = await runValidationCommand(variant, runner, "pdfinfo", ["-url", pdfPath]);
   const missingUrl = REQUIRED_URLS.find((url) => !urls.includes(url));
   if (missingUrl) {
     throw validationError(variant, `PDF is missing required URL: ${missingUrl}`);

@@ -55,6 +55,21 @@ test("reports the variant when required extracted text is absent", async () => {
   );
 });
 
+test("prefixes PDF-tool failures with the variant ID", async () => {
+  await assert.rejects(
+    validateResumePdf({
+      variant: { id: "senior-data-engineer", requiredText: [] },
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: async (command) => {
+        if (command === "pdfinfo") throw new Error("pdfinfo unavailable");
+        throw new Error(`Unexpected command: ${command}`);
+      },
+    }),
+    (error) => error.message.startsWith("[senior-data-engineer] pdfinfo unavailable"),
+  );
+});
+
 test("rejects a missing PDF before invoking system tools", async () => {
   const pdfPath = join(tmpdir(), "missing-resume.pdf");
 
