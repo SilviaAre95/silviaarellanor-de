@@ -29,6 +29,20 @@ function sourceOutputName(source) {
   return basename(source, ".tex");
 }
 
+function assertPublicVariant(variants) {
+  const publicVariants = variants.filter(({ publish }) => publish);
+  if (publicVariants.length !== 1) {
+    throw new Error("Resume manifest must define exactly one public resume variant");
+  }
+
+  const [publicVariant] = publicVariants;
+  if (publicVariant.id !== "senior-data-engineer") {
+    throw new Error("The public resume variant must be senior-data-engineer");
+  }
+
+  return publicVariant;
+}
+
 async function compileWithTectonic({ rootDir, variant, stagedPdf, stagingDir, run }) {
   const resumeDir = join(rootDir, "resume");
   const sourceName = sourceOutputName(variant.source);
@@ -47,6 +61,7 @@ export async function buildAllResumes({
   rootDir = process.cwd(),
   run = runCommand,
   assertTools = assertRequiredTools,
+  variants = RESUME_VARIANTS,
   compileVariant,
   copyPublicPdf = copyFile,
   validateVariant = validateResumePdf,
@@ -54,6 +69,7 @@ export async function buildAllResumes({
   const buildDir = join(rootDir, "resume", "build");
   const publicPdf = join(rootDir, PUBLIC_RESUME_PATH);
   const compile = compileVariant ?? ((options) => compileWithTectonic({ ...options, run }));
+  const publicVariant = assertPublicVariant(variants);
 
   await assertTools((command, args) => run(
     command,
@@ -67,7 +83,7 @@ export async function buildAllResumes({
     stagingRoot = await mkdtemp(join(buildDir, ".staging-"));
     const stagedVariants = [];
 
-    for (const variant of RESUME_VARIANTS) {
+    for (const variant of variants) {
       const stagingDir = join(stagingRoot, variant.id);
       const stagedPdf = join(stagingDir, basename(variant.output));
       await mkdir(stagingDir, { recursive: true });
@@ -86,11 +102,6 @@ export async function buildAllResumes({
       await rename(stagedPdf, join(rootDir, variant.output));
     }
 
-    const seniorVariant = stagedVariants.find(({ variant }) => variant.publish);
-    if (!seniorVariant) {
-      throw new Error("No resume variant is configured for public publication");
-    }
-
     await mkdir(dirname(publicPdf), { recursive: true });
     let temporaryPublicPdf;
     try {
@@ -98,7 +109,7 @@ export async function buildAllResumes({
         dirname(publicPdf),
         `.${basename(publicPdf)}.staging-${process.pid}-${Date.now()}`,
       );
-      await copyPublicPdf(join(rootDir, seniorVariant.variant.output), temporaryPublicPdf);
+      await copyPublicPdf(join(rootDir, publicVariant.output), temporaryPublicPdf);
       await rename(temporaryPublicPdf, publicPdf);
     } finally {
       if (temporaryPublicPdf) {

@@ -21,6 +21,50 @@ function successfulCompiler() {
   };
 }
 
+async function expectPublicationManifestFailure(rootDir, variants, expectedMessage) {
+  await assert.rejects(
+    buildAllResumes({
+      rootDir,
+      variants,
+      assertTools: async () => {
+        throw new Error("tool checks must not run for an invalid publication manifest");
+      },
+      compileVariant: async () => {
+        throw new Error("compilation must not run for an invalid publication manifest");
+      },
+    }),
+    expectedMessage,
+  );
+}
+
+test("rejects a manifest that publishes more than one resume before compilation", async () => {
+  const { rootDir } = await makeRootDir();
+  const variants = RESUME_VARIANTS.map((variant) => ({
+    ...variant,
+    publish: variant.id !== "data-leadership",
+  }));
+
+  await expectPublicationManifestFailure(
+    rootDir,
+    variants,
+    /exactly one public resume variant/,
+  );
+});
+
+test("rejects a manifest that publishes a non-Senior variant before compilation", async () => {
+  const { rootDir } = await makeRootDir();
+  const variants = RESUME_VARIANTS.map((variant) => ({
+    ...variant,
+    publish: variant.id === "forward-deployed-engineer",
+  }));
+
+  await expectPublicationManifestFailure(
+    rootDir,
+    variants,
+    /must be senior-data-engineer/,
+  );
+});
+
 test("preserves the previous public PDF when a later variant fails", async () => {
   const { rootDir, publicPdf } = await makeRootDir();
 
