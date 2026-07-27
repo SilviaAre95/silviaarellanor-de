@@ -19,10 +19,10 @@ Create a local, truthful application artifact. Optimize selection and ordering o
 
 Extract must-haves, responsibilities, domain signals, and preferred keywords. Create `evidence-matrix.md` before `resume.tex`, with this table:
 
-| Job requirement | Canonical evidence (file/macro) | Status | Resume treatment |
+| Job requirement | Verified evidence source | Status | Resume treatment |
 | --- | --- | --- | --- |
 
-Use `Supported`, `Partial`, or `Gap` for Status. Cite a canonical macro for every supported claim. A requirement with no direct canonical support is a `Gap`: omit it from skills, summary, and bullets. Do not turn a gap into an ATS keyword, inferred experience, adjacent-tool claim, title, metric, client domain, certification, or ownership claim.
+Use `Supported`, `Partial`, or `Gap` for Status. Cite a canonical content macro for every factual claim and achievement. For summary positioning or years-of-experience only, you may instead cite the exact verified sentence in the selected base variant; identify the file and quote the sentence. A requirement with no direct canonical support is a `Gap`: omit it from skills, summary, and bullets. Do not turn a gap into an ATS keyword, inferred experience, adjacent-tool claim, title, metric, client domain, certification, or ownership claim.
 
 Select the closest base: Senior Data Engineer for platform engineering, Forward Deployed Engineer for client lifecycle/data-and-AI delivery, or Data Leadership for management/strategy. Reorder and select its canonical macros; write no new factual achievement. A target headline may name the desired role, but preserve each canonical employment title and date exactly.
 
@@ -42,7 +42,11 @@ From `resume/`, resolve `TECTONIC_BIN=${TECTONIC_BIN:-tectonic}`. Require `$TECT
 4. Render both pages with `pdftoppm -png -r 150`, inspect every rendered page at full resolution, and fix real clipping, overlap, unreadable text, broken links, or branding defects before continuing.
 5. Repeat the protected-file hashes and record before/after values plus command output in `validation.md`.
 
-Return the absolute PDF path, selected base, concise supported-match summary, explicit gaps, matrix path, and validation result. State that the application was not submitted.
+## Return contract
+
+On successful validation, return the absolute PDF path, selected base, concise supported-match summary, explicit gaps, matrix path, validation record path, and a no-submission statement.
+
+If validation is blocked, do not return a PDF path or describe an unvalidated artifact as delivered. Return the block reason, selected base, matrix path, explicit gaps, validation record path, and a no-submission statement.
 
 ## Red flags
 
