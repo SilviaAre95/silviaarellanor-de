@@ -1,0 +1,106 @@
+\documentclass{template/silvia-resume}
+
+\input{content/identity}
+\input{content/skills}
+\input{content/experience}
+\input{content/consulting}
+\input{content/education}
+
+\renewcommand{\small}{\fontsize{10pt}{13.5pt}\selectfont}
+\renewcommand{\ResumeContactLine}{%
+  \ResumeEmail\,\textbar\,\ResumeMexicoPhone\,\textbar\,\ResumeSpainPhone\par
+  \ResumeWebsite\,\textbar\,\ResumeLinkedIn
+}
+
+\newcommand{\ForwardDeployedEducation}{%
+  \begingroup
+    \renewcommand{\ResumeCredential}[2]{}%
+    \SharedEducation
+  \endgroup
+}
+
+\begin{document}
+\fontsize{11pt}{16pt}\selectfont
+
+\ResumeHeader{Forward Deployed Engineer - Data \& AI Systems}
+
+\ResumeSection{Summary}
+Data and AI engineer with 7+ years of experience delivering forward-deployed work across consulting and embedded teams. I own the full path from discovery and scoping through architecture, implementation, enablement, and production support, combining client-facing delivery with hands-on GCP, semantic-layer, integration, and agent engineering.
+
+\ResumeSection{Data \& AI Capabilities}
+\ForwardDeployedSkills
+
+\ResumeSection{Selected Forward-Deployed Impact}
+\begin{ResumeBullets}
+  \PlaytomicMcpSemanticLayer
+  \PlaytomicMcpAdoption
+  \PlaytomicSelfServeDashboards
+  \PlaytomicAdkAgents
+  \ConsultingFullLifecycle
+  \WorkyContractProduct
+\end{ResumeBullets}
+
+\ResumeSection{Professional Experience}
+
+\PlaytomicLeadRole
+\begin{ResumeBullets}
+  \PlaytomicIngestion
+  \PlaytomicObservability
+\end{ResumeBullets}
+
+\PlaytomicSeniorRole
+\begin{ResumeBullets}
+  \PlaytomicLatencyAndLiveProducts
+  \PlaytomicCostReduction
+\end{ResumeBullets}
+
+\newpage
+\ResumeSection{Professional Experience (continued)}
+
+\SiftiaRole
+\begin{ResumeBullets}
+  \SiftiaReporting
+  \SiftiaMigration
+\end{ResumeBullets}
+
+\WorkyRole
+\begin{ResumeBullets}
+  \WorkyPipelines
+\end{ResumeBullets}
+
+\MatchCraftRole
+\begin{ResumeBullets}
+  \MatchCraftImpact
+\end{ResumeBullets}
+
+\MmiRole
+\begin{ResumeBullets}
+  \MmiGeolocation
+\end{ResumeBullets}
+
+\BMetricsRole
+\begin{ResumeBullets}
+  \BMetricsImpact
+\end{ResumeBullets}
+
+\ResumeSection{Consulting Engagements}
+
+\ThomsonReutersRole
+\begin{ResumeBullets}
+  \ThomsonReutersDelivery
+\end{ResumeBullets}
+
+\WorkyContractRole
+\begin{ResumeBullets}
+  \WorkyContractProduct
+\end{ResumeBullets}
+
+\GrupoHomaRole
+\begin{ResumeBullets}
+  \GrupoHomaProduct
+\end{ResumeBullets}
+
+\ResumeSection{Education}
+\ForwardDeployedEducation
+
+\end{document}

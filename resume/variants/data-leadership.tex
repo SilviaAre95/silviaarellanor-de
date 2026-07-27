@@ -1,0 +1,110 @@
+\documentclass{template/silvia-resume}
+
+\input{content/identity}
+\input{content/skills}
+\input{content/experience}
+\input{content/consulting}
+\input{content/education}
+
+\renewcommand{\small}{\fontsize{10pt}{13.5pt}\selectfont}
+\renewcommand{\ResumeContactLine}{%
+  \ResumeEmail\,\textbar\,\ResumeMexicoPhone\,\textbar\,\ResumeSpainPhone\par
+  \ResumeWebsite\,\textbar\,\ResumeLinkedIn
+}
+
+\newcommand{\LeadershipEducation}{%
+  \begingroup
+    \renewcommand{\ResumeCredential}[2]{}%
+    \SharedEducation
+  \endgroup
+}
+
+\begin{document}
+\fontsize{11pt}{16pt}\selectfont
+
+\ResumeHeader{Data Engineering Leader \& Architect}
+
+\ResumeSection{Leadership Summary}
+Data engineering leader and architect with 7+ years of experience building teams, platforms, and delivery systems on GCP. I combine hands-on architecture with engineering management, standards, observability, and self-service practices that improve cost, reliability, delivery speed, and organizational ownership.
+
+\ResumeSection{Leadership \& Architecture Strengths}
+\LeadershipSkills
+
+\ResumeSection{Professional Experience}
+
+\PlaytomicLeadRole
+\begin{ResumeBullets}
+  \PlaytomicLeadership
+  \PlaytomicIngestion
+  \PlaytomicTerraform
+\end{ResumeBullets}
+
+\PlaytomicSeniorRole
+\begin{ResumeBullets}
+  \PlaytomicLatencyAndLiveProducts
+  \PlaytomicCostReduction
+\end{ResumeBullets}
+
+\SiftiaRole
+\begin{ResumeBullets}
+  \SiftiaLeadership
+  \SiftiaRefreshTime
+\end{ResumeBullets}
+
+\WorkyRole
+\begin{ResumeBullets}
+  \WorkyWarehouse
+\end{ResumeBullets}
+
+\MatchCraftRole
+\begin{ResumeBullets}
+  \MatchCraftImpact
+\end{ResumeBullets}
+
+\newpage
+\ResumeSection{Professional Experience (continued)}
+
+\MmiRole
+\begin{ResumeBullets}
+  \MmiLeadership
+  \MmiStandards
+\end{ResumeBullets}
+
+\BMetricsRole
+\begin{ResumeBullets}
+  \BMetricsImpact
+\end{ResumeBullets}
+
+\ResumeSection{Selected Technical \& Organizational Impact}
+\begin{ResumeBullets}
+  \PlaytomicIngestion
+  \PlaytomicTerraform
+  \PlaytomicBeamFramework
+  \PlaytomicObservability
+  \PlaytomicDeliverySpeed
+  \PlaytomicLatencyAndLiveProducts
+  \PlaytomicCostReduction
+  \PlaytomicMcpAdoption
+\end{ResumeBullets}
+
+\ResumeSection{Consulting}
+
+\ThomsonReutersRole
+\begin{ResumeBullets}
+  \ThomsonReutersDelivery
+\end{ResumeBullets}
+
+\WorkyContractRole
+\begin{ResumeBullets}
+  \WorkyContractProduct
+\end{ResumeBullets}
+
+\GrupoHomaRole
+\begin{ResumeBullets}
+  \GrupoHomaProduct
+\end{ResumeBullets}
+
+\ResumeSection{Education}
+\LeadershipEducation
+
+\end{document}

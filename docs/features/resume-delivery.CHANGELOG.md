@@ -6,6 +6,12 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ## 2026-07-27
 
+- **Added**: private Forward Deployed Engineer and Data Leadership variants with role-specific summaries, section ordering, skills, and approved canonical evidence
+- **Verified**: both PDFs are exactly two US Letter pages at 11pt body and 10pt supporting text, with balanced clean renders, linear ATS extraction, embedded Unicode fonts, five live contact links, no overfull boxes, no invented FDE employment title, and no leadership management headcount
+- **Files touched**: resume/variants/forward-deployed-engineer.tex, resume/variants/data-leadership.tex, docs/features/resume-delivery.CHANGELOG.md
+
+## 2026-07-27
+
 - **Fixed**: increased the Senior variant's body size and leading so both pages use the Letter canvas without conspicuous empty lower thirds
 - **Verified**: final text reaches 81.4% and 75.6% of pages 1 and 2; both 150-DPI renders remain clean, exactly two pages, ATS-linear, fully linked, and free of overfull boxes
 - **Files touched**: resume/variants/senior-data-engineer.tex, docs/features/resume-delivery.CHANGELOG.md
