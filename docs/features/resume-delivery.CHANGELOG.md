@@ -6,6 +6,12 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ## 2026-07-27
 
+- **Fixed**: committed `resume/variants/template` and `resume/variants/content` relative symlinks preserve the planned shared-source imports under Tectonic
+- **Verified**: pinned Tectonic 0.16.9 compiles a variant using `template/silvia-resume` and `content/*` without an untracked path workaround
+- **Files touched**: resume/variants/template, resume/variants/content
+
+## 2026-07-27
+
 - **Added**: reusable editorial-technical LaTeX class with canonical identity, skills, education, and credential content
 - **Verified**: pinned Tectonic smoke PDF has linear text, embedded Unicode fonts, clickable contact links, and no overfull boxes
 - **Files touched**: resume/template/silvia-resume.cls, resume/content/identity.tex, resume/content/skills.tex, resume/content/education.tex
