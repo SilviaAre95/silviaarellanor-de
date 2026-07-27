@@ -6,6 +6,12 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ## 2026-07-27
 
+- **Fixed**: increased the Senior variant's body size and leading so both pages use the Letter canvas without conspicuous empty lower thirds
+- **Verified**: final text reaches 81.4% and 75.6% of pages 1 and 2; both 150-DPI renders remain clean, exactly two pages, ATS-linear, fully linked, and free of overfull boxes
+- **Files touched**: resume/variants/senior-data-engineer.tex, docs/features/resume-delivery.CHANGELOG.md
+
+## 2026-07-27
+
 - **Added**: public Senior Data Engineer variant with the approved summary, technical evidence priority, complete earlier career history, selected consulting, education, and certification
 - **Verified**: pinned Tectonic output is exactly two US Letter pages with linear ATS extraction, 10pt body and 9.75pt supporting text, embedded Unicode fonts, five live contact links, no overfull boxes, and clean 150-DPI renders
 - **Files touched**: resume/variants/senior-data-engineer.tex, docs/features/resume-delivery.CHANGELOG.md
