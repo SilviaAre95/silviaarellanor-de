@@ -13,7 +13,7 @@ Create a local, truthful application artifact. Optimize selection and ordering o
 2. Derive a lowercase `<job-slug>` from employer and role. Work only in `resume/applications/<job-slug>/`, which is local and ignored.
 3. Save the supplied or retrieved description verbatim as `job-description.md` in that directory.
 4. Read `docs/features/resume-delivery.md`, `scripts/resume/config.mjs`, all `resume/content/*.tex`, the shared template, and the three files in `resume/variants/` before writing.
-5. Before creating artifacts, record `shasum -a 256` hashes for `public/silvia-arellano-cv.pdf`, the three committed base variants, and `resume/content/*.tex`. Repeat the same hash command after validation. If any protected hash changes, stop: do not claim success or repair it without explicit user authority.
+5. Before creating artifacts, record the complete protected state. For the generated, ignored `public/silvia-arellano-cv.pdf`, record `MISSING public/silvia-arellano-cv.pdf` when absent; when present, record its `shasum -a 256` output. Build the authoritative content manifest from every `.tex` path returned by `git ls-tree -r --name-only HEAD -- resume/content`, together with the three explicitly named committed base variants. Require every manifest path to exist, then record its `shasum -a 256` output; a missing base or content source is a validation block, not a valid `MISSING` state. Repeat this exact manifest and state recipe after validation and compare the complete before/after records. The public PDF existence state and hash when present, plus the manifest and every base/content hash, must remain identical. If any state or hash changes, stop: do not claim success or repair it without explicit user authority.
 
 ## Evidence gate
 
@@ -40,7 +40,7 @@ From `resume/`, resolve `TECTONIC_BIN=${TECTONIC_BIN:-tectonic}`. Require `$TECT
 2. `pdffonts` reports embedded fonts with Unicode mappings; `pdfinfo -url` includes the canonical email, website, and LinkedIn links.
 3. `pdftotext` is readable, linear, contains the target headline and canonical contact details, and contains no unsupported matrix requirement.
 4. Render both pages with `pdftoppm -png -r 150`, inspect every rendered page at full resolution, and fix real clipping, overlap, unreadable text, broken links, or branding defects before continuing.
-5. Repeat the protected-file hashes and record before/after values plus command output in `validation.md`.
+5. Repeat the protected-state recipe and record the complete before/after state entries, comparison result, and command output in `validation.md`.
 
 ## Return contract
 

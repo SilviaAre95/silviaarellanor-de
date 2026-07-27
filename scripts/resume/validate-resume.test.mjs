@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { unlink, writeFile } from "node:fs/promises";
+import { mkdtemp, rm, unlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
@@ -9,6 +9,7 @@ import {
   parsePdfInfo,
   validateResumePdf,
 } from "./validate-resume.mjs";
+import { RESUME_VARIANTS } from "./config.mjs";
 
 const validInfo = `Pages: 2
 Page size: 612 x 792 pts (letter)
@@ -17,6 +18,22 @@ Page size: 612 x 792 pts (letter)
 const validFonts = `name type encoding emb sub uni object ID
 AAAAAA+TeXGyreHeros CID TrueType Identity-H yes yes yes 12 0
 `;
+
+const validUrls = [
+  "mailto:silvia.datadev@gmail.com",
+  "https://www.silviadata.dev",
+  "https://www.linkedin.com/in/silvia-arellano-de",
+].join("\n");
+
+function pdfRunner(extractedText) {
+  return async (command, args) => {
+    if (command === "pdfinfo" && args[0] === "-url") return validUrls;
+    if (command === "pdfinfo") return validInfo;
+    if (command === "pdffonts") return validFonts;
+    if (command === "pdftotext") return extractedText;
+    throw new Error(`Unexpected command: ${command}`);
+  };
+}
 
 test("parses two-page US Letter metadata", () => {
   assert.deepEqual(parsePdfInfo(validInfo), {
@@ -72,16 +89,95 @@ test("accepts required text whose PDF presentation is uppercase", async () => {
       variant: { id: "senior-data-engineer", requiredText: ["Senior Data Engineer"] },
       pdfPath: "/tmp/resume.pdf",
       logText: "",
-      run: async (command, args) => {
-        if (command === "pdfinfo" && args[0] === "-url") {
-          return "mailto:silvia.datadev@gmail.com\nhttps://www.silviadata.dev\nhttps://www.linkedin.com/in/silvia-arellano-de";
-        }
-        if (command === "pdfinfo") return validInfo;
-        if (command === "pdffonts") return validFonts;
-        if (command === "pdftotext") return "SENIOR DATA ENGINEER";
-        throw new Error(`Unexpected command: ${command}`);
-      },
+      run: pdfRunner("SENIOR DATA ENGINEER"),
     }),
+  );
+});
+
+test("accepts required text across PDF line and spacing changes", async () => {
+  await assert.doesNotReject(
+    validateResumePdf({
+      variant: {
+        id: "senior-data-engineer",
+        requiredText: ["Lead Data Engineer | Playtomic Oct 2025–Present"],
+      },
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: pdfRunner("LEAD   DATA ENGINEER | PLAYTOMIC\n\n\tOCT 2025–PRESENT"),
+    }),
+  );
+});
+
+test("requires section labels as their own normalized PDF lines", async () => {
+  await assert.rejects(
+    validateResumePdf({
+      variant: {
+        id: "senior-data-engineer",
+        requiredText: [],
+        requiredSections: ["Summary"],
+      },
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: pdfRunner("This paragraph mentions a summary but omits the section label."),
+    }),
+    /\[senior-data-engineer\].*section label: Summary/,
+  );
+});
+
+test("rejects forbidden management headcount language", async () => {
+  await assert.rejects(
+    validateResumePdf({
+      variant: {
+        id: "data-leadership",
+        requiredText: [],
+        forbiddenText: [
+          {
+            label: "management headcount language",
+            pattern: /\bmanaged\b.{0,60}\bteam of \d+\s+engineers\b/i,
+          },
+        ],
+      },
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: pdfRunner("Managed the platform team of 12 engineers."),
+    }),
+    /\[data-leadership\].*management headcount language/,
+  );
+});
+
+test("rejects a plain team-size management headcount from the real variant contract", async () => {
+  const leadershipVariant = RESUME_VARIANTS.find(({ id }) => id === "data-leadership");
+
+  await assert.rejects(
+    validateResumePdf({
+      variant: {
+        id: leadershipVariant.id,
+        requiredText: [],
+        forbiddenText: leadershipVariant.forbiddenText,
+      },
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: pdfRunner("Managed a team of 12."),
+    }),
+    /\[data-leadership\].*management headcount language/,
+  );
+});
+
+test("rejects an FDE title occurrence beyond the target headline", async () => {
+  await assert.rejects(
+    validateResumePdf({
+      variant: {
+        id: "forward-deployed-engineer",
+        requiredText: ["Forward Deployed Engineer"],
+        maxTextOccurrences: [{ text: "Forward Deployed Engineer", max: 1 }],
+      },
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: pdfRunner(
+        "FORWARD DEPLOYED ENGINEER - DATA & AI SYSTEMS\nForward Deployed Engineer | Playtomic",
+      ),
+    }),
+    /\[forward-deployed-engineer\].*Forward Deployed Engineer.*maximum is 1/,
   );
 });
 
@@ -119,8 +215,10 @@ test("prefixes PDF-tool failures with the variant ID", async () => {
   );
 });
 
-test("rejects a missing PDF before invoking system tools", async () => {
-  const pdfPath = join(tmpdir(), "missing-resume.pdf");
+test("rejects a missing PDF before invoking system tools", async (t) => {
+  const directory = await mkdtemp(join(tmpdir(), "missing-resume-"));
+  const pdfPath = join(directory, "resume.pdf");
+  t.after(() => rm(directory, { recursive: true, force: true }));
 
   await assert.rejects(
     validateResumePdf({

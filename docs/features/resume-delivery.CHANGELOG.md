@@ -6,6 +6,13 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ## 2026-07-27
 
+- **Fixed**: résumé validation now enforces normalized section, career, contact, authorization, remote, and role-specific evidence contracts plus narrow FDE-title and management-headcount boundaries
+- **Fixed**: clean-clone tailoring preserves a missing or hashed generated public PDF state without weakening committed source protection, and local development intentionally builds the ignored public résumé before Vite starts
+- **Verified**: config, validator, canonical-source, publication-cleanup, link, and predev regressions pass against real pinned-compiler outputs
+- **Files touched**: .agents/skills/curating-job-resumes/SKILL.md, README.md, package.json, scripts/resume/config.mjs, scripts/resume/validate-resume.mjs, scripts/resume/*.test.mjs
+
+## 2026-07-27
+
 - **Fixed**: aligned the feature-bank index status with the implemented Resume Delivery feature
 - **Files touched**: docs/features/INDEX.md
 

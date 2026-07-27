@@ -113,7 +113,8 @@ test("removes the temporary public PDF when publication copy fails", async () =>
       assertTools: async () => {},
       compileVariant: successfulCompiler(),
       validateVariant: async () => {},
-      copyPublicPdf: async () => {
+      copyPublicPdf: async (_source, destination) => {
+        await writeFile(destination, "partial-public-pdf");
         throw new Error("synthetic publication copy failure");
       },
     }),

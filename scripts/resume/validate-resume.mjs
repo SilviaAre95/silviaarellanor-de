@@ -24,6 +24,26 @@ function validationError(variant, message) {
   return new Error(`[${variant.id}] ${message}`);
 }
 
+function normalizePdfText(text) {
+  return text
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function countTextOccurrences(text, searchText) {
+  if (!searchText) return 0;
+
+  let count = 0;
+  let offset = 0;
+  while ((offset = text.indexOf(searchText, offset)) !== -1) {
+    count += 1;
+    offset += searchText.length;
+  }
+  return count;
+}
+
 async function runValidationCommand(variant, runner, command, args) {
   try {
     return await runner(command, args);
@@ -113,12 +133,43 @@ export async function validateResumePdf({ variant, pdfPath, logText, run }) {
   }
 
   const extractedText = await runValidationCommand(variant, runner, "pdftotext", [pdfPath, "-"]);
-  const normalizedExtractedText = extractedText.toLowerCase();
-  const missingText = variant.requiredText.find(
-    (requiredText) => !normalizedExtractedText.includes(requiredText.toLowerCase()),
+  const normalizedExtractedText = normalizePdfText(extractedText);
+  const normalizedLines = extractedText
+    .split(/\r?\n/)
+    .map(normalizePdfText)
+    .filter(Boolean);
+  const missingText = (variant.requiredText ?? []).find(
+    (requiredText) => !normalizedExtractedText.includes(normalizePdfText(requiredText)),
   );
   if (missingText) {
     throw validationError(variant, `PDF is missing required text: ${missingText}`);
+  }
+
+  const missingSection = (variant.requiredSections ?? []).find(
+    (section) => !normalizedLines.includes(normalizePdfText(section)),
+  );
+  if (missingSection) {
+    throw validationError(variant, `PDF is missing required section label: ${missingSection}`);
+  }
+
+  for (const { label, pattern } of variant.forbiddenText ?? []) {
+    pattern.lastIndex = 0;
+    if (pattern.test(normalizedExtractedText)) {
+      throw validationError(variant, `PDF contains forbidden text: ${label}`);
+    }
+  }
+
+  for (const { text, max } of variant.maxTextOccurrences ?? []) {
+    const occurrences = countTextOccurrences(
+      normalizedExtractedText,
+      normalizePdfText(text),
+    );
+    if (occurrences > max) {
+      throw validationError(
+        variant,
+        `PDF contains ${text} ${occurrences} times; maximum is ${max}`,
+      );
+    }
   }
 
   const urls = await runValidationCommand(variant, runner, "pdfinfo", ["-url", pdfPath]);

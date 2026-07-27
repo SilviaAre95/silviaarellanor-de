@@ -188,6 +188,10 @@ Start the development server to see your project live:
 ```bash
 npm run dev
 ```
+The `predev` hook builds and validates the three résumé variants first, so a
+fresh clone has the public Senior résumé before Vite starts. The Tectonic
+`0.16.9` and Poppler prerequisites listed above are therefore required for
+local development.
 
 View the Project 🌐
 Open your browser and visit http://localhost:5173/ to see the result! 🎉
