@@ -129,7 +129,7 @@ test("defines section and approved-evidence contracts per variant", () => {
         "Developed a custom, end-to-end data product in Power BI.",
         "I created an end-to-end, user-friendly data product",
         "University of Chihuahua",
-        "On-Course Professional Data Engineer Certification by Google",
+        "Google Cloud Professional Data Engineer",
         "English - Fluent",
         "Spanish - Native",
       ],

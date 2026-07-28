@@ -1,3 +1,20 @@
+=== VERBATIM TRANSCRIPTION OF THE SAVED CANVA RESUME — DO NOT "CORRECT" ===
+This file records what public/silvia-arellano-cv.pdf (the saved Canva original)
+actually says, typos included. It is a reference record, not a build input; no
+script reads it.
+
+The generated Senior resume intentionally diverges from this transcription in
+four places, approved by Silvia on 2026-07-28. Do not revert these:
+  1. "Marketing tools ect"                  -> "and marketing tools"
+  2. Certifications block                    -> shared clean format
+     ("Google Cloud Professional Data Engineer | In progress", and
+      "... | Google, Oct 2023" instead of date-prefixed titles)
+     This also removes the stray "|. Google" rendering defect.
+  3. Education dates "2018-2020"/"2013-2018" -> en dashes "2018–2020"/"2013–2018"
+  4. Final Playtomic Lead bullet              -> terminal period added
+All other Senior wording remains exactly as transcribed below.
+=== END NOTE ===
+
 I'm a data engineer with deep experience architecting and building scalable data infrastructure in GCP. I’ve led the design of end-to-end solutions—from ingestion pipelines to core data models—that support teams across product, operations, finance, and customer experience. I’m strong at understanding business needs and translating them into data products that are reliable, actionable, and easy to work with. Whether replacing third-party tools or setting up self-serve workflows, I focus on building systems that are both technically sound and aligned with how teams actually use data to make decisions.
 
 SKILLS

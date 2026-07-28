@@ -240,13 +240,13 @@ Worky June 2024–Sept 2024 Data Product Developer (Contractor)
 GRUPO HOMA Real Estate Developers Jan 2022–Jan 2023 Data Solutions Architect (Contractor)
 University of Chihuahua
 Master’s Degree in Open Source Software
-2018-2020
+2018–2020
 Emeritus University of Puebla
 B.Sc. in Physics
-2013-2018
-On-Course Professional Data Engineer Certification by Google
-Oct 2023 Big Data and Machine Learning Fundamentals
-Oct 2023 Modernizing Data Lakes and Data Warehouses with Google Cloud
+2013–2018
+Google Cloud Professional Data Engineer
+Big Data and Machine Learning Fundamentals
+Modernizing Data Lakes and Data Warehouses with Google Cloud
 English - Fluent
 Spanish - Native
 Skills
@@ -303,13 +303,13 @@ Worky June 2024–Sept 2024 Data Product Developer (Contractor)
 GRUPO HOMA Real Estate Developers Jan 2022–Jan 2023 Data Solutions Architect (Contractor)
 University of Chihuahua
 Master’s Degree in Open Source Software
-2018-2020
+2018–2020
 Emeritus University of Puebla
 B.Sc. in Physics
-2013-2018
-On-Course Professional Data Engineer Certification by Google
-Oct 2023 Big Data and Machine Learning Fundamentals
-Oct 2023 Modernizing Data Lakes and Data Warehouses with Google Cloud
+2013–2018
+Google Cloud Professional Data Engineer
+Big Data and Machine Learning Fundamentals
+Modernizing Data Lakes and Data Warehouses with Google Cloud
 English - Fluent
 Spanish - Native
 Skills

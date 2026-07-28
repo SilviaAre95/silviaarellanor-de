@@ -56,8 +56,8 @@ const seniorCurrentRequiredText = [
   "Worky Jun 2022–Feb 2023 Data Engineer/Analyst", "MatchCraft Feb 2021–Jul 2022 Business Data Engineer", "B-Metrics Sept 2019–Oct 2020 Biomechanical Data Engineer",
   "Thomson Reuters Feb 2025–May 2026 Data Engineer (Contract)", "Worky June 2024–Sept 2024 Data Product Developer (Contractor)",
   "GRUPO HOMA Real Estate Developers Jan 2022–Jan 2023 Data Solutions Architect (Contractor)", "University of Chihuahua", "Master’s Degree in Open Source Software",
-  "2018-2020", "Emeritus University of Puebla", "B.Sc. in Physics", "2013-2018", "On-Course Professional Data Engineer Certification by Google",
-  "Oct 2023 Big Data and Machine Learning Fundamentals", "Oct 2023 Modernizing Data Lakes and Data Warehouses with Google Cloud", "English - Fluent", "Spanish - Native",
+  "2018–2020", "Emeritus University of Puebla", "B.Sc. in Physics", "2013–2018", "Google Cloud Professional Data Engineer",
+  "Big Data and Machine Learning Fundamentals", "Modernizing Data Lakes and Data Warehouses with Google Cloud", "English - Fluent", "Spanish - Native",
 ];
 
 const spelledCount = String.raw`(?:zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:[- ](?:one|two|three|four|five|six|seven|eight|nine))?)`;
@@ -150,7 +150,7 @@ export const RESUME_VARIANTS = [
       "Developed a custom, end-to-end data product in Power BI.",
       "I created an end-to-end, user-friendly data product",
       "University of Chihuahua",
-      "On-Course Professional Data Engineer Certification by Google",
+      "Google Cloud Professional Data Engineer",
       "English - Fluent",
       "Spanish - Native",
     ],
