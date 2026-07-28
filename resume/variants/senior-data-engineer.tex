@@ -6,43 +6,12 @@
 \input{content/consulting}
 \input{content/education}
 
-\renewcommand{\small}{\fontsize{10pt}{13.5pt}\selectfont}
-\renewcommand{\ResumeContactLine}{%
-  \ResumeEmail\,\textbar\,\ResumeMexicoPhone\,\textbar\,\ResumeSpainPhone\par
-  \ResumeWebsite\,\textbar\,\ResumeLinkedIn
-}
-
-\newcommand{\PlaytomicMcpAndAdk}{%
-  \begingroup
-    \def\ResumeBullet##1{\global\def\SeniorMcpEvidence{##1}}%
-    \PlaytomicMcpSemanticLayer
-    \def\ResumeBullet##1{\global\def\SeniorAdkEvidence{##1}}%
-    \PlaytomicAdkAgents
-  \endgroup
-  \ResumeBullet{\SeniorMcpEvidence\ \SeniorAdkEvidence}%
-}
-
-\newcommand{\SeniorEducation}{%
-  \begingroup
-    \renewcommand{\ResumeCredential}[2]{}%
-    \SharedEducation
-  \endgroup
-}
-
-\newcommand{\SeniorCertification}{%
-  \begingroup
-    \renewcommand{\ResumeEducation}[3]{}%
-    \SharedEducation
-  \endgroup
-}
-
 \begin{document}
-\fontsize{11pt}{16pt}\selectfont
 
 \ResumeHeader{Senior Data Engineer \& GCP Data Architect}
 
 \ResumeSection{Summary}
-Senior data engineer and GCP data architect with 7+ years of experience building production data platforms from ingestion through trusted models. I design streaming and batch systems, reusable engineering frameworks, infrastructure as code, and operating practices that make platforms faster, more reliable, and easier for teams to own.
+Senior data engineer and GCP data architect with 7+ years of experience owning production data platforms from ingestion through trusted models and live products. I build streaming and batch systems, reusable engineering frameworks, infrastructure as code, and operating practices that make platforms faster, more reliable, and easier for teams to own.
 
 \ResumeSection{Technical Skills}
 \SeniorEngineeringSkills
@@ -51,26 +20,27 @@ Senior data engineer and GCP data architect with 7+ years of experience building
 
 \PlaytomicLeadRole
 \begin{ResumeBullets}
-  \PlaytomicIngestion
   \PlaytomicBeamFramework
-  \PlaytomicDeliverySpeed
   \PlaytomicTerraform
   \PlaytomicObservability
+  \PlaytomicStreamingImpact
+  \PlaytomicMcpSemanticLayer
+  \PlaytomicAdkAgents
 \end{ResumeBullets}
 
 \PlaytomicSeniorRole
 \begin{ResumeBullets}
-  \PlaytomicLatencyAndLiveProducts
-  \PlaytomicCostReduction
-  \PlaytomicMcpAndAdk
+  \PlaytomicIngestion
+  \PlaytomicModeling
+  \PlaytomicIntegrations
+  \PlaytomicMcpAdoption
 \end{ResumeBullets}
 
 \SiftiaRole
 \begin{ResumeBullets}
   \SiftiaQueryRefactor
   \SiftiaRefreshTime
-  \SiftiaReporting
-  \SiftiaMigration
+  \SiftiaReportingAndMigration
 \end{ResumeBullets}
 
 \newpage
@@ -80,6 +50,7 @@ Senior data engineer and GCP data architect with 7+ years of experience building
 \begin{ResumeBullets}
   \WorkyPipelines
   \WorkyWarehouse
+  \WorkyReporting
 \end{ResumeBullets}
 
 \MatchCraftRole
@@ -90,6 +61,9 @@ Senior data engineer and GCP data architect with 7+ years of experience building
 \MmiRole
 \begin{ResumeBullets}
   \MmiGeolocation
+  \MmiHealthCheck
+  \MmiMarketingAutomation
+  \MmiStandards
 \end{ResumeBullets}
 
 \BMetricsRole
@@ -97,7 +71,7 @@ Senior data engineer and GCP data architect with 7+ years of experience building
   \BMetricsImpact
 \end{ResumeBullets}
 
-\ResumeSection{Selected Consulting}
+\ResumeSection{Consulting Projects}
 
 \ThomsonReutersRole
 \begin{ResumeBullets}
@@ -115,9 +89,12 @@ Senior data engineer and GCP data architect with 7+ years of experience building
 \end{ResumeBullets}
 
 \ResumeSection{Education}
-\SeniorEducation
+\SharedEducation
 
-\ResumeSection{Certification}
-\SeniorCertification
+\ResumeSection{Certifications}
+\SharedCertifications
+
+\ResumeSection{Languages}
+\SharedLanguages
 
 \end{document}

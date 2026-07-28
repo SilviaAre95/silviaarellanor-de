@@ -30,7 +30,17 @@ test("requires target-specific headlines and common identity markers", () => {
 });
 
 test("requires the canonical career and contact contract in every variant", () => {
-  const requiredCareer = [
+  const seniorCareer = [
+    "Playtomic Oct 2025–Present Lead Data Engineer",
+    "Playtomic Apr 2024–Oct 2025 Global Senior Data Engineer",
+    "Siftia Data Company Feb 2023–Apr 2024 Data Engineer / Data Product Developer",
+    "Worky Jun 2022–Feb 2023 Data Engineer / Analyst",
+    "MatchCraft Feb 2021–Jul 2022 Business Data Engineer",
+    "MMI Business Consulting Oct 2020–Dec 2023 Partner & Database Engineer",
+    "B-Metrics Sep 2019–Oct 2020 Biomechanical Data Engineer",
+    "Thomson Reuters Feb 2025–May 2026 Data Engineer (Contract)",
+  ];
+  const privateVariantCareer = [
     "Playtomic Lead Data Engineer Oct 2025–Present",
     "Playtomic Global Senior Data Engineer Apr 2024–Oct 2025",
     "Siftia Data Company Data Engineer / Data Product Developer Feb 2023–Apr 2024",
@@ -42,6 +52,9 @@ test("requires the canonical career and contact contract in every variant", () =
   ];
 
   for (const variant of RESUME_VARIANTS) {
+    const requiredCareer = variant.id === "senior-data-engineer"
+      ? seniorCareer
+      : privateVariantCareer;
     for (const requiredText of [
       ...requiredCareer,
       "Authorized to work in Mexico, Spain, the United States, and the EU",
@@ -66,17 +79,21 @@ test("defines section and approved-evidence contracts per variant", () => {
         "Technical Skills",
         "Professional Experience",
         "Professional Experience (continued)",
-        "Selected Consulting",
+        "Consulting Projects",
         "Education",
-        "Certification",
+        "Certifications",
+        "Languages",
       ],
       evidence: [
-        "complete data-ingestion infrastructure",
-        "reusable Beam frameworks",
-        "Codified the data platform in Terraform",
+        "first fully automated ingestion system",
+        "Created Beam frameworks",
+        "Codified Dataflow jobs, BigQuery resources, monitoring, and deployment infrastructure in Terraform",
+        "dimensional modeling and star schemas",
+        "integrations with Zendesk, CDPs, and marketing tools",
         "observability layers",
-        "live data products inside the application",
-        "MCP server over a Cube Core semantic layer",
+        "streaming latency below one second",
+        "pipeline costs by up to 60%",
+        "MCP server over Cube Core",
         "Agent Development Kit",
       ],
     },
@@ -91,7 +108,7 @@ test("defines section and approved-evidence contracts per variant", () => {
         "Education",
       ],
       evidence: [
-        "MCP server over a Cube Core semantic layer",
+        "MCP server over Cube Core",
         "50+ people across six teams",
         "all new dashboards independently",
         "Agent Development Kit",
@@ -113,9 +130,9 @@ test("defines section and approved-evidence contracts per variant", () => {
         "Managed the data engineering team at Playtomic",
         "Managed a client-facing data engineering team",
         "Led the development team within the consultancy",
-        "complete data-ingestion infrastructure",
-        "Codified the data platform in Terraform",
-        "reusable Beam frameworks",
+        "first fully automated ingestion system",
+        "Codified Dataflow jobs, BigQuery resources, monitoring, and deployment infrastructure in Terraform",
+        "Created Beam frameworks",
         "observability layers",
         "50+ people across six teams",
       ],
