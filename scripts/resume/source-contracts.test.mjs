@@ -56,6 +56,11 @@ test("canonical employment macros preserve approved roles and dates", async () =
 
 test("identity defines five visible linked contact items", async () => {
   const source = await readFile(identitySourceUrl, "utf8");
+  assert.equal(
+    source.match(/\\ResumeContactItem\{/g)?.length,
+    5,
+    "identity must define exactly five linked contact items",
+  );
   for (const marker of [
     String.raw`\ResumeContactItem{\ResumeIconLinkedIn}{https://www.linkedin.com/in/silvia-arellano-de}{LinkedIn}`,
     String.raw`\ResumeContactItem{\ResumeIconEnvelope}{mailto:silvia.datadev@gmail.com}{silvia.datadev@gmail.com}`,
@@ -70,13 +75,49 @@ test("identity defines five visible linked contact items", async () => {
 test("education source preserves all credentials and languages", async () => {
   const source = await readFile(educationSourceUrl, "utf8");
   for (const marker of [
-    "Google Cloud Professional Data Engineer",
-    "Big Data and Machine Learning Fundamentals",
-    "Modernizing Data Lakes and Data Warehouses with Google Cloud",
+    String.raw`\ResumeEducation{University of Chihuahua}{2018--2020}{Master's Degree in Open Source Software}`,
+    String.raw`\ResumeEducation{Emeritus University of Puebla}{2013--2018}{B.Sc. in Physics}`,
+    String.raw`\ResumeCredential{Google Cloud Professional Data Engineer}{In progress}`,
+    String.raw`\ResumeCredential{Big Data and Machine Learning Fundamentals}{Google, Oct 2023}`,
+    String.raw`\ResumeCredential{Modernizing Data Lakes and Data Warehouses with Google Cloud}{Google, Oct 2023}`,
     String.raw`\ResumeLanguage{English}{Fluent}`,
     String.raw`\ResumeLanguage{Spanish}{Native}`,
   ]) {
     assert.ok(source.includes(marker), `missing credential or language: ${marker}`);
+  }
+});
+
+test("canonical sources preserve the saved resume's important project detail", async () => {
+  const experience = await readFile(experienceSourceUrl, "utf8");
+  const consulting = await readFile(consultingSourceUrl, "utf8");
+
+  const requiredEmploymentEvidence = [
+    ["Playtomic", "first fully automated ingestion system"],
+    ["Playtomic", "dimensional modeling and star schemas"],
+    ["Playtomic", "Zendesk, CDPs, and marketing tools"],
+    ["Siftia", "more than 80 scheduled BigQuery queries"],
+    ["Siftia", "dynamic column unnesting"],
+    ["Siftia", "post-migration synchronization and Firebase audits"],
+    ["Worky", "Type 2 slowly changing dimensions and a galaxy schema"],
+    ["Worky", "eight live Looker Studio reports"],
+    ["MatchCraft", "ad-behavior prediction and budget-estimation tools"],
+    ["MMI", "database health-check tool"],
+    ["MMI", "marketing workflows with ETL packages and T-SQL"],
+    ["B-Metrics", "national sports teams"],
+  ];
+
+  for (const [label, phrase] of requiredEmploymentEvidence) {
+    assert.ok(experience.includes(phrase), `${label} evidence missing: ${phrase}`);
+  }
+
+  for (const phrase of [
+    "Fivetran, Datastream, and Dataflow",
+    "Power BI data product",
+    "the client sold it as a new product",
+    "construction progress, budget, and sales",
+    "Cloud Functions, Workflows, Zapier, and Apps Script",
+  ]) {
+    assert.ok(consulting.includes(phrase), `consulting evidence missing: ${phrase}`);
   }
 });
 
