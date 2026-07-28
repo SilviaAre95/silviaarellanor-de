@@ -6,21 +6,7 @@
 \input{content/consulting}
 \input{content/education}
 
-\renewcommand{\small}{\fontsize{10pt}{13.5pt}\selectfont}
-\renewcommand{\ResumeContactLine}{%
-  \ResumeEmail\,\textbar\,\ResumeMexicoPhone\,\textbar\,\ResumeSpainPhone\par
-  \ResumeWebsite\,\textbar\,\ResumeLinkedIn
-}
-
-\newcommand{\ForwardDeployedEducation}{%
-  \begingroup
-    \renewcommand{\ResumeCredential}[2]{}%
-    \SharedEducation
-  \endgroup
-}
-
 \begin{document}
-\fontsize{11pt}{16pt}\selectfont
 
 \ResumeHeader{Forward Deployed Engineer - Data \& AI Systems}
 
@@ -32,12 +18,10 @@ Data and AI engineer with 7+ years of experience delivering forward-deployed wor
 
 \ResumeSection{Selected Forward-Deployed Impact}
 \begin{ResumeBullets}
+  \ConsultingFullLifecycle
   \PlaytomicMcpSemanticLayer
   \PlaytomicMcpAdoption
-  \PlaytomicSelfServeDashboards
   \PlaytomicAdkAgents
-  \ConsultingFullLifecycle
-  \WorkyContractProduct
 \end{ResumeBullets}
 
 \ResumeSection{Professional Experience}
@@ -45,27 +29,31 @@ Data and AI engineer with 7+ years of experience delivering forward-deployed wor
 \PlaytomicLeadRole
 \begin{ResumeBullets}
   \PlaytomicIngestion
+  \PlaytomicBeamFramework
+  \PlaytomicTerraform
   \PlaytomicObservability
 \end{ResumeBullets}
 
 \PlaytomicSeniorRole
 \begin{ResumeBullets}
   \PlaytomicLatencyAndLiveProducts
-  \PlaytomicCostReduction
+  \PlaytomicIntegrations
+\end{ResumeBullets}
+
+\SiftiaRole
+\begin{ResumeBullets}
+  \SiftiaQueryRefactor
+  \SiftiaReportingAndMigration
 \end{ResumeBullets}
 
 \newpage
 \ResumeSection{Professional Experience (continued)}
 
-\SiftiaRole
-\begin{ResumeBullets}
-  \SiftiaReporting
-  \SiftiaMigration
-\end{ResumeBullets}
-
 \WorkyRole
 \begin{ResumeBullets}
   \WorkyPipelines
+  \WorkyWarehouse
+  \WorkyReporting
 \end{ResumeBullets}
 
 \MatchCraftRole
@@ -76,6 +64,8 @@ Data and AI engineer with 7+ years of experience delivering forward-deployed wor
 \MmiRole
 \begin{ResumeBullets}
   \MmiGeolocation
+  \MmiHealthCheck
+  \MmiMarketingAutomation
 \end{ResumeBullets}
 
 \BMetricsRole
@@ -90,12 +80,23 @@ Data and AI engineer with 7+ years of experience delivering forward-deployed wor
   \ThomsonReutersDelivery
 \end{ResumeBullets}
 
+\WorkyContractRole
+\begin{ResumeBullets}
+  \WorkyContractProduct
+\end{ResumeBullets}
+
 \GrupoHomaRole
 \begin{ResumeBullets}
   \GrupoHomaProduct
 \end{ResumeBullets}
 
 \ResumeSection{Education}
-\ForwardDeployedEducation
+\SharedEducation
+
+\ResumeSection{Certifications}
+\SharedCertifications
+
+\ResumeSection{Languages}
+\SharedLanguages
 
 \end{document}

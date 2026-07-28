@@ -23,9 +23,15 @@ const seniorCareerText = [
   "Thomson Reuters Feb 2025–May 2026 Data Engineer (Contract)",
 ];
 
+const fdeCareerText = [
+  ...seniorCareerText,
+  "Worky Jun 2024–Sep 2024 Data Product Developer (Contract)",
+  "Grupo Homa Real Estate Developers Jan 2022–Jan 2023 Data Solutions Architect (Contract)",
+];
+
 // The untouched private variants use larger leading, which makes pdftotext
-// extract each role before its right-aligned date. Tasks 5 and 6 own migrating
-// their compositions and validation order.
+// extract each role before its right-aligned date. Task 6 owns migrating the
+// remaining Leadership composition and validation order.
 const privateVariantCareerText = [
   "Playtomic Lead Data Engineer Oct 2025–Present",
   "Playtomic Global Senior Data Engineer Apr 2024–Oct 2025",
@@ -120,6 +126,7 @@ export const RESUME_VARIANTS = [
     output: "resume/build/silvia-arellano-forward-deployed-engineer.pdf",
     headline: "Forward Deployed Engineer - Data & AI Systems",
     publish: false,
+    careerText: fdeCareerText,
     requiredSections: [
       "Summary",
       "Data & AI Capabilities",
@@ -128,14 +135,18 @@ export const RESUME_VARIANTS = [
       "Professional Experience (continued)",
       "Consulting Engagements",
       "Education",
+      "Certifications",
+      "Languages",
     ],
     requiredEvidence: [
+      "discovery and scoping",
       "MCP server over Cube Core",
       "50+ people across six teams",
       "all new dashboards independently",
       "Agent Development Kit",
-      "Owned consulting engagements from discovery and scoping",
-      "Power BI data product end to end",
+      "client reporting and migration",
+      "Productized Power BI delivery",
+      "Business automation and warehousing",
     ],
     maxTextOccurrences: [{ text: "Forward Deployed Engineer", max: 1 }],
   }),

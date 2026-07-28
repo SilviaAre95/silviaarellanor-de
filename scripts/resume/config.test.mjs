@@ -40,6 +40,11 @@ test("requires the canonical career and contact contract in every variant", () =
     "B-Metrics Sep 2019–Oct 2020 Biomechanical Data Engineer",
     "Thomson Reuters Feb 2025–May 2026 Data Engineer (Contract)",
   ];
+  const fdeCareer = [
+    ...seniorCareer,
+    "Worky Jun 2024–Sep 2024 Data Product Developer (Contract)",
+    "Grupo Homa Real Estate Developers Jan 2022–Jan 2023 Data Solutions Architect (Contract)",
+  ];
   const privateVariantCareer = [
     "Playtomic Lead Data Engineer Oct 2025–Present",
     "Playtomic Global Senior Data Engineer Apr 2024–Oct 2025",
@@ -50,11 +55,14 @@ test("requires the canonical career and contact contract in every variant", () =
     "B-Metrics Biomechanical Data Engineer Sep 2019–Oct 2020",
     "Thomson Reuters Data Engineer (Contract) Feb 2025–May 2026",
   ];
+  const careerByVariant = {
+    "senior-data-engineer": seniorCareer,
+    "forward-deployed-engineer": fdeCareer,
+    "data-leadership": privateVariantCareer,
+  };
 
   for (const variant of RESUME_VARIANTS) {
-    const requiredCareer = variant.id === "senior-data-engineer"
-      ? seniorCareer
-      : privateVariantCareer;
+    const requiredCareer = careerByVariant[variant.id];
     for (const requiredText of [
       ...requiredCareer,
       "Authorized to work in Mexico, Spain, the United States, and the EU",
@@ -106,14 +114,18 @@ test("defines section and approved-evidence contracts per variant", () => {
         "Professional Experience (continued)",
         "Consulting Engagements",
         "Education",
+        "Certifications",
+        "Languages",
       ],
       evidence: [
+        "discovery and scoping",
         "MCP server over Cube Core",
         "50+ people across six teams",
         "all new dashboards independently",
         "Agent Development Kit",
-        "Owned consulting engagements from discovery and scoping",
-        "Power BI data product end to end",
+        "client reporting and migration",
+        "Productized Power BI delivery",
+        "Business automation and warehousing",
       ],
     },
     "data-leadership": {

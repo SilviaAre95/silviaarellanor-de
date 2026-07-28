@@ -152,6 +152,47 @@ test("Senior selects every canonical role, consulting engagement, and credential
   }
 });
 
+test("FDE selects every canonical role, consulting engagement, and credential group", async () => {
+  const source = await variantSource("forward-deployed-engineer");
+
+  for (const macro of [
+    "PlaytomicLeadRole",
+    "PlaytomicSeniorRole",
+    "SiftiaRole",
+    "WorkyRole",
+    "MatchCraftRole",
+    "MmiRole",
+    "BMetricsRole",
+    "ThomsonReutersRole",
+    "WorkyContractRole",
+    "GrupoHomaRole",
+    "SharedEducation",
+    "SharedCertifications",
+    "SharedLanguages",
+  ]) {
+    assert.equal(
+      source.match(new RegExp(`\\\\${macro}\\b`, "g"))?.length,
+      1,
+      `FDE must select ${macro} exactly once`,
+    );
+  }
+});
+
+test("FDE preserves earlier implementation and client-delivery depth", async () => {
+  const source = await variantSource("forward-deployed-engineer");
+
+  for (const macro of [
+    "WorkyPipelines",
+    "WorkyWarehouse",
+    "WorkyReporting",
+    "MmiGeolocation",
+    "MmiHealthCheck",
+    "MmiMarketingAutomation",
+  ]) {
+    assert.match(source, new RegExp(`\\\\${macro}\\b`));
+  }
+});
+
 test("the FDE target title appears once in source and never as an employment macro", async () => {
   const source = await variantSource("forward-deployed-engineer");
   assert.equal(source.match(/Forward Deployed Engineer/g)?.length, 1);
