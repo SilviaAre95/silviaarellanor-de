@@ -143,6 +143,18 @@ export async function validateResumePdf({ variant, pdfPath, logText, run }) {
   }
 
   const extractedText = await runValidationCommand(variant, runner, "pdftotext", [pdfPath, "-"]);
+
+  // Checked before normalization: NFKC folds U+FB00-U+FB06 back into plain
+  // letters, so a ligature with a broken ToUnicode mapping would pass every
+  // text contract below while being invisible to ATS keyword search.
+  const ligature = extractedText.match(/\S*[ﬀ-ﬆ]\S*/);
+  if (ligature) {
+    throw validationError(
+      variant,
+      `PDF text layer contains a typographic ligature that ATS keyword search cannot match: ${ligature[0]}`,
+    );
+  }
+
   const normalizedExtractedText = normalizePdfText(extractedText);
   const normalizedLines = extractedText
     .split(/\r?\n/)

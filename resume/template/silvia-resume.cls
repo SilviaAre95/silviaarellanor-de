@@ -13,10 +13,14 @@
 
 \definecolor{SilviaInk}{HTML}{000000}
 
+% Ligatures=NoCommon keeps the extracted text layer plain ASCII. TeX Gyre
+% Heros maps its ffi glyph to U+FB00 (ff) in ToUnicode, so "efficient" would
+% otherwise extract as "e<U+FB00>icient" and never match an ATS keyword search.
 \setmainfont{texgyreheros-regular.otf}[
   BoldFont=texgyreheros-bold.otf,
   ItalicFont=texgyreheros-italic.otf,
-  BoldItalicFont=texgyreheros-bolditalic.otf
+  BoldItalicFont=texgyreheros-bolditalic.otf,
+  Ligatures=NoCommon
 ]
 \newfontfamily\ResumeNameFont{texgyrepagella-regular.otf}[
   BoldFont=texgyrepagella-bold.otf,

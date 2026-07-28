@@ -12,15 +12,29 @@ four places, approved by Silvia on 2026-07-28. Do not revert these:
      This also removes the stray "|. Google" rendering defect.
   3. Education dates "2018-2020"/"2013-2018" -> en dashes "2018–2020"/"2013–2018"
   4. Final Playtomic Lead bullet              -> terminal period added
-All other Senior wording remains exactly as transcribed below.
+
+The generated resume also differs from this transcription in ways that come
+from the shared visual system rather than from wording decisions:
+  - Languages render as "English – Fluent" (en dash), not "English - Fluent"
+  - Role date ranges render with an en dash: "October 2025–Present"
+  - `Estimator' renders with a matched opening/closing quote pair; the Canva
+    uses two straight apostrophes
+  - The employer line repeats for the second Playtomic role, which the Canva
+    omits
+All other Senior wording matches this transcription.
+
+Transcription accuracy note: the SKILLS grid below is recorded in row-major
+order matching the Canva's four columns. An earlier version of this file had
+Python and Beam/Flink/Spark swapped; the LaTeX source was correct and the
+transcription was not. Verify against the Canva columns, not from memory.
 === END NOTE ===
 
 I'm a data engineer with deep experience architecting and building scalable data infrastructure in GCP. I’ve led the design of end-to-end solutions—from ingestion pipelines to core data models—that support teams across product, operations, finance, and customer experience. I’m strong at understanding business needs and translating them into data products that are reliable, actionable, and easy to work with. Whether replacing third-party tools or setting up self-serve workflows, I focus on building systems that are both technically sound and aligned with how teams actually use data to make decisions.
 
 SKILLS
 SQL  BigQuery  Cloud Computing  IaC/Terraform/Pulumi
-ETL/ELT  Data Visualization  Beam/Flink/Spark  Orchestration/Airflow/Prefect
-Data Warehousing  Python  Firestore  SQLX/Dataform/DBT
+ETL/ELT  Data Visualization  Python  Orchestration/Airflow/Prefect
+Data Warehousing  Beam/Flink/Spark  Firestore  SQLX/Dataform/DBT
 SQL/NoSQL Management  Git
 
 PROFESSIONAL EXPERIENCE

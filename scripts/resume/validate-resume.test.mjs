@@ -646,6 +646,48 @@ test("rejects PDFs without all required hyperlinks", async () => {
   );
 });
 
+test("rejects a text layer whose ligatures defeat ATS keyword search", async () => {
+  await assert.rejects(
+    validateResumePdf({
+      variant: { id: "senior-data-engineer", requiredText: ["repeatable and efficient"] },
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: async (command, args) => {
+        if (command === "pdfinfo" && args[0] === "-url") return validUrls;
+        if (command === "pdfinfo") return validInfo;
+        if (command === "pdffonts") return validFonts;
+        // TeX Gyre Heros maps its ffi glyph to U+FB00, so "efficient"
+        // extracts as "e" + U+FB00 + "icient".
+        if (command === "pdftotext") return "making deployments repeatable and eﬀicient.";
+        throw new Error(`Unexpected command: ${command}`);
+      },
+    }),
+    /\[senior-data-engineer\].*ligature that ATS keyword search cannot match/,
+  );
+});
+
+test("accepts a text layer that spells ligature words as plain letters", async () => {
+  const extracted = [
+    "making deployments repeatable and efficient.",
+    ...visibleContacts.split(/\r?\n/),
+  ].join("\n");
+
+  await assert.doesNotReject(
+    validateResumePdf({
+      variant: { id: "senior-data-engineer", requiredText: ["repeatable and efficient"] },
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: async (command, args) => {
+        if (command === "pdfinfo" && args[0] === "-url") return validUrls;
+        if (command === "pdfinfo") return validInfo;
+        if (command === "pdffonts") return validFonts;
+        if (command === "pdftotext") return extracted;
+        throw new Error(`Unexpected command: ${command}`);
+      },
+    }),
+  );
+});
+
 test("rejects PDFs with an overfull TeX box warning", async () => {
   await assert.rejects(
     validateResumePdf({
