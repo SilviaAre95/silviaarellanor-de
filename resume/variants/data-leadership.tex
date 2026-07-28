@@ -6,21 +6,7 @@
 \input{content/consulting}
 \input{content/education}
 
-\renewcommand{\small}{\fontsize{10pt}{13.5pt}\selectfont}
-\renewcommand{\ResumeContactLine}{%
-  \ResumeEmail\,\textbar\,\ResumeMexicoPhone\,\textbar\,\ResumeSpainPhone\par
-  \ResumeWebsite\,\textbar\,\ResumeLinkedIn
-}
-
-\newcommand{\LeadershipEducation}{%
-  \begingroup
-    \renewcommand{\ResumeCredential}[2]{}%
-    \SharedEducation
-  \endgroup
-}
-
 \begin{document}
-\fontsize{11pt}{16pt}\selectfont
 
 \ResumeHeader{Data Engineering Leader \& Architect}
 
@@ -35,8 +21,13 @@ Data engineering leader and architect with 7+ years of experience building teams
 \PlaytomicLeadRole
 \begin{ResumeBullets}
   \PlaytomicLeadership
+  \PlaytomicIngestion
+  \PlaytomicBeamFramework
+  \PlaytomicTerraform
+  \PlaytomicObservability
+  \PlaytomicStreamingImpact
   \PlaytomicMcpSemanticLayer
-  \PlaytomicSelfServeDashboards
+  \PlaytomicMcpAdoption
 \end{ResumeBullets}
 
 \PlaytomicSeniorRole
@@ -47,8 +38,13 @@ Data engineering leader and architect with 7+ years of experience building teams
 \SiftiaRole
 \begin{ResumeBullets}
   \SiftiaLeadership
+  \SiftiaQueryRefactor
   \SiftiaRefreshTime
+  \SiftiaReportingAndMigration
 \end{ResumeBullets}
+
+\newpage
+\ResumeSection{Professional Experience (continued)}
 
 \WorkyRole
 \begin{ResumeBullets}
@@ -60,9 +56,6 @@ Data engineering leader and architect with 7+ years of experience building teams
   \MatchCraftImpact
 \end{ResumeBullets}
 
-\newpage
-\ResumeSection{Professional Experience (continued)}
-
 \MmiRole
 \begin{ResumeBullets}
   \MmiLeadership
@@ -72,18 +65,6 @@ Data engineering leader and architect with 7+ years of experience building teams
 \BMetricsRole
 \begin{ResumeBullets}
   \BMetricsImpact
-\end{ResumeBullets}
-
-\ResumeSection{Selected Technical \& Organizational Impact}
-\begin{ResumeBullets}
-  \PlaytomicIngestion
-  \PlaytomicTerraform
-  \PlaytomicBeamFramework
-  \PlaytomicObservability
-  \PlaytomicDeliverySpeed
-  \PlaytomicLatencyAndLiveProducts
-  \PlaytomicCostReduction
-  \PlaytomicMcpAdoption
 \end{ResumeBullets}
 
 \ResumeSection{Consulting}
@@ -104,6 +85,12 @@ Data engineering leader and architect with 7+ years of experience building teams
 \end{ResumeBullets}
 
 \ResumeSection{Education}
-\LeadershipEducation
+\SharedEducation
+
+\ResumeSection{Certifications}
+\SharedCertifications
+
+\ResumeSection{Languages}
+\SharedLanguages
 
 \end{document}

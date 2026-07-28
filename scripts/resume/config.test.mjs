@@ -45,20 +45,24 @@ test("requires the canonical career and contact contract in every variant", () =
     "Worky Jun 2024–Sep 2024 Data Product Developer (Contract)",
     "Grupo Homa Real Estate Developers Jan 2022–Jan 2023 Data Solutions Architect (Contract)",
   ];
-  const privateVariantCareer = [
-    "Playtomic Lead Data Engineer Oct 2025–Present",
-    "Playtomic Global Senior Data Engineer Apr 2024–Oct 2025",
-    "Siftia Data Company Data Engineer / Data Product Developer Feb 2023–Apr 2024",
-    "Worky Data Engineer / Analyst Jun 2022–Feb 2023",
-    "MatchCraft Business Data Engineer Feb 2021–Jul 2022",
-    "MMI Business Consulting Partner & Database Engineer Oct 2020–Dec 2023",
-    "B-Metrics Biomechanical Data Engineer Sep 2019–Oct 2020",
-    "Thomson Reuters Data Engineer (Contract) Feb 2025–May 2026",
+  const leadershipCareer = [
+    "Playtomic Oct 2025–Present Lead Data Engineer",
+    "Playtomic Apr 2024–Oct 2025 Global Senior Data Engineer",
+    "Siftia Data Company Feb 2023–Apr 2024 Data Engineer / Data Product Developer",
+    "Worky Jun 2022–Feb 2023 Data Engineer / Analyst",
+    "MatchCraft Feb 2021–Jul 2022 Business Data Engineer",
+    "MMI Business Consulting",
+    "Partner & Database Engineer",
+    "Oct 2020–Dec 2023",
+    "B-Metrics Sep 2019–Oct 2020 Biomechanical Data Engineer",
+    "Thomson Reuters Feb 2025–May 2026 Data Engineer (Contract)",
+    "Worky Jun 2024–Sep 2024 Data Product Developer (Contract)",
+    "Grupo Homa Real Estate Developers Jan 2022–Jan 2023 Data Solutions Architect (Contract)",
   ];
   const careerByVariant = {
     "senior-data-engineer": seniorCareer,
     "forward-deployed-engineer": fdeCareer,
-    "data-leadership": privateVariantCareer,
+    "data-leadership": leadershipCareer,
   };
 
   for (const variant of RESUME_VARIANTS) {
@@ -134,19 +138,20 @@ test("defines section and approved-evidence contracts per variant", () => {
         "Leadership & Architecture Strengths",
         "Professional Experience",
         "Professional Experience (continued)",
-        "Selected Technical & Organizational Impact",
         "Consulting",
         "Education",
+        "Certifications",
+        "Languages",
       ],
       evidence: [
         "Managed the data engineering team at Playtomic",
         "Managed a client-facing data engineering team",
         "Led the development team within the consultancy",
-        "first fully automated ingestion system",
-        "Codified Dataflow jobs, BigQuery resources, monitoring, and deployment infrastructure in Terraform",
-        "Created Beam frameworks",
-        "observability layers",
+        "Reusable data-product framework",
+        "Infrastructure as code",
+        "Sustained engineering agents",
         "50+ people across six teams",
+        "Streaming and batch platform",
       ],
     },
   };

@@ -178,6 +178,70 @@ test("FDE selects every canonical role, consulting engagement, and credential gr
   }
 });
 
+test("Leadership selects every canonical role, consulting engagement, and credential group", async () => {
+  const source = await variantSource("data-leadership");
+
+  for (const macro of [
+    "PlaytomicLeadRole",
+    "PlaytomicSeniorRole",
+    "SiftiaRole",
+    "WorkyRole",
+    "MatchCraftRole",
+    "MmiRole",
+    "BMetricsRole",
+    "ThomsonReutersRole",
+    "WorkyContractRole",
+    "GrupoHomaRole",
+    "SharedEducation",
+    "SharedCertifications",
+    "SharedLanguages",
+  ]) {
+    assert.equal(
+      source.match(new RegExp(`\\\\${macro}\\b`, "g"))?.length,
+      1,
+      `Leadership must select ${macro} exactly once`,
+    );
+  }
+});
+
+test("Leadership preserves management, architecture, adoption, and consulting depth", async () => {
+  const source = await variantSource("data-leadership");
+
+  for (const macro of [
+    "PlaytomicLeadership",
+    "PlaytomicIngestion",
+    "PlaytomicBeamFramework",
+    "PlaytomicTerraform",
+    "PlaytomicObservability",
+    "PlaytomicMcpSemanticLayer",
+    "PlaytomicMcpAdoption",
+    "PlaytomicAdkAgents",
+    "SiftiaLeadership",
+    "SiftiaRefreshTime",
+    "MmiLeadership",
+    "MmiStandards",
+    "ThomsonReutersDelivery",
+  ]) {
+    assert.match(source, new RegExp(`\\\\${macro}\\b`));
+  }
+});
+
+test("Leadership preserves platform scale and Siftia delivery depth", async () => {
+  const source = await variantSource("data-leadership");
+
+  for (const macro of [
+    "PlaytomicStreamingImpact",
+    "SiftiaQueryRefactor",
+    "SiftiaReportingAndMigration",
+  ]) {
+    assert.equal(
+      source.match(new RegExp(`\\\\${macro}\\b`, "g"))?.length,
+      1,
+      `Leadership must select ${macro} exactly once`,
+    );
+  }
+});
+
 test("FDE preserves earlier implementation and client-delivery depth", async () => {
   const source = await variantSource("forward-deployed-engineer");
 
@@ -235,7 +299,7 @@ test("50+ across six teams is selected only as adoption evidence", async () => {
 
   const leadershipSource = await variantSource("data-leadership");
   assert.match(
-    sectionBlock(leadershipSource, "Selected Technical \\& Organizational Impact"),
+    sectionBlock(leadershipSource, "Professional Experience"),
     /\\PlaytomicMcpAdoption\b/,
   );
 });
