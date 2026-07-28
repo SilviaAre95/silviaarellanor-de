@@ -162,6 +162,33 @@ export async function validateResumePdf({ variant, pdfPath, logText, run }) {
     throw validationError(variant, `PDF is missing required section label: ${missingSection}`);
   }
 
+  const requiredTextOrder = variant.requiredTextOrder ?? [];
+  const orderedExtractedText = requiredTextOrder.length > 0
+    ? normalizePdfText(
+      await runValidationCommand(
+        variant,
+        runner,
+        "pdftotext",
+        ["-layout", pdfPath, "-"],
+      ),
+    )
+    : normalizedExtractedText;
+  let orderedTextOffset = 0;
+  for (const requiredText of requiredTextOrder) {
+    const normalizedRequiredText = normalizePdfText(requiredText);
+    const nextOffset = orderedExtractedText.indexOf(
+      normalizedRequiredText,
+      orderedTextOffset,
+    );
+    if (nextOffset === -1) {
+      throw validationError(
+        variant,
+        `PDF extraction order is incorrect at: ${requiredText}`,
+      );
+    }
+    orderedTextOffset = nextOffset + normalizedRequiredText.length;
+  }
+
   for (const { label, pattern } of variant.forbiddenText ?? []) {
     pattern.lastIndex = 0;
     if (pattern.test(normalizedExtractedText)) {

@@ -5,12 +5,12 @@ I'm a data engineer with deep experience architecting and building scalable data
 }
 
 \newcommand{\SeniorCurrentSkills}{%
-\begin{tabular}{@{}llll@{}}
-SQL & BigQuery & Cloud Computing & IaC/Terraform/Pulumi \\
-ETL/ELT & Data Visualization & Beam/Flink/Spark & Orchestration/Airflow/Prefect \\
-Data Warehousing & Python & Firestore & SQLX/Dataform/DBT \\
-SQL/NoSQL Management & Git & &
-\end{tabular}%
+\ResumeSkillGrid{%
+  \ResumeSkillGridRow{SQL}{BigQuery}{Cloud Computing}{IaC/Terraform/Pulumi}%
+  \ResumeSkillGridRow{ETL/ELT}{Data Visualization}{Python}{Orchestration/Airflow/Prefect}%
+  \ResumeSkillGridRow{Data Warehousing}{Beam/Flink/Spark}{Firestore}{SQLX/Dataform/DBT}%
+  \ResumeSkillGridRow{SQL/NoSQL Management}{Git}{}{}%
+}%
 }
 
 \newcommand{\SeniorCurrentLiteralProject}[2]{%

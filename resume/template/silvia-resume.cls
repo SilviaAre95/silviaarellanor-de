@@ -11,9 +11,7 @@
 \RequirePackage{hyperref}
 \RequirePackage{tikz}
 
-\definecolor{SilviaTeal}{HTML}{007A6B}
-\definecolor{SilviaDarkTeal}{HTML}{005A4E}
-\definecolor{SilviaInk}{HTML}{0A0E17}
+\definecolor{SilviaInk}{HTML}{000000}
 
 \setmainfont{texgyreheros-regular.otf}[
   BoldFont=texgyreheros-bold.otf,
@@ -39,14 +37,14 @@
 
 \hypersetup{
   colorlinks=true,
-  linkcolor=SilviaTeal,
-  urlcolor=SilviaTeal,
-  citecolor=SilviaTeal,
+  linkcolor=SilviaInk,
+  urlcolor=SilviaInk,
+  citecolor=SilviaInk,
   pdfborder={0 0 0}
 }
 
 \newcommand{\ResumeVectorIcon}[1]{%
-  \tikz[x=1ex,y=1ex,baseline=-0.55ex,line width=0.11ex,line cap=round,line join=round]{%
+  \tikz[x=1.18ex,y=1.18ex,baseline=-0.22ex]{%
     \path[use as bounding box] (0,0) rectangle (1.4,1.2);
     #1%
   }%
@@ -54,48 +52,47 @@
 
 \newcommand{\ResumeIconEnvelope}{%
   \ResumeVectorIcon{%
-    \draw (0.12,0.18) rectangle (1.28,1.02);
-    \draw (0.12,0.94) -- (0.70,0.52) -- (1.28,0.94);
-    \draw (0.12,0.18) -- (0.54,0.57);
-    \draw (1.28,0.18) -- (0.86,0.57);
+    \fill[SilviaInk,rounded corners=0.10ex] (0.06,0.12) rectangle (1.34,1.08);
+    \fill[white] (0.16,0.88) -- (0.70,0.48) -- (1.24,0.88) --
+      (1.24,0.96) -- (0.70,0.57) -- (0.16,0.96) -- cycle;
   }%
 }
 
 \newcommand{\ResumeIconPhone}{%
   \ResumeVectorIcon{%
-    \draw[line width=0.23ex]
-      (0.28,0.99) .. controls (0.10,0.72) and (0.31,0.36) .. (0.65,0.20)
-      .. controls (0.88,0.09) and (1.09,0.14) .. (1.21,0.32);
-    \draw[line width=0.18ex] (0.18,1.02) -- (0.40,0.88);
-    \draw[line width=0.18ex] (1.08,0.18) -- (1.26,0.38);
+    \fill[SilviaInk]
+      (0.17,1.09) -- (0.43,1.02) -- (0.50,0.78) -- (0.36,0.67)
+      .. controls (0.47,0.43) and (0.68,0.26) .. (0.93,0.19)
+      -- (1.02,0.34) -- (1.27,0.31) -- (1.34,0.06)
+      .. controls (0.83,-0.05) and (0.23,0.36) .. (0.07,0.85)
+      -- cycle;
   }%
 }
 
 \newcommand{\ResumeIconGlobe}{%
   \ResumeVectorIcon{%
-    \draw (0.70,0.60) circle (0.50);
-    \draw (0.70,0.10)
-      .. controls (0.42,0.34) and (0.42,0.86) .. (0.70,1.10);
-    \draw (0.70,0.10)
-      .. controls (0.98,0.34) and (0.98,0.86) .. (0.70,1.10);
-    \draw (0.24,0.40) -- (1.16,0.40);
-    \draw (0.24,0.80) -- (1.16,0.80);
+    \fill[SilviaInk] (0.70,0.60) circle (0.56);
+    \fill[white] (0.18,0.55) rectangle (1.22,0.65);
+    \fill[white] (0.65,0.08) rectangle (0.75,1.12);
+    \fill[SilviaInk] (0.70,0.60) circle (0.13);
   }%
 }
 
 \newcommand{\ResumeIconLinkedIn}{%
   \ResumeVectorIcon{%
-    \draw[rounded corners=0.12ex] (0.15,0.08) rectangle (1.25,1.12);
-    \fill (0.38,0.82) circle (0.08);
-    \draw[line width=0.16ex] (0.38,0.58) -- (0.38,0.27);
-    \draw[line width=0.16ex] (0.65,0.27) -- (0.65,0.60);
-    \draw[line width=0.16ex]
-      (0.65,0.49) .. controls (0.82,0.70) and (1.04,0.62) .. (1.04,0.27);
+    \fill[SilviaInk,rounded corners=0.10ex] (0.10,0.03) rectangle (1.30,1.17);
+    \fill[white] (0.28,0.24) rectangle (0.46,0.69);
+    \fill[white] (0.37,0.89) circle (0.11);
+    \fill[white] (0.60,0.24) rectangle (0.78,0.69);
+    \fill[white] (0.72,0.61)
+      .. controls (0.91,0.80) and (1.14,0.69) .. (1.14,0.43)
+      -- (1.14,0.24) -- (0.96,0.24) -- (0.96,0.45)
+      .. controls (0.96,0.57) and (0.86,0.63) .. (0.78,0.55) -- cycle;
   }%
 }
 
 \newcommand{\ResumeContactItem}[3]{%
-  \href{#2}{\textcolor{SilviaTeal}{#1}\hspace{0.45em}\textcolor{SilviaInk}{#3}}\par%
+  \href{#2}{\textcolor{SilviaInk}{#1\hspace{0.45em}#3}}\par%
 }
 
 \newcommand{\ResumeHeader}[1]{%
@@ -113,14 +110,21 @@
   \par\vspace{4pt}%
   {\small \ResumeAuthorizationLine\par}%
   \vspace{3pt}%
-  {\color{SilviaTeal}\rule{\linewidth}{0.7pt}\par}%
+  {\color{SilviaInk}\rule{\linewidth}{0.7pt}\par}%
 }
 
 \newcommand{\ResumeSection}[1]{%
   \par\vspace{5pt}%
-  {\color{SilviaTeal}\rule{\linewidth}{0.45pt}\par}%
+  {\color{SilviaInk}\rule{\linewidth}{0.45pt}\par}%
   \vspace{1.5pt}%
-  {\ResumeNameFont\fontsize{11.5pt}{13pt}\selectfont\bfseries
+  {\centering\ResumeNameFont\fontsize{11.5pt}{13pt}\selectfont\bfseries
+    \MakeUppercase{#1}\par}%
+  \vspace{1.5pt}%
+}
+
+\newcommand{\ResumeOpeningSection}[1]{%
+  \par\vspace{5pt}%
+  {\centering\ResumeNameFont\fontsize{11.5pt}{13pt}\selectfont\bfseries
     \MakeUppercase{#1}\par}%
   \vspace{1.5pt}%
 }
@@ -140,6 +144,30 @@
 \newcommand{\ResumeBullet}[1]{\item #1}
 \newcommand{\ResumeProjectBullet}[2]{\item \textbf{#1.} #2}
 \newcommand{\ResumeLanguage}[2]{\textbf{#1} -- #2\par}
+
+\newcommand{\ResumeSkillCell}[1]{%
+  \parbox[t]{0.24\linewidth}{%
+    \raggedright\fontsize{8.7pt}{10.4pt}\selectfont
+    \if\relax\detokenize{#1}\relax
+      \strut
+    \else
+      \hangindent=0.9em\hangafter=1\textbullet\hspace{0.35em}#1\strut
+    \fi
+  }%
+}
+
+\newcommand{\ResumeSkillGridRow}[4]{%
+  \noindent\makebox[\linewidth][l]{%
+    \ResumeSkillCell{#1}\hfill
+    \ResumeSkillCell{#2}\hfill
+    \ResumeSkillCell{#3}\hfill
+    \ResumeSkillCell{#4}%
+  }\par
+}
+
+\newcommand{\ResumeSkillGrid}[1]{%
+  \begingroup#1\endgroup
+}
 
 \newcommand{\ResumeSkillRow}[2]{%
   \textbf{#1:} #2\par%

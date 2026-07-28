@@ -5,6 +5,7 @@ import test from "node:test";
 const experienceSourceUrl = new URL("../../resume/content/experience.tex", import.meta.url);
 const consultingSourceUrl = new URL("../../resume/content/consulting.tex", import.meta.url);
 const identitySourceUrl = new URL("../../resume/content/identity.tex", import.meta.url);
+const skillsSourceUrl = new URL("../../resume/content/skills.tex", import.meta.url);
 const educationSourceUrl = new URL("../../resume/content/education.tex", import.meta.url);
 const seniorCurrentSourceUrl = new URL("../../resume/content/senior-current-resume.tex", import.meta.url);
 const variantIds = [
@@ -63,9 +64,9 @@ test("identity defines five visible linked contact items", async () => {
     "identity must define exactly five linked contact items",
   );
   for (const marker of [
-    String.raw`\ResumeContactItem{\ResumeIconLinkedIn}{https://www.linkedin.com/in/silvia-arellano-de}{LinkedIn}`,
+    String.raw`\ResumeContactItem{\ResumeIconLinkedIn}{https://www.linkedin.com/in/silvia-arellano-de}{linkedin.com/in/silvia-arellano-de}`,
     String.raw`\ResumeContactItem{\ResumeIconEnvelope}{mailto:silvia.datadev@gmail.com}{silvia.datadev@gmail.com}`,
-    String.raw`\ResumeContactItem{\ResumeIconGlobe}{https://www.silviadata.dev}{silviadata.dev}`,
+    String.raw`\ResumeContactItem{\ResumeIconGlobe}{https://www.silviadata.dev}{www.silviadata.dev}`,
     String.raw`\ResumeContactItem{\ResumeIconPhone}{tel:+529871174186}{+52 987 117 4186}`,
     String.raw`\ResumeContactItem{\ResumeIconPhone}{tel:+34603990662}{+34 603 990 662}`,
   ]) {
@@ -144,6 +145,17 @@ test("every variant selects Worky, MatchCraft, and Thomson Reuters canonical rol
   }
 });
 
+test("targeted variants reuse the authorization divider for their opening summary", async () => {
+  for (const [id, label] of [
+    ["forward-deployed-engineer", "Summary"],
+    ["data-leadership", "Leadership Summary"],
+  ]) {
+    const source = await variantSource(id);
+    assert.match(source, new RegExp(String.raw`\\ResumeOpeningSection\{${label}\}`));
+    assert.doesNotMatch(source, new RegExp(String.raw`\\ResumeSection\{${label}\}`));
+  }
+});
+
 test("Senior composes the saved wording without synthetic headings", async () => {
   const source = await variantSource("senior-data-engineer");
 
@@ -191,7 +203,51 @@ test("Senior renders saved project labels and skills without shared generated pu
     seniorContent,
     /\\SeniorCurrentLiteralProject\{Geolocation Data Integration and Hashing Process\.\}/,
   );
-  assert.match(seniorContent, /SQL & BigQuery & Cloud Computing & IaC\/Terraform\/Pulumi/);
+  assert.match(
+    seniorContent,
+    /\\ResumeSkillGridRow\{SQL\}\{BigQuery\}\{Cloud Computing\}\{IaC\/Terraform\/Pulumi\}/,
+  );
+});
+
+test("Senior skills preserve the approved row-major extraction order", async () => {
+  const seniorContent = await readFile(seniorCurrentSourceUrl, "utf8");
+  const skills = macroBlock(seniorContent, "SeniorCurrentSkills");
+  const orderedSkills = [
+    "SQL",
+    "BigQuery",
+    "Cloud Computing",
+    "IaC/Terraform/Pulumi",
+    "ETL/ELT",
+    "Data Visualization",
+    "Python",
+    "Orchestration/Airflow/Prefect",
+  ];
+
+  let cursor = -1;
+  for (const skill of orderedSkills) {
+    const next = skills.indexOf(skill, cursor + 1);
+    assert.ok(next > cursor, `${skill} must follow the preceding Senior skill`);
+    cursor = next;
+  }
+});
+
+test("all shared skill sources use selectable grid cells instead of category lines", async () => {
+  const skillsSource = await readFile(skillsSourceUrl, "utf8");
+  const seniorContent = await readFile(seniorCurrentSourceUrl, "utf8");
+
+  for (const [source, macro] of [
+    [seniorContent, "SeniorCurrentSkills"],
+    [skillsSource, "ForwardDeployedSkills"],
+    [skillsSource, "LeadershipSkills"],
+  ]) {
+    const block = macroBlock(source, macro);
+    assert.match(block, /\\ResumeSkillGrid\b/, `${macro} must use the shared grid`);
+    assert.ok(
+      (block.match(/\\ResumeSkillGridRow\{/g)?.length ?? 0) >= 1,
+      `${macro} must expose at least one row-major four-cell row`,
+    );
+    assert.doesNotMatch(block, /\\ResumeSkillRow\b/);
+  }
 });
 
 test("FDE selects every canonical role, consulting engagement, and credential group", async () => {

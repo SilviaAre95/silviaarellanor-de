@@ -39,8 +39,8 @@ const commonRequiredText = [
   "silvia.datadev@gmail.com",
   "+52 987 117 4186",
   "+34 603 990 662",
-  "silviadata.dev",
-  "LinkedIn",
+  "www.silviadata.dev",
+  "linkedin.com/in/silvia-arellano-de",
   "Authorized to work in Mexico, Spain, the United States, and the EU",
   "Open to remote roles",
   ...SHARED_ROLE_DATE_TEXT,
@@ -49,7 +49,7 @@ const commonRequiredText = [
 ];
 
 const seniorCurrentRequiredText = [
-  "Silvia Arellano Romero", "silvia.datadev@gmail.com", "+52 987 117 4186", "+34 603 990 662", "silviadata.dev", "LinkedIn",
+  "Silvia Arellano Romero", "silvia.datadev@gmail.com", "+52 987 117 4186", "+34 603 990 662", "www.silviadata.dev", "linkedin.com/in/silvia-arellano-de",
   "Authorized to work in Mexico, Spain, the United States, and the EU", "Open to remote roles", "Senior Data Engineer & Architect",
   "Playtomic October 2025–Present Lead Data Engineer", "Playtomic April 2024–Oct 2025 Global Senior Data Engineer",
   "Siftia Data Company Feb 2023–April 2024 Data Engineer / Data Product Developer", "MMI Business Consulting Oct 2020–Dec 2023 Partner & Database Engineer",
@@ -97,6 +97,7 @@ function variantContract({
   requiredSections,
   requiredEvidence,
   maxTextOccurrences = [],
+  requiredTextOrder = [],
   requiredBaseText = commonRequiredText,
 }) {
   return {
@@ -115,6 +116,7 @@ function variantContract({
     ],
     forbiddenText: MANAGEMENT_HEADCOUNT_RULES,
     maxTextOccurrences,
+    requiredTextOrder,
   };
 }
 
@@ -151,6 +153,16 @@ export const RESUME_VARIANTS = [
       "On-Course Professional Data Engineer Certification by Google",
       "English - Fluent",
       "Spanish - Native",
+    ],
+    requiredTextOrder: [
+      "SQL",
+      "BigQuery",
+      "Cloud Computing",
+      "IaC/Terraform/Pulumi",
+      "ETL/ELT",
+      "Data Visualization",
+      "Python",
+      "Orchestration/Airflow/Prefect",
     ],
   }),
   variantContract({

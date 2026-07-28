@@ -26,11 +26,29 @@ test("requires target-specific headlines and common identity markers", () => {
   for (const variant of RESUME_VARIANTS) {
     assert.ok(variant.headline.length > 10);
     assert.ok(variant.requiredText.includes("Silvia Arellano Romero"));
-    assert.ok(variant.requiredText.includes("LinkedIn"));
+    assert.ok(
+      variant.requiredText.includes("linkedin.com/in/silvia-arellano-de"),
+    );
     assert.ok(variant.requiredText.includes("silvia.datadev@gmail.com"));
+    assert.ok(variant.requiredText.includes("www.silviadata.dev"));
     assert.ok(variant.requiredText.includes("+52 987 117 4186"));
     assert.ok(variant.requiredText.includes("+34 603 990 662"));
   }
+});
+
+test("Senior contract enforces the approved row-major skill extraction order", () => {
+  const senior = RESUME_VARIANTS.find(({ id }) => id === "senior-data-engineer");
+
+  assert.deepEqual(senior.requiredTextOrder, [
+    "SQL",
+    "BigQuery",
+    "Cloud Computing",
+    "IaC/Terraform/Pulumi",
+    "ETL/ELT",
+    "Data Visualization",
+    "Python",
+    "Orchestration/Airflow/Prefect",
+  ]);
 });
 
 test("requires the chronology-supported 6+ years claim in tailored variants", () => {

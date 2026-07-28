@@ -6,6 +6,21 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ## 2026-07-28
 
+- **Implemented**: replaced the prior teal and outline treatment with the approved black editorial system, filled baseline-aligned repository-owned contact marks, complete visible destinations, one authorization divider, centered ruled headings, and row-major four-column skill grids
+- **Preserved**: the saved Senior wording and labels, all verified FDE and Leadership evidence, complete history and credentials, exact five-link destinations, two-page ATS-readable output, and Senior-only publication
+- **Verified**: focused RED/GREEN visual-source and PDF-order contracts, the full resume suite, pinned Tectonic 0.16.9 production build, lint, exact publication inventory and hashes, plus original-resolution inspection of all six 150-DPI pages against the saved Canva reference
+- **Files touched**: resume/template/silvia-resume.cls, resume/content/identity.tex, resume/content/skills.tex, resume/content/senior-current-resume.tex, resume/variants/forward-deployed-engineer.tex, resume/variants/data-leadership.tex, scripts/resume/config.mjs, scripts/resume/config.test.mjs, scripts/resume/template-contracts.test.mjs, scripts/resume/source-contracts.test.mjs, scripts/resume/validate-resume.mjs, scripts/resume/validate-resume.test.mjs, docs/features/resume-delivery.md, docs/features/resume-delivery.CHANGELOG.md
+
+## 2026-07-28
+
+- **Changed**: the approved visual system now closely follows Silvia's saved Canva resume with black rules, centered editorial headings, filled aligned contact icons, complete visible destinations, one authorization divider, and a selectable four-column skills grid
+- **Changed**: the Senior variant preserves the saved resume's body wording verbatim while retaining separately approved website, Spain-phone, work-authorization, and remote-availability additions
+- **Preserved**: Forward Deployed Engineer and Data Leadership targeting, truthful shared career history, two-page ATS-readable output, and Senior-only website publication
+- **Files touched**: docs/features/resume-delivery.md, docs/features/resume-delivery.CHANGELOG.md
+- **Approved via**: diff-first escape hatch by Silvia on 2026-07-28
+
+## 2026-07-28
+
 - **Changed**: specified the approved original-inspired narrow-margin, teal, single-column two-page layout with scan-friendly project labels
 - **Added**: every variant must include complete employment, consulting, education, certification, language, authorization, availability, and linked visible contact contracts
 - **Verified**: 56 résumé tests, lint with zero errors, the pinned Tectonic 0.16.9 production build, Senior-only publication and privacy boundaries, tailoring-skill validation, and six-page original-resolution visual review

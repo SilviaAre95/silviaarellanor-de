@@ -27,6 +27,12 @@ const validUrls = `Page  Type          URL
    1  Annotation    tel:+34603990662
 `;
 
+const visibleContacts = `linkedin.com/in/silvia-arellano-de
+silvia.datadev@gmail.com
+www.silviadata.dev
++52 987 117 4186
++34 603 990 662`;
+
 function pdfRunner(extractedText) {
   return async (command, args) => {
     if (command === "pdfinfo" && args[0] === "-url") return validUrls;
@@ -110,14 +116,115 @@ test("accepts required text across PDF line and spacing changes", async () => {
   );
 });
 
+test("rejects abbreviated visible contact destinations", async () => {
+  await assert.rejects(
+    validateResumePdf({
+      variant: {
+        id: "senior-data-engineer",
+        requiredText: [
+          "linkedin.com/in/silvia-arellano-de",
+          "www.silviadata.dev",
+        ],
+      },
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: pdfRunner("LinkedIn\nsilviadata.dev"),
+    }),
+    /\[senior-data-engineer\].*linkedin\.com\/in\/silvia-arellano-de/,
+  );
+});
+
+test("accepts complete visible contact destinations", async () => {
+  await assert.doesNotReject(
+    validateResumePdf({
+      variant: {
+        id: "senior-data-engineer",
+        requiredText: [
+          "linkedin.com/in/silvia-arellano-de",
+          "silvia.datadev@gmail.com",
+          "www.silviadata.dev",
+          "+52 987 117 4186",
+          "+34 603 990 662",
+        ],
+      },
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: pdfRunner(visibleContacts),
+    }),
+  );
+});
+
+test("rejects Senior skills extracted outside the approved row-major order", async () => {
+  await assert.rejects(
+    validateResumePdf({
+      variant: {
+        id: "senior-data-engineer",
+        requiredText: [],
+        requiredTextOrder: [
+          "SQL",
+          "BigQuery",
+          "Cloud Computing",
+          "IaC/Terraform/Pulumi",
+          "ETL/ELT",
+          "Data Visualization",
+          "Python",
+          "Orchestration/Airflow/Prefect",
+        ],
+      },
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: pdfRunner(
+        "SQL BigQuery Cloud Computing IaC/Terraform/Pulumi ETL/ELT Data Visualization Beam/Flink/Spark Orchestration/Airflow/Prefect Python",
+      ),
+    }),
+    /\[senior-data-engineer\].*extraction order.*Orchestration\/Airflow\/Prefect/,
+  );
+});
+
+test("checks grid order using layout-aware PDF extraction", async () => {
+  const requiredTextOrder = [
+    "SQL",
+    "BigQuery",
+    "Cloud Computing",
+    "IaC/Terraform/Pulumi",
+    "ETL/ELT",
+    "Data Visualization",
+    "Python",
+    "Orchestration/Airflow/Prefect",
+  ];
+  const rawColumnOrder =
+    "SQL ETL/ELT Data Warehousing BigQuery Data Visualization Beam/Flink/Spark Cloud Computing Python IaC/Terraform/Pulumi Orchestration/Airflow/Prefect";
+  const visualRowOrder = requiredTextOrder.join(" ");
+
+  await assert.doesNotReject(
+    validateResumePdf({
+      variant: {
+        id: "senior-data-engineer",
+        requiredText: [],
+        requiredTextOrder,
+      },
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: async (command, args) => {
+        if (command === "pdfinfo" && args[0] === "-url") return validUrls;
+        if (command === "pdfinfo") return validInfo;
+        if (command === "pdffonts") return validFonts;
+        if (command === "pdftotext" && args[0] === "-layout") return visualRowOrder;
+        if (command === "pdftotext") return rawColumnOrder;
+        throw new Error(`Unexpected command: ${command}`);
+      },
+    }),
+  );
+});
+
 test("accepts the saved Senior wording instead of post-Canva evidence", async () => {
   const seniorVariant = RESUME_VARIANTS.find(({ id }) => id === "senior-data-engineer");
   const savedSeniorText = `Silvia Arellano Romero
-LinkedIn
+linkedin.com/in/silvia-arellano-de
 silvia.datadev@gmail.com
 +52 987 117 4186
 +34 603 990 662
-silviadata.dev
+www.silviadata.dev
 Authorized to work in Mexico, Spain, the United States, and the EU
 Open to remote roles
 Senior Data Engineer & Architect
@@ -143,6 +250,8 @@ Oct 2023 Modernizing Data Lakes and Data Warehouses with Google Cloud
 English - Fluent
 Spanish - Native
 Skills
+SQL BigQuery Cloud Computing IaC/Terraform/Pulumi
+ETL/ELT Data Visualization Python Orchestration/Airflow/Prefect
 Professional Experience
 Consulting Projects
 Education
@@ -174,11 +283,11 @@ I created an end-to-end, user-friendly data product`;
 test("rejects a Senior PDF that drops saved MatchCraft evidence", async () => {
   const seniorVariant = RESUME_VARIANTS.find(({ id }) => id === "senior-data-engineer");
   const savedSeniorTextWithoutMatchCraft = `Silvia Arellano Romero
-LinkedIn
+linkedin.com/in/silvia-arellano-de
 silvia.datadev@gmail.com
 +52 987 117 4186
 +34 603 990 662
-silviadata.dev
+www.silviadata.dev
 Authorized to work in Mexico, Spain, the United States, and the EU
 Open to remote roles
 Senior Data Engineer & Architect
