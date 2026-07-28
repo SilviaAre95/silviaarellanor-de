@@ -30,14 +30,14 @@ test("requires target-specific headlines and common identity markers", () => {
 
 test("requires the canonical career and contact contract in every variant", () => {
   const requiredCareer = [
-    "Lead Data Engineer | Playtomic Oct 2025–Present",
-    "Global Senior Data Engineer | Playtomic Apr 2024–Oct 2025",
-    "Data Engineer / Data Product Developer | Siftia Data Company Feb 2023–Apr 2024",
-    "Data Engineer / Analyst | Worky Jun 2022–Feb 2023",
-    "Business Data Engineer | MatchCraft Feb 2021–Jul 2022",
-    "Partner & Database Engineer | MMI Business Consulting Oct 2020–Dec 2023",
-    "Biomechanical Data Engineer | B-Metrics Sep 2019–Oct 2020",
-    "Data Engineer (Contract) | Thomson Reuters Feb 2025–May 2026",
+    "Playtomic Lead Data Engineer Oct 2025–Present",
+    "Playtomic Global Senior Data Engineer Apr 2024–Oct 2025",
+    "Siftia Data Company Data Engineer / Data Product Developer Feb 2023–Apr 2024",
+    "Worky Data Engineer / Analyst Jun 2022–Feb 2023",
+    "MatchCraft Business Data Engineer Feb 2021–Jul 2022",
+    "MMI Business Consulting Partner & Database Engineer Oct 2020–Dec 2023",
+    "B-Metrics Biomechanical Data Engineer Sep 2019–Oct 2020",
+    "Thomson Reuters Data Engineer (Contract) Feb 2025–May 2026",
   ];
 
   for (const variant of RESUME_VARIANTS) {
