@@ -48,7 +48,22 @@ test("Senior contract enforces the approved row-major skill extraction order", (
     "Data Visualization",
     "Python",
     "Orchestration/Airflow/Prefect",
+    "Data Warehousing",
+    "Beam/Flink/Spark",
+    "Firestore",
+    "SQLX/Dataform/DBT",
+    "SQL/NoSQL Management",
+    "Git",
   ]);
+});
+
+test("every variant pins its full skill grid, not just the opening rows", () => {
+  for (const variant of RESUME_VARIANTS) {
+    assert.ok(
+      (variant.requiredTextOrder ?? []).length >= 14,
+      `${variant.id} must pin every skill cell so a deleted row fails validation`,
+    );
+  }
 });
 
 test("requires the chronology-supported 6+ years claim in tailored variants", () => {
@@ -217,6 +232,52 @@ test("forbids management headcounts without rejecting the approved adoption metr
       rejects("Enabled 50+ people across six teams—and growing—to use the workflow."),
       false,
     );
+  }
+});
+
+test("headcount rules cover magnitude words, trailing counts, and hyphenated forms", () => {
+  for (const variant of RESUME_VARIANTS) {
+    const rejects = (text) => variant.forbiddenText.some(({ pattern }) => {
+      pattern.lastIndex = 0;
+      return pattern.test(text);
+    });
+
+    for (const prohibited of [
+      "Managed a dozen engineers.",
+      "Led several dozen developers.",
+      "Oversaw hundreds of reports.",
+      "Managed a team of a dozen.",
+      "Led engineers (12) across the platform.",
+      "Managed staff of 30.",
+      "Oversaw a 12-strong team.",
+      "Led a five-engineer group.",
+      "Directed eight analysts.",
+      "Supervised a team of six.",
+    ]) {
+      assert.equal(rejects(prohibited), true, `must reject: ${prohibited}`);
+    }
+
+    // A management verb and an unrelated count in a different sentence must
+    // not be stitched together into a false headcount claim.
+    assert.equal(
+      rejects("Led the migration of campaign data. Automated 8 live reports."),
+      false,
+      "must not span a sentence boundary",
+    );
+  }
+});
+
+test("rejects tenure claims that merely contain the supported one", () => {
+  for (const variant of RESUME_VARIANTS) {
+    const rejects = (text) => variant.forbiddenText.some(({ pattern }) => {
+      pattern.lastIndex = 0;
+      return pattern.test(text);
+    });
+
+    // requiredText matches substrings, so "16+ years" satisfies "6+ years".
+    assert.equal(rejects("Data engineer with 16+ years of experience."), true);
+    assert.equal(rejects("Data engineer with 10+ years of experience."), true);
+    assert.equal(rejects("Data engineer with 6+ years of experience."), false);
   }
 });
 

@@ -69,23 +69,29 @@
   }%
 }
 
+% The inner curve sits further up-right than the outer one so the handset
+% carries the same optical weight as the solid envelope and LinkedIn marks,
+% and the outer control point stays at y >= 0 to respect the bounding box.
 \newcommand{\ResumeIconPhone}{%
   \ResumeVectorIcon{%
     \fill[SilviaInk]
-      (0.17,1.09) -- (0.43,1.02) -- (0.50,0.78) -- (0.36,0.67)
-      .. controls (0.47,0.43) and (0.68,0.26) .. (0.93,0.19)
-      -- (1.02,0.34) -- (1.27,0.31) -- (1.34,0.06)
-      .. controls (0.83,-0.05) and (0.23,0.36) .. (0.07,0.85)
+      (0.17,1.09) -- (0.49,1.00) -- (0.58,0.73) -- (0.44,0.62)
+      .. controls (0.57,0.47) and (0.74,0.35) .. (0.96,0.28)
+      -- (1.05,0.41) -- (1.29,0.37) -- (1.34,0.06)
+      .. controls (0.83,0.02) and (0.21,0.38) .. (0.07,0.85)
       -- cycle;
   }%
 }
 
+% Equator plus a meridian ring, not a full cross: wide white bars through the
+% centre make the disc read as a crosshair rather than a sphere. The meridian
+% is a white ellipse knocked back by a black one, so the mark stays filled.
 \newcommand{\ResumeIconGlobe}{%
   \ResumeVectorIcon{%
     \fill[SilviaInk] (0.70,0.60) circle (0.56);
-    \fill[white] (0.18,0.55) rectangle (1.22,0.65);
-    \fill[white] (0.65,0.08) rectangle (0.75,1.12);
-    \fill[SilviaInk] (0.70,0.60) circle (0.13);
+    \fill[white] (0.70,0.60) ellipse (0.29 and 0.56);
+    \fill[SilviaInk] (0.70,0.60) ellipse (0.23 and 0.50);
+    \fill[white] (0.16,0.575) rectangle (1.24,0.625);
   }%
 }
 

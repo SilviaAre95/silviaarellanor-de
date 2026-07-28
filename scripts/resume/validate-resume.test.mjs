@@ -252,6 +252,8 @@ Spanish - Native
 Skills
 SQL BigQuery Cloud Computing IaC/Terraform/Pulumi
 ETL/ELT Data Visualization Python Orchestration/Airflow/Prefect
+Data Warehousing Beam/Flink/Spark Firestore SQLX/Dataform/DBT
+SQL/NoSQL Management Git
 Professional Experience
 Consulting Projects
 Education

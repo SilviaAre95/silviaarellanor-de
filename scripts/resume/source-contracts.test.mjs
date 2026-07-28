@@ -260,6 +260,31 @@ test("all shared skill sources use selectable grid cells instead of category lin
   }
 });
 
+test("every skill grid row supplies exactly four cells", async () => {
+  const skillsSource = await readFile(skillsSourceUrl, "utf8");
+  const seniorContent = await readFile(seniorCurrentSourceUrl, "utf8");
+
+  // \ResumeSkillGridRow takes four arguments. A row written with three
+  // consumes the next \ResumeSkillGridRow token as its fourth argument, so
+  // the grid silently loses a row instead of failing the build.
+  const row = /\\ResumeSkillGridRow((?:\{[^{}]*\}){0,4})/g;
+  for (const [source, label] of [
+    [seniorContent, "senior-current-resume.tex"],
+    [skillsSource, "skills.tex"],
+  ]) {
+    const rows = [...source.matchAll(row)];
+    assert.ok(rows.length > 0, `${label} must declare at least one skill row`);
+    for (const [, args] of rows) {
+      const cells = args.match(/\{[^{}]*\}/g) ?? [];
+      assert.equal(
+        cells.length,
+        4,
+        `${label} has a \\ResumeSkillGridRow with ${cells.length} cells; it must have exactly 4`,
+      );
+    }
+  }
+});
+
 test("FDE selects every canonical role, consulting engagement, and credential group", async () => {
   const source = await variantSource("forward-deployed-engineer");
 

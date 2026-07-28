@@ -61,30 +61,54 @@ const seniorCurrentRequiredText = [
 ];
 
 const spelledCount = String.raw`(?:zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:[- ](?:one|two|three|four|five|six|seven|eight|nine))?)`;
-const count = String.raw`(?:\d+\+?|${spelledCount})`;
-const countedGroup = String.raw`(?:engineers?|developers?|people|members?|staff|(?:direct[- ]+)?reports?)`;
+// Bare magnitude words ("a dozen engineers", "hundreds of reports") state a
+// headcount just as plainly as a numeral does.
+const magnitudeCount = String.raw`(?:(?:a|several|many|multiple|few)[- ]+)?(?:couple|dozens?|hundreds?|thousands?)`;
+const count = String.raw`(?:\d+\+?|${spelledCount}|${magnitudeCount})`;
+const countedGroup = String.raw`(?:engineers?|developers?|analysts?|people|persons?|members?|staff|headcount|(?:direct[- ]+)?reports?)`;
+// Gaps are bounded by sentence punctuation: a bare `.` lets "led" in one
+// sentence pair with a headcount in the next, which blocks valid content.
+const within = (n) => String.raw`[^.;]{0,${n}}`;
+const managementVerb = String.raw`\b(?:managed|led|oversaw|supervised|directed)\b`;
 
 export const MANAGEMENT_HEADCOUNT_RULES = [
   {
     label: "management headcount language",
     pattern: new RegExp(
-      String.raw`\b(?:managed|led|oversaw)\b.{0,80}\bteam(?:\s+|-)+of(?:\s+|-)+${count}\b`,
+      String.raw`${managementVerb}${within(80)}\bteam(?:\s+|-)+of(?:\s+|-)+${count}\b`,
       "i",
     ),
   },
   {
     label: "management headcount language",
     pattern: new RegExp(
-      String.raw`\b(?:managed|led|oversaw)\b.{0,40}\b${count}\s+${countedGroup}\b`,
+      String.raw`${managementVerb}${within(40)}\b${count}\s+(?:of\s+)?${countedGroup}\b`,
       "i",
     ),
   },
   {
     label: "management headcount language",
     pattern: new RegExp(
-      String.raw`\b(?:managed|led|oversaw)\b.{0,60}\b${count}-(?:person|engineer|developer|member|staff|report)\s+team\b`,
+      String.raw`${managementVerb}${within(60)}\b${count}-(?:person|engineer|developer|analyst|member|staff|report|strong)\s+(?:team|org|group|function)\b`,
       "i",
     ),
+  },
+  {
+    // Count after the noun: "managed engineers (12)", "led staff of 30".
+    label: "management headcount language",
+    pattern: new RegExp(
+      String.raw`${managementVerb}${within(40)}\b${countedGroup}\b(?:\s+(?:of|numbering|totalling|totaling))?[^.;a-z]{0,12}${count}\b`,
+      "i",
+    ),
+  },
+];
+
+// requiredText uses substring matching, so a document claiming "16+ years"
+// satisfies the required "6+ years". Only the supported claim may appear.
+export const TENURE_RULES = [
+  {
+    label: "unsupported tenure claim",
+    pattern: /\b(?!6\+\s*years\b)\d+\+?\s*years\b(?=\s+of\s+experience)/i,
   },
 ];
 
@@ -114,7 +138,7 @@ function variantContract({
       ...requiredEvidence,
       headline,
     ],
-    forbiddenText: MANAGEMENT_HEADCOUNT_RULES,
+    forbiddenText: [...MANAGEMENT_HEADCOUNT_RULES, ...TENURE_RULES],
     maxTextOccurrences,
     requiredTextOrder,
   };
@@ -154,6 +178,8 @@ export const RESUME_VARIANTS = [
       "English - Fluent",
       "Spanish - Native",
     ],
+    // Every cell of the grid, in visible row-major order. Covering only the
+    // first rows let later rows be deleted without failing a single test.
     requiredTextOrder: [
       "SQL",
       "BigQuery",
@@ -163,6 +189,12 @@ export const RESUME_VARIANTS = [
       "Data Visualization",
       "Python",
       "Orchestration/Airflow/Prefect",
+      "Data Warehousing",
+      "Beam/Flink/Spark",
+      "Firestore",
+      "SQLX/Dataform/DBT",
+      "SQL/NoSQL Management",
+      "Git",
     ],
   }),
   variantContract({
@@ -193,6 +225,36 @@ export const RESUME_VARIANTS = [
       "Business automation and warehousing",
     ],
     maxTextOccurrences: [{ text: "Forward Deployed Engineer", max: 1 }],
+    requiredTextOrder: [
+      "MCP",
+      "semantic layers",
+      "Cube Core",
+      "Google Agent Development Kit",
+      "Claude",
+      "ChatGPT",
+      "Cursor",
+      "Discovery",
+      "scoping",
+      "solution design",
+      "enablement",
+      "production support",
+      "pre-sales",
+      "GCP",
+      "BigQuery",
+      "Dataflow",
+      "Pub/Sub",
+      "Python",
+      "SQL",
+      "Node.js",
+      "APIs",
+      "GraphQL",
+      "reverse ETL",
+      "Looker",
+      "Looker Studio",
+      "Power BI",
+      "data modeling",
+      "system integrations",
+    ],
   }),
   variantContract({
     id: "data-leadership",
@@ -219,6 +281,25 @@ export const RESUME_VARIANTS = [
       "Sustained engineering agents",
       "50+ people across six teams",
       "Streaming and batch platform",
+    ],
+    requiredTextOrder: [
+      "Engineering management",
+      "mentoring",
+      "platform strategy",
+      "architecture",
+      "stakeholder communication",
+      "Delivery frameworks",
+      "technical standards",
+      "observability",
+      "incident triage",
+      "data quality",
+      "GCP",
+      "BigQuery",
+      "Dataflow",
+      "Apache Beam",
+      "infrastructure as code",
+      "CI/CD",
+      "cost optimization",
     ],
   }),
 ];
@@ -254,7 +335,7 @@ export function createApplicationResumeContract({
       ...requiredEvidence,
       headline,
     ],
-    forbiddenText: MANAGEMENT_HEADCOUNT_RULES,
+    forbiddenText: [...MANAGEMENT_HEADCOUNT_RULES, ...TENURE_RULES],
     maxTextOccurrences: [
       {
         text: "Forward Deployed Engineer",
