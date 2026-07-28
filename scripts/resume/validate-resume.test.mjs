@@ -19,13 +19,13 @@ const validFonts = `name type encoding emb sub uni object ID
 AAAAAA+TeXGyreHeros CID TrueType Identity-H yes yes yes 12 0
 `;
 
-const validUrls = [
-  "mailto:silvia.datadev@gmail.com",
-  "https://www.silviadata.dev",
-  "https://www.linkedin.com/in/silvia-arellano-de",
-  "tel:+529871174186",
-  "tel:+34603990662",
-].join("\n");
+const validUrls = `Page  Type          URL
+   1  Annotation    mailto:silvia.datadev@gmail.com
+   1  Annotation    https://www.silviadata.dev
+   1  Annotation    https://www.linkedin.com/in/silvia-arellano-de
+   1  Annotation    tel:+529871174186
+   1  Annotation    tel:+34603990662
+`;
 
 function pdfRunner(extractedText) {
   return async (command, args) => {
@@ -226,6 +226,46 @@ test("rejects a resume without both linked phone numbers", async () => {
       run: async (command, args) => {
         if (command === "pdfinfo" && args[0] === "-url") {
           return validUrls.replace("tel:+34603990662", "");
+        }
+        if (command === "pdfinfo") return validInfo;
+        if (command === "pdffonts") return validFonts;
+        if (command === "pdftotext") return "";
+        throw new Error(`Unexpected command: ${command}`);
+      },
+    }),
+    /tel:\+34603990662/,
+  );
+});
+
+test("rejects a longer phone URL containing the required Mexico number", async () => {
+  await assert.rejects(
+    validateResumePdf({
+      variant: { id: "senior-data-engineer", requiredText: [] },
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: async (command, args) => {
+        if (command === "pdfinfo" && args[0] === "-url") {
+          return validUrls.replace("tel:+529871174186", "tel:+5298711741860");
+        }
+        if (command === "pdfinfo") return validInfo;
+        if (command === "pdffonts") return validFonts;
+        if (command === "pdftotext") return "";
+        throw new Error(`Unexpected command: ${command}`);
+      },
+    }),
+    /tel:\+529871174186/,
+  );
+});
+
+test("rejects a phone URL with an added query suffix", async () => {
+  await assert.rejects(
+    validateResumePdf({
+      variant: { id: "senior-data-engineer", requiredText: [] },
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: async (command, args) => {
+        if (command === "pdfinfo" && args[0] === "-url") {
+          return validUrls.replace("tel:+34603990662", "tel:+34603990662?ext=1");
         }
         if (command === "pdfinfo") return validInfo;
         if (command === "pdffonts") return validFonts;

@@ -47,6 +47,15 @@ function countTextOccurrences(text, searchText) {
   return count;
 }
 
+function parsePdfUrls(text) {
+  return new Set(
+    text
+      .split(/\r?\n/)
+      .map((line) => line.match(/^\s*\d+\s+\S+\s+(\S+)\s*$/)?.[1])
+      .filter(Boolean),
+  );
+}
+
 async function runValidationCommand(variant, runner, command, args) {
   try {
     return await runner(command, args);
@@ -175,8 +184,10 @@ export async function validateResumePdf({ variant, pdfPath, logText, run }) {
     }
   }
 
-  const urls = await runValidationCommand(variant, runner, "pdfinfo", ["-url", pdfPath]);
-  const missingUrl = REQUIRED_URLS.find((url) => !urls.includes(url));
+  const urlRecords = parsePdfUrls(
+    await runValidationCommand(variant, runner, "pdfinfo", ["-url", pdfPath]),
+  );
+  const missingUrl = REQUIRED_URLS.find((url) => !urlRecords.has(url));
   if (missingUrl) {
     throw validationError(variant, `PDF is missing required URL: ${missingUrl}`);
   }
