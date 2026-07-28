@@ -29,52 +29,37 @@ test("requires target-specific headlines and common identity markers", () => {
   }
 });
 
-test("requires the canonical career and contact contract in every variant", () => {
-  const seniorCareer = [
-    "Playtomic Oct 2025–Present Lead Data Engineer",
-    "Playtomic Apr 2024–Oct 2025 Global Senior Data Engineer",
-    "Siftia Data Company Feb 2023–Apr 2024 Data Engineer / Data Product Developer",
-    "Worky Jun 2022–Feb 2023 Data Engineer / Analyst",
-    "MatchCraft Feb 2021–Jul 2022 Business Data Engineer",
-    "MMI Business Consulting Oct 2020–Dec 2023 Partner & Database Engineer",
-    "B-Metrics Sep 2019–Oct 2020 Biomechanical Data Engineer",
-    "Thomson Reuters Feb 2025–May 2026 Data Engineer (Contract)",
-  ];
-  const fdeCareer = [
-    ...seniorCareer,
-    "Worky Jun 2024–Sep 2024 Data Product Developer (Contract)",
-    "Grupo Homa Real Estate Developers Jan 2022–Jan 2023 Data Solutions Architect (Contract)",
-  ];
-  const leadershipCareer = [
+test("requires every shared career, education, credential, and language marker in every variant", () => {
+  const sharedMarkers = [
     "Playtomic Oct 2025–Present Lead Data Engineer",
     "Playtomic Apr 2024–Oct 2025 Global Senior Data Engineer",
     "Siftia Data Company Feb 2023–Apr 2024 Data Engineer / Data Product Developer",
     "Worky Jun 2022–Feb 2023 Data Engineer / Analyst",
     "MatchCraft Feb 2021–Jul 2022 Business Data Engineer",
     "MMI Business Consulting",
-    "Partner & Database Engineer",
     "Oct 2020–Dec 2023",
+    "Partner & Database Engineer",
     "B-Metrics Sep 2019–Oct 2020 Biomechanical Data Engineer",
     "Thomson Reuters Feb 2025–May 2026 Data Engineer (Contract)",
     "Worky Jun 2024–Sep 2024 Data Product Developer (Contract)",
     "Grupo Homa Real Estate Developers Jan 2022–Jan 2023 Data Solutions Architect (Contract)",
+    "University of Chihuahua",
+    "Master’s Degree in Open Source Software",
+    "2018–2020",
+    "Emeritus University of Puebla",
+    "B.Sc. in Physics",
+    "2013–2018",
+    "Google Cloud Professional Data Engineer",
+    "Big Data and Machine Learning Fundamentals",
+    "Modernizing Data Lakes and Data Warehouses with Google Cloud",
+    "English - Fluent",
+    "Spanish - Native",
+    "Authorized to work in Mexico, Spain, the United States, and the EU",
+    "Open to remote roles",
   ];
-  const careerByVariant = {
-    "senior-data-engineer": seniorCareer,
-    "forward-deployed-engineer": fdeCareer,
-    "data-leadership": leadershipCareer,
-  };
 
   for (const variant of RESUME_VARIANTS) {
-    const requiredCareer = careerByVariant[variant.id];
-    for (const requiredText of [
-      ...requiredCareer,
-      "Authorized to work in Mexico, Spain, the United States, and the EU",
-      "Open to remote roles",
-      "Professional Experience",
-      "Professional Experience (continued)",
-      "Education",
-    ]) {
+    for (const requiredText of sharedMarkers) {
       assert.ok(
         variant.requiredText.includes(requiredText),
         `${variant.id} must require ${requiredText}`,

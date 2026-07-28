@@ -1,6 +1,38 @@
 export const TECTONIC_VERSION = "0.16.9";
 export const PUBLIC_RESUME_PATH = "public/silvia-arellano-cv.pdf";
 
+const sharedCareerText = [
+  "Playtomic Oct 2025–Present Lead Data Engineer",
+  "Playtomic Apr 2024–Oct 2025 Global Senior Data Engineer",
+  "Siftia Data Company Feb 2023–Apr 2024 Data Engineer / Data Product Developer",
+  "Worky Jun 2022–Feb 2023 Data Engineer / Analyst",
+  "MatchCraft Feb 2021–Jul 2022 Business Data Engineer",
+  "MMI Business Consulting",
+  "Oct 2020–Dec 2023",
+  "Partner & Database Engineer",
+  "B-Metrics Sep 2019–Oct 2020 Biomechanical Data Engineer",
+  "Thomson Reuters Feb 2025–May 2026 Data Engineer (Contract)",
+  "Worky Jun 2024–Sep 2024 Data Product Developer (Contract)",
+  "Grupo Homa Real Estate Developers Jan 2022–Jan 2023 Data Solutions Architect (Contract)",
+];
+
+const sharedEducationText = [
+  "University of Chihuahua",
+  "Master’s Degree in Open Source Software",
+  "2018–2020",
+  "Emeritus University of Puebla",
+  "B.Sc. in Physics",
+  "2013–2018",
+];
+
+const sharedCredentialAndLanguageText = [
+  "Google Cloud Professional Data Engineer",
+  "Big Data and Machine Learning Fundamentals",
+  "Modernizing Data Lakes and Data Warehouses with Google Cloud",
+  "English - Fluent",
+  "Spanish - Native",
+];
+
 const commonRequiredText = [
   "Silvia Arellano Romero",
   "silvia.datadev@gmail.com",
@@ -10,38 +42,9 @@ const commonRequiredText = [
   "LinkedIn",
   "Authorized to work in Mexico, Spain, the United States, and the EU",
   "Open to remote roles",
-];
-
-const seniorCareerText = [
-  "Playtomic Oct 2025–Present Lead Data Engineer",
-  "Playtomic Apr 2024–Oct 2025 Global Senior Data Engineer",
-  "Siftia Data Company Feb 2023–Apr 2024 Data Engineer / Data Product Developer",
-  "Worky Jun 2022–Feb 2023 Data Engineer / Analyst",
-  "MatchCraft Feb 2021–Jul 2022 Business Data Engineer",
-  "MMI Business Consulting Oct 2020–Dec 2023 Partner & Database Engineer",
-  "B-Metrics Sep 2019–Oct 2020 Biomechanical Data Engineer",
-  "Thomson Reuters Feb 2025–May 2026 Data Engineer (Contract)",
-];
-
-const completeCareerText = [
-  ...seniorCareerText,
-  "Worky Jun 2024–Sep 2024 Data Product Developer (Contract)",
-  "Grupo Homa Real Estate Developers Jan 2022–Jan 2023 Data Solutions Architect (Contract)",
-];
-
-const leadershipCareerText = [
-  "Playtomic Oct 2025–Present Lead Data Engineer",
-  "Playtomic Apr 2024–Oct 2025 Global Senior Data Engineer",
-  "Siftia Data Company Feb 2023–Apr 2024 Data Engineer / Data Product Developer",
-  "Worky Jun 2022–Feb 2023 Data Engineer / Analyst",
-  "MatchCraft Feb 2021–Jul 2022 Business Data Engineer",
-  "MMI Business Consulting",
-  "Partner & Database Engineer",
-  "Oct 2020–Dec 2023",
-  "B-Metrics Sep 2019–Oct 2020 Biomechanical Data Engineer",
-  "Thomson Reuters Feb 2025–May 2026 Data Engineer (Contract)",
-  "Worky Jun 2024–Sep 2024 Data Product Developer (Contract)",
-  "Grupo Homa Real Estate Developers Jan 2022–Jan 2023 Data Solutions Architect (Contract)",
+  ...sharedCareerText,
+  ...sharedEducationText,
+  ...sharedCredentialAndLanguageText,
 ];
 
 const managementHeadcountRules = [
@@ -67,7 +70,6 @@ function variantContract({
   publish,
   requiredSections,
   requiredEvidence,
-  careerText = seniorCareerText,
   maxTextOccurrences = [],
 }) {
   return {
@@ -80,7 +82,6 @@ function variantContract({
     requiredEvidence,
     requiredText: [
       ...commonRequiredText,
-      ...careerText,
       ...requiredSections,
       ...requiredEvidence,
       headline,
@@ -97,7 +98,6 @@ export const RESUME_VARIANTS = [
     output: "resume/build/silvia-arellano-senior-data-engineer.pdf",
     headline: "Senior Data Engineer & GCP Data Architect",
     publish: true,
-    careerText: seniorCareerText,
     requiredSections: [
       "Summary",
       "Technical Skills",
@@ -127,7 +127,6 @@ export const RESUME_VARIANTS = [
     output: "resume/build/silvia-arellano-forward-deployed-engineer.pdf",
     headline: "Forward Deployed Engineer - Data & AI Systems",
     publish: false,
-    careerText: completeCareerText,
     requiredSections: [
       "Summary",
       "Data & AI Capabilities",
@@ -157,7 +156,6 @@ export const RESUME_VARIANTS = [
     output: "resume/build/silvia-arellano-data-leadership.pdf",
     headline: "Data Engineering Leader & Architect",
     publish: false,
-    careerText: leadershipCareerText,
     requiredSections: [
       "Leadership Summary",
       "Leadership & Architecture Strengths",

@@ -3,13 +3,16 @@ id: resume-delivery
 title: Resume Delivery
 status: implemented
 created_at: 2026-07-27
-last_modified: 2026-07-27
+last_modified: 2026-07-28
 owner: Silvia Arellano
 depends_on: []
 acceptance_criteria:
   - The repository contains maintainable LaTeX sources for Senior Data Engineer, Forward Deployed Engineer, and Data Leadership resumes.
   - Shared identity, career history, education, skills, and verified achievements come from one canonical source so variants do not drift.
   - Each variant has role-specific positioning, skill emphasis, bullet selection, and ordering while remaining factually consistent.
+  - Every variant includes all seven employment entries, the Thomson Reuters, Worky, and Grupo Homa consulting engagements, both education entries, all three certifications, and English and Spanish languages.
+  - Contact details use linked vector icons for email, website, LinkedIn, and both phone numbers while keeping every destination visible as ATS-readable text.
+  - Every variant uses the approved original-inspired, balanced two-page layout with narrow margins, teal branding, scan-friendly project labels, and a single-column ATS-readable body.
   - The Forward Deployed Engineer resume describes equivalent consulting work without claiming Silvia previously held that formal title.
   - The resumes include the approved Playtomic ingestion-platform, Beam framework, Terraform, monitoring, live-product, semantic-layer MCP, AI-dashboard adoption, and Google ADK agent evidence.
   - The career history restores Worky and MatchCraft experience rather than retaining the truncated source copy.
@@ -48,7 +51,9 @@ The resume system turns a single verified professional profile into three focuse
 
 The repository maintains canonical identity, career, education, skills, and achievement content alongside targeted Senior Data Engineer, Forward Deployed Engineer, and Data Leadership variants. Each variant changes its positioning and evidence emphasis without changing the underlying facts. FDE-equivalent work is represented without inventing a past FDE title, and leadership language avoids publishing management headcounts.
 
-All three resumes use an editorial-technical layout, teal branding, a single-column ATS-readable body, selectable text, and exactly two pages. They include the approved contact and work-authorization details, complete career history, and verified technical and leadership evidence.
+All three resumes use the approved original-inspired layout with narrow margins, linked vector contact icons backed by visible ATS text, scan-friendly project labels, teal branding, and a single-column ATS-readable body. Each variant balances its complete content across exactly two selectable-text pages while preserving consistent role and date alignment.
+
+Every variant includes complete employment and consulting history, both education entries, all certifications and languages, the approved work-authorization and remote-availability details, and verified technical and leadership evidence.
 
 Resume compilation happens during the repository build rather than in the visitor's browser. Only the Senior Data Engineer PDF is copied to the stable public CV destination used by the website. The other two PDFs remain available as non-public build outputs for manual applications.
 

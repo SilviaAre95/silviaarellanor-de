@@ -23,6 +23,8 @@ const validUrls = [
   "mailto:silvia.datadev@gmail.com",
   "https://www.silviadata.dev",
   "https://www.linkedin.com/in/silvia-arellano-de",
+  "tel:+529871174186",
+  "tel:+34603990662",
 ].join("\n");
 
 function pdfRunner(extractedText) {
@@ -108,6 +110,20 @@ test("accepts required text across PDF line and spacing changes", async () => {
   );
 });
 
+test("accepts an ASCII language separator rendered as a typographic dash", async () => {
+  await assert.doesNotReject(
+    validateResumePdf({
+      variant: {
+        id: "senior-data-engineer",
+        requiredText: ["English - Fluent", "Spanish - Native"],
+      },
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: pdfRunner("English – Fluent\nSpanish – Native"),
+    }),
+  );
+});
+
 test("requires section labels as their own normalized PDF lines", async () => {
   await assert.rejects(
     validateResumePdf({
@@ -189,7 +205,7 @@ test("accepts the canonical LinkedIn URL embedded by the resume sources", async 
       logText: "",
       run: async (command, args) => {
         if (command === "pdfinfo" && args[0] === "-url") {
-          return "mailto:silvia.datadev@gmail.com\nhttps://www.silviadata.dev\nhttps://www.linkedin.com/in/silvia-arellano-de";
+          return validUrls;
         }
         if (command === "pdfinfo") return validInfo;
         if (command === "pdffonts") return validFonts;
@@ -197,6 +213,27 @@ test("accepts the canonical LinkedIn URL embedded by the resume sources", async 
         throw new Error(`Unexpected command: ${command}`);
       },
     }),
+  );
+});
+
+test("rejects a resume without both linked phone numbers", async () => {
+  const variant = { id: "senior-data-engineer", requiredText: [] };
+  await assert.rejects(
+    validateResumePdf({
+      variant,
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: async (command, args) => {
+        if (command === "pdfinfo" && args[0] === "-url") {
+          return validUrls.replace("tel:+34603990662", "");
+        }
+        if (command === "pdfinfo") return validInfo;
+        if (command === "pdffonts") return validFonts;
+        if (command === "pdftotext") return "";
+        throw new Error(`Unexpected command: ${command}`);
+      },
+    }),
+    /tel:\+34603990662/,
   );
 });
 

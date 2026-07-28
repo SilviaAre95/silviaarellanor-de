@@ -5,6 +5,8 @@ const REQUIRED_URLS = [
   "mailto:silvia.datadev@gmail.com",
   "https://www.silviadata.dev",
   "https://www.linkedin.com/in/silvia-arellano-de",
+  "tel:+529871174186",
+  "tel:+34603990662",
 ];
 
 function execFileRun(command, args) {
@@ -28,6 +30,7 @@ function normalizePdfText(text) {
   return text
     .normalize("NFKC")
     .toLowerCase()
+    .replace(/[‐‑‒–—―]/g, "-")
     .replace(/\s+/g, " ")
     .trim();
 }

@@ -4,6 +4,14 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ---
 
+## 2026-07-28
+
+- **Changed**: specified the approved original-inspired narrow-margin, teal, single-column two-page layout with scan-friendly project labels
+- **Added**: every variant must include complete employment, consulting, education, certification, language, authorization, availability, and linked visible contact contracts
+- **Verified**: 56 résumé tests, lint with zero errors, the pinned Tectonic 0.16.9 production build, Senior-only publication and privacy boundaries, tailoring-skill validation, and six-page original-resolution visual review
+- **Files touched**: scripts/resume/config.mjs, scripts/resume/config.test.mjs, scripts/resume/validate-resume.mjs, scripts/resume/validate-resume.test.mjs, docs/features/resume-delivery.md, docs/features/resume-delivery.CHANGELOG.md
+- **Approved via**: diff-first escape hatch
+
 ## 2026-07-27
 
 - **Fixed**: résumé validation now enforces normalized section, career, contact, authorization, remote, and role-specific evidence contracts plus narrow FDE-title and management-headcount boundaries
