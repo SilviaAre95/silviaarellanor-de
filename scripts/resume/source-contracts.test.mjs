@@ -160,7 +160,7 @@ test("Senior composes the saved wording without synthetic headings", async () =>
   assert.match(seniorContent, /Most Recent Project - BigQuery Data Warehouse Refactoring/);
   assert.match(
     seniorContent,
-    /GRUPO HOMA Real Estate Developers - Data Solutions Architect \(Contractor\)/,
+    /\\ResumeRole\{Data Solutions Architect \(Contractor\)\}\{GRUPO HOMA Real Estate Developers\}\{Jan 2022\}\{Jan 2023\}/,
   );
 
   for (const macro of [
@@ -174,6 +174,24 @@ test("Senior composes the saved wording without synthetic headings", async () =>
   ]) {
     assert.match(source, new RegExp(`\\\\${macro}\\b`));
   }
+});
+
+test("Senior renders saved project labels and skills without shared generated punctuation", async () => {
+  const seniorContent = await readFile(seniorCurrentSourceUrl, "utf8");
+
+  assert.doesNotMatch(seniorContent, /\\ResumeProjectBullet\b/);
+  assert.doesNotMatch(seniorContent, /\\ResumeSkillRow\b/);
+  assert.doesNotMatch(seniorContent, /\bData:/);
+  assert.match(
+    seniorContent,
+    /\\SeniorCurrentNumberedProject\{1\}\{Most Recent Project - BigQuery Data Warehouse Refactoring:\}/,
+  );
+  assert.match(seniorContent, /\\SeniorCurrentNumberedProject\{2\}\{Main Responsibilities:\}/);
+  assert.match(
+    seniorContent,
+    /\\SeniorCurrentLiteralProject\{Geolocation Data Integration and Hashing Process\.\}/,
+  );
+  assert.match(seniorContent, /SQL & BigQuery & Cloud Computing & IaC\/Terraform\/Pulumi/);
 });
 
 test("FDE selects every canonical role, consulting engagement, and credential group", async () => {
