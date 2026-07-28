@@ -4,6 +4,8 @@ import test from "node:test";
 
 const experienceSourceUrl = new URL("../../resume/content/experience.tex", import.meta.url);
 const consultingSourceUrl = new URL("../../resume/content/consulting.tex", import.meta.url);
+const identitySourceUrl = new URL("../../resume/content/identity.tex", import.meta.url);
+const educationSourceUrl = new URL("../../resume/content/education.tex", import.meta.url);
 const variantIds = [
   "senior-data-engineer",
   "forward-deployed-engineer",
@@ -50,6 +52,32 @@ test("canonical employment macros preserve approved roles and dates", async () =
     ),
     "missing canonical Thomson Reuters contract role",
   );
+});
+
+test("identity defines five visible linked contact items", async () => {
+  const source = await readFile(identitySourceUrl, "utf8");
+  for (const marker of [
+    String.raw`\ResumeContactItem{\ResumeIconLinkedIn}{https://www.linkedin.com/in/silvia-arellano-de}{LinkedIn}`,
+    String.raw`\ResumeContactItem{\ResumeIconEnvelope}{mailto:silvia.datadev@gmail.com}{silvia.datadev@gmail.com}`,
+    String.raw`\ResumeContactItem{\ResumeIconGlobe}{https://www.silviadata.dev}{silviadata.dev}`,
+    String.raw`\ResumeContactItem{\ResumeIconPhone}{tel:+529871174186}{+52 987 117 4186}`,
+    String.raw`\ResumeContactItem{\ResumeIconPhone}{tel:+34603990662}{+34 603 990 662}`,
+  ]) {
+    assert.ok(source.includes(marker), `missing linked contact item: ${marker}`);
+  }
+});
+
+test("education source preserves all credentials and languages", async () => {
+  const source = await readFile(educationSourceUrl, "utf8");
+  for (const marker of [
+    "Google Cloud Professional Data Engineer",
+    "Big Data and Machine Learning Fundamentals",
+    "Modernizing Data Lakes and Data Warehouses with Google Cloud",
+    String.raw`\ResumeLanguage{English}{Fluent}`,
+    String.raw`\ResumeLanguage{Spanish}{Native}`,
+  ]) {
+    assert.ok(source.includes(marker), `missing credential or language: ${marker}`);
+  }
 });
 
 test("every variant selects Worky, MatchCraft, and Thomson Reuters canonical roles", async () => {

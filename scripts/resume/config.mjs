@@ -7,7 +7,7 @@ const commonRequiredText = [
   "+52 987 117 4186",
   "+34 603 990 662",
   "silviadata.dev",
-  "linkedin.com/in/silvia-arellano-de",
+  "LinkedIn",
   "Authorized to work in Mexico, Spain, the United States, and the EU",
   "Open to remote roles",
 ];

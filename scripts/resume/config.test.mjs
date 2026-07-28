@@ -22,6 +22,7 @@ test("requires target-specific headlines and common identity markers", () => {
   for (const variant of RESUME_VARIANTS) {
     assert.ok(variant.headline.length > 10);
     assert.ok(variant.requiredText.includes("Silvia Arellano Romero"));
+    assert.ok(variant.requiredText.includes("LinkedIn"));
     assert.ok(variant.requiredText.includes("silvia.datadev@gmail.com"));
     assert.ok(variant.requiredText.includes("+52 987 117 4186"));
     assert.ok(variant.requiredText.includes("+34 603 990 662"));
