@@ -48,6 +48,18 @@ const commonRequiredText = [
   ...sharedCredentialAndLanguageText,
 ];
 
+const seniorCurrentRequiredText = [
+  "Silvia Arellano Romero", "silvia.datadev@gmail.com", "+52 987 117 4186", "+34 603 990 662", "silviadata.dev", "LinkedIn",
+  "Authorized to work in Mexico, Spain, the United States, and the EU", "Open to remote roles", "Senior Data Engineer & Architect",
+  "Playtomic October 2025–Present Lead Data Engineer", "Playtomic April 2024–Oct 2025 Global Senior Data Engineer",
+  "Siftia Data Company Feb 2023–April 2024 Data Engineer / Data Product Developer", "MMI Business Consulting Oct 2020–Dec 2023 Partner & Database Engineer",
+  "Worky Jun 2022–Feb 2023 Data Engineer/Analyst", "MatchCraft Feb 2021–Jul 2022 Business Data Engineer", "B-Metrics Sept 2019–Oct 2020 Biomechanical Data Engineer",
+  "Thomson Reuters Feb 2025–May 2026 Data Engineer (Contract)", "Worky June 2024–Sept 2024 Data Product Developer (Contractor)",
+  "GRUPO HOMA Real Estate Developers Jan 2022–Jan 2023 Data Solutions Architect (Contractor)", "University of Chihuahua", "Master’s Degree in Open Source Software",
+  "2018-2020", "Emeritus University of Puebla", "B.Sc. in Physics", "2013-2018", "On-Course Professional Data Engineer Certification by Google",
+  "Oct 2023 Big Data and Machine Learning Fundamentals", "Oct 2023 Modernizing Data Lakes and Data Warehouses with Google Cloud", "English - Fluent", "Spanish - Native",
+];
+
 const spelledCount = String.raw`(?:zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:[- ](?:one|two|three|four|five|six|seven|eight|nine))?)`;
 const count = String.raw`(?:\d+\+?|${spelledCount})`;
 const countedGroup = String.raw`(?:engineers?|developers?|people|members?|staff|(?:direct[- ]+)?reports?)`;
@@ -85,6 +97,7 @@ function variantContract({
   requiredSections,
   requiredEvidence,
   maxTextOccurrences = [],
+  requiredBaseText = commonRequiredText,
 }) {
   return {
     id,
@@ -95,7 +108,7 @@ function variantContract({
     requiredSections,
     requiredEvidence,
     requiredText: [
-      ...commonRequiredText,
+      ...requiredBaseText,
       ...requiredSections,
       ...requiredEvidence,
       headline,
@@ -110,29 +123,22 @@ export const RESUME_VARIANTS = [
     id: "senior-data-engineer",
     source: "variants/senior-data-engineer.tex",
     output: "resume/build/silvia-arellano-senior-data-engineer.pdf",
-    headline: "Senior Data Engineer & GCP Data Architect",
+    headline: "Senior Data Engineer & Architect",
     publish: true,
+    requiredBaseText: seniorCurrentRequiredText,
     requiredSections: [
-      "Summary",
-      "Technical Skills",
+      "Skills",
       "Professional Experience",
-      "Professional Experience (continued)",
       "Consulting Projects",
       "Education",
       "Certifications",
       "Languages",
     ],
     requiredEvidence: [
-      "first fully automated ingestion system",
-      "Created Beam frameworks",
-      "Codified Dataflow jobs, BigQuery resources, monitoring, and deployment infrastructure in Terraform",
-      "dimensional modeling and star schemas",
-      "integrations with Zendesk, CDPs, and marketing tools",
-      "observability layers",
-      "streaming latency below one second",
-      "pipeline costs by up to 60%",
-      "MCP server over Cube Core",
-      "Agent Development Kit",
+      "data engineer with deep experience architecting and building scalable data infrastructure in GCP.",
+      "Reduced pipeline development time from weeks to a few days",
+      "Most Recent Project - BigQuery Data Warehouse Refactoring",
+      "Data Solutions Architect (Contractor)",
     ],
   }),
   variantContract({

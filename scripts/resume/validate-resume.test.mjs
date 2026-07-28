@@ -110,6 +110,59 @@ test("accepts required text across PDF line and spacing changes", async () => {
   );
 });
 
+test("accepts the saved Senior wording instead of post-Canva evidence", async () => {
+  const seniorVariant = RESUME_VARIANTS.find(({ id }) => id === "senior-data-engineer");
+  const savedSeniorText = `Silvia Arellano Romero
+LinkedIn
+silvia.datadev@gmail.com
++52 987 117 4186
++34 603 990 662
+silviadata.dev
+Authorized to work in Mexico, Spain, the United States, and the EU
+Open to remote roles
+Senior Data Engineer & Architect
+Playtomic October 2025–Present Lead Data Engineer
+Playtomic April 2024–Oct 2025 Global Senior Data Engineer
+Siftia Data Company Feb 2023–April 2024 Data Engineer / Data Product Developer
+MMI Business Consulting Oct 2020–Dec 2023 Partner & Database Engineer
+Worky Jun 2022–Feb 2023 Data Engineer/Analyst
+MatchCraft Feb 2021–Jul 2022 Business Data Engineer
+B-Metrics Sept 2019–Oct 2020 Biomechanical Data Engineer
+Thomson Reuters Feb 2025–May 2026 Data Engineer (Contract)
+Worky June 2024–Sept 2024 Data Product Developer (Contractor)
+GRUPO HOMA Real Estate Developers Jan 2022–Jan 2023 Data Solutions Architect (Contractor)
+University of Chihuahua
+Master’s Degree in Open Source Software
+2018-2020
+Emeritus University of Puebla
+B.Sc. in Physics
+2013-2018
+On-Course Professional Data Engineer Certification by Google
+Oct 2023 Big Data and Machine Learning Fundamentals
+Oct 2023 Modernizing Data Lakes and Data Warehouses with Google Cloud
+English - Fluent
+Spanish - Native
+Skills
+Professional Experience
+Consulting Projects
+Education
+Certifications
+Languages
+I'm a data engineer with deep experience architecting and building scalable data infrastructure in GCP.
+Reduced pipeline development time from weeks to a few days through an internal Beam framework and templated CI/CD.
+Most Recent Project - BigQuery Data Warehouse Refactoring
+GRUPO HOMA Real Estate Developers - Data Solutions Architect (Contractor)`;
+
+  await assert.doesNotReject(
+    validateResumePdf({
+      variant: seniorVariant,
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: pdfRunner(savedSeniorText),
+    }),
+  );
+});
+
 test("accepts an ASCII language separator rendered as a typographic dash", async () => {
   await assert.doesNotReject(
     validateResumePdf({

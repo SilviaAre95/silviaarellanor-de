@@ -6,6 +6,7 @@ const experienceSourceUrl = new URL("../../resume/content/experience.tex", impor
 const consultingSourceUrl = new URL("../../resume/content/consulting.tex", import.meta.url);
 const identitySourceUrl = new URL("../../resume/content/identity.tex", import.meta.url);
 const educationSourceUrl = new URL("../../resume/content/education.tex", import.meta.url);
+const seniorCurrentSourceUrl = new URL("../../resume/content/senior-current-resume.tex", import.meta.url);
 const variantIds = [
   "senior-data-engineer",
   "forward-deployed-engineer",
@@ -77,8 +78,8 @@ test("identity defines five visible linked contact items", async () => {
   );
 });
 
-test("all variants use the chronology-supported tenure claim", async () => {
-  for (const id of variantIds) {
+test("tailored variants use the chronology-supported tenure claim", async () => {
+  for (const id of variantIds.filter((id) => id !== "senior-data-engineer")) {
     const source = await variantSource(id);
     assert.match(source, /\b6\+ years\b/, `${id} must say 6+ years`);
     assert.doesNotMatch(source, /\b7\+ years\b/, `${id} must not say 7+ years`);
@@ -135,7 +136,7 @@ test("canonical sources preserve the saved resume's important project detail", a
 });
 
 test("every variant selects Worky, MatchCraft, and Thomson Reuters canonical roles", async () => {
-  for (const id of variantIds) {
+  for (const id of variantIds.filter((id) => id !== "senior-data-engineer")) {
     const source = await variantSource(id);
     assert.match(source, /\\WorkyRole\b/);
     assert.match(source, /\\MatchCraftRole\b/);
@@ -143,23 +144,33 @@ test("every variant selects Worky, MatchCraft, and Thomson Reuters canonical rol
   }
 });
 
-test("Senior selects every canonical role, consulting engagement, and credential group", async () => {
+test("Senior composes the saved wording without synthetic headings", async () => {
   const source = await variantSource("senior-data-engineer");
 
+  assert.match(source, /\\input\{content\/senior-current-resume\}/);
+  assert.doesNotMatch(source, /ResumeSection\{Summary\}/);
+  assert.doesNotMatch(source, /Professional Experience \(continued\)/i);
+
+  const seniorContent = await readFile(seniorCurrentSourceUrl, "utf8");
+  assert.match(
+    seniorContent,
+    /I'm a data engineer with deep experience architecting and building scalable data infrastructure in GCP\./,
+  );
+  assert.match(seniorContent, /Reduced pipeline development time from weeks to a few days/);
+  assert.match(seniorContent, /Most Recent Project - BigQuery Data Warehouse Refactoring/);
+  assert.match(
+    seniorContent,
+    /GRUPO HOMA Real Estate Developers - Data Solutions Architect \(Contractor\)/,
+  );
+
   for (const macro of [
-    "PlaytomicLeadRole",
-    "PlaytomicSeniorRole",
-    "SiftiaRole",
-    "WorkyRole",
-    "MatchCraftRole",
-    "MmiRole",
-    "BMetricsRole",
-    "ThomsonReutersRole",
-    "WorkyContractRole",
-    "GrupoHomaRole",
-    "SharedEducation",
-    "SharedCertifications",
-    "SharedLanguages",
+    "SeniorCurrentSummary",
+    "SeniorCurrentSkills",
+    "SeniorCurrentExperience",
+    "SeniorCurrentConsulting",
+    "SeniorCurrentEducation",
+    "SeniorCurrentCertifications",
+    "SeniorCurrentLanguages",
   ]) {
     assert.match(source, new RegExp(`\\\\${macro}\\b`));
   }

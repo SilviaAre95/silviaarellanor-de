@@ -33,8 +33,8 @@ test("requires target-specific headlines and common identity markers", () => {
   }
 });
 
-test("requires the chronology-supported 6+ years claim in every variant", () => {
-  for (const variant of RESUME_VARIANTS) {
+test("requires the chronology-supported 6+ years claim in tailored variants", () => {
+  for (const variant of RESUME_VARIANTS.filter(({ id }) => id !== "senior-data-engineer")) {
     assert.ok(
       variant.requiredText.includes("6+ years"),
       `${variant.id} must require the verified tenure claim`,
@@ -47,7 +47,7 @@ test("requires the chronology-supported 6+ years claim in every variant", () => 
   }
 });
 
-test("requires every shared career, education, credential, and language marker in every variant", () => {
+test("requires every shared career, education, credential, and language marker in tailored variants", () => {
   const sharedMarkers = [
     "Playtomic Oct 2025–Present Lead Data Engineer",
     "Playtomic Apr 2024–Oct 2025 Global Senior Data Engineer",
@@ -76,7 +76,7 @@ test("requires every shared career, education, credential, and language marker i
     "Open to remote roles",
   ];
 
-  for (const variant of RESUME_VARIANTS) {
+  for (const variant of RESUME_VARIANTS.filter(({ id }) => id !== "senior-data-engineer")) {
     for (const requiredText of sharedMarkers) {
       assert.ok(
         variant.requiredText.includes(requiredText),
@@ -90,26 +90,18 @@ test("defines section and approved-evidence contracts per variant", () => {
   const expectedContracts = {
     "senior-data-engineer": {
       sections: [
-        "Summary",
-        "Technical Skills",
+        "Skills",
         "Professional Experience",
-        "Professional Experience (continued)",
         "Consulting Projects",
         "Education",
         "Certifications",
         "Languages",
       ],
       evidence: [
-        "first fully automated ingestion system",
-        "Created Beam frameworks",
-        "Codified Dataflow jobs, BigQuery resources, monitoring, and deployment infrastructure in Terraform",
-        "dimensional modeling and star schemas",
-        "integrations with Zendesk, CDPs, and marketing tools",
-        "observability layers",
-        "streaming latency below one second",
-        "pipeline costs by up to 60%",
-        "MCP server over Cube Core",
-        "Agent Development Kit",
+        "data engineer with deep experience architecting and building scalable data infrastructure in GCP.",
+        "Reduced pipeline development time from weeks to a few days",
+        "Most Recent Project - BigQuery Data Warehouse Refactoring",
+        "Data Solutions Architect (Contractor)",
       ],
     },
     "forward-deployed-engineer": {
