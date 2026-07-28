@@ -28,6 +28,7 @@ jobs:
       - run: npm run test:resume
       - run: npm run lint
       - run: npm run build
+      - run: npm run resume:verify-publication
       - uses: actions/upload-pages-artifact@v3
         if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'schedule'
         with:

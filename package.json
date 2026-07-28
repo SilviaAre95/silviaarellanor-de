@@ -10,6 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "resume:build": "node scripts/resume/build-resumes.mjs",
+    "resume:verify-publication": "node scripts/resume/verify-publication.mjs",
     "test:resume": "node --test scripts/resume/*.test.mjs",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",

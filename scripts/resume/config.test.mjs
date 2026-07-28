@@ -1,10 +1,14 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import {
+import * as resumeConfig from "./config.mjs";
+
+const {
+  createApplicationResumeContract,
   PUBLIC_RESUME_PATH,
   RESUME_VARIANTS,
+  SHARED_ROLE_DATE_TEXT,
   TECTONIC_VERSION,
-} from "./config.mjs";
+} = resumeConfig;
 
 test("pins the approved compiler and declares three unique variants", () => {
   assert.equal(TECTONIC_VERSION, "0.16.9");
@@ -26,6 +30,20 @@ test("requires target-specific headlines and common identity markers", () => {
     assert.ok(variant.requiredText.includes("silvia.datadev@gmail.com"));
     assert.ok(variant.requiredText.includes("+52 987 117 4186"));
     assert.ok(variant.requiredText.includes("+34 603 990 662"));
+  }
+});
+
+test("requires the chronology-supported 6+ years claim in every variant", () => {
+  for (const variant of RESUME_VARIANTS) {
+    assert.ok(
+      variant.requiredText.includes("6+ years"),
+      `${variant.id} must require the verified tenure claim`,
+    );
+    assert.equal(
+      variant.requiredText.some((text) => text.includes("7+ years")),
+      false,
+      `${variant.id} must not require the unsupported tenure claim`,
+    );
   }
 });
 
@@ -159,14 +177,68 @@ test("forbids management headcounts without rejecting the approved adoption metr
       return pattern.test(text);
     });
 
-    assert.equal(rejects("Managed the data engineering team of 12 engineers."), true);
-    assert.equal(rejects("Managed a team of 12."), true);
-    assert.equal(rejects("Led 8 direct reports in the consultancy."), true);
+    for (const prohibited of [
+      "Managed the data engineering team of 12 engineers.",
+      "Managed a team of four.",
+      "Led 4 developers in the consultancy.",
+      "Oversaw twelve engineers.",
+      "Managed twenty-one people.",
+      "Led a four-developer team.",
+      "Oversaw a 12-person team.",
+      "Managed five members.",
+      "Led three staff.",
+      "Oversaw six direct reports.",
+    ]) {
+      assert.equal(rejects(prohibited), true, `must reject: ${prohibited}`);
+    }
     assert.equal(
       rejects("Enabled 50+ people across six teams—and growing—to use the workflow."),
       false,
     );
   }
+});
+
+test("derives application contracts from shared role dates and truthfulness guards", () => {
+  assert.equal(
+    typeof createApplicationResumeContract,
+    "function",
+    "config must expose the shared application-contract derivation",
+  );
+  assert.ok(Array.isArray(SHARED_ROLE_DATE_TEXT));
+
+  const fdeContract = createApplicationResumeContract({
+    id: "application-acme-fde",
+    baseId: "forward-deployed-engineer",
+    headline: "Senior Forward Deployed Engineer",
+    requiredSections: ["Summary", "Professional Experience"],
+    requiredEvidence: ["MCP server over Cube Core"],
+  });
+
+  for (const roleDate of SHARED_ROLE_DATE_TEXT) {
+    assert.ok(fdeContract.requiredText.includes(roleDate), `missing role/date: ${roleDate}`);
+  }
+  assert.ok(fdeContract.requiredText.includes("Senior Forward Deployed Engineer"));
+  assert.ok(fdeContract.requiredText.includes("MCP server over Cube Core"));
+  assert.deepEqual(fdeContract.maxTextOccurrences, [
+    { text: "Forward Deployed Engineer", max: 1 },
+  ]);
+  assert.equal(
+    fdeContract.forbiddenText.some(({ pattern }) => {
+      pattern.lastIndex = 0;
+      return pattern.test("Led four developers.");
+    }),
+    true,
+  );
+
+  const seniorContract = createApplicationResumeContract({
+    id: "application-acme-data",
+    baseId: "senior-data-engineer",
+    headline: "Senior Data Engineer",
+    requiredSections: ["Summary"],
+  });
+  assert.deepEqual(seniorContract.maxTextOccurrences, [
+    { text: "Forward Deployed Engineer", max: 0 },
+  ]);
 });
 
 test("limits the FDE target title to the headline occurrence", () => {

@@ -1,7 +1,7 @@
 import { execFile } from "node:child_process";
 import { stat } from "node:fs/promises";
 
-const REQUIRED_URLS = [
+export const REQUIRED_RESUME_URLS = [
   "mailto:silvia.datadev@gmail.com",
   "https://www.silviadata.dev",
   "https://www.linkedin.com/in/silvia-arellano-de",
@@ -48,12 +48,10 @@ function countTextOccurrences(text, searchText) {
 }
 
 function parsePdfUrls(text) {
-  return new Set(
-    text
-      .split(/\r?\n/)
-      .map((line) => line.match(/^\s*\d+\s+\S+\s+(\S+)\s*$/)?.[1])
-      .filter(Boolean),
-  );
+  return text
+    .split(/\r?\n/)
+    .map((line) => line.match(/^\s*\d+\s+\S+\s+(\S+)\s*$/)?.[1])
+    .filter(Boolean);
 }
 
 async function runValidationCommand(variant, runner, command, args) {
@@ -187,9 +185,24 @@ export async function validateResumePdf({ variant, pdfPath, logText, run }) {
   const urlRecords = parsePdfUrls(
     await runValidationCommand(variant, runner, "pdfinfo", ["-url", pdfPath]),
   );
-  const missingUrl = REQUIRED_URLS.find((url) => !urlRecords.has(url));
+  const missingUrl = REQUIRED_RESUME_URLS.find((url) => !urlRecords.includes(url));
   if (missingUrl) {
     throw validationError(variant, `PDF is missing required URL: ${missingUrl}`);
+  }
+
+  const unexpectedUrl = urlRecords.find((url) => !REQUIRED_RESUME_URLS.includes(url));
+  if (unexpectedUrl) {
+    throw validationError(variant, `PDF contains unexpected URL: ${unexpectedUrl}`);
+  }
+
+  const repeatedUrl = REQUIRED_RESUME_URLS.find(
+    (requiredUrl) => urlRecords.filter((url) => url === requiredUrl).length !== 1,
+  );
+  if (repeatedUrl) {
+    throw validationError(
+      variant,
+      `PDF must contain each required URL exactly once: ${repeatedUrl}`,
+    );
   }
 }
 

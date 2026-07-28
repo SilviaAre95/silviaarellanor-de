@@ -65,6 +65,97 @@ test("rejects a manifest that publishes a non-Senior variant before compilation"
   );
 });
 
+test("rejects duplicate resolved output paths before tool checks or compilation", async () => {
+  const { rootDir } = await makeRootDir();
+  const [senior, ...remainingVariants] = RESUME_VARIANTS;
+  const variants = [
+    senior,
+    {
+      ...remainingVariants[0],
+      output: senior.output,
+    },
+    ...remainingVariants.slice(1),
+  ];
+
+  await expectPublicationManifestFailure(
+    rootDir,
+    variants,
+    /duplicate resume output path/,
+  );
+});
+
+test("rejects non-canonical or escaping manifest paths before side effects", async () => {
+  const { rootDir } = await makeRootDir();
+  const invalidCases = [
+    {
+      label: "source traversal",
+      variants: RESUME_VARIANTS.map((variant, index) => (
+        index === 0 ? { ...variant, source: "../public/resume.tex" } : variant
+      )),
+      expected: /source path.*contained in resume\/variants/,
+    },
+    {
+      label: "aliased source",
+      variants: RESUME_VARIANTS.map((variant, index) => (
+        index === 0
+          ? { ...variant, source: "variants/nested/../senior-data-engineer.tex" }
+          : variant
+      )),
+      expected: /source path.*canonical/,
+    },
+    {
+      label: "output traversal",
+      variants: RESUME_VARIANTS.map((variant, index) => (
+        index === 0 ? { ...variant, output: "resume/build/../../public/resume.pdf" } : variant
+      )),
+      expected: /output path.*contained in resume\/build/,
+    },
+    {
+      label: "staging id traversal",
+      variants: RESUME_VARIANTS.map((variant, index) => (
+        index === 0 ? { ...variant, id: "../senior-data-engineer" } : variant
+      )),
+      expected: /variant id/,
+    },
+  ];
+
+  for (const { label, variants, expected } of invalidCases) {
+    await assert.rejects(
+      buildAllResumes({
+        rootDir,
+        variants,
+        assertTools: async () => {
+          throw new Error(`${label}: tool checks must not run`);
+        },
+        compileVariant: async () => {
+          throw new Error(`${label}: compilation must not run`);
+        },
+      }),
+      expected,
+      label,
+    );
+  }
+});
+
+test("rejects duplicate canonical source paths before tool checks or compilation", async () => {
+  const { rootDir } = await makeRootDir();
+  const [senior, ...remainingVariants] = RESUME_VARIANTS;
+  const variants = [
+    senior,
+    {
+      ...remainingVariants[0],
+      source: senior.source,
+    },
+    ...remainingVariants.slice(1),
+  ];
+
+  await expectPublicationManifestFailure(
+    rootDir,
+    variants,
+    /duplicate resume source path/,
+  );
+});
+
 test("preserves the previous public PDF when a later variant fails", async () => {
   const { rootDir, publicPdf } = await makeRootDir();
 

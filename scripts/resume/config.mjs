@@ -1,7 +1,7 @@
 export const TECTONIC_VERSION = "0.16.9";
 export const PUBLIC_RESUME_PATH = "public/silvia-arellano-cv.pdf";
 
-const sharedCareerText = [
+export const SHARED_ROLE_DATE_TEXT = [
   "Playtomic Oct 2025–Present Lead Data Engineer",
   "Playtomic Apr 2024–Oct 2025 Global Senior Data Engineer",
   "Siftia Data Company Feb 2023–Apr 2024 Data Engineer / Data Product Developer",
@@ -35,6 +35,7 @@ const sharedCredentialAndLanguageText = [
 
 const commonRequiredText = [
   "Silvia Arellano Romero",
+  "6+ years",
   "silvia.datadev@gmail.com",
   "+52 987 117 4186",
   "+34 603 990 662",
@@ -42,23 +43,36 @@ const commonRequiredText = [
   "LinkedIn",
   "Authorized to work in Mexico, Spain, the United States, and the EU",
   "Open to remote roles",
-  ...sharedCareerText,
+  ...SHARED_ROLE_DATE_TEXT,
   ...sharedEducationText,
   ...sharedCredentialAndLanguageText,
 ];
 
-const managementHeadcountRules = [
+const spelledCount = String.raw`(?:zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:[- ](?:one|two|three|four|five|six|seven|eight|nine))?)`;
+const count = String.raw`(?:\d+\+?|${spelledCount})`;
+const countedGroup = String.raw`(?:engineers?|developers?|people|members?|staff|(?:direct[- ]+)?reports?)`;
+
+export const MANAGEMENT_HEADCOUNT_RULES = [
   {
     label: "management headcount language",
-    pattern: /\b(?:managed|led|oversaw)\b.{0,80}\bteam of \d+\+?\b/i,
+    pattern: new RegExp(
+      String.raw`\b(?:managed|led|oversaw)\b.{0,80}\bteam(?:\s+|-)+of(?:\s+|-)+${count}\b`,
+      "i",
+    ),
   },
   {
     label: "management headcount language",
-    pattern: /\b(?:managed|led|oversaw)\s+\d+\+?\s+(?:engineers?|people|members?|direct reports?)\b/i,
+    pattern: new RegExp(
+      String.raw`\b(?:managed|led|oversaw)\b.{0,40}\b${count}\s+${countedGroup}\b`,
+      "i",
+    ),
   },
   {
     label: "management headcount language",
-    pattern: /\b(?:managed|led|oversaw)\b.{0,60}\b\d+\+?-(?:person|engineer|member)\s+team\b/i,
+    pattern: new RegExp(
+      String.raw`\b(?:managed|led|oversaw)\b.{0,60}\b${count}-(?:person|engineer|developer|member|staff|report)\s+team\b`,
+      "i",
+    ),
   },
 ];
 
@@ -86,7 +100,7 @@ function variantContract({
       ...requiredEvidence,
       headline,
     ],
-    forbiddenText: managementHeadcountRules,
+    forbiddenText: MANAGEMENT_HEADCOUNT_RULES,
     maxTextOccurrences,
   };
 }
@@ -178,3 +192,44 @@ export const RESUME_VARIANTS = [
     ],
   }),
 ];
+
+export function createApplicationResumeContract({
+  id,
+  baseId,
+  headline,
+  requiredSections = [],
+  requiredEvidence = [],
+}) {
+  const base = RESUME_VARIANTS.find((variant) => variant.id === baseId);
+  if (!base) {
+    throw new Error(`Unknown resume base variant: ${baseId}`);
+  }
+  if (typeof id !== "string" || id.length === 0) {
+    throw new Error("Application resume contract requires an id");
+  }
+  if (typeof headline !== "string" || headline.length === 0) {
+    throw new Error("Application resume contract requires a headline");
+  }
+
+  const fdeHeadlineOccurrences = headline.match(/\bForward Deployed Engineer\b/gi)?.length ?? 0;
+  return {
+    id,
+    baseId,
+    headline,
+    requiredSections: [...requiredSections],
+    requiredEvidence: [...requiredEvidence],
+    requiredText: [
+      ...commonRequiredText,
+      ...requiredSections,
+      ...requiredEvidence,
+      headline,
+    ],
+    forbiddenText: MANAGEMENT_HEADCOUNT_RULES,
+    maxTextOccurrences: [
+      {
+        text: "Forward Deployed Engineer",
+        max: Math.min(fdeHeadlineOccurrences, 1),
+      },
+    ],
+  };
+}

@@ -277,6 +277,46 @@ test("rejects a phone URL with an added query suffix", async () => {
   );
 });
 
+test("rejects an unexpected sixth PDF link", async () => {
+  await assert.rejects(
+    validateResumePdf({
+      variant: { id: "senior-data-engineer", requiredText: [] },
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: async (command, args) => {
+        if (command === "pdfinfo" && args[0] === "-url") {
+          return `${validUrls}   2  Annotation    https://tracking.example/resume\n`;
+        }
+        if (command === "pdfinfo") return validInfo;
+        if (command === "pdffonts") return validFonts;
+        if (command === "pdftotext") return "";
+        throw new Error(`Unexpected command: ${command}`);
+      },
+    }),
+    /unexpected URL.*tracking\.example/,
+  );
+});
+
+test("rejects a duplicated PDF link record", async () => {
+  await assert.rejects(
+    validateResumePdf({
+      variant: { id: "senior-data-engineer", requiredText: [] },
+      pdfPath: "/tmp/resume.pdf",
+      logText: "",
+      run: async (command, args) => {
+        if (command === "pdfinfo" && args[0] === "-url") {
+          return `${validUrls}   2  Annotation    mailto:silvia.datadev@gmail.com\n`;
+        }
+        if (command === "pdfinfo") return validInfo;
+        if (command === "pdffonts") return validFonts;
+        if (command === "pdftotext") return "";
+        throw new Error(`Unexpected command: ${command}`);
+      },
+    }),
+    /exactly once.*mailto:silvia\.datadev@gmail\.com/,
+  );
+});
+
 test("prefixes PDF-tool failures with the variant ID", async () => {
   await assert.rejects(
     validateResumePdf({

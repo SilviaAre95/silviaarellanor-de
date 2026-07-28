@@ -70,6 +70,19 @@ test("identity defines five visible linked contact items", async () => {
   ]) {
     assert.ok(source.includes(marker), `missing linked contact item: ${marker}`);
   }
+  assert.equal(
+    source.match(/\\href\{/g)?.length ?? 0,
+    0,
+    "identity must not retain a second legacy contact rendering path",
+  );
+});
+
+test("all variants use the chronology-supported tenure claim", async () => {
+  for (const id of variantIds) {
+    const source = await variantSource(id);
+    assert.match(source, /\b6\+ years\b/, `${id} must say 6+ years`);
+    assert.doesNotMatch(source, /\b7\+ years\b/, `${id} must not say 7+ years`);
+  }
 });
 
 test("education source preserves all credentials and languages", async () => {
