@@ -39,9 +39,23 @@ test("template renders links and editorial rules in black", async () => {
 
 test("template uses enlarged baseline-aligned filled vector contact marks", async () => {
   const source = await readFile(sourceUrl, "utf8");
+  const vectorIcon = macroBlock(source, "ResumeVectorIcon");
+  const geometry = vectorIcon.match(
+    /x=([\d.]+)ex,y=([\d.]+)ex,baseline=(-[\d.]+)ex/,
+  );
 
   assert.match(source, /\\newcommand\{\\ResumeVectorIcon\}\[1\]/);
-  assert.match(source, /x=1\.[1-9]\d*ex,y=1\.[1-9]\d*ex,baseline=-0\.[0-4]\d*ex/);
+  assert.ok(geometry, "the contact mark must expose explicit ex-based geometry");
+  const [, rawXScale, rawYScale, rawBaseline] = geometry;
+  const xScale = Number(rawXScale);
+  const yScale = Number(rawYScale);
+  const baseline = Number(rawBaseline);
+  assert.ok(xScale >= 1.5 && xScale <= 1.7, "contact marks must be 1.5–1.7ex wide");
+  assert.equal(yScale, xScale, "contact marks must use a uniform scale");
+  assert.ok(
+    baseline <= -0.3 && baseline >= -0.5,
+    "the enlarged contact marks must be optically aligned to the text baseline",
+  );
   assert.match(
     source,
     /\\path\[use as bounding box\] \(0,0\) rectangle \(1\.4,1\.2\);/,

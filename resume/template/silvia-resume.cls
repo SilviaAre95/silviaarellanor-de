@@ -29,6 +29,13 @@
 \setlength{\parskip}{0pt}
 \raggedright
 
+\newlength{\ResumeSectionBeforeSkip}
+\newlength{\ResumeRoleBeforeSkip}
+\newlength{\ResumeBulletAfterSkip}
+\setlength{\ResumeSectionBeforeSkip}{5pt}
+\setlength{\ResumeRoleBeforeSkip}{2.5pt}
+\setlength{\ResumeBulletAfterSkip}{0pt}
+
 \AtBeginDocument{%
   \providecommand{\ResumeContactLine}{}%
   \providecommand{\ResumeContactBlock}{{\fontsize{8pt}{9.5pt}\selectfont\ResumeContactLine}}%
@@ -44,7 +51,7 @@
 }
 
 \newcommand{\ResumeVectorIcon}[1]{%
-  \tikz[x=1.18ex,y=1.18ex,baseline=-0.22ex]{%
+  \tikz[x=1.60ex,y=1.60ex,baseline=-0.38ex]{%
     \path[use as bounding box] (0,0) rectangle (1.4,1.2);
     #1%
   }%
@@ -114,7 +121,7 @@
 }
 
 \newcommand{\ResumeSection}[1]{%
-  \par\vspace{5pt}%
+  \par\vspace{\ResumeSectionBeforeSkip}%
   {\color{SilviaInk}\rule{\linewidth}{0.45pt}\par}%
   \vspace{1.5pt}%
   {\centering\ResumeNameFont\fontsize{11.5pt}{13pt}\selectfont\bfseries
@@ -123,22 +130,31 @@
 }
 
 \newcommand{\ResumeOpeningSection}[1]{%
-  \par\vspace{5pt}%
+  \par\vspace{\ResumeSectionBeforeSkip}%
   {\centering\ResumeNameFont\fontsize{11.5pt}{13pt}\selectfont\bfseries
     \MakeUppercase{#1}\par}%
   \vspace{1.5pt}%
 }
 
+\newcommand{\ResumeLeadershipLayout}{%
+  \fontsize{9.6pt}{13.3pt}\selectfont
+  \setlength{\ResumeSectionBeforeSkip}{9pt}%
+  \setlength{\ResumeRoleBeforeSkip}{4pt}%
+  \setlength{\ResumeBulletAfterSkip}{4pt}%
+}
+
 \newcommand{\ResumeRole}[4]{%
-  \par\vspace{2.5pt}%
-  {\bfseries #2}\hfill{\bfseries #3--#4}\par%
-  {\bfseries #1}\par%
+  \par\vspace{\ResumeRoleBeforeSkip}%
+  {\fontsize{9.6pt}{12pt}\selectfont\bfseries
+    #2\hfill#3--#4\par%
+    #1\par}%
 }
 
 \newenvironment{ResumeBullets}{%
+  \fontsize{9.6pt}{12pt}\selectfont
   \begin{itemize}[label=\textbullet,leftmargin=1.2em,itemsep=1.4pt,topsep=1.5pt,parsep=0pt,partopsep=0pt]
 }{%
-  \end{itemize}%
+  \end{itemize}\vspace{\ResumeBulletAfterSkip}%
 }
 
 \newcommand{\ResumeBullet}[1]{\item #1}

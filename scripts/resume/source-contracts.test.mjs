@@ -156,6 +156,16 @@ test("targeted variants reuse the authorization divider for their opening summar
   }
 });
 
+test("Leadership opts into roomier variant-specific vertical rhythm", async () => {
+  const source = await variantSource("data-leadership");
+
+  assert.equal(
+    source.match(/\\ResumeLeadershipLayout\b/g)?.length,
+    1,
+    "Leadership must activate its dedicated two-page rhythm exactly once",
+  );
+});
+
 test("Senior composes the saved wording without synthetic headings", async () => {
   const source = await variantSource("senior-data-engineer");
 
