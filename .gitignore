@@ -26,8 +26,22 @@ dist-ssr
 # Personal task tracking
 tasks/
 
+# Private local design specifications
+docs/superpowers/specs/
+
 # Environment variables
 .env
 
 # Visual brainstorming sessions
 .superpowers/
+
+# Local isolated worktrees
+.worktrees/
+
+# Generated résumé PDFs and validation output
+resume/build/
+public/silvia-arellano-cv.pdf
+tmp/pdfs/resume-qa/
+
+# Local job-specific résumé applications
+resume/applications/

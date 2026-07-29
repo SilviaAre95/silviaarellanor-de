@@ -112,6 +112,35 @@ This profile webpage consists of the following sections:
 
 ---
 
+### Résumés
+
+The three résumé variants are generated from shared LaTeX source.
+
+Prerequisites on macOS:
+
+```bash
+brew install poppler
+```
+
+Download Tectonic `0.16.9` for your platform from the [official GitHub release](https://github.com/tectonic-typesetting/tectonic/releases/tag/tectonic%400.16.9), place `tectonic` on your `PATH`, and verify:
+
+```bash
+tectonic --version
+```
+
+The command must report Tectonic `0.16.9`.
+
+Build and validate:
+
+```bash
+npm run test:resume
+npm run resume:build
+```
+
+Only the Senior Data Engineer PDF is copied into the website’s public assets.
+
+---
+
 ## Installation ⬇️
 
 You will need to download **Git** and **Node** to run this project.
@@ -159,6 +188,10 @@ Start the development server to see your project live:
 ```bash
 npm run dev
 ```
+The `predev` hook builds and validates the three résumé variants first, so a
+fresh clone has the public Senior résumé before Vite starts. The Tectonic
+`0.16.9` and Poppler prerequisites listed above are therefore required for
+local development.
 
 View the Project 🌐
 Open your browser and visit http://localhost:5173/ to see the result! 🎉
@@ -208,4 +241,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
   <p>Original template by <a href="https://github.com/seraprogrammer">Nazmul Hossain</a></p>
   <p>Adapted and modified by <a href="https://github.com/SilviaAre95">Silvia Arellano</a> for Data Engineering Profile</p>
 </div>
-

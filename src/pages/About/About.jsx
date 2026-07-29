@@ -1,5 +1,9 @@
 import { Briefcase, Zap } from "lucide-react";
 import silviaPhoto from "@/assets/images/silvia.webp";
+import {
+  contractExperience,
+  longTermExperience,
+} from "@/data/experience";
 
 const TimelineItem = ({ experience }) => (
   <div className="relative flex items-start mb-6">
@@ -30,20 +34,6 @@ const TimelineColumn = ({ experiences, title, icon: Icon }) => (
 );
 
 export default function About() {
-  const fullTimeExperience = [
-    { title: "April 2024 – Present",  cardTitle: "Global Senior Data Engineer",          cardSubtitle: "Playtomic" },
-    { title: "Feb 2023 – April 2024", cardTitle: "Data Engineer / Data Product Developer", cardSubtitle: "Siftia Data Company" },
-    { title: "Jun 2022 – Feb 2023",   cardTitle: "Data Engineer / Analyst",               cardSubtitle: "Worky" },
-    { title: "Feb 2021 – Jul 2022",   cardTitle: "Business Data Engineer",                cardSubtitle: "MatchCraft" },
-    { title: "Oct 2020 – Dec 2023",   cardTitle: "Database Engineer (Seasonal)",          cardSubtitle: "MMI Business Consulting" },
-    { title: "Sept 2019 – Oct 2020",  cardTitle: "Biomechanical Data Engineer",           cardSubtitle: "B-Metrics" },
-  ];
-
-  const contracts = [
-    { title: "June 2024 – Sept 2024", cardTitle: "Data Product Developer",      cardSubtitle: "Worky (Contract)" },
-    { title: "Jan 2022 – Jan 2023",   cardTitle: "Data Solutions Architect",    cardSubtitle: "Grupo Homa (Contract)" },
-  ];
-
   return (
     <div className="min-h-screen bg-main-lightGrey pt-24 pb-20">
       <div className="container mx-auto px-4 md:px-8 max-w-5xl">
@@ -109,11 +99,10 @@ export default function About() {
             <div className="mt-8 flex gap-4">
               <a
                 href="/silvia-arellano-cv.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+                download="silvia-arellano-senior-data-engineer.pdf"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent-softBlue hover:bg-accent-mutedTeal text-white text-sm font-medium transition-colors duration-200"
               >
-                Download CV
+                Download Senior Data Engineer résumé
                 <i className="fas fa-download text-xs"></i>
               </a>
               <a
@@ -134,12 +123,12 @@ export default function About() {
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <TimelineColumn
-              experiences={fullTimeExperience}
+              experiences={longTermExperience}
               title="Long-term Engagements"
               icon={Briefcase}
             />
             <TimelineColumn
-              experiences={contracts}
+              experiences={contractExperience}
               title="Contracts & Advisory"
               icon={Zap}
             />

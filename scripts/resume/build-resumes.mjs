@@ -1,0 +1,221 @@
+import { execFile } from "node:child_process";
+import {
+  copyFile,
+  mkdir,
+  mkdtemp,
+  readFile,
+  rename,
+  rm,
+} from "node:fs/promises";
+import {
+  basename,
+  dirname,
+  isAbsolute,
+  join,
+  relative,
+  resolve,
+} from "node:path";
+import { fileURLToPath } from "node:url";
+import { PUBLIC_RESUME_PATH, RESUME_VARIANTS } from "./config.mjs";
+import { assertRequiredTools, validateResumePdf } from "./validate-resume.mjs";
+
+function runCommand(command, args, options = {}) {
+  return new Promise((resolvePromise, reject) => {
+    execFile(command, args, { encoding: "utf8", ...options }, (error, stdout, stderr) => {
+      if (error) {
+        reject(error);
+        return;
+      }
+
+      resolvePromise(`${stdout}${stderr}`);
+    });
+  });
+}
+
+function sourceOutputName(source) {
+  return basename(source, ".tex");
+}
+
+function assertPublicVariant(variants) {
+  const publicVariants = variants.filter(({ publish }) => publish);
+  if (publicVariants.length !== 1) {
+    throw new Error("Resume manifest must define exactly one public resume variant");
+  }
+
+  const [publicVariant] = publicVariants;
+  if (publicVariant.id !== "senior-data-engineer") {
+    throw new Error("The public resume variant must be senior-data-engineer");
+  }
+
+  return publicVariant;
+}
+
+function assertManifestPath({
+  candidate,
+  kind,
+  rootDir,
+  allowedDir,
+  expectedExtension,
+  relativeTo,
+}) {
+  if (typeof candidate !== "string" || candidate.length === 0 || isAbsolute(candidate)) {
+    throw new Error(`Resume ${kind} path must be a canonical relative path`);
+  }
+
+  const resolvedPath = resolve(relativeTo, candidate);
+  const containedPath = relative(allowedDir, resolvedPath);
+  if (
+    containedPath.length === 0
+    || containedPath.startsWith("..")
+    || isAbsolute(containedPath)
+    || dirname(resolvedPath) !== allowedDir
+  ) {
+    throw new Error(`Resume ${kind} path must be contained in ${relative(rootDir, allowedDir)}`);
+  }
+
+  const canonicalPath = relative(relativeTo, resolvedPath);
+  if (candidate !== canonicalPath) {
+    throw new Error(`Resume ${kind} path must be canonical: ${candidate}`);
+  }
+
+  if (!resolvedPath.endsWith(expectedExtension)) {
+    throw new Error(`Resume ${kind} path must end in ${expectedExtension}`);
+  }
+
+  return resolvedPath;
+}
+
+function assertResumeManifest({ rootDir, variants }) {
+  const canonicalRoot = resolve(rootDir);
+  const variantsDir = join(canonicalRoot, "resume", "variants");
+  const buildDir = join(canonicalRoot, "resume", "build");
+  const seenIds = new Set();
+  const seenSources = new Set();
+  const seenOutputs = new Set();
+
+  for (const variant of variants) {
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(variant.id)) {
+      throw new Error(`Resume variant id is invalid: ${variant.id}`);
+    }
+    if (seenIds.has(variant.id)) {
+      throw new Error(`Resume manifest contains duplicate variant id: ${variant.id}`);
+    }
+    seenIds.add(variant.id);
+
+    const sourcePath = assertManifestPath({
+      candidate: variant.source,
+      kind: "source",
+      rootDir: canonicalRoot,
+      allowedDir: variantsDir,
+      expectedExtension: ".tex",
+      relativeTo: join(canonicalRoot, "resume"),
+    });
+    if (seenSources.has(sourcePath)) {
+      throw new Error(`Resume manifest contains duplicate resume source path: ${variant.source}`);
+    }
+    seenSources.add(sourcePath);
+
+    const outputPath = assertManifestPath({
+      candidate: variant.output,
+      kind: "output",
+      rootDir: canonicalRoot,
+      allowedDir: buildDir,
+      expectedExtension: ".pdf",
+      relativeTo: canonicalRoot,
+    });
+    if (seenOutputs.has(outputPath)) {
+      throw new Error(`Resume manifest contains duplicate resume output path: ${variant.output}`);
+    }
+    seenOutputs.add(outputPath);
+  }
+
+  return assertPublicVariant(variants);
+}
+
+async function compileWithTectonic({ rootDir, variant, stagedPdf, stagingDir, run }) {
+  const resumeDir = join(rootDir, "resume");
+  const sourceName = sourceOutputName(variant.source);
+
+  await run(
+    "tectonic",
+    ["--keep-logs", "--outdir", stagingDir, variant.source],
+    { cwd: resumeDir },
+  );
+
+  await rename(join(stagingDir, `${sourceName}.pdf`), stagedPdf);
+  return { logText: await readFile(join(stagingDir, `${sourceName}.log`), "utf8") };
+}
+
+export async function buildAllResumes({
+  rootDir = process.cwd(),
+  run = runCommand,
+  assertTools = assertRequiredTools,
+  variants = RESUME_VARIANTS,
+  compileVariant,
+  copyPublicPdf = copyFile,
+  validateVariant = validateResumePdf,
+} = {}) {
+  const canonicalRoot = resolve(rootDir);
+  const buildDir = join(canonicalRoot, "resume", "build");
+  const publicPdf = join(canonicalRoot, PUBLIC_RESUME_PATH);
+  const compile = compileVariant ?? ((options) => compileWithTectonic({ ...options, run }));
+  const publicVariant = assertResumeManifest({ rootDir: canonicalRoot, variants });
+
+  await assertTools((command, args) => run(
+    command,
+    args,
+    { cwd: canonicalRoot },
+  ));
+  await mkdir(buildDir, { recursive: true });
+
+  let stagingRoot;
+  try {
+    stagingRoot = await mkdtemp(join(buildDir, ".staging-"));
+    const stagedVariants = [];
+
+    for (const variant of variants) {
+      const stagingDir = join(stagingRoot, variant.id);
+      const stagedPdf = join(stagingDir, basename(variant.output));
+      await mkdir(stagingDir, { recursive: true });
+
+      const { logText } = await compile({
+        rootDir: canonicalRoot,
+        variant,
+        stagedPdf,
+        stagingDir,
+      });
+      await validateVariant({ variant, pdfPath: stagedPdf, logText });
+      stagedVariants.push({ variant, stagedPdf });
+    }
+
+    for (const { variant, stagedPdf } of stagedVariants) {
+      await rename(stagedPdf, join(canonicalRoot, variant.output));
+    }
+
+    await mkdir(dirname(publicPdf), { recursive: true });
+    let temporaryPublicPdf;
+    try {
+      temporaryPublicPdf = join(
+        dirname(publicPdf),
+        `.${basename(publicPdf)}.staging-${process.pid}-${Date.now()}`,
+      );
+      await copyPublicPdf(join(canonicalRoot, publicVariant.output), temporaryPublicPdf);
+      await rename(temporaryPublicPdf, publicPdf);
+    } finally {
+      if (temporaryPublicPdf) {
+        await rm(temporaryPublicPdf, { force: true });
+      }
+    }
+  } finally {
+    if (stagingRoot) {
+      await rm(stagingRoot, { recursive: true, force: true });
+    }
+  }
+}
+
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  buildAllResumes().catch((error) => {
+    console.error(`Resume build failed: ${error.message}`);
+    process.exitCode = 1;
+  });
+}

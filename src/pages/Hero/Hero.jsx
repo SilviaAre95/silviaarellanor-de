@@ -100,7 +100,7 @@ export default function Hero() {
                   {/* Title overlay */}
                   <div className="absolute bottom-4 left-4 right-4 text-white">
                     <p className="text-sm font-medium opacity-90">Data Platform Architect</p>
-                    <p className="text-xs opacity-75">Mexico City · working with teams worldwide</p>
+                    <p className="text-xs opacity-75">Mexico City | Madrid · working with teams worldwide</p>
                   </div>
                 </div>
               </div>

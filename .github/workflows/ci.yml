@@ -20,8 +20,15 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      - uses: wtfjoke/setup-tectonic@v3
+        with:
+          tectonic-version: 0.16.9
+      - run: sudo apt-get update
+      - run: sudo apt-get install -y poppler-utils
+      - run: npm run test:resume
       - run: npm run lint
       - run: npm run build
+      - run: npm run resume:verify-publication
       - uses: actions/upload-pages-artifact@v3
         if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'schedule'
         with:

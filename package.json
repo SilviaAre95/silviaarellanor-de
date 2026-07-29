@@ -4,14 +4,18 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "npm run resume:build",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
+    "resume:build": "node scripts/resume/build-resumes.mjs",
+    "resume:verify-publication": "node scripts/resume/verify-publication.mjs",
+    "test:resume": "node --test scripts/resume/*.test.mjs",
+    "predeploy": "npm run build && npm run resume:verify-publication",
     "deploy": "gh-pages -d dist",
     "postbuild": "cp dist/index.html dist/404.html",
-    "prebuild": "node scripts/fetch-blog.mjs"
+    "prebuild": "node scripts/fetch-blog.mjs && npm run resume:build"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

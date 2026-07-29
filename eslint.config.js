@@ -5,7 +5,14 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 
 export default [
-  { ignores: ['dist'] },
+  {
+    ignores: [
+      'dist',
+      '.superpowers/**',
+      'resume/applications/**',
+      'resume/build/**',
+    ],
+  },
   {
     // Node-context config files (tailwind is CommonJS, vite is bundled with __dirname)
     files: ['*.config.js'],

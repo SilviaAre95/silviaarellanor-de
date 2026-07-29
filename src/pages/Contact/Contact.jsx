@@ -173,7 +173,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-main-darkGrey">Location</h3>
-                    <p className="text-main-mediumGrey">Mexico City</p>
+                    <p className="text-main-mediumGrey">Mexico City | Madrid</p>
                   </div>
                 </div>
               </div>

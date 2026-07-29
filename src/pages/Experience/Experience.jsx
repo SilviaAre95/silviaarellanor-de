@@ -1,4 +1,8 @@
 import { Briefcase, Users } from "lucide-react";
+import {
+  contractExperience,
+  longTermExperience,
+} from "@/data/experience";
 
 const TimelineItem = ({ experience }) => {
   return (
@@ -50,52 +54,6 @@ const CustomTimeline = ({ experiences, title, icon: Icon, accentColor }) => {
 };
 
 const ExperienceSection = () => {
-  const fullTimeExperience = [
-    {
-      title: "April 2024 - Present",
-      cardTitle: "Global Senior Data Engineer",
-      cardSubtitle: "Playtomic"
-    },
-    {
-      title: "Feb 2023 - April 2024",
-      cardTitle: "Data Engineer / Data Product Developer",
-      cardSubtitle: "Siftia Data Company"
-    },
-    {
-      title: "Jun 2022 - Feb 2023",
-      cardTitle: "Data Engineer/Analyst",
-      cardSubtitle: "Worky"
-    },
-    {
-      title: "Feb 2021 - Jul 2022",
-      cardTitle: "Business Data Engineer",
-      cardSubtitle: "MatchCraft"
-    },
-    {
-      title: "Oct 2020 - Dec 2023",
-      cardTitle: "Database Engineer (Seasonal)",
-      cardSubtitle: "MMI Business Consulting"
-    },
-    {
-      title: "Sept 2019 - Oct 2020",
-      cardTitle: "Biomechanical Data Engineer",
-      cardSubtitle: "B-Metrics"
-    }
-  ];
-
-  const independentProjects = [
-    {
-      title: "June 2024 - Sept 2024",
-      cardTitle: "Data Product Developer (Contractor)",
-      cardSubtitle: "Worky"
-    },
-    {
-      title: "Jan 2022 - Jan 2023",
-      cardTitle: "Data Solutions Architect (Contractor)",
-      cardSubtitle: "GRUPO HOMA Real Estate Developers"
-    }
-  ];
-
   return (
     <section id="experience" className="min-h-screen bg-main-white relative py-20">
       {/* Hero section background */}
@@ -115,7 +73,7 @@ const ExperienceSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Professional Experience */}
           <CustomTimeline
-            experiences={fullTimeExperience}
+            experiences={longTermExperience}
             title="Professional Experience"
             icon={Briefcase}
             accentColor="text-accent-softBlue"
@@ -123,7 +81,7 @@ const ExperienceSection = () => {
 
           {/* Independent Projects */}
           <CustomTimeline
-            experiences={independentProjects}
+            experiences={contractExperience}
             title="Independent Projects"
             icon={Users}
             accentColor="text-accent-mutedTeal"
@@ -141,11 +99,10 @@ const ExperienceSection = () => {
           
           <a
             href="/silvia-arellano-cv.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+            download="silvia-arellano-senior-data-engineer.pdf"
             className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-accent-softBlue hover:bg-accent-mutedTeal text-white font-medium transition-colors duration-200 shadow-lg hover:shadow-xl"
           >
-            <span>Get Resume</span>
+            <span>Download Senior Data Engineer résumé</span>
             <i className="fas fa-download ml-2"></i>
           </a>
         </div>

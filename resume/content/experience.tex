@@ -1,0 +1,127 @@
+% Canonical employment history. Variants select these atomic role and bullet macros.
+
+% Playtomic
+\newcommand{\PlaytomicLeadRole}{%
+  \ResumeRole{Lead Data Engineer}{Playtomic}{Oct 2025}{Present}%
+}
+\newcommand{\PlaytomicSeniorRole}{%
+  \ResumeRole{Global Senior Data Engineer}{Playtomic}{Apr 2024}{Oct 2025}%
+}
+\newcommand{\PlaytomicIngestion}{%
+  \ResumeProjectBullet{Automated ingestion platform}{Built Playtomic's first fully automated ingestion system on GCP, replacing Hevo with production pipelines on Dataflow, Pub/Sub, BigQuery, and Apache Beam.}%
+}
+\newcommand{\PlaytomicBeamFramework}{%
+  \ResumeProjectBullet{Reusable data-product framework}{Created Beam frameworks and processing libraries that reduced new pipeline delivery from weeks to days through reusable components and templated CI/CD.}%
+}
+\newcommand{\PlaytomicDeliverySpeed}{%
+  \ResumeBullet{Reduced new pipeline delivery from weeks to days through the Beam framework and templated CI/CD.}%
+}
+\newcommand{\PlaytomicTerraform}{%
+  \ResumeProjectBullet{Infrastructure as code}{Codified Dataflow jobs, BigQuery resources, monitoring, and deployment infrastructure in Terraform for repeatable platform delivery.}%
+}
+\newcommand{\PlaytomicModeling}{%
+  \ResumeProjectBullet{Trusted modeling layer}{Designed dimensional modeling and star schemas, with marts, to keep reporting layers consistent and reusable.}%
+}
+\newcommand{\PlaytomicIntegrations}{%
+  \ResumeProjectBullet{Operational integrations}{Led integrations with Zendesk, CDPs, and marketing tools to support reverse ETL and operational workflows.}%
+}
+\newcommand{\PlaytomicObservability}{%
+  \ResumeBullet{Introduced observability layers and sustained triage practices for production pipelines.}%
+}
+\newcommand{\PlaytomicCostReduction}{%
+  \ResumeBullet{Reduced streaming pipeline costs by up to 60\%.}%
+}
+\newcommand{\PlaytomicLatencyAndLiveProducts}{%
+  \ResumeBullet{Brought streaming latency below one second, enabling live data products inside the application.}%
+}
+\newcommand{\PlaytomicStreamingImpact}{%
+  \ResumeProjectBullet{Real-time product infrastructure}{Brought streaming latency below one second and reduced pipeline costs by up to 60\%, enabling live data products inside the application.}%
+}
+\newcommand{\PlaytomicMcpSemanticLayer}{%
+  \ResumeProjectBullet{AI-enabled semantic layer}{Built an MCP server over Cube Core so people could work with company data through Claude, ChatGPT, and Cursor.}%
+}
+\newcommand{\PlaytomicMcpAdoption}{%
+  \ResumeProjectBullet{Self-service adoption}{Enabled 50+ people across six teams to work through the MCP setup, and adoption is still growing. Those teams now build all new dashboards independently.}%
+}
+\newcommand{\PlaytomicSelfServeDashboards}{%
+  \ResumeBullet{Enabled adopting teams to create all new dashboards independently through AI-assisted workflows.}%
+}
+\newcommand{\PlaytomicAdkAgents}{%
+  \ResumeProjectBullet{Sustained engineering agents}{Built persistent pipeline-triage and bug-fixing agents with Google's Agent Development Kit.}%
+}
+\newcommand{\PlaytomicLeadership}{%
+  \ResumeBullet{Managed the data engineering team at Playtomic.}%
+}
+
+% Siftia
+\newcommand{\SiftiaRole}{%
+  \ResumeRole{Data Engineer / Data Product Developer}{Siftia Data Company}{Feb 2023}{Apr 2024}%
+}
+\newcommand{\SiftiaQueryRefactor}{%
+  \ResumeProjectBullet{BigQuery warehouse refactor}{Refactored more than 80 scheduled BigQuery queries into stored procedures with error handling, centralized cleaning, and dynamic column unnesting.}%
+}
+\newcommand{\SiftiaDataQuality}{%
+  \ResumeBullet{Added error handling, centralized data cleaning, and dynamic column unnesting.}%
+}
+\newcommand{\SiftiaRefreshTime}{%
+  \ResumeProjectBullet{Warehouse orchestration}{Built a wrapper procedure that reduced refresh time from 1.5 hours to under 18 minutes.}%
+}
+\newcommand{\SiftiaReportingAndMigration}{%
+  \ResumeProjectBullet{Client reporting and migration}{Architected BigQuery, Looker, and GraphQL reporting; built Node.js post-migration synchronization and Firebase audits; and ran Python ETL into Firestore.}%
+}
+\newcommand{\SiftiaReporting}{%
+  \ResumeBullet{Architected client-facing reporting with BigQuery, Looker, and GraphQL.}%
+}
+\newcommand{\SiftiaSyncRepository}{%
+  \ResumeBullet{Built a Node.js repository for post-migration synchronization and Firebase audits.}%
+}
+\newcommand{\SiftiaMigration}{%
+  \ResumeBullet{Ran a legacy migration using BigQuery preparation and Python ETL into Firestore.}%
+}
+\newcommand{\SiftiaLeadership}{%
+  \ResumeBullet{Managed a client-facing data engineering team.}%
+}
+
+% Earlier employment
+\newcommand{\WorkyRole}{%
+  \ResumeRole{Data Engineer / Analyst}{Worky}{Jun 2022}{Feb 2023}%
+}
+\newcommand{\WorkyPipelines}{%
+  \ResumeProjectBullet{GCP pipelines}{Built ETL with BigQuery, Pub/Sub, and Dataflow from Cloud SQL, HubSpot, Odoo, and Google Analytics 4.}%
+}
+\newcommand{\WorkyWarehouse}{%
+  \ResumeProjectBullet{Scalable BigQuery warehouse}{Engineered Type 2 slowly changing dimensions and a galaxy schema for detailed historical analysis.}%
+}
+\newcommand{\WorkyReporting}{%
+  \ResumeProjectBullet{Stakeholder reporting}{Developed and automated eight live Looker Studio reports for business teams.}%
+}
+\newcommand{\MatchCraftRole}{%
+  \ResumeRole{Business Data Engineer}{MatchCraft}{Feb 2021}{Jul 2022}%
+}
+\newcommand{\MatchCraftImpact}{%
+  \ResumeProjectBullet{Advertising data products}{Audited MySQL advertising data, authored strategic SQL reporting, improved ad-behavior prediction and budget-estimation tools, and led campaign-data migration from Google Ads and Bing Ads.}%
+}
+\newcommand{\MmiRole}{%
+  \ResumeRole{Partner \& Database Engineer}{MMI Business Consulting}{Oct 2020}{Dec 2023}%
+}
+\newcommand{\MmiGeolocation}{%
+  \ResumeProjectBullet{Geolocation matching}{Built and automated a geolocation hashing and matching process connecting Google Maps and Bing Maps with SQL Server and Python.}%
+}
+\newcommand{\MmiHealthCheck}{%
+  \ResumeProjectBullet{Database health checks}{Co-built a database health-check tool covering query performance and data safety.}%
+}
+\newcommand{\MmiMarketingAutomation}{%
+  \ResumeProjectBullet{Marketing automation}{Automated a B2B client's marketing workflows with ETL packages and T-SQL.}%
+}
+\newcommand{\MmiStandards}{%
+  \ResumeProjectBullet{SQL standards}{Led the company's SQL coding standards for procedures and scripts.}%
+}
+\newcommand{\MmiLeadership}{%
+  \ResumeBullet{Led the development team within the consultancy.}%
+}
+\newcommand{\BMetricsRole}{%
+  \ResumeRole{Biomechanical Data Engineer}{B-Metrics}{Sep 2019}{Oct 2020}%
+}
+\newcommand{\BMetricsImpact}{%
+  \ResumeProjectBullet{Biomechanical performance reporting}{Processed biomechanical data for national sports teams in Python and built performance reports that no one else in the market was offering at the time.}%
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Curating Job Resumes"
+  short_description: "Tailor truthful job-specific LaTeX resumes"
+  default_prompt: "Use $curating-job-resumes to tailor a verified two-page resume for this job description."
