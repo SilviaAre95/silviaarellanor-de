@@ -58,41 +58,43 @@ export default function About() {
             </h1>
             <div className="space-y-4 text-main-darkGrey/80 leading-relaxed">
               <p>
-                I'm a senior data engineer focused on building scalable cloud data platforms
-                and analytics systems on GCP.
+                I'm a senior data engineer. I build cloud data platforms and analytics
+                systems on GCP.
               </p>
               <p>
-                Over the last 6+ years, I've worked across sports tech, real estate, SaaS, and
-                adtech — designing and delivering everything from ingestion pipelines and
-                warehouses to BI systems and production infrastructure.
+                Over the last 6+ years I've worked in sports tech, real estate, SaaS, and
+                adtech. Ingestion pipelines, warehouses, BI systems, production
+                infrastructure. I've built most parts of the stack at one point or another.
               </p>
               <p>
-                Most of my work sits at the intersection of engineering, operations, and business
-                outcomes. I care less about chasing trends and more about building systems that
-                are reliable, cost-efficient, and easy for teams to work with long after launch.
+                Most of my work sits between the engineering and whatever the business is
+                actually trying to do. I'm not very interested in chasing trends. I'd rather
+                build something reliable and cheap to run that a team can still work with a
+                year after I've gone.
               </p>
               <p>
-                My core stack is BigQuery, Dataflow, Pub/Sub, Airflow, and dbt. Recently, I
-                redesigned a streaming pipeline using a CDC-based approach with the Storage Write
-                API, reducing platform costs by 76% and cutting resource waste by roughly 80%.
+                My core stack is BigQuery, Dataflow, Pub/Sub, Airflow, and dbt. Recently I
+                redesigned a streaming pipeline around CDC and the Storage Write API. It cut
+                platform costs by 76% and resource waste by about 80%.
               </p>
               <p>
-                I've helped build data products that were sold to enterprise clients, platforms
-                that automated operational workflows end-to-end, and reusable frameworks that
-                teams continued using well beyond the original project.
+                I've built data products that got sold on to enterprise clients, and platforms
+                that took manual operational work down to almost nothing. The one I'm happiest
+                about is a set of reusable frameworks that teams kept using long after the
+                original project wrapped.
               </p>
               <p>
-                I also care a lot about how teams work with data after the platform is delivered.
-                That means building reusable patterns instead of one-off solutions, documenting
-                decisions clearly, and designing systems that fit the way a company already works.
-                A big part of the job is knowledge sharing — helping internal teams understand the
-                platform, move faster independently, and avoid becoming dependent on a single
-                engineer or vendor.
+                I care about what happens after delivery: reusable patterns rather than
+                one-off solutions, decisions written down somewhere findable, and systems
+                shaped around how a company already works rather than how I'd prefer it did.
+                Most of it comes down to knowledge sharing, making sure the internal team
+                understands the platform well enough that they don't need me, or any single
+                vendor, to keep it running.
               </p>
               <p>
-                Outside of work, I enjoy coffee, sports, nature, and building small apps for
-                friends and family. I like creating things that solve real problems in a simple
-                and practical way, which is probably why I approach data engineering the same way.
+                Outside work I like coffee, sports, being outdoors, and building small apps for
+                friends and family. I like making things that solve a real problem simply,
+                which is probably why I do data engineering the same way.
               </p>
             </div>
 
@@ -102,7 +104,7 @@ export default function About() {
                 download="silvia-arellano-senior-data-engineer.pdf"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent-softBlue hover:bg-accent-mutedTeal text-white text-sm font-medium transition-colors duration-200"
               >
-                Download Senior Data Engineer résumé
+                Download resume
                 <i className="fas fa-download text-xs"></i>
               </a>
               <a

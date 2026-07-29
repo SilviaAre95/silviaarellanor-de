@@ -41,7 +41,7 @@ test("canonical employment macros preserve approved roles and dates", async () =
     String.raw`\ResumeRole{Data Engineer / Data Product Developer}{Siftia Data Company}{Feb 2023}{Apr 2024}`,
     String.raw`\ResumeRole{Data Engineer / Analyst}{Worky}{Jun 2022}{Feb 2023}`,
     String.raw`\ResumeRole{Business Data Engineer}{MatchCraft}{Feb 2021}{Jul 2022}`,
-    String.raw`\ResumeRole{Partner \& Database Engineer}{MMI Business Consulting}{Oct 2020}{Dec 2023}`,
+    String.raw`\ResumeRole{Partner \& Database Engineer (Part-time)}{MMI Business Consulting}{Oct 2020}{Dec 2023}`,
     String.raw`\ResumeRole{Biomechanical Data Engineer}{B-Metrics}{Sep 2019}{Oct 2020}`,
   ];
 
@@ -92,7 +92,7 @@ test("education source preserves all credentials and languages", async () => {
   for (const marker of [
     String.raw`\ResumeEducation{University of Chihuahua}{2018--2020}{Master's Degree in Open Source Software}`,
     String.raw`\ResumeEducation{Emeritus University of Puebla}{2013--2018}{B.Sc.\ in Physics}`,
-    String.raw`\ResumeCredential{Google Cloud Professional Data Engineer}{In progress}`,
+    String.raw`\ResumeCredential{Google Cloud Professional Data Engineer}{In progress, target 2026}`,
     String.raw`\ResumeCredential{Big Data and Machine Learning Fundamentals}{Google, Oct 2023}`,
     String.raw`\ResumeCredential{Modernizing Data Lakes and Data Warehouses with Google Cloud}{Google, Oct 2023}`,
     String.raw`\ResumeLanguage{English}{Fluent}`,
@@ -182,7 +182,7 @@ test("Senior composes the saved wording without synthetic headings", async () =>
   assert.match(seniorContent, /Most Recent Project - BigQuery Data Warehouse Refactoring/);
   assert.match(
     seniorContent,
-    /\\ResumeRole\{Data Solutions Architect \(Contractor\)\}\{GRUPO HOMA Real Estate Developers\}\{Jan 2022\}\{Jan 2023\}/,
+    /\\ResumeRole\{Data Solutions Architect \(Contract\)\}\{Grupo Homa Real Estate Developers\}\{Jan 2022\}\{Jan 2023\}/,
   );
 
   for (const macro of [
@@ -215,7 +215,7 @@ test("Senior renders saved project labels and skills without shared generated pu
   );
   assert.match(
     seniorContent,
-    /\\ResumeSkillGridRow\{SQL\}\{BigQuery\}\{Cloud Computing\}\{IaC\/Terraform\/Pulumi\}/,
+    /\\ResumeSkillGridRow\{SQL\}\{Python\}\{BigQuery\}\{Google Cloud Platform \(GCP\)\}/,
   );
 });
 
@@ -224,13 +224,17 @@ test("Senior skills preserve the approved row-major extraction order", async () 
   const skills = macroBlock(seniorContent, "SeniorCurrentSkills");
   const orderedSkills = [
     "SQL",
-    "BigQuery",
-    "Cloud Computing",
-    "IaC/Terraform/Pulumi",
-    "ETL/ELT",
-    "Data Visualization",
     "Python",
-    "Orchestration/Airflow/Prefect",
+    "BigQuery",
+    "Google Cloud Platform (GCP)",
+    "Dataflow",
+    "Apache Beam",
+    "Pub/Sub",
+    "Firestore",
+    "Docker",
+    "Kubernetes",
+    "Kafka",
+    "PostgreSQL",
   ];
 
   let cursor = -1;

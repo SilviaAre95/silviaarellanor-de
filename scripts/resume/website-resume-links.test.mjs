@@ -3,7 +3,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import test from "node:test";
 import { createServer } from "vite";
 
-const seniorResumeText = "Download Senior Data Engineer résumé";
+const seniorResumeText = "Download resume";
 
 async function renderPage(page) {
   const server = await createServer({
