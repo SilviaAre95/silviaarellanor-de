@@ -17,19 +17,21 @@ This is my personal profile webpage showcasing my journey as a Senior Data Engin
 
 ## Credits & Attribution
 
-This project is based on the original portfolio template created by **[Nazmul Hossain](https://github.com/seraprogrammer/portfolio)**. I've made significant modifications to adapt it for my data engineering profile, including:
+This site started from a portfolio template by **[Nazmul Hossain](https://github.com/seraprogrammer/portfolio)**, which gave the project its first working structure. It has diverged a long way since then: the layout, design system, content model, build pipeline, and nearly all of the code are now my own.
 
-- Complete redesign focused on data engineering skills and projects
-- Added new sections for Blog (Medium articles) and Digital Products
-- Custom Experience timeline with professional journey
-- Industry banner showing sectors I've worked in
-- Customized color scheme and styling
-- Updated content to reflect data engineering expertise
-- Integration with data-specific tools and technologies showcase
-- Mobile-responsive design optimizations
-- Change to deploy page using GitHub Pages
+What the site does today:
 
-Special thanks to Nazmul Hossain for creating the excellent foundation that made this profile webpage possible.
+- Redesigned around data engineering work, with its own colour system and typography
+- Experience timeline driven from a single shared data source
+- Blog section that syncs from my Medium feed at build time
+- Digital products and consulting sections, with booking and contact flows
+- Industry banner covering the sectors I've worked in
+- A LaTeX résumé pipeline that builds the published CV from source and verifies it before release
+- Legal and privacy pages for the company behind the consulting work
+- Mobile-responsive layout and image optimisation
+- Deployed to GitHub Pages through CI
+
+Credit for the starting point belongs to Nazmul Hossain, and the original template is worth a look if you want somewhere to begin.
 
 ---
 
