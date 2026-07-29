@@ -128,7 +128,7 @@ test("canonical sources preserve the saved resume's important project detail", a
   for (const phrase of [
     "Fivetran, Datastream, and Dataflow",
     "Power BI data product",
-    "the client sold it as a new product",
+    "client sold it as a new product",
     "construction progress, budget, and sales",
     "Cloud Functions, Workflows, Zapier, and Apps Script",
   ]) {
@@ -350,7 +350,7 @@ test("Leadership preserves management, architecture, adoption, and consulting de
     "PlaytomicBeamFramework",
     "PlaytomicTerraform",
     "PlaytomicObservability",
-    "PlaytomicMcpSemanticLayer",
+    "PlaytomicMcpSemanticLayerLead",
     "PlaytomicMcpAdoption",
     "PlaytomicAdkAgents",
     "SiftiaLeadership",
