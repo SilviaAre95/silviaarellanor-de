@@ -1,27 +1,36 @@
-=== VERBATIM TRANSCRIPTION OF THE SAVED CANVA RESUME — DO NOT "CORRECT" ===
+=== HISTORICAL RECORD OF THE SAVED CANVA RESUME ===
 This file records what public/silvia-arellano-cv.pdf (the saved Canva original)
-actually says, typos included. It is a reference record, not a build input; no
-script reads it.
+said, typos included. It is a reference record, not a build input; no script
+reads it.
 
-The generated Senior resume intentionally diverges from this transcription in
-four places, approved by Silvia on 2026-07-28. Do not revert these:
-  1. "Marketing tools ect"                  -> "and marketing tools"
+It is NO LONGER the source of the generated Senior resume. On 2026-07-29 Silvia
+approved a full editorial rewrite of the Senior body, so the two documents now
+differ throughout. Do not reconcile the LaTeX against the text below.
+
+What changed, in two stages:
+
+2026-07-28, corrections to defects inherited from the Canva original:
+  1. "Marketing tools ect"                   -> "and marketing tools"
   2. Certifications block                    -> shared clean format
      ("Google Cloud Professional Data Engineer | In progress", and
       "... | Google, Oct 2023" instead of date-prefixed titles)
-     This also removes the stray "|. Google" rendering defect.
+     This also removed the stray "|. Google" rendering defect.
   3. Education dates "2018-2020"/"2013-2018" -> en dashes "2018–2020"/"2013–2018"
-  4. Final Playtomic Lead bullet              -> terminal period added
+  4. Final Playtomic Lead bullet             -> terminal period added
+  5. `Estimator' -> matched quote pair; B.Sc.\ -> no inter-sentence space
 
-The generated resume also differs from this transcription in ways that come
-from the shared visual system rather than from wording decisions:
-  - Languages render as "English – Fluent" (en dash), not "English - Fluent"
-  - Role date ranges render with an en dash: "October 2025–Present"
-  - `Estimator' renders with a matched opening/closing quote pair; the Canva
-    uses two straight apostrophes
-  - The employer line repeats for the second Playtomic role, which the Canva
-    omits
-All other Senior wording matches this transcription.
+2026-07-29, editorial rewrite (humanizer pass) of the summary and all 23
+experience and consulting bullets. The rewrite removed present-participle
+tails ("ensuring...", "facilitating...", "fostering..."), unquantified
+intensifiers ("greatly", "significantly", "pioneering"), and redundant
+constructions ("Implemented the development of", "own and operate their own").
+Two bullets were left untouched because they needed no change: the Beam
+framework bullet and the Zendesk/CDP integrations bullet. Two factual
+corrections landed with it: "Workflow" -> "Workflows" and
+"Hubspot"/"PubSub" -> "HubSpot"/"Pub/Sub".
+
+Facts, numbers, employers, dates, and project names were not changed by either
+stage. The full before-and-after review is preserved in the branch history.
 
 Transcription accuracy note: the SKILLS grid below is recorded in row-major
 order matching the Canva's four columns. An earlier version of this file had

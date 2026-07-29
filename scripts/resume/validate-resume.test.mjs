@@ -259,7 +259,7 @@ Consulting Projects
 Education
 Certifications
 Languages
-I'm a data engineer with deep experience architecting and building scalable data infrastructure in GCP.
+I'm a I build data infrastructure on GCP
 Reduced pipeline development time from weeks to a few days through an internal Beam framework and templated CI/CD.
 Built Playtomic’s first fully automated data ingestion system in GCP, replacing Hevo with scalable pipelines using Dataflow, Pub/Sub, BigQuery, and Apache Beam.
 1. Most Recent Project - BigQuery Data Warehouse Refactoring:
@@ -268,9 +268,9 @@ Geolocation Data Integration and Hashing Process.
 Development of Data Pipelines and ETL Processes.
 Audited digital ads data in MySQL and authored SQL reporting that informed strategy.
 Processed and analyzed biomechanical data for national sports teams using Python.
-Built streaming and batch data infrastructure using Fivetran, Datastream, and Dataflow.
-Developed a custom, end-to-end data product in Power BI.
-I created an end-to-end, user-friendly data product`;
+Built streaming and batch data infrastructure on Fivetran, Datastream, and Dataflow.
+Built a custom data product in Power BI end to end
+Built an end-to-end data product for Grupo Homa`;
 
   await assert.doesNotReject(
     validateResumePdf({
@@ -320,7 +320,7 @@ Consulting Projects
 Education
 Certifications
 Languages
-I'm a data engineer with deep experience architecting and building scalable data infrastructure in GCP.
+I'm a I build data infrastructure on GCP
 Reduced pipeline development time from weeks to a few days through an internal Beam framework and templated CI/CD.
 Built Playtomic’s first fully automated data ingestion system in GCP, replacing Hevo with scalable pipelines using Dataflow, Pub/Sub, BigQuery, and Apache Beam.
 1. Most Recent Project - BigQuery Data Warehouse Refactoring:
@@ -328,9 +328,9 @@ Built Playtomic’s first fully automated data ingestion system in GCP, replacin
 Geolocation Data Integration and Hashing Process.
 Development of Data Pipelines and ETL Processes.
 Processed and analyzed biomechanical data for national sports teams using Python.
-Built streaming and batch data infrastructure using Fivetran, Datastream, and Dataflow.
-Developed a custom, end-to-end data product in Power BI.
-I created an end-to-end, user-friendly data product`;
+Built streaming and batch data infrastructure on Fivetran, Datastream, and Dataflow.
+Built a custom data product in Power BI end to end
+Built an end-to-end data product for Grupo Homa`;
 
   await assert.rejects(
     validateResumePdf({

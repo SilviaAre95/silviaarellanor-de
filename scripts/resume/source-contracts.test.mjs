@@ -176,7 +176,7 @@ test("Senior composes the saved wording without synthetic headings", async () =>
   const seniorContent = await readFile(seniorCurrentSourceUrl, "utf8");
   assert.match(
     seniorContent,
-    /I'm a data engineer with deep experience architecting and building scalable data infrastructure in GCP\./,
+    /I'm a data engineer\. I build data infrastructure on GCP/,
   );
   assert.match(seniorContent, /Reduced pipeline development time from weeks to a few days/);
   assert.match(seniorContent, /Most Recent Project - BigQuery Data Warehouse Refactoring/);

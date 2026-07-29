@@ -1,7 +1,7 @@
 % Saved Senior resume wording, normalized from public/silvia-arellano-cv.pdf.
 
 \newcommand{\SeniorCurrentSummary}{%
-I'm a data engineer with deep experience architecting and building scalable data infrastructure in GCP. I’ve led the design of end-to-end solutions—from ingestion pipelines to core data models—that support teams across product, operations, finance, and customer experience. I’m strong at understanding business needs and translating them into data products that are reliable, actionable, and easy to work with. Whether replacing third-party tools or setting up self-serve workflows, I focus on building systems that are both technically sound and aligned with how teams actually use data to make decisions.%
+I'm a data engineer. I build data infrastructure on GCP, from the ingestion pipelines through to the core models that product, operations, finance, and customer experience teams run on. The part I'm actually good at is the translation step: working out what a team needs and turning it into something they can use without coming back to ask me. Sometimes that means replacing a third-party tool, sometimes setting up self-serve workflows. Either way, I care whether the thing still makes sense to the people using it six months later.%
 }
 
 \newcommand{\SeniorCurrentSkills}{%
@@ -25,59 +25,59 @@ I'm a data engineer with deep experience architecting and building scalable data
 \ResumeRole{Lead Data Engineer}{Playtomic}{October 2025}{Present}%
 \begin{ResumeBullets}
   \ResumeBullet{Reduced pipeline development time from weeks to a few days through an internal Beam framework and templated CI/CD.}%
-  \ResumeBullet{Cut streaming pipeline costs by up to 60\% via a GCP cost and monitoring framework adopted across the platform.}%
-  \ResumeBullet{Enabled subsecond latency in streaming pipelines, unlocking use cases the previous architecture couldn't support.}%
-  \ResumeBullet{Developed an agent framework for engineering workflows, bringing AI assistance into pipeline development, ops, and quality.}%
+  \ResumeBullet{Cut streaming pipeline costs by up to 60\% with a GCP cost and monitoring framework the whole platform now uses.}%
+  \ResumeBullet{Brought streaming latency under one second, which opened up use cases the previous architecture couldn't handle.}%
+  \ResumeBullet{Built an agent framework that puts AI assistance into pipeline development, ops, and quality work.}%
 \end{ResumeBullets}%
 \ResumeRole{Global Senior Data Engineer}{Playtomic}{April 2024}{Oct 2025}%
 \begin{ResumeBullets}
-  \ResumeBullet{Built Playtomic’s first fully automated data ingestion system in GCP, replacing Hevo with scalable pipelines using Dataflow, Pub/Sub, BigQuery, and Apache Beam.}%
-  \ResumeBullet{Developed IaC to provision Dataflow jobs, BigQuery tables, and monitoring resources, making deployments repeatable and efficient.}%
-  \ResumeBullet{Designed data models and marts using dimensional modeling and star schemas, ensuring consistency and accuracy across reporting layers.}%
+  \ResumeBullet{Built Playtomic’s first fully automated data ingestion system in GCP. It replaced Hevo and runs on Dataflow, Pub/Sub, BigQuery, and Apache Beam.}%
+  \ResumeBullet{Wrote the IaC that provisions Dataflow jobs, BigQuery tables, and monitoring resources, so deployments are repeatable.}%
+  \ResumeBullet{Designed the data models and marts with dimensional modeling and star schemas, which keeps the reporting layers consistent.}%
   \ResumeBullet{Led integrations with Zendesk, CDPs, and marketing tools to support reverse ETL and improve operational insights.}%
-  \ResumeBullet{Helped establish a more self-serve data culture by building standard models, improving documentation, and rolling out curated dashboards.}%
+  \ResumeBullet{Moved the team toward self-serve data: standard models, better documentation, and curated dashboards.}%
 \end{ResumeBullets}%
 \ResumeRole{Data Engineer / Data Product Developer}{Siftia Data Company}{Feb 2023}{April 2024}%
 \begin{ResumeBullets}
-  \SeniorCurrentNumberedProject{1}{Most Recent Project - BigQuery Data Warehouse Refactoring:}{Led a major refactoring of over 80 scheduled queries into efficient stored procedures in BigQuery. Implemented error handling, centralized data cleaning, and managed dynamic unnesting of columns. Developed a wrapper procedure, cutting down warehouse refresh time from 1.5 hours to under 18 minutes.}%
-  \SeniorCurrentNumberedProject{2}{Main Responsibilities:}{Architected client-facing reporting solutions using BigQuery, Looker, and GraphQL for intuitive and efficient data visualization. Developed a Node.js synchronization repository for post-migration syncs and audits in Firebase, ensuring data consistency and accuracy. Managed legacy data migration, involving data preparation in BigQuery and Python-based ETL for importing into Firestore.}%
+  \SeniorCurrentNumberedProject{1}{Most Recent Project - BigQuery Data Warehouse Refactoring:}{Refactored over 80 scheduled queries into stored procedures in BigQuery, with error handling, centralized data cleaning, and dynamic column unnesting. A wrapper procedure brought warehouse refresh time down from 1.5 hours to under 18 minutes.}%
+  \SeniorCurrentNumberedProject{2}{Main Responsibilities:}{Built client-facing reporting on BigQuery, Looker, and GraphQL. Wrote a Node.js repository that handled post-migration syncs and Firebase audits, so the data stayed consistent. Ran the legacy migration: data preparation in BigQuery, then Python ETL into Firestore.}%
 \end{ResumeBullets}%
 \ResumeRole{Partner \& Database Engineer}{MMI Business Consulting}{Oct 2020}{Dec 2023}%
 \begin{ResumeBullets}
-  \SeniorCurrentLiteralProject{Geolocation Data Integration and Hashing Process.}{Developed a geolocation data hashing and matching process, integrating Google Maps and Bing Maps with SQL Server. Automated the process with Python scripts in SQL Server, greatly improving geospatial data accuracy and efficiency for clients.}%
-  \SeniorCurrentLiteralProject{Co-Creation of Database Health Check Tool.}{Co-developed a database Health Check tool to evaluate key metrics like query performance and data safety, facilitating proactive database maintenance.}%
-  \SeniorCurrentLiteralProject{Automation of Marketing Data Processes.}{Automated marketing data workflows using ETL packages and T-SQL scripts, enhancing data quality and efficiency for a B2B client.}%
-  \SeniorCurrentLiteralProject{Database Coding Standards Creation.}{Led the creation of Database Coding Standards, establishing structured guidelines for SQL procedures and scripts, thereby ensuring coding consistency and efficiency.}%
+  \SeniorCurrentLiteralProject{Geolocation Data Integration and Hashing Process.}{Built a geolocation hashing and matching process connecting Google Maps and Bing Maps to SQL Server, then automated it with Python. It improved geospatial accuracy for clients.}%
+  \SeniorCurrentLiteralProject{Co-Creation of Database Health Check Tool.}{Co-built a database health check tool that reports on query performance and data safety, so maintenance happens before something breaks.}%
+  \SeniorCurrentLiteralProject{Automation of Marketing Data Processes.}{Automated a B2B client's marketing data workflows with ETL packages and T-SQL scripts.}%
+  \SeniorCurrentLiteralProject{Database Coding Standards Creation.}{Wrote the company's database coding standards for SQL procedures and scripts.}%
 \end{ResumeBullets}%
 \newpage%
 \ResumeRole{Data Engineer/Analyst}{Worky}{Jun 2022}{Feb 2023}%
 \begin{ResumeBullets}
-  \SeniorCurrentLiteralProject{Development of Data Pipelines and ETL Processes.}{Implemented the development of ETL processes using GCP tools (BigQuery, PubSub, Dataflow) to create data pipelines from CloudSQL, Hubspot, Odoo, and Google Analytics 4 (G4).}%
-  \SeniorCurrentLiteralProject{Building a Scalable Data Warehouse in BigQuery.}{Engineered a BigQuery data warehouse with Type 2 slowly changing dimensions and a galaxy schema, optimizing data structure for detailed tracking and analysis efficiency.}%
-  \SeniorCurrentLiteralProject{Custom Reporting for Stakeholders.}{Developed and automated 8 live Looker Studio reports for various divisions, fostering real-time insights and driving the company's shift to a data-driven culture.}%
+  \SeniorCurrentLiteralProject{Development of Data Pipelines and ETL Processes.}{Built ETL processes on BigQuery, Pub/Sub, and Dataflow, pulling data from CloudSQL, HubSpot, Odoo, and Google Analytics 4.}%
+  \SeniorCurrentLiteralProject{Building a Scalable Data Warehouse in BigQuery.}{Engineered a BigQuery warehouse with Type 2 slowly changing dimensions and a galaxy schema, so historical changes could be tracked in detail.}%
+  \SeniorCurrentLiteralProject{Custom Reporting for Stakeholders.}{Built and automated 8 live Looker Studio reports for teams across the company, which is what moved day-to-day reporting off manual requests.}%
 \end{ResumeBullets}%
 \ResumeRole{Business Data Engineer}{MatchCraft}{Feb 2021}{Jul 2022}%
 \begin{ResumeBullets}
-  \ResumeBullet{Audited digital ads data in MySQL and authored SQL reporting that informed strategy. Enhanced an internal ad-behavior prediction tool and the `Estimator' for budget optimization, and led the migration of campaign data from Google Ads and Bing Ads into MatchCraft's platform.}%
+  \ResumeBullet{Audited digital ads data in MySQL and wrote the SQL reporting that informed strategy. Improved an internal ad-behavior prediction tool and the `Estimator' used for budget optimization, and led the migration of campaign data from Google Ads and Bing Ads into MatchCraft's platform.}%
 \end{ResumeBullets}%
 \ResumeRole{Biomechanical Data Engineer}{B-Metrics}{Sept 2019}{Oct 2020}%
 \begin{ResumeBullets}
-  \ResumeBullet{Processed and analyzed biomechanical data for national sports teams using Python, delivering pioneering performance-insight reports for institutional and private clients.}%
+  \ResumeBullet{Processed and analyzed biomechanical data for national sports teams in Python, and built the performance reports that went to institutional and private clients. Nobody else in the market was producing them at the time.}%
 \end{ResumeBullets}%
 }
 
 \newcommand{\SeniorCurrentConsulting}{%
 \ResumeRole{Data Engineer (Contract)}{Thomson Reuters}{Feb 2025}{May 2026}%
 \begin{ResumeBullets}
-  \ResumeBullet{Built streaming and batch data infrastructure using Fivetran, Datastream, and Dataflow, with Pulumi for infrastructure as code. Orchestrated transformations with dbt and Airflow and set up monitoring and alerting, enabling teams to independently own and operate their own pipelines for reliable, self-serve data delivery.}%
+  \ResumeBullet{Built streaming and batch data infrastructure on Fivetran, Datastream, and Dataflow, with Pulumi for infrastructure as code. Orchestrated transformations with dbt and Airflow and set up monitoring and alerting, so teams could run their own pipelines without coming back to me.}%
 \end{ResumeBullets}%
 \ResumeRole{Data Product Developer (Contractor)}{Worky}{June 2024}{Sept 2024}%
 \begin{ResumeBullets}
-  \ResumeBullet{Developed a custom, end-to-end data product in Power BI. The project involved creating batch ELT pipelines from the production database to BigQuery, performing data modeling and processing, and leveraging DirectQuery capabilities for direct connectivity with Power BI. The solution enabled the creation of a new product sold to new clients by the company. Additionally, I standardized the product to ensure it was replicable for multiple customers, enhancing scalability and broadening the market reach.}%
+  \ResumeBullet{Built a custom data product in Power BI end to end: batch ELT pipelines from the production database into BigQuery, the data modeling on top, and DirectQuery for the live connection. The company sold it as a new product. I standardized it afterwards so they could resell the same build to other customers.}%
 \end{ResumeBullets}%
 \ResumeRole{Data Solutions Architect (Contractor)}{GRUPO HOMA Real Estate Developers}{Jan 2022}{Jan 2023}%
 \begin{ResumeBullets}
-  \ResumeBullet{I created an end-to-end, user-friendly data product that emphasizes business automation and data warehousing on GCP, significantly transforming Grupo Homa's decision-making process. I developed a comprehensive BigQuery data warehouse integrating financial tools for centralized data management. Additionally, I designed interactive Looker Studio dashboards for real-time monitoring of construction progress, budget tracking, and sales performance. I also automated property management workflows using Google Cloud Functions, Workflow, Zapier, and Google Apps Script, enhancing operational efficiency.}%
+  \ResumeBullet{Built an end-to-end data product for Grupo Homa on GCP covering business automation and warehousing. The BigQuery warehouse pulled their financial tools into one place. On top of it I built Looker Studio dashboards for construction progress, budget, and sales, and automated property management workflows with Cloud Functions, Workflows, Zapier, and Apps Script.}%
 \end{ResumeBullets}%
 }
 
