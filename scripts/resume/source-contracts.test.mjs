@@ -41,7 +41,7 @@ test("canonical employment macros preserve approved roles and dates", async () =
     String.raw`\ResumeRole{Data Engineer / Data Product Developer}{Siftia Data Company}{Feb 2023}{Apr 2024}`,
     String.raw`\ResumeRole{Data Engineer / Analyst}{Worky}{Jun 2022}{Feb 2023}`,
     String.raw`\ResumeRole{Business Data Engineer}{MatchCraft}{Feb 2021}{Jul 2022}`,
-    String.raw`\ResumeRole{Partner \& Database Engineer}{MMI Business Consulting}{Oct 2020}{Dec 2023}`,
+    String.raw`\ResumeRole{Partner \& Database Engineer (Part-time)}{MMI Business Consulting}{Oct 2020}{Dec 2023}`,
     String.raw`\ResumeRole{Biomechanical Data Engineer}{B-Metrics}{Sep 2019}{Oct 2020}`,
   ];
 

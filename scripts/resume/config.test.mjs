@@ -103,7 +103,7 @@ test("requires every shared career, education, credential, and language marker i
     "MatchCraft Feb 2021–Jul 2022 Business Data Engineer",
     "MMI Business Consulting",
     "Oct 2020–Dec 2023",
-    "Partner & Database Engineer",
+    "Partner & Database Engineer (Part-time)",
     "B-Metrics Sep 2019–Oct 2020 Biomechanical Data Engineer",
     "Thomson Reuters Feb 2025–May 2026 Data Engineer (Contract)",
     "Worky Jun 2024–Sep 2024 Data Product Developer (Contract)",

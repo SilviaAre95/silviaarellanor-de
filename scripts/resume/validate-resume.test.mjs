@@ -231,7 +231,7 @@ Senior Data Engineer & Architect
 Playtomic Oct 2025–Present Lead Data Engineer
 Playtomic Apr 2024–Oct 2025 Global Senior Data Engineer
 Siftia Data Company Feb 2023–Apr 2024 Data Engineer / Data Product Developer
-MMI Business Consulting Oct 2020–Dec 2023 Partner & Database Engineer
+MMI Business Consulting Oct 2020–Dec 2023 Partner & Database Engineer (Part-time)
 Worky Jun 2022–Feb 2023 Data Engineer / Analyst
 MatchCraft Feb 2021–Jul 2022 Business Data Engineer
 B-Metrics Sep 2019–Oct 2020 Biomechanical Data Engineer
@@ -299,7 +299,7 @@ Senior Data Engineer & Architect
 Playtomic Oct 2025–Present Lead Data Engineer
 Playtomic Apr 2024–Oct 2025 Global Senior Data Engineer
 Siftia Data Company Feb 2023–Apr 2024 Data Engineer / Data Product Developer
-MMI Business Consulting Oct 2020–Dec 2023 Partner & Database Engineer
+MMI Business Consulting Oct 2020–Dec 2023 Partner & Database Engineer (Part-time)
 Worky Jun 2022–Feb 2023 Data Engineer / Analyst
 MatchCraft Feb 2021–Jul 2022 Business Data Engineer
 B-Metrics Sep 2019–Oct 2020 Biomechanical Data Engineer
