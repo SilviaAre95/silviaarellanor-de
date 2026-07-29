@@ -1,14 +1,21 @@
 [
   {
+    "title": "My app was broken for 34 days. The tool that noticed was one I’d built that morning.",
+    "excerpt": "How I open-sourced my way of working with AI coding agents, and what my Claude Code setup caught in its first week. One of my side projects is a small…",
+    "date": "Jul 14, 2026",
+    "readTime": "6 min read",
+    "link": "https://towardsdev.com/my-app-was-broken-for-34-days-the-tool-that-noticed-was-one-id-built-that-morning-0c1b151c28a7"
+  },
+  {
     "title": "The Secret to High-Performance Tech Teams: It’s Not Agile, It’s Not AI — It’s You",
-    "excerpt": "In tech, everyone talks about process . Agile. Scrum. SAFe. Kanban. Others talk about technology . We’re AI-powered. We’re serverless. We’re cloud-native. But…",
+    "excerpt": "The secret to high-performance tech teams is who you hire In tech, everyone talks about process. Agile, Scrum, SAFe, Kanban. Everyone else talks about the…",
     "date": "Aug 19, 2025",
     "readTime": "5 min read",
     "link": "https://python.plainenglish.io/the-secret-to-high-performance-tech-teams-its-not-agile-it-s-not-ai-it-s-you-3ee6b573ae7e"
   },
   {
-    "title": "Building a Scalable ETL Framework on Apache Beam + Dataflow",
-    "excerpt": "How to turn messy API data into structured BigQuery tables on autopilot. Architecture Overview Here’s a high-level look at the pipeline components:…",
+    "title": "Building an ETL framework on Apache Beam and Dataflow",
+    "excerpt": "Turning API report data into structured BigQuery tables. Architecture Overview Here’s a high-level look at the pipeline components: ┌────────────┐ │ API…",
     "date": "Aug 7, 2025",
     "readTime": "2 min read",
     "link": "https://python.plainenglish.io/%EF%B8%8F-building-a-scalable-etl-framework-on-apache-beam-dataflow-6f2eb471d2b3"
@@ -22,7 +29,7 @@
   },
   {
     "title": "How to Efficiently Load Billions of MongoDB Records Without a Date Field",
-    "excerpt": "How to Load Billions of MongoDB Records Without a Date Field TL;DR: When faced with loading billions of MongoDB documents lacking date fields or usable…",
+    "excerpt": "How to Load Billions of MongoDB Records Without a Date Field TL;DR: If a collection has no date field and no usable index, .skip() pagination collapses at…",
     "date": "Jul 31, 2025",
     "readTime": "4 min read",
     "link": "https://medium.com/@silvia.datadev/how-to-efficiently-load-billions-of-mongodb-records-without-a-date-field-30594957108a"
