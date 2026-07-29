@@ -104,7 +104,7 @@ export default function About() {
                 download="silvia-arellano-senior-data-engineer.pdf"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent-softBlue hover:bg-accent-mutedTeal text-white text-sm font-medium transition-colors duration-200"
               >
-                Download Senior Data Engineer résumé
+                Download resume
                 <i className="fas fa-download text-xs"></i>
               </a>
               <a
