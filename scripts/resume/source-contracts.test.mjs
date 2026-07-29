@@ -92,7 +92,7 @@ test("education source preserves all credentials and languages", async () => {
   for (const marker of [
     String.raw`\ResumeEducation{University of Chihuahua}{2018--2020}{Master's Degree in Open Source Software}`,
     String.raw`\ResumeEducation{Emeritus University of Puebla}{2013--2018}{B.Sc.\ in Physics}`,
-    String.raw`\ResumeCredential{Google Cloud Professional Data Engineer}{In progress}`,
+    String.raw`\ResumeCredential{Google Cloud Professional Data Engineer}{In progress, target 2026}`,
     String.raw`\ResumeCredential{Big Data and Machine Learning Fundamentals}{Google, Oct 2023}`,
     String.raw`\ResumeCredential{Modernizing Data Lakes and Data Warehouses with Google Cloud}{Google, Oct 2023}`,
     String.raw`\ResumeLanguage{English}{Fluent}`,
