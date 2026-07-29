@@ -6,10 +6,13 @@ I'm a data engineer. I build data infrastructure on GCP, from the ingestion pipe
 
 \newcommand{\SeniorCurrentSkills}{%
 \ResumeSkillGrid{%
-  \ResumeSkillGridRow{SQL}{BigQuery}{Cloud Computing}{IaC/Terraform/Pulumi}%
-  \ResumeSkillGridRow{ETL/ELT}{Data Visualization}{Python}{Orchestration/Airflow/Prefect}%
-  \ResumeSkillGridRow{Data Warehousing}{Beam/Flink/Spark}{Firestore}{SQLX/Dataform/DBT}%
-  \ResumeSkillGridRow{SQL/NoSQL Management}{Git}{}{}%
+  \ResumeSkillGridRow{SQL}{Python}{BigQuery}{Google Cloud Platform (GCP)}%
+  \ResumeSkillGridRow{Dataflow}{Apache Beam}{Pub/Sub}{Firestore}%
+  \ResumeSkillGridRow{Airflow}{Prefect}{dbt}{Dataform}%
+  \ResumeSkillGridRow{Terraform}{Pulumi}{Infrastructure as Code}{CI/CD}%
+  \ResumeSkillGridRow{Docker}{Kubernetes}{Kafka}{PostgreSQL}%
+  \ResumeSkillGridRow{Spark}{Flink}{SQLX}{Data Warehousing}%
+  \ResumeSkillGridRow{ETL/ELT}{Dimensional Modeling}{Data Visualization}{Git}%
 }%
 }
 
@@ -22,14 +25,14 @@ I'm a data engineer. I build data infrastructure on GCP, from the ingestion pipe
 }
 
 \newcommand{\SeniorCurrentExperience}{%
-\ResumeRole{Lead Data Engineer}{Playtomic}{October 2025}{Present}%
+\ResumeRole{Lead Data Engineer}{Playtomic}{Oct 2025}{Present}%
 \begin{ResumeBullets}
   \ResumeBullet{Reduced pipeline development time from weeks to a few days through an internal Beam framework and templated CI/CD.}%
   \ResumeBullet{Cut streaming pipeline costs by up to 60\% with a GCP cost and monitoring framework the whole platform now uses.}%
   \ResumeBullet{Brought streaming latency under one second, which opened up use cases the previous architecture couldn't handle.}%
   \ResumeBullet{Built an agent framework that puts AI assistance into pipeline development, ops, and quality work.}%
 \end{ResumeBullets}%
-\ResumeRole{Global Senior Data Engineer}{Playtomic}{April 2024}{Oct 2025}%
+\ResumeRole{Global Senior Data Engineer}{Playtomic}{Apr 2024}{Oct 2025}%
 \begin{ResumeBullets}
   \ResumeBullet{Built Playtomic’s first fully automated data ingestion system in GCP. It replaced Hevo and runs on Dataflow, Pub/Sub, BigQuery, and Apache Beam.}%
   \ResumeBullet{Wrote the IaC that provisions Dataflow jobs, BigQuery tables, and monitoring resources, so deployments are repeatable.}%
@@ -37,7 +40,7 @@ I'm a data engineer. I build data infrastructure on GCP, from the ingestion pipe
   \ResumeBullet{Led integrations with Zendesk, CDPs, and marketing tools to support reverse ETL and improve operational insights.}%
   \ResumeBullet{Moved the team toward self-serve data: standard models, better documentation, and curated dashboards.}%
 \end{ResumeBullets}%
-\ResumeRole{Data Engineer / Data Product Developer}{Siftia Data Company}{Feb 2023}{April 2024}%
+\ResumeRole{Data Engineer / Data Product Developer}{Siftia Data Company}{Feb 2023}{Apr 2024}%
 \begin{ResumeBullets}
   \SeniorCurrentNumberedProject{1}{Most Recent Project - BigQuery Data Warehouse Refactoring:}{Refactored over 80 scheduled queries into stored procedures in BigQuery, with error handling, centralized data cleaning, and dynamic column unnesting. A wrapper procedure brought warehouse refresh time down from 1.5 hours to under 18 minutes.}%
   \SeniorCurrentNumberedProject{2}{Main Responsibilities:}{Built client-facing reporting on BigQuery, Looker, and GraphQL. Wrote a Node.js repository that handled post-migration syncs and Firebase audits, so the data stayed consistent. Ran the legacy migration: data preparation in BigQuery, then Python ETL into Firestore.}%
@@ -50,7 +53,7 @@ I'm a data engineer. I build data infrastructure on GCP, from the ingestion pipe
   \SeniorCurrentLiteralProject{Database Coding Standards Creation.}{Wrote the company's database coding standards for SQL procedures and scripts.}%
 \end{ResumeBullets}%
 \newpage%
-\ResumeRole{Data Engineer/Analyst}{Worky}{Jun 2022}{Feb 2023}%
+\ResumeRole{Data Engineer / Analyst}{Worky}{Jun 2022}{Feb 2023}%
 \begin{ResumeBullets}
   \SeniorCurrentLiteralProject{Development of Data Pipelines and ETL Processes.}{Built ETL processes on BigQuery, Pub/Sub, and Dataflow, pulling data from CloudSQL, HubSpot, Odoo, and Google Analytics 4.}%
   \SeniorCurrentLiteralProject{Building a Scalable Data Warehouse in BigQuery.}{Engineered a BigQuery warehouse with Type 2 slowly changing dimensions and a galaxy schema, so historical changes could be tracked in detail.}%
@@ -60,7 +63,7 @@ I'm a data engineer. I build data infrastructure on GCP, from the ingestion pipe
 \begin{ResumeBullets}
   \ResumeBullet{Audited digital ads data in MySQL and wrote the SQL reporting that informed strategy. Improved an internal ad-behavior prediction tool and the `Estimator' used for budget optimization, and led the migration of campaign data from Google Ads and Bing Ads into MatchCraft's platform.}%
 \end{ResumeBullets}%
-\ResumeRole{Biomechanical Data Engineer}{B-Metrics}{Sept 2019}{Oct 2020}%
+\ResumeRole{Biomechanical Data Engineer}{B-Metrics}{Sep 2019}{Oct 2020}%
 \begin{ResumeBullets}
   \ResumeBullet{Processed and analyzed biomechanical data for national sports teams in Python, and built the performance reports that went to institutional and private clients. Nobody else in the market was producing them at the time.}%
 \end{ResumeBullets}%
@@ -71,11 +74,11 @@ I'm a data engineer. I build data infrastructure on GCP, from the ingestion pipe
 \begin{ResumeBullets}
   \ResumeBullet{Built streaming and batch data infrastructure on Fivetran, Datastream, and Dataflow, with Pulumi for infrastructure as code. Orchestrated transformations with dbt and Airflow and set up monitoring and alerting, so teams could run their own pipelines without coming back to me.}%
 \end{ResumeBullets}%
-\ResumeRole{Data Product Developer (Contractor)}{Worky}{June 2024}{Sept 2024}%
+\ResumeRole{Data Product Developer (Contract)}{Worky}{Jun 2024}{Sep 2024}%
 \begin{ResumeBullets}
   \ResumeBullet{Built a custom data product in Power BI end to end: batch ELT pipelines from the production database into BigQuery, the data modeling on top, and DirectQuery for the live connection. The company sold it as a new product. I standardized it afterwards so they could resell the same build to other customers.}%
 \end{ResumeBullets}%
-\ResumeRole{Data Solutions Architect (Contractor)}{GRUPO HOMA Real Estate Developers}{Jan 2022}{Jan 2023}%
+\ResumeRole{Data Solutions Architect (Contract)}{Grupo Homa Real Estate Developers}{Jan 2022}{Jan 2023}%
 \begin{ResumeBullets}
   \ResumeBullet{Built an end-to-end data product for Grupo Homa on GCP covering business automation and warehousing. The BigQuery warehouse pulled their financial tools into one place. On top of it I built Looker Studio dashboards for construction progress, budget, and sales, and automated property management workflows with Cloud Functions, Workflows, Zapier, and Apps Script.}%
 \end{ResumeBullets}%

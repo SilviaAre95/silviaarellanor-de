@@ -182,7 +182,7 @@ test("Senior composes the saved wording without synthetic headings", async () =>
   assert.match(seniorContent, /Most Recent Project - BigQuery Data Warehouse Refactoring/);
   assert.match(
     seniorContent,
-    /\\ResumeRole\{Data Solutions Architect \(Contractor\)\}\{GRUPO HOMA Real Estate Developers\}\{Jan 2022\}\{Jan 2023\}/,
+    /\\ResumeRole\{Data Solutions Architect \(Contract\)\}\{Grupo Homa Real Estate Developers\}\{Jan 2022\}\{Jan 2023\}/,
   );
 
   for (const macro of [
@@ -215,7 +215,7 @@ test("Senior renders saved project labels and skills without shared generated pu
   );
   assert.match(
     seniorContent,
-    /\\ResumeSkillGridRow\{SQL\}\{BigQuery\}\{Cloud Computing\}\{IaC\/Terraform\/Pulumi\}/,
+    /\\ResumeSkillGridRow\{SQL\}\{Python\}\{BigQuery\}\{Google Cloud Platform \(GCP\)\}/,
   );
 });
 
@@ -224,13 +224,17 @@ test("Senior skills preserve the approved row-major extraction order", async () 
   const skills = macroBlock(seniorContent, "SeniorCurrentSkills");
   const orderedSkills = [
     "SQL",
-    "BigQuery",
-    "Cloud Computing",
-    "IaC/Terraform/Pulumi",
-    "ETL/ELT",
-    "Data Visualization",
     "Python",
-    "Orchestration/Airflow/Prefect",
+    "BigQuery",
+    "Google Cloud Platform (GCP)",
+    "Dataflow",
+    "Apache Beam",
+    "Pub/Sub",
+    "Firestore",
+    "Docker",
+    "Kubernetes",
+    "Kafka",
+    "PostgreSQL",
   ];
 
   let cursor = -1;
