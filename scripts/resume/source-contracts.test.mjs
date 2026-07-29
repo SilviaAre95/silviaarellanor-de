@@ -350,7 +350,7 @@ test("Leadership preserves management, architecture, adoption, and consulting de
     "PlaytomicBeamFramework",
     "PlaytomicTerraform",
     "PlaytomicObservability",
-    "PlaytomicMcpSemanticLayer",
+    "PlaytomicMcpSemanticLayerLead",
     "PlaytomicMcpAdoption",
     "PlaytomicAdkAgents",
     "SiftiaLeadership",
