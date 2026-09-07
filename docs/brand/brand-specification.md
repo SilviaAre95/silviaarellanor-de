@@ -1,6 +1,8 @@
 # silvia arellano — brand specification
 
-Version 1.0 · Owner: Silvia Arellano Romero · Last updated 2026-09-07
+Version 1.1 · Owner: Silvia Arellano Romero · Last updated 2026-09-07
+
+*v1.1 — §2 all-lowercase rule retired; see the amendment under Voice.*
 
 > **How to use this file.** Paste it whole into an agent's context before asking it to
 > build any page, slide, README header, or social asset for this brand. Every rule
@@ -22,7 +24,7 @@ against deep green.
 **Positioning line:** Data Platform Architect — data platform architecture,
 GCP/BigQuery, and AI-assisted delivery. Builder of wayworks.
 
-**One-sentence statement:** *i build the machinery underneath other people's businesses.*
+**One-sentence statement:** *I build the machinery underneath other people's businesses.*
 
 **Visual lineage:** the *Berkeley Physics Course, Volume 3: Waves* cover (duotone
 posterized photograph, full bleed, lowercase Helvetica set directly on the image,
@@ -35,12 +37,21 @@ reproduce the artwork.
 
 | Rule | Detail |
 |---|---|
-| Case | **MUST** be lowercase throughout, including headings, buttons, nav, and the wordmark. Set once via `body { text-transform: lowercase; }`. Proper nouns stay lowercase too — `gcp`, `bigquery`, `madrid`. |
-| Person | First person singular. "i build", "i'm brought in for". Never third-person bio voice. |
+| Case | ~~**MUST** be lowercase throughout~~ — **retired 2026-09-07, see amendment below.** Copy renders in the case it is authored in. |
+| Person | First person singular. "I build", "I'm brought in for". Never third-person bio voice. |
 | Register | Plain, declarative, a little dry. Short sentences. |
 | Forbidden | Em-dash asides, "not X but Y" constructions, exclamation marks, "passionate", "leverage", "cutting-edge", "solutions", "empower", "journey". |
 | Numbers | Only real ones. Never invent a year, a headcount, or a client count to fill a shape. |
 | Language | English primary. Spanish is used in life, not on the marketing surface, unless a page is deliberately bilingual. |
+
+> **Amendment — 2026-09-07 (Silvia).** The all-lowercase treatment is retired.
+> Text renders in the case it is authored in: `Silvia Arellano`, `Data Platform
+> Architect`, `GCP`, `BigQuery`, `Madrid`. `body { text-transform: lowercase }`
+> **MUST NOT** be reintroduced.
+>
+> The rest of §2 is unaffected — first person singular, plain and declarative,
+> the forbidden-words list, and real numbers all still stand. So does §4's rule
+> against all-caps: sentence and title case only, never `SHOUTING`.
 
 ---
 
@@ -285,7 +296,7 @@ body{
   font-family:"Archivo",Helvetica,Arial,sans-serif;
   font-size:clamp(1rem,.95rem + .2vw,1.0625rem);
   line-height:1.55;
-  text-transform:lowercase;
+  /* text-transform:lowercase; — retired 2026-09-07, see the §2 amendment */
 }
 ```
 
@@ -314,7 +325,7 @@ print(cr('#0E2019','#4FA97F'))   # abyss on sea — must be >= 4.5
 2. Load Archivo 400/500/600/700. No other font.
 3. Ground the page in `--foam`; make the hero `--abyss` with the §5 wave anchored bottom.
 4. Alternate section grounds `foam → chrome → foam → abyss → foam → sea`.
-5. Write all copy lowercase, first person, per §2.
+5. Write copy in sentence/title case, first person, per §2 and its amendment. Never all-caps (§4).
 6. Check every `--sea` surface uses `--abyss` text.
 7. Add nothing that isn't specified here — no shadows, no gradients, no second font,
    no sixth color, no icons.

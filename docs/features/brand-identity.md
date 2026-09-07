@@ -9,7 +9,8 @@ depends_on: []
 acceptance_criteria:
   - Every surface draws its colour from a closed five-token palette of abyss, deep, sea, chrome, and foam.
   - Archivo at weights 400, 500, 600, and 700 is the only typeface on the site.
-  - All visible copy renders lowercase, including headings, navigation, buttons, and proper nouns.
+  - Copy renders in the case it is authored in; no global text transform is applied.
+  - No visible text renders in all-caps, per brand specification §4.
   - Display text carries negative letter tracking and small caption text carries positive letter tracking.
   - The Home page opens on a dark ground with the drawn wave anchored to the bottom edge of the hero.
   - The wave is drawn from stacked bezier bands that alternate chrome, sea, chrome, deep, and abyss from back to front.
@@ -34,10 +35,11 @@ non_goals:
   - Offer a dark-mode theme, a theme toggle, or any visitor-selectable appearance.
   - Introduce a sixth colour, a second typeface, decorative gradients, or drop shadows.
   - Change page structure, section order, routes, or the wording of any existing copy.
+  - Reintroduce `body { text-transform: lowercase }` or any global case transform.
 test_plan:
   - Load every route and verify each visible colour resolves to one of the five palette tokens.
   - Inspect computed styles on headings, body copy, and buttons and verify Archivo is the resolved family on each.
-  - Read every route and verify no visible text renders with an uppercase letter.
+  - Read every route and verify computed `text-transform` is `none` on every element and that no text renders in all-caps.
   - Verify the hero wave sits on the bottom edge, is never flipped or rotated, and keeps its band order.
   - Sample each section of each route and confirm chrome yellow is present at least once.
   - Check every sea-coloured surface and verify its text is abyss.
@@ -52,7 +54,7 @@ The site renders in one closed visual system built on waves — signal, frequenc
 
 ## Behavior
 
-Pages sit on a warm off-white ground with deep-green type. Section grounds alternate between foam, chrome, abyss, and sea, and chrome yellow carries the signal on every one of them. A single typeface, Archivo, does all the work through scale and weight contrast, and all copy renders lowercase through a global text transform rather than by rewriting the source text.
+Pages sit on a warm off-white ground with deep-green type. Section grounds alternate between foam, chrome, abyss, and sea, and chrome yellow carries the signal on every one of them. A single typeface, Archivo, does all the work through scale and weight contrast. Copy renders in the case it is authored in: the brand book's original all-lowercase treatment was retired by Silvia on 2026-09-07, and the amendment is recorded in `docs/brand/brand-specification.md` §2.
 
 The Home page opens on a dark hero: a duotoned portrait behind a drawn wave of stacked bezier bands, spray above the crest, foam flecks along it, and a grain overlay across the whole artwork. The same wave, cropped to its bottom edge, divides sections elsewhere.
 

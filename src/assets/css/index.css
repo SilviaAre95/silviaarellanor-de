@@ -51,26 +51,16 @@
     @apply border-border;
   }
 
-  /* §8, copied verbatim from the specification. The lowercase transform is the
-     brand's voice rule (§2) — source copy keeps its authored case, only the
-     rendering is lowercased. */
+  /* §8, copied verbatim from the specification apart from its
+     text-transform. The brand book's §2 lowercase rule is deliberately not
+     applied: Silvia retired it, so copy renders in the case it is authored in.
+     Do not reintroduce `text-transform: lowercase` here. */
   body {
     background: var(--foam);
     color: var(--abyss);
     font-family: "Archivo", Helvetica, Arial, sans-serif;
     font-size: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem);
     line-height: 1.55;
-    text-transform: lowercase;
-  }
-
-  /* Form controls reset text-transform in the UA stylesheet, so the §2 voice
-     rule has to be handed back to them explicitly. */
-  button,
-  input,
-  optgroup,
-  select,
-  textarea {
-    text-transform: inherit;
   }
 
   /* §4: display sizes carry negative tracking, small caption text carries

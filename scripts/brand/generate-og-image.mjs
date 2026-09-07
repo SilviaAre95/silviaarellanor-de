@@ -71,7 +71,7 @@ const html = `<style>
 ${fontCss}
 *{box-sizing:border-box;margin:0;padding:0}
 body{width:1200px;height:630px;overflow:hidden;background:#0E2019;color:#F4F2E7;
-  font-family:"Archivo",Helvetica,Arial,sans-serif;text-transform:lowercase;position:relative}
+  font-family:"Archivo",Helvetica,Arial,sans-serif;position:relative}
 .pad{position:absolute;left:0;right:0;top:0;height:66%;padding:58px 72px 0;display:flex;flex-direction:column;justify-content:space-between;z-index:2}
 .top{display:flex;align-items:center;gap:20px}
 .top .m{width:76px;height:76px;flex:none}
@@ -84,10 +84,10 @@ body{width:1200px;height:630px;overflow:hidden;background:#0E2019;color:#F4F2E7;
 </style>
 ${wave}
 <div class="pad">
-  <div class="top"><div class="m">${mark}</div><div class="cap">madrid &middot; available for consulting engagements</div></div>
+  <div class="top"><div class="m">${mark}</div><div class="cap">Madrid &middot; available for consulting engagements</div></div>
   <div>
-    <div class="wm">silvia arellano</div>
-    <div class="role">data platform architect &mdash; gcp / bigquery / ai-assisted delivery</div>
+    <div class="wm">Silvia Arellano</div>
+    <div class="role">Data Platform Architect &mdash; GCP / BigQuery / AI-assisted delivery</div>
     <div class="rule"></div>
   </div>
 </div>`;

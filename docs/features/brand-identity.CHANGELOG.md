@@ -4,6 +4,18 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ---
 
+## 2026-09-07 — lowercase treatment retired
+
+- **Spec change**: brand specification §2's "Case — MUST be lowercase throughout" is retired at Silvia's direction. Copy now renders in the case it is authored in. Recorded as a dated amendment in `docs/brand/brand-specification.md` rather than by rewriting the original rule.
+- **Removed**: `body { text-transform: lowercase }` and the companion rule that handed the transform back to form controls
+- **Changed**: acceptance criterion "All visible copy renders lowercase" → "Copy renders in the case it is authored in; no global text transform is applied", plus an explicit criterion that nothing renders in all-caps (§4 still stands)
+- **Added**: non-goal — reintroducing a global case transform
+- **Changed**: the swallow SVGs' `<title>` and `aria-label` now read "Silvia Arellano"; these are accessible names, not styled text, so the transform never covered them
+- **Changed**: `og-image.jpg` re-rendered — "Silvia Arellano", "Data Platform Architect — GCP / BigQuery / AI-assisted delivery", "Madrid"
+- **Verified**: computed `text-transform` is `none` on every element of every route
+- **Files touched**: src/assets/css/index.css, public/brand/*.svg, public/favicon.svg, public/og-image.jpg, scripts/brand/generate-og-image.mjs, docs/brand/brand-specification.md
+
+
 ## 2026-09-07 — raster icons and share card
 
 - **Spec change (non-goal amended)**: "Regenerate the raster favicons, touch icons, or the OpenGraph share image" → "Hand-author the raster icons or the share card; both are generated from the mark by committed scripts." Silvia supplied a 1024px raster master, which removed the blocker.

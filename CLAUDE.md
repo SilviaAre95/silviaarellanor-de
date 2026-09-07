@@ -15,7 +15,7 @@ Silvia's personal site/portfolio — ventures, open-source work, consultancy, bl
 - Feature spec: `docs/features/brand-identity.md`. Tokens live in `src/assets/css/index.css` and `tailwind.config.js`; the wave is `src/components/BrandWave.jsx`.
 - Palette is **closed**: `abyss #0E2019`, `deep #173A2C`, `sea #4FA97F`, `chrome #F2C13D`, `foam #F4F2E7`. No sixth colour, no second font, no shadows, no decorative gradients.
 - Text on `--sea` MUST be `--abyss`. `--sea` as text on `--foam` measures 2.56 and fails — links on light grounds are `--deep`.
-- Copy is lowercased by `body { text-transform: lowercase }`, never by rewriting source text.
+- **No global case transform.** The brand book's §2 all-lowercase rule was retired 2026-09-07 (see the amendment in `docs/brand/brand-specification.md`). Copy renders in the case it is authored in. Never reintroduce `text-transform: lowercase`. §4's no-all-caps rule still stands.
 - The swallow mark ships in `public/brand/` (primary / dark / mono / mono-foam), extracted from Silvia's logo sheet. Never redraw or alter it. Never place it on `--sea`, never flip or rotate it, never add an outline or containing shape. Use mono below 32px.
 - Icons and the share card are generated from the mark, not hand-made. Regenerate with the scripts noted in `docs/features/brand-identity.md` if the mark ever changes.
 
