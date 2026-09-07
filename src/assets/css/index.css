@@ -1097,6 +1097,212 @@
 }
 
 
+
+/* --------------------------------------------------------------------------
+   About and Experience. A chrome band carrying the mark, the biography and the
+   two actions, then the timelines on the page ground.
+   Everything on chrome is abyss — 10.06.
+   -------------------------------------------------------------------------- */
+
+.bio {
+  background: var(--chrome);
+  color: var(--abyss);
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+
+.bio__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vw, 4rem);
+}
+
+@media (min-width: 960px) {
+  .bio__grid {
+    grid-template-columns: minmax(0, 1fr) 17rem;
+  }
+}
+
+/* No shadow, no outline, no containing shape — the mark ships as drawn. */
+.bio__mark {
+  display: block;
+  width: clamp(5.5rem, 12vw, 8rem);
+  height: auto;
+}
+
+.bio__motto {
+  margin: 1.5rem 0 0;
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+.bio__roles {
+  margin: 0.35rem 0 0;
+  font-size: 1.0625rem;
+}
+
+.bio h1 {
+  margin: clamp(2.5rem, 6vw, 3.5rem) 0 0;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  font-size: clamp(1.9rem, 1.2rem + 2.2vw, 2.75rem);
+}
+
+.bio__copy {
+  margin-top: 1.5rem;
+  max-width: 68ch;
+}
+
+.bio__copy p {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.bio__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 2rem;
+}
+
+.bio__cta a {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.7rem 1.35rem;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.bio__cta a.solid {
+  background: var(--abyss);
+  color: var(--foam);
+}
+
+.bio__cta a.solid:hover {
+  background: var(--foam);
+  color: var(--abyss);
+}
+
+.bio__cta a.ghost {
+  border: 1.5px solid var(--abyss);
+  color: var(--abyss);
+}
+
+.bio__cta a.ghost:hover {
+  background: var(--abyss);
+  color: var(--foam);
+}
+
+.bio__shot img {
+  width: 100%;
+  max-width: 17rem;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+/* --- experience ---------------------------------------------------------- */
+
+.cv {
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+  color: var(--abyss);
+}
+
+.cv__title {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  font-size: clamp(1.9rem, 1.2rem + 2.2vw, 2.75rem);
+}
+
+.cv__lede {
+  margin: 1rem 0 0;
+  max-width: 52ch;
+  font-size: clamp(1.02rem, 0.98rem + 0.3vw, 1.15rem);
+  color: var(--deep);
+}
+
+.cv__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 3.5rem);
+  margin-top: clamp(2.25rem, 5vw, 3.25rem);
+}
+
+@media (min-width: 960px) {
+  .cv__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.cv__group {
+  margin: 0 0 1.5rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+.cv__line {
+  margin: 0;
+  padding: 0 0 0 1.6rem;
+  list-style: none;
+  /* The spine. Entries hang their marker on it. */
+  border-left: 1px solid rgba(14, 32, 25, 0.18);
+}
+
+.cv__line li {
+  position: relative;
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.4rem;
+  border-bottom: 1px solid rgba(14, 32, 25, 0.12);
+}
+
+.cv__line li:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+.cv__line li::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.6rem - 5px);
+  top: 0.45rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--sea);
+}
+
+.cv__when {
+  display: inline-block;
+  background: var(--sea);
+  color: var(--abyss);
+  border-radius: 100px;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.cv__line h4 {
+  margin: 0.7rem 0 0;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.cv__line p {
+  margin: 0.25rem 0 0;
+  font-size: 0.9375rem;
+  color: var(--deep);
+}
+
+
 .gradient-text {
   background: linear-gradient(90deg, #007A6B, #009E8C);
   -webkit-background-clip: text;
