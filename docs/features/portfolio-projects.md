@@ -3,9 +3,9 @@ id: portfolio-projects
 title: Portfolio Projects
 status: implemented
 created_at: 2026-07-27
-last_modified: 2026-07-27
+last_modified: 2026-09-07
 owner: Silvia Arellano
-depends_on: [site-navigation, contact-inquiry]
+depends_on: [site-navigation, contact-inquiry, brand-identity]
 acceptance_criteria:
   - The Home page presents a Projects section focused on recent work and business outcomes.
   - Each project card identifies the project, organization or open-source context, year, summary, and available outcome metrics.
@@ -48,4 +48,4 @@ The portfolio does not disclose confidential code, unpublished architecture or c
 
 ## Implementation notes
 
-The project catalog and card behavior are implemented in `src/pages/Projects/Projects.jsx`. Public project imagery is stored with the site's image assets.
+The project catalog and card behavior are implemented in `src/pages/Projects/Projects.jsx`, styled by the brand layer of `src/assets/css/index.css` (`.work`, `.pcard`). Cards are solid rectangles cycling sea / chrome / abyss, per the composition Silvia supplied. Each sets `--ink` and `--ink-soft` as tokens, so the dark ground inverts the whole card through one modifier rather than per-element overrides; the meta line goes chrome on abyss (10.06). The screenshots sit inset at the top so the card's colour frames them, and are decorative (`alt=""`) — the meta line and title carry the meaning. Outcome figures lead with the label beside them. Footers are pinned to the card bottom so they line up across a row. The section heading reads "Selected work"; the nav item and anchor remain `Projects` / `#projects`.

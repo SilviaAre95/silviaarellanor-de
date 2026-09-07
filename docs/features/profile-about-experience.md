@@ -3,9 +3,9 @@ id: profile-about-experience
 title: About and Experience
 status: implemented
 created_at: 2026-07-27
-last_modified: 2026-07-27
+last_modified: 2026-09-07
 owner: Silvia Arellano
-depends_on: [site-navigation, resume-delivery, contact-inquiry]
+depends_on: [site-navigation, resume-delivery, contact-inquiry, brand-identity]
 acceptance_criteria:
   - The About route presents Silvia's professional biography with a portrait and senior data-engineering positioning.
   - The biography covers experience breadth, core GCP stack, representative quantified outcomes, delivery philosophy, knowledge sharing, and limited personal interests.
@@ -48,4 +48,6 @@ The page does not replicate the complete resume, publish detailed education or s
 
 ## Implementation notes
 
-The routed About page and both career timelines are implemented in `src/pages/About/About.jsx`. Its public CV destination is supplied by the resume-delivery feature.
+The page is `src/pages/About/About.jsx`, styled by the brand layer of `src/assets/css/index.css` (`.bio`, `.cv`). The biography sits on a chrome band with the swallow mark above it and a one-line role note under it — everything on chrome is abyss, 10.06 — and the portrait beside it. The timelines sit on the page ground below: a hairline spine per column with a sea marker per entry, the date range as a sea pill with abyss type, then the role and the organization.
+
+The mark is the full-colour primary at roughly 128px, well clear of §7's 64px compact threshold. It carries no shadow, outline or containing shape, and chrome is a permitted ground — the one forbidden ground is sea, where the abyss bird loses contrast.

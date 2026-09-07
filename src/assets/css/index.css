@@ -2,6 +2,1301 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ==========================================================================
+   Brand tokens. Introduced section by section — see docs/brand/.
+   Chrome and sea are ACCENTS. Foam and abyss carry the page. Large saturated
+   grounds were what made the first attempt unreadable; do not bring them back
+   without a reason.
+   ========================================================================== */
+:root {
+  --abyss: #0e2019;
+  --deep: #173a2c;
+  --sea: #4fa97f;
+  --chrome: #f2c13d;
+  --foam: #f4f2e7;
+  --gutter: clamp(1.15rem, 5vw, 4.5rem);
+}
+
+/* --------------------------------------------------------------------------
+   Crest and hero. Built to the reference composition Silvia
+   supplied; the wave and the header read as one dark unit at the top of the
+   page and the wave's final band resolves into the foam ground below it.
+   -------------------------------------------------------------------------- */
+
+.wrap {
+  width: 100%;
+  max-width: 1220px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* The nav bar. Sticky rather than fixed so it sits inside the crest at rest
+   and still follows the reader down the page. */
+.brand-bar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--foam);
+  color: var(--abyss);
+  border-bottom: 1px solid rgba(23, 58, 44, 0.1);
+}
+
+.brand-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.15rem;
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand-lockup img {
+  width: 38px;
+  height: 38px;
+  display: block;
+  flex: none;
+}
+
+.brand-lockup b {
+  font-weight: 600;
+  font-size: 1.0625rem;
+  letter-spacing: -0.01em;
+}
+
+.navlink {
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.9375rem;
+  padding-bottom: 2px;
+  border-bottom: 1.5px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.navlink:hover {
+  border-bottom-color: var(--chrome);
+}
+
+.navlink.is-active {
+  color: var(--sea);
+}
+
+/* The dark band the wave rises through. */
+.crest {
+  position: relative;
+  background: var(--abyss);
+  overflow: hidden;
+}
+
+.crest__art {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  /* Full height, not 72%: the artwork's grain rect covers the whole SVG, so a
+     short box leaves a hard noise edge across the abyss above the bands. At
+     100% the grain is uniform and the dark air above the crest comes from the
+     wave's own transparent upper region instead. */
+  height: 100%;
+  z-index: 1;
+}
+
+.crest__art svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.crest__pad {
+  height: clamp(10rem, 20vw, 16rem);
+}
+
+/* The closing band before the footer. The footer is fixed, so the page ground
+   below the artwork is the clearance it covers — and since the crest's own
+   shore band is foam, that clearance is the same colour and leaves no seam.
+   The footer stacks below Tailwind's md breakpoint and roughly trebles in
+   height there, so the clearance has to follow it; 5rem alone left it covering
+   65px of the page. */
+.crest-close {
+  padding-bottom: 5rem;
+}
+
+@media (max-width: 767px) {
+  .crest-close {
+    padding-bottom: 11rem;
+  }
+}
+
+/* --- hero ---------------------------------------------------------------- */
+
+.hero {
+  padding-block: clamp(2.75rem, 7vw, 5rem) clamp(3rem, 7vw, 5.5rem);
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: clamp(2rem, 6vw, 4.5rem);
+  align-items: center;
+}
+
+.hero h1 {
+  font-weight: 700;
+  letter-spacing: -0.038em;
+  line-height: 1.05;
+  margin: 0;
+  /* Sized so "I build your data platform." holds one line on desktop. No
+     max-width and no text-wrap: balance — the grid column is the measure, and
+     balance would re-break lines that are deliberate. */
+  font-size: clamp(1.85rem, 0.6rem + 3.3vw, 3.05rem);
+}
+
+.hero h1 span,
+.hero h1 em {
+  display: block;
+  font-style: normal;
+}
+
+/* The payoff line carries the accent. */
+.hero h1 em {
+  color: var(--sea);
+}
+
+.hero__sub {
+  margin: 1.5rem 0 0;
+  max-width: 52ch;
+  font-size: clamp(1.05rem, 1rem + 0.35vw, 1.2rem);
+  color: var(--deep);
+}
+
+.cta {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.cta a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 0.7rem 1.35rem;
+  border-radius: 100px;
+  display: inline-block;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cta a.solid {
+  background: var(--abyss);
+  color: var(--foam);
+}
+
+.cta a.solid:hover {
+  background: var(--sea);
+  color: var(--abyss);
+}
+
+.cta a.ghost {
+  border: 1.5px solid var(--abyss);
+  color: var(--abyss);
+}
+
+.cta a.ghost:hover {
+  background: var(--chrome);
+}
+
+/* Circular portrait with a three-quarter sea arc. */
+.shot {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 24rem);
+  aspect-ratio: 1;
+}
+
+.shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.shot::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 2px solid var(--sea);
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+
+.shot__tag {
+  position: absolute;
+  right: -0.5rem;
+  bottom: 9%;
+  background: var(--abyss);
+  color: var(--foam);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.45rem 1rem;
+  border-radius: 100px;
+  z-index: 2;
+}
+
+@media (max-width: 860px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .shot {
+    width: min(100%, 17rem);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Skills — "the stack". Sits on the same ground as the hero rather than on a
+   dark band, with the wave marking the top-right corner. Each rectangle takes
+   one of the two accents, alternating, so neighbours never repeat.
+   -------------------------------------------------------------------------- */
+
+.stack {
+  position: relative;
+  overflow: hidden;
+  color: var(--abyss);
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+}
+
+/* The wave, level, spanning the section behind the rectangles — the same
+   treatment as the crest: bottom-anchored, and its final band is foam, which is
+   the page ground here, so the artwork resolves into the page instead of ending
+   on an edge. The cards are opaque, so it reads in the margins around them. */
+.stack__wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Full height, not a short box: the artwork's grain rect covers the whole
+     SVG, so a short one leaves a hard noise edge across the section. */
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  /* It is a background. At full strength the bands are the same two colours as
+     the rectangles and the cards stop reading as objects. */
+  opacity: 0.22;
+}
+
+.stack__wave svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.stack > .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.stack__title {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0;
+  font-size: clamp(1.9rem, 1.2rem + 2.2vw, 2.75rem);
+}
+
+.stack__lede {
+  margin: 1rem 0 0;
+  max-width: 52ch;
+  font-size: clamp(1.02rem, 0.98rem + 0.3vw, 1.15rem);
+  color: var(--deep);
+}
+
+.stack__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: clamp(2.25rem, 5vw, 3.25rem);
+  align-items: start;
+}
+
+@media (min-width: 700px) {
+  .stack__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1060px) {
+  .stack__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* The rectangle, filled. --tone alternates sea / chrome by card. Everything
+   inside is abyss: 5.90 on sea, 10.06 on chrome. No shadow. */
+.stackcard {
+  --tone: var(--sea);
+  background: var(--tone);
+  border-radius: 6px;
+  padding: 1.4rem 1.35rem 1.5rem;
+  color: var(--abyss);
+}
+
+.stackcard--chrome {
+  --tone: var(--chrome);
+}
+
+.stackcard h3 {
+  margin: 0 0 1.1rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--abyss);
+}
+
+.stackcard h3::before {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 3px;
+  background: var(--abyss);
+  margin-bottom: 0.85rem;
+}
+
+.stackcard ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Contoured, on the card's own colour: abyss outline and abyss type over sea
+   or chrome. Colour on colour, with the contrast carried by the outline. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1.5px solid rgba(14, 32, 25, 0.55);
+  border-radius: 6px;
+  padding: 0.42rem 0.7rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--abyss);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.chip:hover {
+  border-color: var(--abyss);
+  background: rgba(14, 32, 25, 0.07);
+}
+
+.chip__icon {
+  display: inline-flex;
+  flex: none;
+}
+
+.chip__icon svg {
+  width: 1.05em;
+  height: 1.05em;
+  display: block;
+}
+
+
+/* --------------------------------------------------------------------------
+   Selected work. Solid rectangles per the composition Silvia supplied, cycling
+   sea / chrome / abyss. The screenshots we already have sit inset at the top of
+   each, so the card's colour frames them.
+   -------------------------------------------------------------------------- */
+
+.work {
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+  color: var(--abyss);
+}
+
+.work__title {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0;
+  font-size: clamp(1.9rem, 1.2rem + 2.2vw, 2.75rem);
+}
+
+.work__lede {
+  margin: 1rem 0 0;
+  max-width: 52ch;
+  font-size: clamp(1.02rem, 0.98rem + 0.3vw, 1.15rem);
+  color: var(--deep);
+}
+
+.work__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: clamp(2.25rem, 5vw, 3.25rem);
+}
+
+@media (min-width: 860px) {
+  .work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* --ink flips on the dark ground; every text rule below reads it rather than
+   naming a colour, so one modifier inverts the whole card. */
+.pcard {
+  --ground: var(--sea);
+  --ink: var(--abyss);
+  --ink-soft: rgba(14, 32, 25, 0.72);
+  --rule: rgba(14, 32, 25, 0.25);
+  display: flex;
+  flex-direction: column;
+  background: var(--ground);
+  border-radius: 6px;
+  padding: 1.15rem;
+  color: var(--ink);
+}
+
+.pcard--chrome {
+  --ground: var(--chrome);
+}
+
+.pcard--abyss {
+  --ground: var(--abyss);
+  --ink: var(--foam);
+  /* Chrome carries the meta line on the dark card — 10.06 on abyss. */
+  --ink-meta: var(--chrome);
+  --ink-soft: rgba(244, 242, 231, 0.78);
+  --rule: rgba(244, 242, 231, 0.25);
+}
+
+.pcard__shot {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.pcard__shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pcard__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.35rem 0.35rem 0.35rem;
+}
+
+.pcard__meta {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink-meta, var(--ink-soft));
+}
+
+.pcard h3 {
+  margin: 0.5rem 0 0;
+  font-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.pcard__desc {
+  margin: 0.9rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* The figure leads, its label sits beside it — the number is the claim. */
+.pcard__stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pcard__stats li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+}
+
+.pcard__stats b {
+  font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  flex: none;
+}
+
+.pcard__stats span {
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+
+/* Pinned to the bottom so footers line up across a row, over the rule that
+   closes the card in the reference. */
+.pcard__foot {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: auto;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.875rem;
+}
+
+.pcard__body > .pcard__foot {
+  margin-top: 1.4rem;
+}
+
+.pcard__stats + .pcard__foot,
+.pcard__desc + .pcard__foot {
+  margin-top: auto;
+}
+
+.pcard__foot a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1.5px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.pcard__foot a:hover {
+  border-bottom-color: currentColor;
+}
+
+.pcard__private {
+  color: var(--ink-soft);
+}
+
+.pcard__private + a {
+  margin-left: auto;
+}
+
+
+/* --------------------------------------------------------------------------
+   Industries band. A dark rule between Selected work and the Blog: foam
+   rectangles on abyss, moving in a seamless loop.
+   -------------------------------------------------------------------------- */
+
+.bands {
+  background: var(--abyss);
+  color: var(--foam);
+  padding-block: clamp(2.5rem, 5vw, 3.5rem);
+  overflow: hidden;
+}
+
+.bands__label {
+  margin: 0 0 1.6rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(244, 242, 231, 0.72);
+}
+
+/* The edge treatment is a transparency mask, not a fade to a colour: the band
+   is one flat abyss, and the chips stop being drawn as they reach the edges. */
+.bands__viewport {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 5rem,
+    #000 calc(100% - 5rem),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 5rem,
+    #000 calc(100% - 5rem),
+    transparent
+  );
+}
+
+.bands__track {
+  display: flex;
+  width: max-content;
+  animation: band-scroll 44s linear infinite;
+}
+
+.bands__run {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Spacing lives on the chip, not as a flex gap: the two runs must be exactly
+   the same width including their trailing space, or -50% lands off by a gap
+   and the loop visibly jumps. */
+.bands__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-right: 1rem;
+  background: var(--foam);
+  color: var(--abyss);
+  border-radius: 6px;
+  padding: 0.7rem 1.15rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.bands__chip svg {
+  width: 1.05em;
+  height: 1.05em;
+  flex: none;
+}
+
+@keyframes band-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bands__track {
+    animation: none;
+  }
+}
+
+
+
+/* --------------------------------------------------------------------------
+   Blog. The list composition Silvia supplied — rows divided by hairlines, the
+   action at the far end — carrying the date, reading time and excerpt the
+   feature requires on every entry.
+   -------------------------------------------------------------------------- */
+
+.notes {
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+  color: var(--abyss);
+}
+
+.notes__title {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0;
+  font-size: clamp(1.9rem, 1.2rem + 2.2vw, 2.75rem);
+}
+
+.notes__lede {
+  margin: 1rem 0 0;
+  max-width: 52ch;
+  font-size: clamp(1.02rem, 0.98rem + 0.3vw, 1.15rem);
+  color: var(--deep);
+}
+
+.notes__list {
+  margin: clamp(2.25rem, 5vw, 3.25rem) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(14, 32, 25, 0.14);
+}
+
+.notes__list li {
+  border-bottom: 1px solid rgba(14, 32, 25, 0.14);
+}
+
+.post {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.5rem 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.post__text {
+  min-width: 0;
+}
+
+.post__meta {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--deep);
+}
+
+.post h3 {
+  margin: 0.35rem 0 0;
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--abyss);
+}
+
+.post__excerpt {
+  margin: 0.5rem 0 0;
+  max-width: 68ch;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--deep);
+  /* Two lines: the excerpt is a taste of the article, not the article. */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post__go {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--deep);
+  border-bottom: 1.5px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.post__go svg {
+  width: 0.75em;
+  height: 0.75em;
+  transition: transform 0.2s ease;
+}
+
+.post:hover .post__go {
+  border-bottom-color: var(--chrome);
+}
+
+.post:hover .post__go svg {
+  transform: translateX(3px);
+}
+
+.notes__all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  padding: 0.7rem 1.35rem;
+  border-radius: 100px;
+  background: var(--abyss);
+  color: var(--foam);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.notes__all:hover {
+  background: var(--sea);
+  color: var(--abyss);
+}
+
+@media (max-width: 700px) {
+  .post {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+}
+
+
+
+/* --------------------------------------------------------------------------
+   Contact. A sea band per the composition Silvia supplied: chrome rule, the
+   two-line headline, the scope line and the calls to action opposite it — with
+   the inquiry form and the working principles kept below.
+   Everything on this ground is abyss. Sea measures 5.90 against it, and it is
+   the only ink that holds; foam on sea is 2.56 and fails.
+   -------------------------------------------------------------------------- */
+
+.talk {
+  background: var(--sea);
+  color: var(--abyss);
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+}
+
+.talk__rule {
+  display: block;
+  width: 3rem;
+  height: 4px;
+  background: var(--chrome);
+  margin-bottom: 1.5rem;
+}
+
+.talk__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: clamp(2rem, 6vw, 4.5rem);
+  align-items: end;
+}
+
+.talk__head h2 {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  font-size: clamp(2rem, 1.1rem + 3vw, 3.25rem);
+}
+
+.talk__head h2 span {
+  display: block;
+}
+
+.talk__aside p {
+  margin: 0;
+  max-width: 34ch;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+}
+
+.talk__cta {
+  display: flex;
+  align-items: center;
+  gap: 1.35rem;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+}
+
+.talk__cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.talk__cta a.solid {
+  background: var(--abyss);
+  color: var(--foam);
+  padding: 0.7rem 1.35rem;
+  border-radius: 100px;
+}
+
+.talk__cta a.solid:hover {
+  background: var(--chrome);
+  color: var(--abyss);
+}
+
+/* The booking action stays plainly set beside the pill — distinct from it, and
+   from the form below. */
+.talk__cta a.plain {
+  color: var(--abyss);
+  border-bottom: 1.5px solid transparent;
+  padding-bottom: 2px;
+}
+
+.talk__cta a.plain:hover {
+  border-bottom-color: var(--abyss);
+}
+
+.talk__cta svg {
+  width: 1.05em;
+  height: 1.05em;
+}
+
+.talk__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 4.5rem);
+  margin-top: clamp(3rem, 7vw, 4.5rem);
+  padding-top: clamp(2.5rem, 5vw, 3.5rem);
+  border-top: 1px solid rgba(14, 32, 25, 0.25);
+}
+
+.talk__info p {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.talk__info h3 {
+  margin: 2rem 0 0.85rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+.talk__principles,
+.talk__facts {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.talk__principles li {
+  margin-bottom: 0.7rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.talk__principles b {
+  font-weight: 700;
+}
+
+.talk__facts {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.talk__facts li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.talk__facts svg {
+  width: 1.05em;
+  height: 1.05em;
+  flex: none;
+}
+
+.talk__facts a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1.5px solid rgba(14, 32, 25, 0.35);
+}
+
+.talk__facts a:hover {
+  border-bottom-color: var(--abyss);
+}
+
+/* --- the form ------------------------------------------------------------ */
+
+.talk__form {
+  background: var(--foam);
+  border-radius: 6px;
+  padding: clamp(1.35rem, 3vw, 2rem);
+  align-self: start;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0 0 1.1rem;
+}
+
+.field label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 0.9375rem;
+  color: var(--abyss);
+  background: transparent;
+  border: 1px solid rgba(14, 32, 25, 0.3);
+  border-radius: 6px;
+  padding: 0.65rem 0.8rem;
+  transition: border-color 0.2s ease;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--sea);
+  box-shadow: 0 0 0 2px var(--sea);
+}
+
+/* Invalid state: a heavier edge and the message, no colour. The palette has no
+   red, and a cue that does not depend on colour is the better one. */
+.field input.is-invalid,
+.field textarea.is-invalid {
+  border-width: 2px;
+  border-color: var(--abyss);
+}
+
+.field__error {
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.talk__form button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--foam);
+  background: var(--abyss);
+  border: 0;
+  border-radius: 100px;
+  padding: 0.8rem 1.35rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.talk__form button:hover {
+  background: var(--sea);
+  color: var(--abyss);
+}
+
+.talk__form button svg {
+  width: 1em;
+  height: 1em;
+}
+
+.talk__status {
+  margin: 1rem 0 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .talk__head,
+  .talk__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .talk__head {
+    gap: 2rem;
+  }
+}
+
+
+
+/* --------------------------------------------------------------------------
+   About and Experience. A chrome band carrying the mark, the biography and the
+   two actions, then the timelines on the page ground.
+   Everything on chrome is abyss — 10.06.
+   -------------------------------------------------------------------------- */
+
+.bio {
+  background: var(--chrome);
+  color: var(--abyss);
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+
+.bio__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vw, 4rem);
+}
+
+@media (min-width: 960px) {
+  .bio__grid {
+    grid-template-columns: minmax(0, 1fr) 17rem;
+  }
+}
+
+/* No shadow, no outline, no containing shape — the mark ships as drawn. */
+.bio__mark {
+  display: block;
+  width: clamp(5.5rem, 12vw, 8rem);
+  height: auto;
+}
+
+.bio__roles {
+  margin: 1.5rem 0 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.bio h1 {
+  margin: clamp(2.5rem, 6vw, 3.5rem) 0 0;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  font-size: clamp(1.9rem, 1.2rem + 2.2vw, 2.75rem);
+}
+
+.bio__copy {
+  margin-top: 1.5rem;
+  max-width: 68ch;
+}
+
+.bio__copy p {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.bio__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 2rem;
+}
+
+.bio__cta a {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.7rem 1.35rem;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.bio__cta a.solid {
+  background: var(--abyss);
+  color: var(--foam);
+}
+
+.bio__cta a.solid:hover {
+  background: var(--foam);
+  color: var(--abyss);
+}
+
+.bio__cta a.ghost {
+  border: 1.5px solid var(--abyss);
+  color: var(--abyss);
+}
+
+.bio__cta a.ghost:hover {
+  background: var(--abyss);
+  color: var(--foam);
+}
+
+.bio__shot img {
+  width: 100%;
+  max-width: 17rem;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+/* --- experience ---------------------------------------------------------- */
+
+.cv {
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+  color: var(--abyss);
+}
+
+.cv__title {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  font-size: clamp(1.9rem, 1.2rem + 2.2vw, 2.75rem);
+}
+
+.cv__lede {
+  margin: 1rem 0 0;
+  max-width: 52ch;
+  font-size: clamp(1.02rem, 0.98rem + 0.3vw, 1.15rem);
+  color: var(--deep);
+}
+
+.cv__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 3.5rem);
+  margin-top: clamp(2.25rem, 5vw, 3.25rem);
+}
+
+@media (min-width: 960px) {
+  .cv__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.cv__group {
+  margin: 0 0 1.5rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+.cv__line {
+  margin: 0;
+  padding: 0 0 0 1.6rem;
+  list-style: none;
+  /* The spine. Entries hang their marker on it. */
+  border-left: 1px solid rgba(14, 32, 25, 0.18);
+}
+
+.cv__line li {
+  position: relative;
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.4rem;
+  border-bottom: 1px solid rgba(14, 32, 25, 0.12);
+}
+
+.cv__line li:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+.cv__line li::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.6rem - 5px);
+  top: 0.45rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--sea);
+}
+
+.cv__when {
+  display: inline-block;
+  background: var(--sea);
+  color: var(--abyss);
+  border-radius: 100px;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.cv__line h4 {
+  margin: 0.7rem 0 0;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.cv__line p {
+  margin: 0.25rem 0 0;
+  font-size: 0.9375rem;
+  color: var(--deep);
+}
+
 
 .gradient-text {
   background: linear-gradient(90deg, #007A6B, #009E8C);

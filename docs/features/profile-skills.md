@@ -3,9 +3,9 @@ id: profile-skills
 title: Profile Skills
 status: implemented
 created_at: 2026-07-27
-last_modified: 2026-07-27
+last_modified: 2026-09-07
 owner: Silvia Arellano
-depends_on: [site-navigation]
+depends_on: [site-navigation, brand-identity]
 acceptance_criteria:
   - The Home page presents a dedicated Skills section describing Silvia's day-to-day toolkit.
   - Skills are organized into Programming and Development, Data Engineering and ETL, Databases and Warehouses, Cloud and Infrastructure, Analytics and BI Tools, and AI and Agents.
@@ -45,4 +45,4 @@ The section does not score proficiency, assert certifications, verify competenci
 
 ## Implementation notes
 
-The categories and skill cards are defined in `src/pages/Skills/Skills.jsx`, using shared card and badge components plus local icon packages.
+The categories and skill cards are defined in `src/pages/Skills/Skills.jsx`. The section sits on the same foam ground as the hero, with the brand wave level and full-width behind the rectangles at 22% — a background, not a mark; at full strength its bands are the same two colours as the cards and the cards stop reading as objects. Each category is a rectangle filled with one of the two accents in alternation — sea, chrome, sea, … — with everything inside it in abyss: 5.90 against sea, 10.06 against chrome. Chips are contoured rather than filled, so the colour of the rectangle carries through them. Styling lives in the brand layer of `src/assets/css/index.css` (`.stack`, `.stackcard`, `.chip`) rather than in the shadcn card and badge components. Skill icons come from `react-icons` and `lucide-react` and inherit the chip's colour — vendor brand colours are outside the closed palette.

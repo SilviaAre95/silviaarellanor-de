@@ -3,9 +3,9 @@ id: contact-booking
 title: Contact Booking
 status: implemented
 created_at: 2026-07-27
-last_modified: 2026-07-27
+last_modified: 2026-09-07
 owner: Silvia Arellano
-depends_on: [contact-inquiry]
+depends_on: [contact-inquiry, brand-identity]
 acceptance_criteria:
   - The Contact section offers a clearly labeled Book an intro call action when a booking destination is configured.
   - The booking action is visually distinct from the inquiry form and includes a calendar cue.

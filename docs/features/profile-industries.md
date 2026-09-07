@@ -3,9 +3,9 @@ id: profile-industries
 title: Profile Industries
 status: implemented
 created_at: 2026-07-27
-last_modified: 2026-07-27
+last_modified: 2026-09-07
 owner: Silvia Arellano
-depends_on: []
+depends_on: [brand-identity]
 acceptance_criteria:
   - The Home page displays a clearly labeled Industries I've Worked In banner between the Projects and Blog sections.
   - The banner lists Real Estate, Enterprise, Marketing, Sports Analytics, Tax, Healthcare, E-commerce, HR Tech, and SaaS.
@@ -45,4 +45,8 @@ The banner does not claim certification or equivalent domain depth, replace deta
 
 ## Implementation notes
 
-The industry inventory, loop duplication, and banner presentation are defined in `src/components/IndustryBanner.jsx`.
+The industry inventory, loop duplication, and banner presentation are defined in `src/components/IndustryBanner.jsx`, styled by the brand layer of `src/assets/css/index.css` (`.bands`). The band is abyss with foam rectangles and abyss type and icons — 15.09.
+
+Two mechanics worth knowing. Chip spacing is a right margin rather than a flex gap: the track holds two identical runs and scrolls exactly `-50%` of its own width, which only lands seamlessly if both runs measure the same including their trailing space. And the edge treatment is a transparency mask, not a fade to a colour — the band is one flat abyss, so the chips simply stop being drawn at the edges, which keeps §6's no-decorative-gradients rule intact.
+
+The duplicate run carries `aria-hidden`, so assistive technology reads the nine industries once. The loop honours `prefers-reduced-motion`.

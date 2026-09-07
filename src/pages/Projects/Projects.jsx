@@ -9,20 +9,6 @@ import wayworksImage from "@/assets/images/wayworks_gh.webp";
 
 const allProjects = [
   {
-    title: "wayworks: an open-source way of work",
-    description:
-      "My way of building with coding agents, packaged as a Claude Code plugin marketplace. It wires the code to a second brain (Obsidian) and a tracker (Linear). Try it: claude plugin marketplace add SilviaAre95/wayworks",
-    outcomes: [
-      { value: "15", label: "plugins" },
-      { value: "43", label: "skills" },
-    ],
-    backgroundImage: wayworksImage,
-    githubLink: "https://github.com/SilviaAre95/wayworks",
-    liveLink: null,
-    company: "Open Source",
-    year: "2026"
-  },
-  {
     title: "Near-Real-Time MongoDB CDC Pipeline",
     description:
       "Replaced SQL-based ingestion with a private Python library on storage_write_api and CDC, which cut resource waste by about 80%. The redesigned Pub/Sub + Dataflow streaming architecture handles dynamic table routing and schema evolution, and cut costs 76%.",
@@ -64,6 +50,20 @@ const allProjects = [
     year: "2024"
   },
   {
+    title: "wayworks: an open-source way of work",
+    description:
+      "My way of building with coding agents, packaged as a Claude Code plugin marketplace. It wires the code to a second brain (Obsidian) and a tracker (Linear). Try it: claude plugin marketplace add SilviaAre95/wayworks",
+    outcomes: [
+      { value: "15", label: "plugins" },
+      { value: "43", label: "skills" },
+    ],
+    backgroundImage: wayworksImage,
+    githubLink: "https://github.com/SilviaAre95/wayworks",
+    liveLink: null,
+    company: "Open Source",
+    year: "2026"
+  },
+  {
     title: "Data Engineer Portfolio",
     description:
       "The complete code of this site, open source. React, Vite, and Tailwind.",
@@ -76,107 +76,80 @@ const allProjects = [
   },
 ];
 
-const ProjectCard = ({ project }) => (
-  <div className="bg-main-lightGrey rounded-lg overflow-hidden border border-main-mediumGrey/20 hover:border-main-mediumGrey/40 transition-all duration-300 hover:shadow-lg">
-    {/* Project Image */}
-    <div className="relative h-48 overflow-hidden bg-main-mediumGrey/10">
-      <div
-        className="w-full h-full bg-cover bg-center opacity-90 hover:opacity-100 transition-opacity duration-300"
-        style={{
-          backgroundImage: `linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%), url(${project.backgroundImage})`,
-        }}
-      />
-      <div className="absolute top-4 left-4 bg-main-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-        <span className="text-sm text-main-darkGrey font-medium">
-          {project.company}
-        </span>
+// Card grounds cycle sea -> chrome -> abyss, per the composition Silvia
+// supplied. On the dark one the ink inverts; the tokens are set in CSS.
+const TONES = ["sea", "chrome", "abyss"];
+
+const ProjectCard = ({ project, tone }) => {
+  const isOpenSource = project.company === "Open Source";
+  const hasLinks = project.githubLink || project.liveLink;
+
+  return (
+    <article className={`pcard pcard--${tone}`}>
+      <div className="pcard__shot">
+        {/* Decorative: the meta line and title beside it carry the meaning. */}
+        <img src={project.backgroundImage} alt="" />
       </div>
-      <div className="absolute top-4 right-4 bg-accent-softBlue/90 backdrop-blur-sm px-3 py-1 rounded-full">
-        <span className="text-sm text-white font-medium">{project.year}</span>
-      </div>
-    </div>
 
-    {/* Project Content */}
-    <div className="p-5">
-      <h3 className="text-lg font-semibold text-main-darkGrey mb-2 line-clamp-2">
-        {project.title}
-      </h3>
+      <div className="pcard__body">
+        <p className="pcard__meta">
+          {project.company} / {project.year}
+        </p>
 
-      {/* Outcome metrics */}
-      {project.outcomes?.length > 0 && (
-        <div className="flex gap-4 mb-3 pb-3 border-b border-main-mediumGrey/20">
-          {project.outcomes.map((outcome, i) => (
-            <div key={i}>
-              <div className="text-accent-softBlue font-bold text-base leading-tight">
-                {outcome.value}
-              </div>
-              <div className="text-main-mediumGrey text-xs leading-tight">
-                {outcome.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
+        <h3>{project.title}</h3>
 
-      <p className="text-main-mediumGrey mb-4 line-clamp-3 text-sm">
-        {project.description}
-      </p>
+        <p className="pcard__desc">{project.description}</p>
 
-      {/* Project Links */}
-      <div className="flex items-center space-x-4">
-        {project.githubLink && (
-          <a
-            href={project.githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center space-x-2 text-main-mediumGrey hover:text-accent-softBlue transition-colors duration-200"
-          >
-            <FaGithub size={16} />
-            <span className="text-sm">Code</span>
-          </a>
+        {project.outcomes?.length > 0 && (
+          <ul className="pcard__stats">
+            {project.outcomes.map((outcome) => (
+              <li key={outcome.label}>
+                <b>{outcome.value}</b>
+                <span>{outcome.label}</span>
+              </li>
+            ))}
+          </ul>
         )}
-        {project.liveLink && (
-          <a
-            href={project.liveLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center space-x-2 text-main-mediumGrey hover:text-accent-softBlue transition-colors duration-200"
-          >
-            <FaExternalLinkAlt size={14} />
-            <span className="text-sm">Live Demo</span>
-          </a>
-        )}
-        {project.company !== "Open Source" && !project.githubLink && !project.liveLink && (
-          <div className="flex items-center justify-between w-full">
-            <span className="text-sm text-main-mediumGrey italic">Proprietary Project</span>
-            <a
-              href="#contact"
-              className="text-sm text-accent-softBlue hover:text-accent-mutedTeal transition-colors duration-200"
-            >
-              Ask me about this →
+
+        <div className="pcard__foot">
+          {project.githubLink && (
+            <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+              <FaGithub size={15} />
+              Code
             </a>
-          </div>
-        )}
+          )}
+          {project.liveLink && (
+            <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+              <FaExternalLinkAlt size={13} />
+              Live demo
+            </a>
+          )}
+          {!isOpenSource && !hasLinks && (
+            <>
+              <span className="pcard__private">Proprietary project</span>
+              <a href="#contact">Ask me about this &rarr;</a>
+            </>
+          )}
+        </div>
       </div>
-    </div>
-  </div>
-);
+    </article>
+  );
+};
 
 export default function Projects() {
   return (
-    <section id="projects" className="min-h-screen bg-main-white py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-main-darkGrey mb-4">Projects</h2>
-          <p className="text-lg text-main-mediumGrey max-w-2xl mx-auto">
-            Recent work and what it did for the business
-          </p>
-        </div>
+    <section id="projects" className="work">
+      <div className="wrap">
+        <h2 className="work__title">Selected work</h2>
+        <p className="work__lede">Systems built to keep working.</p>
 
-        {/* Unified grid layout - dynamic distribution */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-8">
-          {allProjects.map((project, index) => (
-            <ProjectCard key={index} project={project} />
+        <div className="work__grid">
+          {allProjects.map((project, i) => (
+            <ProjectCard
+              key={project.title}
+              project={project}
+              tone={TONES[i % TONES.length]}
+            />
           ))}
         </div>
       </div>

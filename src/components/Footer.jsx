@@ -50,7 +50,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-main-mediumGrey hover:text-accent-softBlue transition-colors duration-200"
-              aria-label="Medium"
+              aria-label="Gumroad"
             >
               <SiGumroad size={20} />
             </a>

@@ -3,9 +3,9 @@ id: content-blog
 title: Content Blog
 status: implemented
 created_at: 2026-07-27
-last_modified: 2026-07-27
+last_modified: 2026-09-07
 owner: Silvia Arellano
-depends_on: []
+depends_on: [brand-identity]
 acceptance_criteria:
   - The Home page presents article cards sourced from Silvia's Medium publication feed.
   - Each card displays the article title, publication date, estimated reading time, and a concise plain-text excerpt.
@@ -49,4 +49,6 @@ The portfolio does not host complete articles, reproduce Medium's full experienc
 
 ## Implementation notes
 
-Article cards are rendered by `src/pages/Blog/Blog.jsx` from `src/data/articles.json`. The build-time refresh and fallback behavior are implemented by `scripts/fetch-blog.mjs` and invoked through the package prebuild lifecycle.
+Rendering lives in `src/pages/Blog/Blog.jsx`, styled by the brand layer of `src/assets/css/index.css` (`.notes`, `.post`). Articles are a list of hairline-divided rows rather than cards, per the composition Silvia supplied: date and reading time, then the title, then the excerpt clamped to two lines, with the action at the far end of the row. Each row is a single anchor, so there is one destination and one target for assistive technology across the whole hit area.
+
+The article data still comes from `src/data/articles.json`, generated at build time by `scripts/fetch-blog.mjs` and committed as the fallback when the feed is unreachable.

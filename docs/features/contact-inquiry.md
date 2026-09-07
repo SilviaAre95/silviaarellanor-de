@@ -3,9 +3,9 @@ id: contact-inquiry
 title: Contact Inquiry
 status: implemented
 created_at: 2026-07-27
-last_modified: 2026-07-27
+last_modified: 2026-09-07
 owner: Silvia Arellano
-depends_on: []
+depends_on: [brand-identity]
 acceptance_criteria:
   - The Contact section explains Silvia's consulting scope, expected response time, and working principles.
   - Visitors can see Silvia's professional email address and base location.
@@ -50,4 +50,8 @@ The form does not accept files, create accounts, store inquiries in a site-owned
 
 ## Implementation notes
 
-The section, client-side validation, status handling, and EmailJS delivery are implemented in `src/pages/Contact/Contact.jsx`. Public EmailJS identifiers are configured with Vite environment variables documented by `.env.example`.
+The section, its validation and the EmailJS call live in `src/pages/Contact/Contact.jsx`, styled by the brand layer of `src/assets/css/index.css` (`.talk`, `.field`). The band is sea, per the composition Silvia supplied, and everything on it is abyss — 5.90. Foam on sea measures 2.56, so it is never used as ink here. The form sits on a foam panel inside the band.
+
+Fields carry visible labels rather than placeholders alone. The invalid state is a heavier abyss border plus the message, not a colour: the palette is closed and holds no red, and a cue that does not depend on colour is the better one regardless. Invalid fields set `aria-invalid` and point at their message with `aria-describedby`; the overall correction and delivery messages share one `role="status"` line.
+
+Delivery is unchanged: EmailJS, with the service, template and public key read from `import.meta.env`. No identifier is committed.
