@@ -1,73 +1,54 @@
 import { FaLinkedin, FaGithub, FaEnvelope, FaMedium } from "react-icons/fa";
 import { SiGumroad } from "react-icons/si";
 
+const SOCIAL = [
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/silvia-arellano-de",
+    Icon: FaLinkedin,
+  },
+  { label: "GitHub", href: "https://github.com/SilviaAre95", Icon: FaGithub },
+  {
+    label: "Medium",
+    href: "https://medium.com/@silvia.datadev",
+    Icon: FaMedium,
+  },
+  {
+    label: "Gumroad",
+    href: "https://silviadatadev.gumroad.com",
+    Icon: SiGumroad,
+  },
+];
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="fixed bottom-0 left-0 right-0 z-50 bg-main-lightGrey border-t border-main-mediumGrey/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          {/* Copyright */}
-          <div className="text-main-mediumGrey text-sm">
-            © {currentYear} Silvia Arellano · Consulting via OBEXDATA OÜ ·{" "}
-            <a href="/legal" className="hover:text-accent-softBlue underline underline-offset-2">
-              Legal &amp; privacy
-            </a>
-          </div>
+    <footer className="site-foot">
+      <div className="wrap site-foot__inner">
+        <p className="site-foot__line">
+          © {currentYear} Silvia Arellano · Consulting via OBEXDATA OÜ ·{" "}
+          <a href="/legal">Legal &amp; privacy</a>
+        </p>
 
-          {/* Professional Links */}
-          <div className="flex items-center space-x-6">
+        <div className="site-foot__social">
+          {SOCIAL.map(({ label, href, Icon }) => (
             <a
-              href="https://linkedin.com/in/silvia-arellano-de"
+              key={label}
+              href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-main-mediumGrey hover:text-accent-softBlue transition-colors duration-200"
-              aria-label="LinkedIn"
+              aria-label={label}
             >
-              <FaLinkedin size={20} />
+              <Icon size={20} />
             </a>
-            <a
-              href="https://github.com/SilviaAre95"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-main-mediumGrey hover:text-accent-softBlue transition-colors duration-200"
-              aria-label="GitHub"
-            >
-              <FaGithub size={20} />
-            </a>
-            <a
-              href="https://medium.com/@silvia.datadev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-main-mediumGrey hover:text-accent-softBlue transition-colors duration-200"
-              aria-label="Medium"
-            >
-              <FaMedium size={20} />
-            </a>
-            <a
-              href="https://silviadatadev.gumroad.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-main-mediumGrey hover:text-accent-softBlue transition-colors duration-200"
-              aria-label="Gumroad"
-            >
-              <SiGumroad size={20} />
-            </a>
-            <a
-              href="mailto:silvia.datadev@gmail.com"
-              className="text-main-mediumGrey hover:text-accent-softBlue transition-colors duration-200"
-              aria-label="Email"
-            >
-              <FaEnvelope size={20} />
-            </a>
-          </div>
-
-          {/* Tech Stack or Role */}
-          <div className="text-main-mediumGrey text-sm">
-            Data Platform Architect
-          </div>
+          ))}
+          <a href="mailto:silvia.datadev@gmail.com" aria-label="Email">
+            <FaEnvelope size={20} />
+          </a>
         </div>
+
+        <p className="site-foot__line">Data Platform Architect</p>
       </div>
     </footer>
   );
