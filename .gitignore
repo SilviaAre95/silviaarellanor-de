@@ -45,3 +45,7 @@ tmp/pdfs/resume-qa/
 
 # Local job-specific résumé applications
 resume/applications/
+
+# Python bytecode from scripts/brand
+__pycache__/
+*.pyc
