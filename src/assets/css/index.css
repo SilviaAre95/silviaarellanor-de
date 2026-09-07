@@ -1298,6 +1298,73 @@
 }
 
 
+
+/* --------------------------------------------------------------------------
+   Footer. Fixed to the viewport on every route but Products, so it is set dark
+   to sit apart from the page rather than compete with it — and the closing
+   crest's foam shore runs into a clear edge instead of foam on foam.
+   -------------------------------------------------------------------------- */
+
+.site-foot {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: var(--abyss);
+  color: var(--foam);
+}
+
+.site-foot__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .site-foot__inner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.site-foot__line {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: rgba(244, 242, 231, 0.72);
+  text-align: center;
+}
+
+.site-foot__line a {
+  color: var(--foam);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+}
+
+.site-foot__line a:hover {
+  color: var(--chrome);
+}
+
+.site-foot__social {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Chrome on hover, as the nav links do — one hover behaviour in both bars. */
+.site-foot__social a {
+  color: var(--foam);
+  transition: color 0.2s ease;
+}
+
+.site-foot__social a:hover {
+  color: var(--chrome);
+}
+
+
 .gradient-text {
   background: linear-gradient(90deg, #007A6B, #009E8C);
   -webkit-background-clip: text;
