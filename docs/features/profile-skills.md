@@ -45,4 +45,4 @@ The section does not score proficiency, assert certifications, verify competenci
 
 ## Implementation notes
 
-The categories and skill cards are defined in `src/pages/Skills/Skills.jsx`, using shared card and badge components plus local icon packages.
+The categories and skill cards are defined in `src/pages/Skills/Skills.jsx`. The section renders on the abyss ground with each category in its own rectangle; the chip colour rotates chrome / sea / foam by card, and chip text is always abyss. Styling lives in the brand layer of `src/assets/css/index.css` (`.stack`, `.stackcard`, `.chip`) rather than in the shadcn card and badge components. Skill icons come from `react-icons` and `lucide-react` and inherit the chip's colour — vendor brand colours are outside the closed palette.

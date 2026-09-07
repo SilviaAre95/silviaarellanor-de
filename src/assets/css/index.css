@@ -248,6 +248,122 @@
 }
 
 
+/* --------------------------------------------------------------------------
+   Skills — "the stack". A dark band after the foam hero, with each category in
+   its own rectangle. Chip colour rotates by card so the palette does the
+   grouping work that hairline rules did in the reference.
+   -------------------------------------------------------------------------- */
+
+.stack {
+  background: var(--abyss);
+  color: var(--foam);
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+}
+
+.stack__title {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0;
+  font-size: clamp(1.9rem, 1.2rem + 2.2vw, 2.75rem);
+}
+
+.stack__lede {
+  margin: 1rem 0 0;
+  max-width: 56ch;
+  font-size: clamp(1.02rem, 0.98rem + 0.3vw, 1.15rem);
+  /* Foam at 78% on abyss still measures well past 4.5:1. */
+  color: rgba(244, 242, 231, 0.78);
+}
+
+.stack__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: clamp(2.25rem, 5vw, 3.25rem);
+  align-items: start;
+}
+
+@media (min-width: 700px) {
+  .stack__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1060px) {
+  .stack__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* The rectangle. Card radius, a hairline edge, no shadow. */
+.stackcard {
+  background: var(--deep);
+  border: 1px solid rgba(244, 242, 231, 0.1);
+  border-radius: 6px;
+  padding: 1.4rem 1.35rem 1.5rem;
+  transition: border-color 0.2s ease;
+}
+
+.stackcard:hover {
+  border-color: var(--sea);
+}
+
+.stackcard h3 {
+  margin: 0 0 1.1rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--foam);
+}
+
+.stackcard ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Text on every chip ground is abyss — sea and chrome both fail against foam
+   as type colours, and abyss clears 5.9 on the weakest of the three. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border-radius: 6px;
+  padding: 0.42rem 0.7rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--abyss);
+}
+
+.chip__icon {
+  display: inline-flex;
+  flex: none;
+}
+
+.chip__icon svg {
+  width: 1.05em;
+  height: 1.05em;
+  display: block;
+}
+
+.stackcard--chrome .chip {
+  background: var(--chrome);
+}
+
+.stackcard--sea .chip {
+  background: var(--sea);
+}
+
+.stackcard--foam .chip {
+  background: var(--foam);
+}
+
+
 .gradient-text {
   background: linear-gradient(90deg, #007A6B, #009E8C);
   -webkit-background-clip: text;
