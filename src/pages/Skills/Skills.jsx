@@ -1,3 +1,4 @@
+import BrandWave from "@/components/BrandWave";
 import { Cpu } from "lucide-react";
 import {
   FaReact,
@@ -114,6 +115,11 @@ const CATEGORIES = [
 export default function SkillsSection() {
   return (
     <section id="skills" className="stack">
+      {/* Corner mark. Decorative only — the section reads the same without it. */}
+      <div className="stack__wave" aria-hidden="true">
+        <BrandWave variant="crest" />
+      </div>
+
       <div className="wrap">
         <h2 className="stack__title">Skills</h2>
         <p className="stack__lede">
@@ -123,8 +129,13 @@ export default function SkillsSection() {
         </p>
 
         <div className="stack__grid">
-          {CATEGORIES.map((category) => (
-            <article key={category.title} className="stackcard">
+          {CATEGORIES.map((category, i) => (
+            <article
+              key={category.title}
+              /* The two accents alternate, so no two neighbouring rectangles
+                 carry the same one in either direction on the 3-up grid. */
+              className={`stackcard ${i % 2 ? "stackcard--chrome" : ""}`}
+            >
               <h3>{category.title}</h3>
               <ul>
                 {category.skills.map((skill) => (

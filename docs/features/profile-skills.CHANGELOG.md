@@ -4,6 +4,14 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ---
 
+## 2026-09-07 — light ground, corner wave, alternating accents
+
+- **Changed**: the section drops the dark abyss band and sits on the same foam ground as the hero.
+- **Added**: the brand wave as a corner mark in the top-right, at the artwork's own 1200:520 ratio so nothing is stretched, with a transparency mask carrying its left edge out. Decorative and `aria-hidden`; the section reads the same without it.
+- **Changed**: the two accents now alternate by rectangle — sea, chrome, sea, … — as the heading rule and the card's hairline edge, so no two neighbours repeat on the 3-up grid.
+- **Detail**: cards take a 3% abyss wash, since foam is now the page ground and a foam card would have no body of its own. Chips are abyss text on an abyss hairline.
+- **Files touched**: src/pages/Skills/Skills.jsx, src/assets/css/index.css
+
 ## 2026-09-07 — chip colour pulled back
 
 - **Changed**: chips are outlined instead of filled — foam text on a foam hairline, on the deep card. Sea now appears only as a 2rem rule above each category heading and on chip hover.
