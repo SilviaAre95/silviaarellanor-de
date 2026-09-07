@@ -4,6 +4,18 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ---
 
+## 2026-09-07 — raster icons and share card
+
+- **Spec change (non-goal amended)**: "Regenerate the raster favicons, touch icons, or the OpenGraph share image" → "Hand-author the raster icons or the share card; both are generated from the mark by committed scripts." Silvia supplied a 1024px raster master, which removed the blocker.
+- **Added**: three acceptance criteria covering the icon set, the share card's type placement, and the manifest
+- **Changed**: `favicon.ico` (16/32/48), `favicon-16x16.png`, `favicon-32x32.png`, `apple-touch-icon.png`, `android-chrome-192x192.png`, `android-chrome-512x512.png` — all regenerated from the mark on a foam tile
+- **Changed**: `og-image.jpg` is a new 2400x1260 share card — mark, caption, wordmark, role line, and the wave as a bottom horizon; `og:image:width`/`height` updated to match the rendered file
+- **Changed**: `site.webmanifest` had empty `name`/`short_name` and `#ffffff` for both theme and background; pure white is forbidden by §3. Now carries the site name, abyss theme, foam background
+- **Added**: `scripts/brand/` — `png.py`, `generate-icons.py`, `generate-og-image.mjs`, and the 1024px master, so the assets are reproducible
+- **Verified**: every generated file decodes at its declared size in Chromium; the committed og script reproduces the shipped JPEG byte-for-byte
+- **Files touched**: public/*.png, public/favicon.ico, public/og-image.jpg, public/site.webmanifest, index.html, scripts/brand/*
+
+
 ## 2026-09-07 — swallow mark
 
 - **Spec change (non-goal amended)**: "Draw or ship the swallow mark; Silvia supplies that artwork separately" → "Draw, redraw, or alter the swallow mark; the artwork is Silvia's and ships as supplied." Silvia supplied the mark, so shipping it moved into scope; drawing it remains out.

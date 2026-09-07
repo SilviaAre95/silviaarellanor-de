@@ -24,9 +24,12 @@ acceptance_criteria:
   - Every mark fill is an exact palette token; the mark carries no outline, shadow, or containing shape.
   - The mark appears in the site header and as the browser tab icon, and is never flipped or rotated.
   - The mark is never placed on a sea ground, where the ribbon loses contrast.
+  - The favicon, touch icon, Android icons, and share card all render the mark rather than the previous brand.
+  - The share card sets every line of type on the abyss ground, never over the wave bands.
+  - The web app manifest carries the site name and palette colours rather than empty strings and pure white.
 non_goals:
   - Restyle the LaTeX resume sources or the generated resume PDFs.
-  - Regenerate the raster favicons, touch icons, or the OpenGraph share image.
+  - Hand-author the raster icons or the share card; both are generated from the mark by committed scripts.
   - Draw, redraw, or alter the swallow mark; the artwork is Silvia's and ships as supplied.
   - Offer a dark-mode theme, a theme toggle, or any visitor-selectable appearance.
   - Introduce a sixth colour, a second typeface, decorative gradients, or drop shadows.
@@ -57,7 +60,7 @@ Interactive shapes come in two radii only. Pills carry roster items, role tags, 
 
 ## Out of scope
 
-The system does not restyle the LaTeX resumes, whose own specification pins a restrained black editorial layout for ATS readability, and it does not regenerate the raster favicons, touch icons, or the OpenGraph image — those still carry the previous brand. The swallow mark is Silvia's own artwork: it is shipped as supplied and never redrawn or altered here. No dark mode is offered: the palette is a fixed light system that already contains its own dark sections.
+The system does not restyle the LaTeX resumes, whose own specification pins a restrained black editorial layout for ATS readability. The swallow mark is Silvia's own artwork: it is shipped as supplied and never redrawn or altered here, and the raster icons and share card are generated from it rather than drawn by hand. No dark mode is offered: the palette is a fixed light system that already contains its own dark sections.
 
 The system changes no page structure, no section order, no route, and no wording.
 
@@ -72,3 +75,7 @@ The brand specification's "no icons" guidance is deliberately not applied. Three
 The edge treatment on the industries banner is a transparency mask rather than a colour gradient, so `profile-industries` keeps its required edge readability without introducing decorative gradient fill.
 
 The swallow mark lives in `public/brand/` as four files — `logo-swallow.svg` (primary), `logo-swallow-dark.svg`, `logo-swallow-mono.svg`, and `logo-swallow-mono-foam.svg` — extracted verbatim from Silvia's logo sheet. Two adjustments were made to make them usable as assets rather than sheet previews: the dark variant's baked-in abyss backdrop rect was removed so the file is transparent, and each file gained a `<title>` and `role="img"`. No path data was touched. The sheet supersedes brand specification §10 in two places: it drops the four-band ribbon and the separate compact file, and it sets the small-size floor at 32px with mono below that.
+
+The raster icons and the share card are generated, not hand-made, so they can be rebuilt if the mark changes. `scripts/brand/generate-icons.py` box-filters the 1024px master over premultiplied alpha down to the favicon, touch-icon, and Android sizes, composites each onto a foam tile so the mark stays legible against a dark browser tab, and writes a PNG-entry `favicon.ico` at 16/32/48. It has no third-party dependencies: `scripts/brand/png.py` is a minimal local PNG codec.
+
+`scripts/brand/generate-og-image.mjs` renders the share card in headless Chromium at 1200x630 twice over, composing the mark, the §5 wave, and Archivo fetched and inlined at run time. Playwright is deliberately not a project dependency, so `npm ci` and CI are untouched; the script is run by hand. Every line of type sits on the abyss ground, because foam on chrome measures 1.50 and sea on chrome 1.71 — nothing may be set over the wave bands.

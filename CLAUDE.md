@@ -17,7 +17,7 @@ Silvia's personal site/portfolio — ventures, open-source work, consultancy, bl
 - Text on `--sea` MUST be `--abyss`. `--sea` as text on `--foam` measures 2.56 and fails — links on light grounds are `--deep`.
 - Copy is lowercased by `body { text-transform: lowercase }`, never by rewriting source text.
 - The swallow mark ships in `public/brand/` (primary / dark / mono / mono-foam), extracted from Silvia's logo sheet. Never redraw or alter it. Never place it on `--sea`, never flip or rotate it, never add an outline or containing shape. Use mono below 32px.
-- Still on the old brand: `public/favicon.ico`, the PNG touch icons, `public/og-image.jpg`.
+- Icons and the share card are generated from the mark, not hand-made. Regenerate with the scripts noted in `docs/features/brand-identity.md` if the mark ever changes.
 
 ## Constraints
 - The live domain is **silviadata.dev** — the repo name (`silviaarellanor-de`) is historical; `silviaarellanor.de` does not resolve. Never link or configure the old domain.
