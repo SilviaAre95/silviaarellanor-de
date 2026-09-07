@@ -4,6 +4,11 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ---
 
+## 2026-09-07 — project order
+
+- **Changed**: the Playtomic CDC pipeline leads and wayworks moves to second from last, at Silvia's request. Order is now CDC, Grupo Homa, Worky, wayworks, portfolio. Card grounds follow position, so the cycle re-lands as sea, chrome, abyss, sea, chrome.
+- **Files touched**: src/pages/Projects/Projects.jsx
+
 ## 2026-09-07 — rebuilt to the supplied composition
 
 - **Built from a reference**: Silvia supplied a composition for this section. Cards are now solid rectangles cycling sea / chrome / abyss, with the meta line as `Company / Year`, the title, the description, then the outcome figure set large with its label beside it, and a rule closing the card.

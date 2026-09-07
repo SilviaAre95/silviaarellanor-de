@@ -9,20 +9,6 @@ import wayworksImage from "@/assets/images/wayworks_gh.webp";
 
 const allProjects = [
   {
-    title: "wayworks: an open-source way of work",
-    description:
-      "My way of building with coding agents, packaged as a Claude Code plugin marketplace. It wires the code to a second brain (Obsidian) and a tracker (Linear). Try it: claude plugin marketplace add SilviaAre95/wayworks",
-    outcomes: [
-      { value: "15", label: "plugins" },
-      { value: "43", label: "skills" },
-    ],
-    backgroundImage: wayworksImage,
-    githubLink: "https://github.com/SilviaAre95/wayworks",
-    liveLink: null,
-    company: "Open Source",
-    year: "2026"
-  },
-  {
     title: "Near-Real-Time MongoDB CDC Pipeline",
     description:
       "Replaced SQL-based ingestion with a private Python library on storage_write_api and CDC, which cut resource waste by about 80%. The redesigned Pub/Sub + Dataflow streaming architecture handles dynamic table routing and schema evolution, and cut costs 76%.",
@@ -62,6 +48,20 @@ const allProjects = [
     liveLink: null,
     company: "Worky",
     year: "2024"
+  },
+  {
+    title: "wayworks: an open-source way of work",
+    description:
+      "My way of building with coding agents, packaged as a Claude Code plugin marketplace. It wires the code to a second brain (Obsidian) and a tracker (Linear). Try it: claude plugin marketplace add SilviaAre95/wayworks",
+    outcomes: [
+      { value: "15", label: "plugins" },
+      { value: "43", label: "skills" },
+    ],
+    backgroundImage: wayworksImage,
+    githubLink: "https://github.com/SilviaAre95/wayworks",
+    liveLink: null,
+    company: "Open Source",
+    year: "2026"
   },
   {
     title: "Data Engineer Portfolio",
