@@ -583,6 +583,97 @@
   margin-left: auto;
 }
 
+
+/* --------------------------------------------------------------------------
+   Industries band. A dark rule between Selected work and the Blog: foam
+   rectangles on abyss, moving in a seamless loop.
+   -------------------------------------------------------------------------- */
+
+.bands {
+  background: var(--abyss);
+  color: var(--foam);
+  padding-block: clamp(2.5rem, 5vw, 3.5rem);
+  overflow: hidden;
+}
+
+.bands__label {
+  margin: 0 0 1.6rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(244, 242, 231, 0.72);
+}
+
+/* The edge treatment is a transparency mask, not a fade to a colour: the band
+   is one flat abyss, and the chips stop being drawn as they reach the edges. */
+.bands__viewport {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 5rem,
+    #000 calc(100% - 5rem),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 5rem,
+    #000 calc(100% - 5rem),
+    transparent
+  );
+}
+
+.bands__track {
+  display: flex;
+  width: max-content;
+  animation: band-scroll 44s linear infinite;
+}
+
+.bands__run {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Spacing lives on the chip, not as a flex gap: the two runs must be exactly
+   the same width including their trailing space, or -50% lands off by a gap
+   and the loop visibly jumps. */
+.bands__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-right: 1rem;
+  background: var(--foam);
+  color: var(--abyss);
+  border-radius: 6px;
+  padding: 0.7rem 1.15rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.bands__chip svg {
+  width: 1.05em;
+  height: 1.05em;
+  flex: none;
+}
+
+@keyframes band-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bands__track {
+    animation: none;
+  }
+}
+
+
 .gradient-text {
   background: linear-gradient(90deg, #007A6B, #009E8C);
   -webkit-background-clip: text;
