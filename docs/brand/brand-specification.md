@@ -2,7 +2,8 @@
 
 Version 1.1 · Owner: Silvia Arellano Romero · Last updated 2026-09-07
 
-*v1.1 — §2 all-lowercase rule retired; see the amendment under Voice.*
+*v1.2 — §2 all-lowercase rule retired (see the amendment under Voice); §5 no-rotation
+rule amended to allow a diagonal corner mark (see the amendment under Placement).*
 
 > **How to use this file.** Paste it whole into an agent's context before asking it to
 > build any page, slide, README header, or social asset for this brand. Every rule
@@ -218,8 +219,18 @@ process produces from a photograph.
   to the bottom edge, `preserveAspectRatio="xMidYMax slice"`.
 - **Section divider:** the same SVG cropped to its bottom 200px, 4–8rem tall.
 - **Favicon / avatar:** crop to the crest region only (roughly `viewBox="380 60 440 440"`).
-- **MUST NOT** flip the wave vertically, rotate it, or center it as a standalone logo.
-  It is always a horizon.
+- **Corner mark:** the wave set on the diagonal in a section corner, masked at its
+  trailing edge. See the amendment below.
+- **MUST NOT** flip the wave vertically or center it as a standalone logo.
+  ~~or rotate it~~ — **the no-rotation rule is amended, see below.**
+
+> **Amendment — 2026-09-07 (Silvia).** The wave may be set on the diagonal as a
+> corner mark: rotated up to roughly 20°, anchored into a corner, and masked at
+> its trailing edge so it runs out of the frame rather than being cut off. First
+> used on the Skills section. The wave is still never flipped vertically, never
+> mirrored, and never centered as a standalone logo — and in its full-cover and
+> section-divider placements above it stays a level horizon. The diagonal is a
+> corner treatment, not a new default.
 
 ### Grain
 

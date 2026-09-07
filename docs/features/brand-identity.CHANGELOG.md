@@ -4,6 +4,12 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ---
 
+## 2026-09-07 — §5 amended: the wave may be a diagonal corner mark
+
+- **Spec change (approved by Silvia)**: §5's blanket "MUST NOT rotate it" is amended. The wave may be set on the diagonal as a corner mark — rotated up to roughly 20°, anchored into a corner, masked at its trailing edge. Silvia asked for the corner wave on the Skills section to run diagonally; a straight crop "looks odd".
+- **Unchanged**: no vertical flip, no mirroring, no centering as a standalone logo, and the full-cover and section-divider placements stay level horizons.
+- **Files touched**: docs/brand/brand-specification.md (now v1.2), src/assets/css/index.css
+
 ## 2026-09-07 — site application reverted
 
 - **Reverted**: `src/`, `tailwind.config.js` and `index.html` restored to their state on `main`. The whole-site application of the brand system was rejected on look.

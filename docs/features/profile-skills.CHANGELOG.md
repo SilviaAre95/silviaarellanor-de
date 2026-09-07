@@ -4,6 +4,13 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ---
 
+## 2026-09-07 — solid rectangles, contoured chips, diagonal wave
+
+- **Changed**: the rectangles are filled with their accent — sea and chrome alternating — instead of carrying it as a hairline. Chips are contoured on that colour: abyss outline and abyss type over sea or chrome, so the card's colour reads through them. This is what Silvia meant by the reference; the earlier restrained version read as too quiet.
+- **Contrast**: everything inside a card is abyss. 5.90 on sea, 10.06 on chrome — both clear AA. Chip hover deepens the outline and adds a 7% abyss wash.
+- **Changed**: the corner wave now runs on the diagonal rather than level. This required amending §5 of the brand specification, which forbade rotating the wave — recorded there and in the brand-identity changelog.
+- **Files touched**: src/assets/css/index.css, docs/brand/brand-specification.md
+
 ## 2026-09-07 — light ground, corner wave, alternating accents
 
 - **Changed**: the section drops the dark abyss band and sits on the same foam ground as the hero.
