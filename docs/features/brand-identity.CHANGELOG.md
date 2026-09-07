@@ -4,6 +4,12 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ---
 
+## 2026-09-07 — the crest closes the page as well as opening it
+
+- **Added**: the crest now also sits before the footer, at Silvia's request, so the wave brackets the page. Same artwork, same placement — a level horizon whose final band is foam, resolving into the page ground.
+- **Refactor**: the band was inline in `Hero.jsx`; it is now `src/components/Crest.jsx`, used at both ends. `closing` adds the clearance the fixed footer needs.
+- **Files touched**: src/components/Crest.jsx (new), src/pages/Hero/Hero.jsx, src/App.jsx, src/assets/css/index.css
+
 ## 2026-09-07 — §5 amendment withdrawn, wave stays a level horizon
 
 - **Reverted**: the diagonal-corner-mark amendment made earlier today. Silvia dropped the corner treatment, so the rule it existed for is gone. §5 reads as it did before — the wave is never flipped, rotated or centered — and the specification is back from v1.2 to v1.1.

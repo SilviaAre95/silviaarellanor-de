@@ -1,18 +1,10 @@
-import BrandWave from "@/components/BrandWave";
+import Crest from "@/components/Crest";
 import silviaPhoto from "@/assets/images/silvia.webp";
 
 export default function Hero() {
   return (
     <>
-      {/* The crest: a dark band with the wave rising through it. Its final
-          band is foam, so the artwork resolves into the hero ground below
-          rather than ending on a hard edge. */}
-      <div className="crest">
-        <div className="crest__art" aria-hidden="true">
-          <BrandWave variant="crest" />
-        </div>
-        <div className="crest__pad" />
-      </div>
+      <Crest />
 
       <section id="hero" className="wrap hero">
         <div className="hero__grid">

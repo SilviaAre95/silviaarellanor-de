@@ -118,6 +118,22 @@
   height: clamp(10rem, 20vw, 16rem);
 }
 
+/* The closing band before the footer. The footer is fixed, so the page ground
+   below the artwork is the clearance it covers — and since the crest's own
+   shore band is foam, that clearance is the same colour and leaves no seam.
+   The footer stacks below Tailwind's md breakpoint and roughly trebles in
+   height there, so the clearance has to follow it; 5rem alone left it covering
+   65px of the page. */
+.crest-close {
+  padding-bottom: 5rem;
+}
+
+@media (max-width: 767px) {
+  .crest-close {
+    padding-bottom: 11rem;
+  }
+}
+
 /* --- hero ---------------------------------------------------------------- */
 
 .hero {

@@ -11,6 +11,7 @@ import Blog from "./pages/Blog/Blog";
 import Products from "./pages/Products/Products";
 import Legal from "./pages/Legal/Legal";
 import IndustryBanner from "./components/IndustryBanner";
+import Crest from "./components/Crest";
 import Footer from "./components/Footer";
 
 import { Route, Routes } from "react-router-dom";
@@ -51,7 +52,7 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-foam">
       {!isProductsPage && <Header />}
-      <main className="flex-grow pb-20">
+      <main className="flex-grow">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
@@ -59,6 +60,7 @@ export default function App() {
           <Route path="/legal" element={<Legal />} />
         </Routes>
       </main>
+      {!isProductsPage && <Crest closing />}
       {!isProductsPage && <Footer />}
     </div>
   );
