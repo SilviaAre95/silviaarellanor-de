@@ -810,6 +810,277 @@
 }
 
 
+
+/* --------------------------------------------------------------------------
+   Contact. A sea band per the composition Silvia supplied: chrome rule, the
+   two-line headline, the scope line and the calls to action opposite it — with
+   the inquiry form and the working principles kept below.
+   Everything on this ground is abyss. Sea measures 5.90 against it, and it is
+   the only ink that holds; foam on sea is 2.56 and fails.
+   -------------------------------------------------------------------------- */
+
+.talk {
+  background: var(--sea);
+  color: var(--abyss);
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+}
+
+.talk__rule {
+  display: block;
+  width: 3rem;
+  height: 4px;
+  background: var(--chrome);
+  margin-bottom: 1.5rem;
+}
+
+.talk__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: clamp(2rem, 6vw, 4.5rem);
+  align-items: end;
+}
+
+.talk__head h2 {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  font-size: clamp(2rem, 1.1rem + 3vw, 3.25rem);
+}
+
+.talk__head h2 span {
+  display: block;
+}
+
+.talk__aside p {
+  margin: 0;
+  max-width: 34ch;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+}
+
+.talk__cta {
+  display: flex;
+  align-items: center;
+  gap: 1.35rem;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+}
+
+.talk__cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.talk__cta a.solid {
+  background: var(--abyss);
+  color: var(--foam);
+  padding: 0.7rem 1.35rem;
+  border-radius: 100px;
+}
+
+.talk__cta a.solid:hover {
+  background: var(--chrome);
+  color: var(--abyss);
+}
+
+/* The booking action stays plainly set beside the pill — distinct from it, and
+   from the form below. */
+.talk__cta a.plain {
+  color: var(--abyss);
+  border-bottom: 1.5px solid transparent;
+  padding-bottom: 2px;
+}
+
+.talk__cta a.plain:hover {
+  border-bottom-color: var(--abyss);
+}
+
+.talk__cta svg {
+  width: 1.05em;
+  height: 1.05em;
+}
+
+.talk__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 4.5rem);
+  margin-top: clamp(3rem, 7vw, 4.5rem);
+  padding-top: clamp(2.5rem, 5vw, 3.5rem);
+  border-top: 1px solid rgba(14, 32, 25, 0.25);
+}
+
+.talk__info p {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.talk__info h3 {
+  margin: 2rem 0 0.85rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+.talk__principles,
+.talk__facts {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.talk__principles li {
+  margin-bottom: 0.7rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.talk__principles b {
+  font-weight: 700;
+}
+
+.talk__facts {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.talk__facts li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.talk__facts svg {
+  width: 1.05em;
+  height: 1.05em;
+  flex: none;
+}
+
+.talk__facts a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1.5px solid rgba(14, 32, 25, 0.35);
+}
+
+.talk__facts a:hover {
+  border-bottom-color: var(--abyss);
+}
+
+/* --- the form ------------------------------------------------------------ */
+
+.talk__form {
+  background: var(--foam);
+  border-radius: 6px;
+  padding: clamp(1.35rem, 3vw, 2rem);
+  align-self: start;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0 0 1.1rem;
+}
+
+.field label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 0.9375rem;
+  color: var(--abyss);
+  background: transparent;
+  border: 1px solid rgba(14, 32, 25, 0.3);
+  border-radius: 6px;
+  padding: 0.65rem 0.8rem;
+  transition: border-color 0.2s ease;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--sea);
+  box-shadow: 0 0 0 2px var(--sea);
+}
+
+/* Invalid state: a heavier edge and the message, no colour. The palette has no
+   red, and a cue that does not depend on colour is the better one. */
+.field input.is-invalid,
+.field textarea.is-invalid {
+  border-width: 2px;
+  border-color: var(--abyss);
+}
+
+.field__error {
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.talk__form button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--foam);
+  background: var(--abyss);
+  border: 0;
+  border-radius: 100px;
+  padding: 0.8rem 1.35rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.talk__form button:hover {
+  background: var(--sea);
+  color: var(--abyss);
+}
+
+.talk__form button svg {
+  width: 1em;
+  height: 1em;
+}
+
+.talk__status {
+  margin: 1rem 0 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .talk__head,
+  .talk__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .talk__head {
+    gap: 2rem;
+  }
+}
+
+
 .gradient-text {
   background: linear-gradient(90deg, #007A6B, #009E8C);
   -webkit-background-clip: text;
