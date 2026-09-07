@@ -3,9 +3,9 @@ id: profile-about-experience
 title: About and Experience
 status: implemented
 created_at: 2026-07-27
-last_modified: 2026-07-27
+last_modified: 2026-09-07
 owner: Silvia Arellano
-depends_on: [site-navigation, resume-delivery, contact-inquiry]
+depends_on: [site-navigation, resume-delivery, contact-inquiry, brand-identity]
 acceptance_criteria:
   - The About route presents Silvia's professional biography with a portrait and senior data-engineering positioning.
   - The biography covers experience breadth, core GCP stack, representative quantified outcomes, delivery philosophy, knowledge sharing, and limited personal interests.

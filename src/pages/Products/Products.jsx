@@ -15,7 +15,7 @@ const products = [
     ],
     icon: FaDatabase,
     gumroadLink: "https://gumroad.com/l/data-pipeline-toolkit",
-    color: "bg-accent-softBlue"
+    header: "card-chrome"
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const products = [
     ],
     icon: FaChartLine,
     gumroadLink: "https://gumroad.com/l/etl-framework-pro",
-    color: "bg-accent-mutedTeal"
+    header: "card-sea"
   },
   {
     id: 3,
@@ -45,7 +45,7 @@ const products = [
     ],
     icon: FaCode,
     gumroadLink: "https://gumroad.com/l/sql-query-optimizer",
-    color: "bg-accent-softBlue"
+    header: "card-deep"
   },
   {
     id: 4,
@@ -60,20 +60,20 @@ const products = [
     ],
     icon: FaRocket,
     gumroadLink: "https://gumroad.com/l/de-starter-kit",
-    color: "bg-accent-mutedTeal"
+    header: "card-abyss"
   }
 ];
 
 export default function Products() {
   return (
-    <div className="min-h-screen bg-main-white">
-      <div className="sticky top-0 z-50 bg-main-white/95 backdrop-blur-md border-b border-main-mediumGrey/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div className="min-h-screen bg-foam">
+      <div className="sticky top-0 z-50 bg-abyss text-foam border-b-2 border-chrome">
+        <div className="brand-container py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-main-darkGrey">Digital Products</h1>
+            <h1 className="t-h3">Digital Products</h1>
             <Link
               to="/"
-              className="text-main-mediumGrey hover:text-accent-softBlue transition-colors duration-200"
+              className="brand-link-dark"
             >
               ← Back to Portfolio
             </Link>
@@ -81,12 +81,12 @@ export default function Products() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="brand-container brand-section">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-main-darkGrey mb-4">
+          <h2 className="t-h2 mb-4">
             Level Up Your Data Engineering Skills
           </h2>
-          <p className="text-lg text-main-mediumGrey max-w-3xl mx-auto">
+          <p className="t-body text-deep measure mx-auto">
             Premium resources, templates, and frameworks designed to accelerate your data engineering projects and career
           </p>
         </div>
@@ -97,26 +97,27 @@ export default function Products() {
             return (
               <div
                 key={product.id}
-                className="bg-main-lightGrey rounded-lg overflow-hidden border border-main-mediumGrey/20 hover:border-main-mediumGrey/40 transition-all duration-300 hover:shadow-xl"
+                className="card-foam rounded-card overflow-hidden transition-transform duration-300 hover:-translate-y-1"
               >
-                <div className={`${product.color} p-6 text-white`}>
-                  <div className="flex items-center justify-between mb-4">
-                    <Icon size={40} className="opacity-90" />
-                    <span className="text-3xl font-bold">{product.price}</span>
+                {/* §4's caption pairing: the price numeral against a hairline label. */}
+                <div className={`${product.header} p-6`}>
+                  <div className="flex items-baseline justify-between mb-4">
+                    <Icon size={40} />
+                    <span className="t-numeral">{product.price}</span>
                   </div>
-                  <h3 className="text-2xl font-semibold mb-2">{product.title}</h3>
+                  <h3 className="t-h3">{product.title}</h3>
                 </div>
 
                 <div className="p-6">
-                  <p className="text-main-mediumGrey mb-6">
+                  <p className="t-body text-deep mb-6 measure">
                     {product.description}
                   </p>
 
                   <ul className="space-y-3 mb-8">
                     {product.features.map((feature, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="text-accent-softBlue mr-2 mt-1">✓</span>
-                        <span className="text-main-darkGrey">{feature}</span>
+                        <span className="text-deep mr-2 mt-1">✓</span>
+                        <span className="t-body">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -125,10 +126,10 @@ export default function Products() {
                     href={product.gumroadLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center space-x-2 bg-main-darkGrey text-main-white px-6 py-3 rounded-lg hover:bg-main-mediumGrey transition-colors duration-300"
+                    className="brand-button w-full px-6 py-3"
                   >
                     <FaShoppingCart size={18} />
-                    <span className="font-medium">Buy on Gumroad</span>
+                    <span>Buy on Gumroad</span>
                   </a>
                 </div>
               </div>
@@ -136,11 +137,11 @@ export default function Products() {
           })}
         </div>
 
-        <div className="mt-16 text-center bg-main-lightGrey rounded-lg p-8">
-          <h3 className="text-2xl font-semibold text-main-darkGrey mb-4">
+        <div className="mt-16 text-center brand-card card-chrome p-8">
+          <h3 className="t-h2 mb-4">
             100% Satisfaction Guarantee
           </h3>
-          <p className="text-main-mediumGrey max-w-2xl mx-auto">
+          <p className="t-body measure mx-auto">
             All products come with a 30-day money-back guarantee. If you're not completely satisfied, 
             get a full refund - no questions asked.
           </p>

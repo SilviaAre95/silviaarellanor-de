@@ -3,9 +3,9 @@ id: products-catalog
 title: Products Catalog
 status: in-progress
 created_at: 2026-07-27
-last_modified: 2026-07-27
+last_modified: 2026-09-07
 owner: Silvia Arellano
-depends_on: []
+depends_on: [brand-identity]
 acceptance_criteria:
   - The Products route presents a standalone Digital Products page without the portfolio's global header or footer.
   - A sticky page header identifies the catalog and provides a route back to the portfolio.

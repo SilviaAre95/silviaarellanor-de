@@ -5,13 +5,13 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="fixed bottom-0 left-0 right-0 z-50 bg-main-lightGrey border-t border-main-mediumGrey/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <footer className="fixed bottom-0 left-0 right-0 z-50 bg-abyss border-t-2 border-chrome">
+      <div className="brand-container py-4">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           {/* Copyright */}
-          <div className="text-main-mediumGrey text-sm">
+          <div className="t-caption text-foam/80">
             © {currentYear} Silvia Arellano · Consulting via OBEXDATA OÜ ·{" "}
-            <a href="/legal" className="hover:text-accent-softBlue underline underline-offset-2">
+            <a href="/legal" className="brand-link-dark">
               Legal &amp; privacy
             </a>
           </div>
@@ -22,7 +22,7 @@ export default function Footer() {
               href="https://linkedin.com/in/silvia-arellano-de"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-main-mediumGrey hover:text-accent-softBlue transition-colors duration-200"
+              className="text-foam/80 hover:text-chrome transition-colors duration-200"
               aria-label="LinkedIn"
             >
               <FaLinkedin size={20} />
@@ -31,7 +31,7 @@ export default function Footer() {
               href="https://github.com/SilviaAre95"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-main-mediumGrey hover:text-accent-softBlue transition-colors duration-200"
+              className="text-foam/80 hover:text-chrome transition-colors duration-200"
               aria-label="GitHub"
             >
               <FaGithub size={20} />
@@ -40,7 +40,7 @@ export default function Footer() {
               href="https://medium.com/@silvia.datadev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-main-mediumGrey hover:text-accent-softBlue transition-colors duration-200"
+              className="text-foam/80 hover:text-chrome transition-colors duration-200"
               aria-label="Medium"
             >
               <FaMedium size={20} />
@@ -49,14 +49,14 @@ export default function Footer() {
               href="https://silviadatadev.gumroad.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-main-mediumGrey hover:text-accent-softBlue transition-colors duration-200"
-              aria-label="Medium"
+              className="text-foam/80 hover:text-chrome transition-colors duration-200"
+              aria-label="Gumroad"
             >
               <SiGumroad size={20} />
             </a>
             <a
               href="mailto:silvia.datadev@gmail.com"
-              className="text-main-mediumGrey hover:text-accent-softBlue transition-colors duration-200"
+              className="text-foam/80 hover:text-chrome transition-colors duration-200"
               aria-label="Email"
             >
               <FaEnvelope size={20} />
@@ -64,7 +64,7 @@ export default function Footer() {
           </div>
 
           {/* Tech Stack or Role */}
-          <div className="text-main-mediumGrey text-sm">
+          <div className="t-caption text-chrome">
             Data Platform Architect
           </div>
         </div>

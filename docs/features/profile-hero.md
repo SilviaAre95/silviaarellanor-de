@@ -3,9 +3,9 @@ id: profile-hero
 title: Profile Hero
 status: implemented
 created_at: 2026-07-27
-last_modified: 2026-07-27
+last_modified: 2026-09-07
 owner: Silvia Arellano
-depends_on: [site-navigation]
+depends_on: [site-navigation, brand-identity]
 acceptance_criteria:
   - The Home page opens with Silvia's name and Data Platform Architect positioning.
   - The hero communicates current availability for consulting engagements.

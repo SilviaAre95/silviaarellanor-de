@@ -3,9 +3,9 @@ id: portfolio-projects
 title: Portfolio Projects
 status: implemented
 created_at: 2026-07-27
-last_modified: 2026-07-27
+last_modified: 2026-09-07
 owner: Silvia Arellano
-depends_on: [site-navigation, contact-inquiry]
+depends_on: [site-navigation, contact-inquiry, brand-identity]
 acceptance_criteria:
   - The Home page presents a Projects section focused on recent work and business outcomes.
   - Each project card identifies the project, organization or open-source context, year, summary, and available outcome metrics.

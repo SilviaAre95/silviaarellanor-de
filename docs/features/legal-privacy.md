@@ -3,9 +3,9 @@ id: legal-privacy
 title: Legal and Privacy
 status: implemented
 created_at: 2026-07-27
-last_modified: 2026-07-27
+last_modified: 2026-09-07
 owner: Silvia Arellano
-depends_on: [contact-inquiry]
+depends_on: [contact-inquiry, brand-identity]
 acceptance_criteria:
   - The Legal route identifies the site as Silvia Arellano's personal site and names OBEXDATA OÜ as the entity contracting consulting engagements.
   - Provider information includes the company name, registry code, registered address, VAT number, and contact email.

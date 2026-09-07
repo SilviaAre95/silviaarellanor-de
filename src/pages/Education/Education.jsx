@@ -56,25 +56,18 @@ const EducationSection = () => {
   };
 
   return (
-    <section id="education" className="min-h-screen relative overflow-hidden py-20 bg-main-white">
-      {/* Grid Background */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-grid-white/[0.05] bg-[length:50px_50px]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#04081A] via-transparent to-[#04081A]" />
-        <div className="absolute inset-0 border border-white/[0.05] grid grid-cols-2 md:grid-cols-4" />
-      </div>
-
-      <div className="max-w-6xl mx-auto px-4 relative z-10">
+    <section id="education" className="min-h-screen relative overflow-hidden brand-section bg-foam">
+      <div className="brand-container max-w-6xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-main-darkGrey mb-6">
+          <h2 className="t-h2 mb-6">
             Educational Journey
           </h2>
-          <p className="text-main-mediumGrey max-w-2xl mx-auto text-lg">
+          <p className="t-body text-deep measure mx-auto">
             Discover how academic excellence shapes innovative thinking and
             professional growth.
           </p>
@@ -90,10 +83,8 @@ const EducationSection = () => {
             <motion.div
               key={index}
               variants={cardVariants}
-              className={`relative border rounded-xl p-8 transition-all duration-300 bg-main-lightGrey ${
-                hoveredIndex === index
-                  ? "border-accent-softBlue scale-[1.02]"
-                  : "border-main-mediumGrey/30"
+              className={`relative brand-card p-8 transition-colors duration-300 ${
+                hoveredIndex === index ? "card-chrome" : "card-foam"
               }`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
@@ -102,34 +93,34 @@ const EducationSection = () => {
                 <div className="space-y-2">
                   <div className="flex items-center gap-3">
                     <span className="text-3xl">{edu.mascot}</span>
-                    <h3 className="text-2xl font-bold text-main-darkGrey">
+                    <h3 className="t-h3">
                       {edu.degree}
                     </h3>
                   </div>
-                  <p className="text-lg text-main-mediumGrey flex items-center gap-2">
-                    <BookOpen className="w-5 h-5 text-accent-mutedTeal" />
+                  <p className="t-body flex items-center gap-2">
+                    <BookOpen className="w-5 h-5" />
                     {edu.school}
                   </p>
-                  <p className="text-main-mediumGrey flex items-center gap-2">
+                  <p className="t-caption flex items-center gap-2">
                     <Calendar className="w-4 h-4" />
                     {edu.year}
                   </p>
                 </div>
 
-                <p className="text-main-mediumGrey text-sm italic border-l-2 border-accent-mutedTeal pl-3">
+                <p className="t-body italic border-l-2 border-abyss pl-3 measure">
                   {edu.description}
                 </p>
 
                 <div className="space-y-3">
-                  <h4 className="text-sm font-semibold text-main-darkGrey flex items-center gap-2">
-                    <Trophy className="w-4 h-4 text-accent-subtleYellow" />
+                  <h4 className="t-tag flex items-center gap-2">
+                    <Trophy className="w-4 h-4" />
                     Key Achievements
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {edu.achievements.map((achievement, i) => (
                       <div
                         key={i}
-                        className="px-3 py-1 rounded-full bg-accent-mutedTeal/10 text-accent-mutedTeal flex items-center gap-2 text-sm"
+                        className="brand-pill pill-abyss t-tag"
                       >
                         <Award className="w-4 h-4" />
                         <span>{achievement}</span>
@@ -142,7 +133,7 @@ const EducationSection = () => {
                   {edu.skills.map((skill, i) => (
                     <span
                       key={i}
-                      className="px-2 py-1 text-xs rounded bg-accent-softBlue/10 text-accent-softBlue"
+                      className="brand-pill pill-outline t-tag"
                     >
                       {skill}
                     </span>

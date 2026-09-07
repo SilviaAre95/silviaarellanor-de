@@ -1,11 +1,11 @@
 ---
 id: site-footer-social
 title: Footer and Social Links
-status: in-progress
+status: implemented
 created_at: 2026-07-27
-last_modified: 2026-07-27
+last_modified: 2026-09-07
 owner: Silvia Arellano
-depends_on: [legal-privacy]
+depends_on: [legal-privacy, brand-identity]
 acceptance_criteria:
   - A fixed footer appears on every route except the standalone Products page.
   - The footer displays the current year, Silvia's name, the OBEXDATA OÜ consulting attribution, and current professional positioning.

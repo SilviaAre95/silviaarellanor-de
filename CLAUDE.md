@@ -10,6 +10,14 @@ Silvia's personal site/portfolio — ventures, open-source work, consultancy, bl
 - **Deploy**: `npm run deploy` → gh-pages → GitHub Pages, CNAME **www.silviadata.dev**
 - **MCPs used**: none
 
+## Brand
+- Visual system: `docs/brand/brand-specification.md` (v1.0). It is normative — MUST rules are non-negotiable.
+- Feature spec: `docs/features/brand-identity.md`. Tokens live in `src/assets/css/index.css` and `tailwind.config.js`; the wave is `src/components/BrandWave.jsx`.
+- Palette is **closed**: `abyss #0E2019`, `deep #173A2C`, `sea #4FA97F`, `chrome #F2C13D`, `foam #F4F2E7`. No sixth colour, no second font, no shadows, no decorative gradients.
+- Text on `--sea` MUST be `--abyss`. `--sea` as text on `--foam` measures 2.56 and fails — links on light grounds are `--deep`.
+- Copy is lowercased by `body { text-transform: lowercase }`, never by rewriting source text.
+- Still on the old brand: `public/favicon.ico`, the PNG touch icons, `public/og-image.jpg`. The swallow mark (spec §10) is not drawn — Silvia supplies that artwork.
+
 ## Constraints
 - The live domain is **silviadata.dev** — the repo name (`silviaarellanor-de`) is historical; `silviaarellanor.de` does not resolve. Never link or configure the old domain.
 - Contact form uses EmailJS with env keys — keys stay in `.env` (see `.env.example`), never committed.

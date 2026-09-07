@@ -4,12 +4,14 @@ import { FaMedium, FaExternalLinkAlt, FaCalendarAlt } from "react-icons/fa";
 import articles from "@/data/articles.json";
 
 export default function Blog() {
+  // §9: section grounds alternate. Projects sits on foam and the roster band on
+  // chrome, so writing takes the abyss ground.
   return (
-    <section id="blog" className="min-h-screen bg-main-lightGrey py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="blog" className="min-h-screen bg-abyss text-foam brand-section">
+      <div className="brand-container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-main-darkGrey mb-4">Blog</h2>
-          <p className="text-lg text-main-mediumGrey max-w-2xl mx-auto">
+          <h2 className="t-h2 mb-4">Blog</h2>
+          <p className="t-body text-foam/80 measure mx-auto">
             Notes from real projects, mostly data engineering and AI tooling
           </p>
         </div>
@@ -18,23 +20,23 @@ export default function Blog() {
           {articles.map((article, index) => (
             <article
               key={index}
-              className="bg-main-white rounded-lg p-6 border border-main-mediumGrey/20 hover:border-accent-softBlue/50 transition-all duration-300 hover:shadow-lg group"
+              className="brand-card card-deep group transition-transform duration-300 hover:-translate-y-1"
             >
               <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center space-x-4 text-sm text-main-mediumGrey">
+                <div className="flex items-center space-x-4 t-caption text-foam/80">
                   <span className="flex items-center space-x-1">
                     <FaCalendarAlt size={14} />
                     <span>{article.date}</span>
                   </span>
-                  <span className="text-accent-softBlue">{article.readTime}</span>
+                  <span className="text-chrome">{article.readTime}</span>
                 </div>
               </div>
 
-              <h3 className="text-xl font-semibold text-main-darkGrey mb-3 group-hover:text-accent-softBlue transition-colors">
+              <h3 className="t-h3 mb-3 group-hover:text-chrome transition-colors">
                 {article.title}
               </h3>
-              
-              <p className="text-main-mediumGrey mb-4 line-clamp-3">
+
+              <p className="t-body text-foam/80 mb-4 line-clamp-3 measure">
                 {article.excerpt}
               </p>
 
@@ -42,9 +44,9 @@ export default function Blog() {
                 href={article.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 text-accent-softBlue hover:text-accent-mutedTeal transition-colors duration-200"
+                className="brand-link-dark inline-flex items-center space-x-2"
               >
-                <span className="text-sm font-medium">Read More</span>
+                <span className="t-tag">Read More</span>
                 <FaExternalLinkAlt size={12} />
               </a>
             </article>
@@ -56,10 +58,10 @@ export default function Blog() {
             href="https://medium.com/@silvia.datadev"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-3 bg-main-darkGrey text-main-white px-6 py-3 rounded-lg hover:bg-main-mediumGrey transition-colors duration-300"
+            className="brand-button brand-button-chrome"
           >
             <FaMedium size={20} />
-            <span className="font-medium">View All Articles on Medium</span>
+            <span>View All Articles on Medium</span>
             <FaExternalLinkAlt size={14} />
           </a>
         </div>

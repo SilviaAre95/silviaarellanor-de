@@ -3,9 +3,9 @@ id: profile-skills
 title: Profile Skills
 status: implemented
 created_at: 2026-07-27
-last_modified: 2026-07-27
+last_modified: 2026-09-07
 owner: Silvia Arellano
-depends_on: [site-navigation]
+depends_on: [site-navigation, brand-identity]
 acceptance_criteria:
   - The Home page presents a dedicated Skills section describing Silvia's day-to-day toolkit.
   - Skills are organized into Programming and Development, Data Engineering and ETL, Databases and Warehouses, Cloud and Infrastructure, Analytics and BI Tools, and AI and Agents.

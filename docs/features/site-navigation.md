@@ -3,9 +3,9 @@ id: site-navigation
 title: Site Navigation
 status: implemented
 created_at: 2026-07-27
-last_modified: 2026-07-27
+last_modified: 2026-09-07
 owner: Silvia Arellano
-depends_on: []
+depends_on: [brand-identity]
 acceptance_criteria:
   - A fixed responsive header is available on the Home, About, and Legal pages.
   - Desktop navigation exposes Home, Skills, Projects, Blog, Contact, and About destinations.

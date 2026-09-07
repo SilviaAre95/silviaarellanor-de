@@ -3,9 +3,9 @@ id: content-blog
 title: Content Blog
 status: implemented
 created_at: 2026-07-27
-last_modified: 2026-07-27
+last_modified: 2026-09-07
 owner: Silvia Arellano
-depends_on: []
+depends_on: [brand-identity]
 acceptance_criteria:
   - The Home page presents article cards sourced from Silvia's Medium publication feed.
   - Each card displays the article title, publication date, estimated reading time, and a concise plain-text excerpt.

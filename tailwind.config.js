@@ -4,6 +4,15 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      // Brand spec §8: one breakpoint at 860px, where every two-column grid
+      // collapses to one. Tailwind's own md/lg stay available for layouts that
+      // predate the brand and are not two-column collapses.
+      screens: {
+        brand: "860px",
+      },
+      fontFamily: {
+        sans: ['"Archivo"', "Helvetica", "Arial", "sans-serif"],
+      },
       animation: {
         meteor: "meteor 5s linear infinite",
       },
@@ -22,10 +31,27 @@ module.exports = {
           },
         },
       },
+      // Brand spec §7: only two radii exist. Everything else is square.
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        none: "0",
+        pill: "100px",
+        card: "6px",
+        lg: "6px",
+        md: "6px",
+        sm: "6px",
+        full: "100px",
+      },
+      // Brand spec §7: the system has no shadows. Depth comes from colour
+      // layering, so every shadow utility resolves to nothing.
+      boxShadow: {
+        none: "none",
+        sm: "none",
+        DEFAULT: "none",
+        md: "none",
+        lg: "none",
+        xl: "none",
+        "2xl": "none",
+        inner: "none",
       },
       colors: {
         background: "hsl(var(--background))",
@@ -53,10 +79,6 @@ module.exports = {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
-          softBlue: "#007A6B",
-          mutedTeal: "#005A4E",
-          subtleYellow: "#FFD600",
-          gentleCoral: "#FF8A65",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -65,22 +87,12 @@ module.exports = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        chart: {
-          1: "hsl(var(--chart-1))",
-          2: "hsl(var(--chart-2))",
-          3: "hsl(var(--chart-3))",
-          4: "hsl(var(--chart-4))",
-          5: "hsl(var(--chart-5))",
-        },
-        // OBEX light palette
-        main: {
-          white: "#FFFFFF",
-          lightGrey: "#F0F2F5",
-          mediumGrey: "#9BA5B4",
-          darkGrey: "#0A0E17",
-        },
-        // merged into the shadcn accent block above — duplicate key was
-        // silently discarding DEFAULT/foreground (bg-accent etc.)
+        // Brand spec §3: the palette is closed. Five tokens, no sixth colour.
+        abyss: "#0E2019",
+        deep: "#173A2C",
+        sea: "#4FA97F",
+        chrome: "#F2C13D",
+        foam: "#F4F2E7",
       },
     },
   },

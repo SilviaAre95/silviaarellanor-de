@@ -3,9 +3,9 @@ id: contact-inquiry
 title: Contact Inquiry
 status: implemented
 created_at: 2026-07-27
-last_modified: 2026-07-27
+last_modified: 2026-09-07
 owner: Silvia Arellano
-depends_on: []
+depends_on: [brand-identity]
 acceptance_criteria:
   - The Contact section explains Silvia's consulting scope, expected response time, and working principles.
   - Visitors can see Silvia's professional email address and base location.

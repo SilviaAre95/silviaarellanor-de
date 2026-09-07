@@ -39,31 +39,30 @@ import { TbApi,TbDatabaseCog } from "react-icons/tb";
 import { MdAnimation } from "react-icons/md";
 import { FcWorkflow } from "react-icons/fc";
 
-const SkillCard = ({ icon: Icon, title, skills, color }) => (
-  <Card className="group relative overflow-hidden bg-main-lightGrey border-main-mediumGrey/30 hover:scale-[1.02] transition-all duration-300 hover:shadow-xl">
-    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(100,100,255,0.1)] to-transparent group-hover:via-[rgba(100,100,255,0.2)] animate-shimmer"></div>
-    <CardContent className="p-6 relative z-10">
+// Card fills cycle chrome → sea → deep (§7). The badge fill on each is chosen
+// so its text stays contrast-safe per §3.
+const CARD_TONES = [
+  { card: "bg-chrome text-abyss", badge: "default", iconWell: "bg-abyss text-chrome" },
+  { card: "bg-sea text-abyss", badge: "default", iconWell: "bg-abyss text-sea" },
+  { card: "bg-deep text-foam", badge: "foam", iconWell: "bg-chrome text-abyss" },
+];
+
+const SkillCard = ({ icon: Icon, title, skills, tone }) => (
+  <Card
+    className={`group relative overflow-hidden brand-card ${tone.card} transition-transform duration-300 hover:-translate-y-1`}
+  >
+    <CardContent className="p-0 relative z-10">
       <div className="flex items-center gap-4 mb-6">
-        <div
-          className={`p-3 rounded-xl bg-main-mediumGrey/20 ${color} group-hover:scale-110 transition-transform duration-300`}
-        >
+        <div className={`p-3 rounded-card ${tone.iconWell}`}>
           <Icon className="w-8 h-8" />
         </div>
-        <h3 className="text-2xl font-bold text-main-darkGrey">
-          {title}
-        </h3>
+        <h3 className="t-h3">{title}</h3>
       </div>
       <div className="flex flex-wrap gap-2">
         {skills.map((skill, index) => (
-          <Badge
-            key={index}
-            variant="outline"
-            className="group/badge relative bg-main-lightGrey hover:bg-main-mediumGrey/20 text-main-darkGrey border-main-mediumGrey/30 flex items-center gap-2 py-2 px-3 transition-all duration-300 hover:scale-105 hover:shadow-lg"
-          >
-            <span className="transform group-hover/badge:scale-110 transition-transform duration-300">
-              {skill.icon}
-            </span>
-            <span className="font-medium">{skill.name}</span>
+          <Badge key={index} variant={tone.badge}>
+            <span>{skill.icon}</span>
+            <span>{skill.name}</span>
           </Badge>
         ))}
       </div>
@@ -76,169 +75,160 @@ const SkillsSection = () => {
     {
       icon: Code2,
       title: "Programming & Development",
-      color: "text-blue-400",
       skills: [
         {
           name: "Python",
-          icon: <FaPython className="w-4 h-4 text-[#3776AB]" />,
+          icon: <FaPython className="w-4 h-4" />,
         },
         {
           name: "SQL",
-          icon: <PiFileSqlBold className="w-4 h-4 text-[#339933]" />,
+          icon: <PiFileSqlBold className="w-4 h-4" />,
         },
         {
           name: "T-SQL",
-          icon: <PiFileSqlBold className="w-4 h-4 text-[#9CA3AF]" />,
+          icon: <PiFileSqlBold className="w-4 h-4" />,
         },
         {
           name: "Node.js",
-          icon: <FaNodeJs className="w-4 h-4 text-[#339933]" />,
+          icon: <FaNodeJs className="w-4 h-4" />,
         },
         {
           name: "REST APIs",
-          icon: <TbApi className="w-4 h-4 text-[#FF6C37]" />,
+          icon: <TbApi className="w-4 h-4" />,
         },
         {
           name: "GraphQL",
-          icon: <SiGraphql className="w-4 h-4 text-[#E10098]" />,
+          icon: <SiGraphql className="w-4 h-4" />,
         },
-        { name: "React", icon: <FaReact className="w-4 h-4 text-[#61DAFB]" /> },
+        { name: "React", icon: <FaReact className="w-4 h-4" /> },
       ],
     },
     {
       icon: Database,
       title: "Data Engineering & ETL",
-      color: "text-green-400",
       skills: [
         {
           name: "ETL/rETL",
-          icon: <LuWorkflow className="w-4 h-4 text-[#FF6C37]" />,
+          icon: <LuWorkflow className="w-4 h-4" />,
         },
         {
           name: "ApacheBeam",
-          icon: <SiApachedruid className="w-4 h-4 text-[#E10098]" />,
+          icon: <SiApachedruid className="w-4 h-4" />,
         },
-        { name: "Kafka", icon: <SiApachekafka className="w-4 h-4 text-[#764ABC]" /> },
+        { name: "Kafka", icon: <SiApachekafka className="w-4 h-4" /> },
         {
           name: "Dataflow",
-          icon: <SiWebpack className="w-4 h-4 text-[#8DD6F9]" />,
+          icon: <SiWebpack className="w-4 h-4" />,
         },
-        { name: "Airflow", icon: <SiApacheairflow className="w-4 h-4 text-[#646CFF]" /> },
-        { name: "Prefect", icon: <SiPrefect className="w-4 h-4 text-[#646CFF]" /> },
-        { name: "Pub/Sub", icon: <SiGooglepubsub className="w-4 h-4 text-white" /> },
+        { name: "Airflow", icon: <SiApacheairflow className="w-4 h-4" /> },
+        { name: "Prefect", icon: <SiPrefect className="w-4 h-4" /> },
+        { name: "Pub/Sub", icon: <SiGooglepubsub className="w-4 h-4" /> },
       ],
     },
     {
       icon: Cpu,
       title: "Databases & Warehouses",
-      color: "text-purple-400",
       skills: [
         {
           name: "PostgreSQL",
-          icon: <SiPostgresql className="w-4 h-4 text-[#336791]" />,
+          icon: <SiPostgresql className="w-4 h-4" />,
         },
         {
           name: "MongoDB",
-          icon: <SiMongodb className="w-4 h-4 text-[#47A248]" />,
+          icon: <SiMongodb className="w-4 h-4" />,
         },
         {
           name: "BigQuery",
-          icon: <SiGooglebigquery className="w-4 h-4 text-[#007ACC]" />,
+          icon: <SiGooglebigquery className="w-4 h-4" />,
         },
-        { name: "Snowflake", icon: <SiSnowflake className="w-4 h-4 text-[#29B5E8]" /> },
+        { name: "Snowflake", icon: <SiSnowflake className="w-4 h-4" /> },
       ],
     },
     {
       icon: Cloud,
       title: "Cloud & Infrastructure",
-      color: "text-orange-400",
       skills: [
-        { name: "GCP", icon: <SiGooglecloud className="w-4 h-4 text-[#FF9900]" /> },
-        { name: "AWS", icon: <FaAws className="w-4 h-4 text-[#FF9900]" /> },
+        { name: "GCP", icon: <SiGooglecloud className="w-4 h-4" /> },
+        { name: "AWS", icon: <FaAws className="w-4 h-4" /> },
         {
           name: "Docker",
-          icon: <FaDocker className="w-4 h-4 text-[#2496ED]" />,
+          icon: <FaDocker className="w-4 h-4" />,
         },
         {
           name: "Kubernetes",
-          icon: <SiKubernetes className="w-4 h-4 text-[#326CE5]" />,
+          icon: <SiKubernetes className="w-4 h-4" />,
         },
-        { name: "Git", icon: <FaGitAlt className="w-4 h-4 text-[#F05032]" /> },
-        { name: "Terraform", icon: <SiTerraform className="w-4 h-4 text-[#F05032]" /> },
-        { name: "Pulumi", icon: <SiPulumi className="w-4 h-4 text-[#F05032]" /> },
-        { name: "Linux", icon: <FaLinux className="w-4 h-4 text-[#FCC624]" /> },
+        { name: "Git", icon: <FaGitAlt className="w-4 h-4" /> },
+        { name: "Terraform", icon: <SiTerraform className="w-4 h-4" /> },
+        { name: "Pulumi", icon: <SiPulumi className="w-4 h-4" /> },
+        { name: "Linux", icon: <FaLinux className="w-4 h-4" /> },
         { name: "CI/CD", icon: <FcWorkflow className="w-4 h-4" /> },
         {
           name: "Cloud Run",
-          icon: <FaCode className="w-4 h-4 text-[#FFCA28]" />,
+          icon: <FaCode className="w-4 h-4" />,
         },
       ],
     },
     {
       icon: Layout,
       title: "Analytics & BI Tools",
-      color: "text-pink-400",
       skills: [
         {
           name: "DBT",
-          icon: <SiDbt className="w-4 h-4 text-[#38B2AC]" />,
+          icon: <SiDbt className="w-4 h-4" />,
         },
         {
           name: "Dataform",
-          icon: <TbDatabaseCog className="w-4 h-4 text-[#9CA3AF]" />,
+          icon: <TbDatabaseCog className="w-4 h-4" />,
         },
         {
           name: "Looker",
-          icon: <SiLooker className="w-4 h-4 text-white" />,
+          icon: <SiLooker className="w-4 h-4" />,
         },
-        { name: "PowerBI", icon: <VscGraph className="w-4 h-4 text-[#61DAFB]" /> },
-        { name: "Metabase", icon: <SiMetabase className="w-4 h-4 text-[#61DAFB]" /> },
-        { name: "Streamlit", icon: <SiStreamlit className="w-4 h-4 text-[#61DAFB]" /> },
+        { name: "PowerBI", icon: <VscGraph className="w-4 h-4" /> },
+        { name: "Metabase", icon: <SiMetabase className="w-4 h-4" /> },
+        { name: "Streamlit", icon: <SiStreamlit className="w-4 h-4" /> },
       ],
     },
     {
       icon: Paintbrush,
       title: "AI & Agents",
-      color: "text-purple-400",
       skills: [
         {
           name: "Claude Code",
-          icon: <Cpu className="w-4 h-4 text-[#D97706]" />,
+          icon: <Cpu className="w-4 h-4" />,
         },
         {
           name: "Agent Workflows & MCP",
-          icon: <Cpu className="w-4 h-4 text-[#7C3AED]" />,
+          icon: <Cpu className="w-4 h-4" />,
         },
         {
           name: "AI-Assisted Delivery",
-          icon: <FaCode className="w-4 h-4 text-[#0EA5E9]" />,
+          icon: <FaCode className="w-4 h-4" />,
         },
         {
           name: "Local LLMs",
-          icon: <Cpu className="w-4 h-4 text-[#059669]" />,
+          icon: <Cpu className="w-4 h-4" />,
         },
         {
           name: "LLM Data Pipelines",
-          icon: <Cpu className="w-4 h-4 text-[#DC2626]" />,
+          icon: <Cpu className="w-4 h-4" />,
         },
         {
           name: "Prompt Engineering",
-          icon: <MdAnimation className="w-4 h-4 text-[#00C853]" />,
+          icon: <MdAnimation className="w-4 h-4" />,
         },
       ],
     },
   ];
 
   return (
-    <section id="skills" className="pt-15 lg:pt-0 min-h-screen bg-main-white relative">
-      {/* Grid Background */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
-
-      <section className="container mx-auto px-4 py-20 relative z-10">
+    <section id="skills" className="pt-15 lg:pt-0 min-h-screen bg-foam relative">
+      <section className="brand-container brand-section relative z-10">
         {/* Title Section */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-main-darkGrey mb-4">Skills</h2>
-          <p className="text-lg text-main-mediumGrey max-w-2xl mx-auto">
+          <h2 className="t-h2 mb-4">Skills</h2>
+          <p className="t-body text-deep measure mx-auto">
             What I work with day to day
           </p>
         </div>
@@ -250,37 +240,11 @@ const SkillsSection = () => {
               icon={category.icon}
               title={category.title}
               skills={category.skills}
-              color={category.color}
+              tone={CARD_TONES[index % CARD_TONES.length]}
             />
           ))}
         </div>
       </section>
-      <style>{`
-        @keyframes shimmer {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(100%);
-          }
-        }
-        .animate-shimmer {
-          animation: shimmer 2s infinite;
-        }
-        .bg-grid-pattern {
-          background-image: linear-gradient(
-              to right,
-              rgba(100, 100, 255, 0.1) 1px,
-              transparent 1px
-            ),
-            linear-gradient(
-              to bottom,
-              rgba(100, 100, 255, 0.1) 1px,
-              transparent 1px
-            );
-          background-size: 30px 30px;
-        }
-      `}</style>
     </section>
   );
 };

@@ -22,9 +22,10 @@ Source of truth for what this product **does** and **does not** do. Every code c
 | `contact-booking` | Contact Booking | implemented | External calendar action lets prospective clients schedule an introductory call. | Embedded scheduling; payment collection |
 | `profile-about-experience` | About and Experience | implemented | Biography and timelines provide concise professional and personal context. | Full resume duplication; sensitive employment details |
 | `resume-delivery` | Resume Delivery | implemented | Build-time LaTeX produces three truthful, role-targeted, ATS-readable resumes. | Browser compilation; publishing non-Senior variants |
-| `site-footer-social` | Footer and Social Links | in-progress | Persistent footer connects legal, professional, social, and email destinations. | Live social feeds; embedded contact or commerce |
+| `site-footer-social` | Footer and Social Links | implemented | Persistent footer connects legal, professional, social, and email destinations. | Live social feeds; embedded contact or commerce |
 | `legal-privacy` | Legal and Privacy | implemented | Provider and privacy disclosures explain site ownership and data handling. | Contract replacement; external-provider guarantees |
 | `products-catalog` | Products Catalog | in-progress | Standalone catalog previews Gumroad products pending launch confirmation. | On-site commerce; pre-launch navigation promotion |
+| `brand-identity` | Brand Identity | implemented | Closed wave-based palette, Archivo, and lowercase voice style every surface. | Resume restyling; dark mode |
 
 <!-- Append new rows above this comment. Keep the summary column ≤ 15 words. -->
 

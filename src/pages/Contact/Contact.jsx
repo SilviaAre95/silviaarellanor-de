@@ -98,25 +98,23 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 bg-main-white min-h-screen"
+      className="brand-section bg-sea text-abyss min-h-screen"
     >
-      <div className="flex items-center relative px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto">
+      <div className="flex items-center relative">
+        <div className="brand-container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Contact Info */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-4xl font-bold mb-4 text-main-darkGrey">
-                  Work with me
-                </h2>
-                <p className="text-main-mediumGrey text-lg">
+                <h2 className="t-h2 mb-4">Work with me</h2>
+                <p className="t-body measure">
                   I take on consulting engagements in data platform architecture
                   and GCP/BigQuery, with AI-assisted delivery. That can be a
                   two-week audit, a pipeline rescue, or building your data
                   platform end to end. For bigger engagements I bring in a small
                   team I&apos;ve worked with for years.
                 </p>
-                <p className="text-main-mediumGrey text-lg mt-3">
+                <p className="t-body measure mt-3">
                   Tell me what you&apos;re building and I&apos;ll get back to you
                   within a couple of days.
                 </p>
@@ -126,7 +124,7 @@ export default function Contact() {
                     href={BOOKING_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-5 inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent-softBlue hover:bg-accent-mutedTeal text-white font-medium transition-colors duration-200"
+                    className="brand-button mt-5"
                   >
                     <CalendarDays className="w-5 h-5" />
                     Book an intro call
@@ -135,20 +133,20 @@ export default function Contact() {
 
                 {/* How I work */}
                 <div className="mt-6 space-y-2">
-                  <h3 className="font-semibold text-main-darkGrey">How I work</h3>
-                  <ul className="text-main-mediumGrey space-y-1.5">
+                  <h3 className="t-h3">How I work</h3>
+                  <ul className="t-body measure space-y-1.5">
                     <li>
-                      <span className="text-main-darkGrey">Senior-only.</span>{" "}
+                      <span className="font-semibold">Senior-only.</span>{" "}
                       You work with me directly, from first call to handover.
                       Nothing gets passed to a junior.
                     </li>
                     <li>
-                      <span className="text-main-darkGrey">Documentation-first.</span>{" "}
+                      <span className="font-semibold">Documentation-first.</span>{" "}
                       Everything I build arrives explained, so your team owns it
                       after I leave.
                     </li>
                     <li>
-                      <span className="text-main-darkGrey">Honest scoping.</span>{" "}
+                      <span className="font-semibold">Honest scoping.</span>{" "}
                       If something shouldn&apos;t be built, I&apos;ll tell you
                       before you pay for it.
                     </li>
@@ -158,45 +156,45 @@ export default function Contact() {
 
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
-                  <div className="bg-accent-softBlue/10 p-3 rounded-lg">
-                    <Mail className="w-6 h-6 text-accent-softBlue" />
+                  <div className="bg-abyss text-chrome p-3 rounded-card">
+                    <Mail className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-main-darkGrey">Email</h3>
-                    <p className="text-main-mediumGrey">silvia.datadev@gmail.com</p>
+                    <h3 className="t-h3">Email</h3>
+                    <p className="t-body">silvia.datadev@gmail.com</p>
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <div className="bg-accent-mutedTeal/10 p-3 rounded-lg">
-                    <MapPin className="w-6 h-6 text-accent-mutedTeal" />
+                  <div className="bg-abyss text-chrome p-3 rounded-card">
+                    <MapPin className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-main-darkGrey">Location</h3>
-                    <p className="text-main-mediumGrey">Mexico City | Madrid</p>
+                    <h3 className="t-h3">Location</h3>
+                    <p className="t-body">Mexico City | Madrid</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Contact Form */}
-            <div className="bg-main-lightGrey p-8 rounded-2xl shadow-xl">
+            <div className="card-foam brand-card p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 gap-6">
                   <div>
                     <input
                       type="text"
                       placeholder="Your Name"
-                      className={`w-full px-4 py-3 rounded-lg bg-white border ${
-                        errors.name ? "border-accent-gentleCoral" : "border-main-mediumGrey/30"
-                      } focus:border-accent-softBlue focus:outline-none transition-colors text-main-darkGrey`}
+                      className={`w-full px-4 py-3 rounded-card bg-foam text-abyss placeholder:text-deep/70 border-2 ${
+                        errors.name ? "border-chrome" : "border-transparent"
+                      } focus:border-abyss focus:outline-none transition-colors`}
                       value={formData.name}
                       onChange={(e) =>
                         setFormData({ ...formData, name: e.target.value })
                       }
                     />
                     {errors.name && (
-                      <p className="text-accent-gentleCoral text-sm mt-1">{errors.name}</p>
+                      <p className="t-tag text-abyss mt-1">{errors.name}</p>
                     )}
                   </div>
 
@@ -204,16 +202,16 @@ export default function Contact() {
                     <input
                       type="email"
                       placeholder="Your Email"
-                      className={`w-full px-4 py-3 rounded-lg bg-white border ${
-                        errors.email ? "border-accent-gentleCoral" : "border-main-mediumGrey/30"
-                      } focus:border-accent-softBlue focus:outline-none transition-colors text-main-darkGrey`}
+                      className={`w-full px-4 py-3 rounded-card bg-foam text-abyss placeholder:text-deep/70 border-2 ${
+                        errors.email ? "border-chrome" : "border-transparent"
+                      } focus:border-abyss focus:outline-none transition-colors`}
                       value={formData.email}
                       onChange={(e) =>
                         setFormData({ ...formData, email: e.target.value })
                       }
                     />
                     {errors.email && (
-                      <p className="text-accent-gentleCoral text-sm mt-1">
+                      <p className="t-tag text-abyss mt-1">
                         {errors.email}
                       </p>
                     )}
@@ -223,16 +221,16 @@ export default function Contact() {
                     <input
                       type="text"
                       placeholder="Subject"
-                      className={`w-full px-4 py-3 rounded-lg bg-white border ${
-                        errors.subject ? "border-accent-gentleCoral" : "border-main-mediumGrey/30"
-                      } focus:border-accent-softBlue focus:outline-none transition-colors text-main-darkGrey`}
+                      className={`w-full px-4 py-3 rounded-card bg-foam text-abyss placeholder:text-deep/70 border-2 ${
+                        errors.subject ? "border-chrome" : "border-transparent"
+                      } focus:border-abyss focus:outline-none transition-colors`}
                       value={formData.subject}
                       onChange={(e) =>
                         setFormData({ ...formData, subject: e.target.value })
                       }
                     />
                     {errors.subject && (
-                      <p className="text-accent-gentleCoral text-sm mt-1">
+                      <p className="t-tag text-abyss mt-1">
                         {errors.subject}
                       </p>
                     )}
@@ -242,16 +240,16 @@ export default function Contact() {
                     <textarea
                       placeholder="Your Message"
                       rows="4"
-                      className={`w-full px-4 py-3 rounded-lg bg-white border ${
-                        errors.message ? "border-accent-gentleCoral" : "border-main-mediumGrey/30"
-                      } focus:border-accent-softBlue focus:outline-none transition-colors resize-none text-main-darkGrey`}
+                      className={`w-full px-4 py-3 rounded-card bg-foam text-abyss placeholder:text-deep/70 border-2 ${
+                        errors.message ? "border-chrome" : "border-transparent"
+                      } focus:border-abyss focus:outline-none transition-colors resize-none`}
                       value={formData.message}
                       onChange={(e) =>
                         setFormData({ ...formData, message: e.target.value })
                       }
                     ></textarea>
                     {errors.message && (
-                      <p className="text-accent-gentleCoral text-sm mt-1">
+                      <p className="t-tag text-abyss mt-1">
                         {errors.message}
                       </p>
                     )}
@@ -260,7 +258,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full bg-accent-softBlue text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center space-x-2 hover:bg-accent-mutedTeal transition-colors"
+                  className="brand-button w-full py-3 px-6"
                 >
                   <span>Send Message</span>
                   <Send className="w-4 h-4" />
@@ -270,10 +268,8 @@ export default function Contact() {
               {/* Status Message */}
               {status && (
                 <div
-                  className={`mt-4 text-center ${
-                    status.includes("success")
-                      ? "text-accent-mutedTeal"
-                      : "text-accent-gentleCoral"
+                  className={`mt-4 text-center t-tag ${
+                    status.includes("success") ? "text-deep" : "text-abyss"
                   }`}
                 >
                   <p>{status}</p>

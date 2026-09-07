@@ -3,9 +3,9 @@ id: profile-industries
 title: Profile Industries
 status: implemented
 created_at: 2026-07-27
-last_modified: 2026-07-27
+last_modified: 2026-09-07
 owner: Silvia Arellano
-depends_on: []
+depends_on: [brand-identity]
 acceptance_criteria:
   - The Home page displays a clearly labeled Industries I've Worked In banner between the Projects and Blog sections.
   - The banner lists Real Estate, Enterprise, Marketing, Sports Analytics, Tax, Healthcare, E-commerce, HR Tech, and SaaS.

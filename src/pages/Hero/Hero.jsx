@@ -1,4 +1,5 @@
 import { FlipWords } from "@/components/ui/flip-words";
+import BrandWave from "@/components/BrandWave";
 import silviaPhoto from "@/assets/images/silvia.webp";
 
 export default function Hero() {
@@ -9,109 +10,107 @@ export default function Hero() {
     "Big Data Analytics Engineer",
   ];
 
-
   return (
     <section
       id="hero"
-      className="hero-section relative min-h-screen bg-main-white py-16 sm:py-20 md:py-32 flex items-center overflow-x-clip"
+      className="hero-section relative min-h-screen bg-abyss text-foam pt-20 sm:pt-24 md:pt-28 flex flex-col overflow-x-clip"
     >
-      {/* Simple background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-main-lightGrey via-main-white to-main-lightGrey pointer-events-none"></div>
+      {/* Main content container */}
+      <div className="flex-1 flex items-center">
+        <div className="brand-container flex flex-col lg:flex-row items-center justify-between relative z-10">
+        {/* Left column - Text content */}
+        <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
+          {/* Availability caption — §4's caption pairing, chrome on abyss (10.06). */}
+          <div className="brand-pill pill-chrome mb-8">
+            <span className="w-2 h-2 rounded-pill bg-abyss shrink-0"></span>
+            <span className="t-tag">Available for consulting engagements</span>
+          </div>
 
-          {/* Main content container */}
-          <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between relative z-10 px-4 md:px-8">
-            {/* Left column - Text content */}
-            <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
-              {/* Welcome badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-main-lightGrey backdrop-blur-sm border border-main-mediumGrey/30 mb-8">
-                <div className="w-2 h-2 rounded-full bg-accent-mutedTeal"></div>
-                <span className="text-main-darkGrey text-sm font-medium">
-                  Available for consulting engagements
-                </span>
-              </div>
+          {/* Name section */}
+          <div className="mb-8">
+            <h1 className="t-h1 text-foam">
+              Silvia Arellano
+              <span className="block text-sea">Data Platform Architect</span>
+            </h1>
+          </div>
 
-              {/* Name section */}
-              <div className="mb-8">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-main-darkGrey">
-                  Silvia Arellano
-                  <span className="block gradient-text">Data Platform Architect</span>
-                </h1>
-              </div>
+          {/* Role badge — max-w-full + responsive text so long titles wrap instead of
+              overflowing the viewport on small screens (XARI-76) */}
+          <div className="inline-flex items-center gap-3 px-4 sm:px-6 py-3 rounded-card bg-deep mb-8 max-w-full">
+            <span className="min-w-0">
+              <FlipWords
+                className="t-roster text-chrome"
+                words={words}
+              />
+            </span>
+          </div>
 
-              {/* Role badge — max-w-full + responsive text so long titles wrap instead of
-                  overflowing the viewport on small screens (XARI-76) */}
-              <div className="inline-flex items-center gap-3 px-4 sm:px-6 py-3 rounded-xl bg-main-lightGrey border border-main-mediumGrey/30 mb-8 max-w-full">
-                <span className="min-w-0">
-                  <FlipWords
-                    className="text-lg sm:text-xl text-accent-softBlue font-medium"
-                    words={words}
-                  />
-                </span>
-              </div>
+          {/* Description */}
+          <div className="mb-12 measure-lead">
+            <p className="t-body text-foam/85">
+              I design and run data platforms on GCP. Most of my work is ETL
+              pipelines, BigQuery warehouses, and the infrastructure around
+              them. Lately I also build open-source tools for AI-assisted
+              development.
+            </p>
+          </div>
 
-              {/* Description */}
-              <div className="mb-12 max-w-xl">
-                <p className="text-lg text-main-darkGrey/80 leading-relaxed">
-                  I design and run data platforms on GCP. Most of my work is ETL
-                  pipelines, BigQuery warehouses, and the infrastructure around
-                  them. Lately I also build open-source tools for AI-assisted
-                  development.
-                </p>
-              </div>
+          {/* CTA Buttons — consulting-primary (XARI-78) */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            {/* Work with me (primary) */}
+            <a href="#contact" className="brand-button brand-button-chrome">
+              <span>Work with me</span>
+            </a>
 
-              {/* CTA Buttons — consulting-primary (XARI-78) */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                {/* Work with me (primary) */}
-                <a
-                  href="#contact"
-                  className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-accent-softBlue hover:bg-accent-mutedTeal text-white font-medium transition-colors duration-200"
-                >
-                  <span>Work with me</span>
-                  <i className="fas fa-arrow-right ml-2"></i>
-                </a>
+            {/* View Projects (secondary) */}
+            <a href="#projects" className="brand-button brand-button-invert">
+              <span>View Projects</span>
+            </a>
+          </div>
+        </div>
 
-                {/* View Projects (secondary) */}
-                <a
-                  href="#projects"
-                  className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-main-white hover:bg-main-lightGrey text-main-darkGrey font-medium border border-main-mediumGrey/30 transition-colors duration-200"
-                >
-                  <span>View Projects</span>
-                </a>
-              </div>
-            </div>
+        {/* Right column - Photo */}
+        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+          <div className="relative brand-grain w-full max-w-md">
+            {/* §6: duotoned into the palette, never full colour. The photo is a
+                background so background-blend-mode can do the duotone. */}
+            <div
+              role="img"
+              aria-label="Silvia Arellano - Senior Data Engineer"
+              className="duotone-chrome rounded-card w-full aspect-[4/5] bg-cover"
+              style={{
+                backgroundImage: `url(${silviaPhoto})`,
+                backgroundPosition: "center 22%",
+              }}
+            />
 
-            {/* Right column - Photo */}
-            <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-              <div className="relative">
-                {/* Decorative background elements */}
-                <div className="absolute inset-0 bg-gradient-to-br from-accent-softBlue/20 to-accent-mutedTeal/20 rounded-full blur-3xl"></div>
-                
-                {/* Photo container */}
-                <div className="relative rounded-2xl overflow-hidden border-4 border-main-lightGrey shadow-2xl">
-                  <img 
-                    src={silviaPhoto} 
-                    alt="Silvia Arellano - Senior Data Engineer"
-                    className="w-full h-full object-cover max-w-md"
-                  />
-                  
-                  {/* Gradient overlay at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-main-darkGrey/50 to-transparent"></div>
-                  
-                  {/* Title overlay */}
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <p className="text-sm font-medium opacity-90">Data Platform Architect</p>
-                    <p className="text-xs opacity-75">Mexico City | Madrid · working with teams worldwide</p>
-                  </div>
-                </div>
-              </div>
+            {/* Cover scrim — the one gradient the system permits (§6). */}
+            <div className="absolute inset-0 rounded-card cover-scrim pointer-events-none"></div>
+
+            {/* Title overlay */}
+            <div className="absolute bottom-4 left-4 right-4 text-foam">
+              <p className="t-tag">Data Platform Architect</p>
+              <p className="t-caption text-foam/80">
+                Mexico City | Madrid · working with teams worldwide
+              </p>
             </div>
           </div>
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2">
-        <span className="text-main-mediumGrey text-sm">
-          Scroll to explore
-        </span>
-        <i className="fas fa-chevron-down text-main-mediumGrey text-lg"></i>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator — above the wave, so the cue never sits on the
+          chrome band where foam type would fail contrast. */}
+      <div className="relative z-10 flex flex-col items-center gap-2 pt-6 pb-4">
+        <span className="t-caption text-foam/80">Scroll to explore</span>
+        <span className="w-px h-6 bg-chrome"></span>
+      </div>
+
+      {/* Brand spec §5: the wave is a horizon anchored to the bottom edge. It
+          sits in flow rather than over the content, so nothing is ever typeset
+          on the bands. */}
+      <div className="h-[clamp(110px,17vh,210px)] w-full">
+        <BrandWave variant="cover" className="w-full h-full block" />
       </div>
     </section>
   );
