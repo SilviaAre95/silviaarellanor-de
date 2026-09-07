@@ -4,6 +4,15 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ---
 
+## 2026-09-07 — new headline, original lead restored
+
+- **Changed**: the headline is now "I build your data platform. / You get the insights.", set as two deliberate lines with the payoff line in sea
+- **Removed (spec change)**: the "Available for consulting — Madrid" tagline, and with it the acceptance criterion "The hero communicates current availability for consulting engagements". Availability is no longer stated in the hero.
+- **Restored**: the lead paragraph is Silvia's original site copy again, replacing the reference mockup's. This also removes the "Fifteen years of physics habits" claim, which sat awkwardly beside About's "over the last 6+ years".
+- **Layout**: dropped `max-width` and `text-wrap: balance` on the headline — balance re-breaks lines that are deliberate — and sized the type so line one holds on a single line. Verified two lines with no overflow at 1600, 1440, 1280, 1024, 860, 700 and 390px.
+- **Files touched**: src/pages/Hero/Hero.jsx, src/assets/css/index.css
+
+
 ## 2026-09-07 — Hero rebuilt to Silvia's reference composition
 
 - **Built from a supplied reference**: Silvia provided a complete HTML mockup of the crest, hero and roster strip. This implements it rather than my interpretation of the brand book.

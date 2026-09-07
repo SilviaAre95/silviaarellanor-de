@@ -131,37 +131,25 @@
   align-items: center;
 }
 
-.tagline {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--deep);
-  margin: 0 0 1.25rem;
-}
-
-.tagline::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--sea);
-  flex: none;
-}
-
 .hero h1 {
   font-weight: 700;
   letter-spacing: -0.038em;
-  line-height: 1;
+  line-height: 1.05;
   margin: 0;
-  font-size: clamp(2.1rem, 1rem + 5.2vw, 4.4rem);
-  max-width: 16ch;
+  /* Sized so "I build your data platform." holds one line on desktop. No
+     max-width and no text-wrap: balance — the grid column is the measure, and
+     balance would re-break lines that are deliberate. */
+  font-size: clamp(1.85rem, 0.6rem + 3.3vw, 3.05rem);
 }
 
+.hero h1 span,
 .hero h1 em {
+  display: block;
   font-style: normal;
+}
+
+/* The payoff line carries the accent. */
+.hero h1 em {
   color: var(--sea);
 }
 

@@ -8,7 +8,6 @@ owner: Silvia Arellano
 depends_on: [site-navigation, brand-identity]
 acceptance_criteria:
   - The Home page opens with Silvia's positioning statement, and her name and role are present in the header lockup and the portrait tag.
-  - The hero communicates current availability for consulting engagements.
   - The introduction summarizes Silvia's focus on GCP platforms, pipelines, warehouses, infrastructure, and AI-assisted development.
   - A primary call to action takes visitors to the Contact section.
   - A roster strip immediately below the hero lists the services Silvia is brought in for.
@@ -30,11 +29,11 @@ test_plan:
 
 ## Summary
 
-The profile hero introduces Silvia's professional positioning, communicates consulting availability, and directs visitors toward the two highest-value next steps.
+The profile hero states what Silvia does and what the client gets from it, and directs visitors toward the two highest-value next steps.
 
 ## Behavior
 
-The Home page opens with Silvia's name, Data Platform Architect positioning, consulting availability, and a rotating set of related specialties. A concise introduction describes her focus on GCP data platforms, ETL pipelines, BigQuery warehouses, surrounding infrastructure, and open-source AI-assisted development.
+The Home page opens with a two-line positioning statement: what Silvia builds, then what the client gets, with the second line carrying the accent colour. A concise introduction describes her focus on GCP data platforms, ETL pipelines, BigQuery warehouses, surrounding infrastructure, and open-source AI-assisted development. Her name and role appear in the header lockup and on the portrait tag.
 
 Visitors can move directly to the Contact section through the primary call to action or review portfolio work through the Projects call to action. A professional photograph reinforces the introduction, and a scroll cue signals that more content follows. The content shifts from a side-by-side composition on larger screens to a stacked layout on smaller screens.
 

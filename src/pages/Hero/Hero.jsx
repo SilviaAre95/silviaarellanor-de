@@ -27,18 +27,16 @@ export default function Hero() {
       <section id="hero" className="wrap hero">
         <div className="hero__grid">
           <div>
-            <p className="tagline">Available for consulting — Madrid</p>
-
             <h1>
-              I build the <em>machinery</em> underneath other people&rsquo;s
-              businesses.
+              <span>I build your data platform.</span>
+              <em>You get the insights.</em>
             </h1>
 
             <p className="hero__sub">
-              Data platform architecture on Google Cloud, plus the AI-assisted
-              delivery practice that keeps it moving. Fifteen years of physics
-              habits pointed at pipelines that have to hold up on a Monday
-              morning.
+              I design and run data platforms on GCP. Most of my work is ETL
+              pipelines, BigQuery warehouses, and the infrastructure around
+              them. Lately I also build open-source tools for AI-assisted
+              development.
             </p>
 
             <div className="cta">
