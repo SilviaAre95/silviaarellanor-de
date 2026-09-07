@@ -400,9 +400,9 @@
 
 
 /* --------------------------------------------------------------------------
-   Projects. Same family as the Skills rectangles, one step quieter: the
-   screenshots carry the colour, so the accent is the card's top edge rather
-   than a fill, still alternating sea / chrome.
+   Selected work. Solid rectangles per the composition Silvia supplied, cycling
+   sea / chrome / abyss. The screenshots we already have sit inset at the top of
+   each, so the card's colour frames them.
    -------------------------------------------------------------------------- */
 
 .work {
@@ -438,132 +438,150 @@
   }
 }
 
-.workcard {
-  --tone: var(--sea);
+/* --ink flips on the dark ground; every text rule below reads it rather than
+   naming a colour, so one modifier inverts the whole card. */
+.pcard {
+  --ground: var(--sea);
+  --ink: var(--abyss);
+  --ink-soft: rgba(14, 32, 25, 0.72);
+  --rule: rgba(14, 32, 25, 0.25);
   display: flex;
   flex-direction: column;
-  background: rgba(14, 32, 25, 0.03);
-  border: 1px solid rgba(14, 32, 25, 0.12);
-  border-top: 4px solid var(--tone);
+  background: var(--ground);
   border-radius: 6px;
-  overflow: hidden;
+  padding: 1.15rem;
+  color: var(--ink);
 }
 
-.workcard--chrome {
-  --tone: var(--chrome);
+.pcard--chrome {
+  --ground: var(--chrome);
 }
 
-.workcard__shot {
+.pcard--abyss {
+  --ground: var(--abyss);
+  --ink: var(--foam);
+  /* Chrome carries the meta line on the dark card — 10.06 on abyss. */
+  --ink-meta: var(--chrome);
+  --ink-soft: rgba(244, 242, 231, 0.78);
+  --rule: rgba(244, 242, 231, 0.25);
+}
+
+.pcard__shot {
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-bottom: 1px solid rgba(14, 32, 25, 0.12);
+  border-radius: 4px;
 }
 
-.workcard__shot img {
+.pcard__shot img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.workcard__body {
+.pcard__body {
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 1.25rem 1.35rem 1.35rem;
+  padding: 1.35rem 0.35rem 0.35rem;
 }
 
-.workcard__meta {
+.pcard__meta {
   margin: 0;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--deep);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink-meta, var(--ink-soft));
 }
 
-.workcard h3 {
-  margin: 0.4rem 0 0;
-  font-size: 1.15rem;
+.pcard h3 {
+  margin: 0.5rem 0 0;
+  font-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.5rem);
   font-weight: 700;
-  letter-spacing: -0.015em;
-  line-height: 1.25;
-  color: var(--abyss);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--ink);
 }
 
-/* Outcomes. The figure is the point, so it is set large in abyss; the accent
-   marks it rather than colouring it, since sea as type on foam fails. */
-.workcard__stats {
+.pcard__desc {
+  margin: 0.9rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* The figure leads, its label sits beside it — the number is the claim. */
+.pcard__stats {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin: 1.1rem 0 0;
-  padding: 0.9rem 0 0;
-  border-top: 1px solid rgba(14, 32, 25, 0.12);
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 1.4rem 0 0;
+  padding: 0;
   list-style: none;
 }
 
-.workcard__stats li {
+.pcard__stats li {
   display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  border-left: 3px solid var(--tone);
-  padding-left: 0.6rem;
+  align-items: baseline;
+  gap: 0.85rem;
 }
 
-.workcard__stats b {
-  font-size: 1.25rem;
+.pcard__stats b {
+  font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem);
   font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.035em;
+  flex: none;
 }
 
-.workcard__stats span {
-  font-size: 0.75rem;
-  color: var(--deep);
+.pcard__stats span {
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  color: var(--ink-soft);
 }
 
-.workcard__desc {
-  margin: 1.1rem 0 0;
-  font-size: 0.9375rem;
-  line-height: 1.55;
-  color: var(--deep);
-}
-
-/* Pinned to the bottom so the footers line up across a row. */
-.workcard__foot {
+/* Pinned to the bottom so footers line up across a row, over the rule that
+   closes the card in the reference. */
+.pcard__foot {
   display: flex;
   align-items: center;
   gap: 1.25rem;
   margin-top: auto;
-  padding-top: 1.25rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule);
   font-size: 0.875rem;
 }
 
-.workcard__foot a {
+.pcard__body > .pcard__foot {
+  margin-top: 1.4rem;
+}
+
+.pcard__stats + .pcard__foot,
+.pcard__desc + .pcard__foot {
+  margin-top: auto;
+}
+
+.pcard__foot a {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
   font-weight: 600;
-  color: var(--deep);
+  color: var(--ink);
   text-decoration: none;
   border-bottom: 1.5px solid transparent;
   transition: border-color 0.2s ease;
 }
 
-.workcard__foot a:hover {
-  border-bottom-color: var(--tone);
+.pcard__foot a:hover {
+  border-bottom-color: currentColor;
 }
 
-.workcard__private {
-  color: var(--deep);
-  opacity: 0.75;
+.pcard__private {
+  color: var(--ink-soft);
 }
 
-/* The contact route sits at the far end of the footer, opposite the label. */
-.workcard__private + a {
+.pcard__private + a {
   margin-left: auto;
 }
-
 
 .gradient-text {
   background: linear-gradient(90deg, #007A6B, #009E8C);

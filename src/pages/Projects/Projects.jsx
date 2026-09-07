@@ -76,26 +76,32 @@ const allProjects = [
   },
 ];
 
+// Card grounds cycle sea -> chrome -> abyss, per the composition Silvia
+// supplied. On the dark one the ink inverts; the tokens are set in CSS.
+const TONES = ["sea", "chrome", "abyss"];
+
 const ProjectCard = ({ project, tone }) => {
   const isOpenSource = project.company === "Open Source";
   const hasLinks = project.githubLink || project.liveLink;
 
   return (
-    <article className={`workcard ${tone === "chrome" ? "workcard--chrome" : ""}`}>
-      <div className="workcard__shot">
-        {/* Decorative: the title and meta line beside it carry the meaning. */}
+    <article className={`pcard pcard--${tone}`}>
+      <div className="pcard__shot">
+        {/* Decorative: the meta line and title beside it carry the meaning. */}
         <img src={project.backgroundImage} alt="" />
       </div>
 
-      <div className="workcard__body">
-        <p className="workcard__meta">
-          {project.company} &middot; {project.year}
+      <div className="pcard__body">
+        <p className="pcard__meta">
+          {project.company} / {project.year}
         </p>
 
         <h3>{project.title}</h3>
 
+        <p className="pcard__desc">{project.description}</p>
+
         {project.outcomes?.length > 0 && (
-          <ul className="workcard__stats">
+          <ul className="pcard__stats">
             {project.outcomes.map((outcome) => (
               <li key={outcome.label}>
                 <b>{outcome.value}</b>
@@ -105,9 +111,7 @@ const ProjectCard = ({ project, tone }) => {
           </ul>
         )}
 
-        <p className="workcard__desc">{project.description}</p>
-
-        <div className="workcard__foot">
+        <div className="pcard__foot">
           {project.githubLink && (
             <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
               <FaGithub size={15} />
@@ -122,7 +126,7 @@ const ProjectCard = ({ project, tone }) => {
           )}
           {!isOpenSource && !hasLinks && (
             <>
-              <span className="workcard__private">Proprietary project</span>
+              <span className="pcard__private">Proprietary project</span>
               <a href="#contact">Ask me about this &rarr;</a>
             </>
           )}
@@ -136,19 +140,15 @@ export default function Projects() {
   return (
     <section id="projects" className="work">
       <div className="wrap">
-        <h2 className="work__title">Projects</h2>
-        <p className="work__lede">
-          Recent work and what it did for the business
-        </p>
+        <h2 className="work__title">Selected work</h2>
+        <p className="work__lede">Systems built to keep working.</p>
 
         <div className="work__grid">
           {allProjects.map((project, i) => (
             <ProjectCard
               key={project.title}
               project={project}
-              /* The two accents alternate, as they do on the Skills
-                 rectangles — here as the card's top edge. */
-              tone={i % 2 ? "chrome" : "sea"}
+              tone={TONES[i % TONES.length]}
             />
           ))}
         </div>
