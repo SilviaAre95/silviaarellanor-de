@@ -398,6 +398,173 @@
   display: block;
 }
 
+
+/* --------------------------------------------------------------------------
+   Projects. Same family as the Skills rectangles, one step quieter: the
+   screenshots carry the colour, so the accent is the card's top edge rather
+   than a fill, still alternating sea / chrome.
+   -------------------------------------------------------------------------- */
+
+.work {
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+  color: var(--abyss);
+}
+
+.work__title {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0;
+  font-size: clamp(1.9rem, 1.2rem + 2.2vw, 2.75rem);
+}
+
+.work__lede {
+  margin: 1rem 0 0;
+  max-width: 52ch;
+  font-size: clamp(1.02rem, 0.98rem + 0.3vw, 1.15rem);
+  color: var(--deep);
+}
+
+.work__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: clamp(2.25rem, 5vw, 3.25rem);
+}
+
+@media (min-width: 860px) {
+  .work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.workcard {
+  --tone: var(--sea);
+  display: flex;
+  flex-direction: column;
+  background: rgba(14, 32, 25, 0.03);
+  border: 1px solid rgba(14, 32, 25, 0.12);
+  border-top: 4px solid var(--tone);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.workcard--chrome {
+  --tone: var(--chrome);
+}
+
+.workcard__shot {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(14, 32, 25, 0.12);
+}
+
+.workcard__shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.workcard__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.25rem 1.35rem 1.35rem;
+}
+
+.workcard__meta {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--deep);
+}
+
+.workcard h3 {
+  margin: 0.4rem 0 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--abyss);
+}
+
+/* Outcomes. The figure is the point, so it is set large in abyss; the accent
+   marks it rather than colouring it, since sea as type on foam fails. */
+.workcard__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 1.1rem 0 0;
+  padding: 0.9rem 0 0;
+  border-top: 1px solid rgba(14, 32, 25, 0.12);
+  list-style: none;
+}
+
+.workcard__stats li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  border-left: 3px solid var(--tone);
+  padding-left: 0.6rem;
+}
+
+.workcard__stats b {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.workcard__stats span {
+  font-size: 0.75rem;
+  color: var(--deep);
+}
+
+.workcard__desc {
+  margin: 1.1rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--deep);
+}
+
+/* Pinned to the bottom so the footers line up across a row. */
+.workcard__foot {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: auto;
+  padding-top: 1.25rem;
+  font-size: 0.875rem;
+}
+
+.workcard__foot a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 600;
+  color: var(--deep);
+  text-decoration: none;
+  border-bottom: 1.5px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.workcard__foot a:hover {
+  border-bottom-color: var(--tone);
+}
+
+.workcard__private {
+  color: var(--deep);
+  opacity: 0.75;
+}
+
+/* The contact route sits at the far end of the footer, opposite the label. */
+.workcard__private + a {
+  margin-left: auto;
+}
+
+
 .gradient-text {
   background: linear-gradient(90deg, #007A6B, #009E8C);
   -webkit-background-clip: text;

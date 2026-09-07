@@ -48,4 +48,4 @@ The portfolio does not disclose confidential code, unpublished architecture or c
 
 ## Implementation notes
 
-The project catalog and card behavior are implemented in `src/pages/Projects/Projects.jsx`. Public project imagery is stored with the site's image assets.
+The project catalog and card behavior are implemented in `src/pages/Projects/Projects.jsx`, styled by the brand layer of `src/assets/css/index.css` (`.work`, `.workcard`). Cards sit on the page's foam ground with the accent as a 4px top edge, alternating sea and chrome as the Skills rectangles do; the screenshots carry the colour, so the card itself is not filled. Outcome figures are set in abyss with the accent as a rule beside them — sea and chrome both fail as type on foam. Footers are pinned to the card's bottom so they line up across a row. Public project imagery is stored with the site's image assets and is decorative (`alt=""`): the title and meta line carry the meaning.
