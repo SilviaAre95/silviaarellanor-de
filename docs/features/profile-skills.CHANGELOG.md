@@ -4,6 +4,13 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ---
 
+## 2026-09-07 — chip colour pulled back
+
+- **Changed**: chips are outlined instead of filled — foam text on a foam hairline, on the deep card. Sea now appears only as a 2rem rule above each category heading and on chip hover.
+- **Why**: forty chips in chrome, sea and foam at equal weight put the accents at the same volume as the page, and once the reference's daily/worked-with legend was dropped the colour carried no meaning. Silvia read it as off-brand; the brand book is explicit that chrome and sea are accents and foam and abyss carry the page.
+- **Contrast**: chip hover changes the border only — sea as text on deep measures 4.36 and misses AA at this size.
+- **Files touched**: src/pages/Skills/Skills.jsx, src/assets/css/index.css
+
 ## 2026-09-07 — rebuilt on the brand system
 
 - **Changed**: the section now sits on the abyss ground with each of the six categories in its own rectangle, following the reference composition Silvia supplied. Replaces the white grid-pattern ground, the shimmer animation and the shadcn Card/Badge chrome.

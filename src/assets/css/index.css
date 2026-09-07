@@ -302,11 +302,6 @@
   border: 1px solid rgba(244, 242, 231, 0.1);
   border-radius: 6px;
   padding: 1.4rem 1.35rem 1.5rem;
-  transition: border-color 0.2s ease;
-}
-
-.stackcard:hover {
-  border-color: var(--sea);
 }
 
 .stackcard h3 {
@@ -315,6 +310,18 @@
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--foam);
+}
+
+/* The one accent in the section: a short sea rule marking each category. Six
+   of them, at 2px. Filling forty chips with chrome and sea instead made the
+   palette the design — foam and abyss carry the page, the other two accent it. */
+.stackcard h3::before {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 2px;
+  background: var(--sea);
+  margin-bottom: 0.85rem;
 }
 
 .stackcard ul {
@@ -326,23 +333,31 @@
   list-style: none;
 }
 
-/* Text on every chip ground is abyss — sea and chrome both fail against foam
-   as type colours, and abyss clears 5.9 on the weakest of the three. */
+/* Outlined, not filled. The name and its logo are the information; the chip is
+   only there to bound them. */
 .chip {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
+  border: 1px solid rgba(244, 242, 231, 0.22);
   border-radius: 6px;
   padding: 0.42rem 0.7rem;
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.2;
-  color: var(--abyss);
+  color: var(--foam);
+  transition: border-color 0.2s ease;
+}
+
+.chip:hover {
+  border-color: var(--sea);
 }
 
 .chip__icon {
   display: inline-flex;
   flex: none;
+  /* The logos sit a step back from the names they label. */
+  opacity: 0.72;
 }
 
 .chip__icon svg {
@@ -350,19 +365,6 @@
   height: 1.05em;
   display: block;
 }
-
-.stackcard--chrome .chip {
-  background: var(--chrome);
-}
-
-.stackcard--sea .chip {
-  background: var(--sea);
-}
-
-.stackcard--foam .chip {
-  background: var(--foam);
-}
-
 
 .gradient-text {
   background: linear-gradient(90deg, #007A6B, #009E8C);

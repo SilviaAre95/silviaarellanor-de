@@ -111,10 +111,6 @@ const CATEGORIES = [
   },
 ];
 
-// Chip colour rotates by card. The shift by row keeps the three columns from
-// each ending up a single colour on the desktop grid.
-const TONES = ["chrome", "sea", "foam"];
-
 export default function SkillsSection() {
   return (
     <section id="skills" className="stack">
@@ -127,13 +123,8 @@ export default function SkillsSection() {
         </p>
 
         <div className="stack__grid">
-          {CATEGORIES.map((category, i) => (
-            <article
-              key={category.title}
-              className={`stackcard stackcard--${
-                TONES[(i + Math.floor(i / 3)) % TONES.length]
-              }`}
-            >
+          {CATEGORIES.map((category) => (
+            <article key={category.title} className="stackcard">
               <h3>{category.title}</h3>
               <ul>
                 {category.skills.map((skill) => (
