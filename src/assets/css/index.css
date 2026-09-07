@@ -18,7 +18,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Crest, hero and roster strip. Built to the reference composition Silvia
+   Crest and hero. Built to the reference composition Silvia
    supplied; the wave and the header read as one dark unit at the top of the
    page and the wave's final band resolves into the foam ground below it.
    -------------------------------------------------------------------------- */
@@ -234,39 +234,6 @@
   padding: 0.45rem 1rem;
   border-radius: 100px;
   z-index: 2;
-}
-
-/* --- roster strip -------------------------------------------------------- */
-
-.strip {
-  background: var(--chrome);
-  color: var(--abyss);
-}
-
-.strip__inner {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 0.6rem;
-  padding-block: 1.5rem;
-  font-size: clamp(0.95rem, 0.9rem + 0.35vw, 1.15rem);
-  font-weight: 500;
-}
-
-.strip__inner span {
-  background: var(--abyss);
-  color: var(--foam);
-  padding: 0.28rem 0.9rem 0.38rem;
-  border-radius: 100px;
-}
-
-.strip__inner span:nth-child(2n) {
-  background: var(--foam);
-  color: var(--abyss);
-}
-
-.strip__inner span:nth-child(3n) {
-  background: var(--sea);
-  color: var(--abyss);
 }
 
 @media (max-width: 860px) {

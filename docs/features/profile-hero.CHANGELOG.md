@@ -4,6 +4,12 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ---
 
+## 2026-09-07 — roster strip removed
+
+- **Removed (spec change)**: the roster strip below the hero, and with it the acceptance criterion "A roster strip immediately below the hero lists the services Silvia is brought in for." Silvia asked for it to come out — she wants to work on that content separately.
+- **Files touched**: src/pages/Hero/Hero.jsx, src/assets/css/index.css
+
+
 ## 2026-09-07 — new headline, original lead restored
 
 - **Changed**: the headline is now "I build your data platform. / You get the insights.", set as two deliberate lines with the payoff line in sea

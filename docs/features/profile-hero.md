@@ -10,7 +10,6 @@ acceptance_criteria:
   - The Home page opens with Silvia's positioning statement, and her name and role are present in the header lockup and the portrait tag.
   - The introduction summarizes Silvia's focus on GCP platforms, pipelines, warehouses, infrastructure, and AI-assisted development.
   - A primary call to action takes visitors to the Contact section.
-  - A roster strip immediately below the hero lists the services Silvia is brought in for.
   - A secondary call to action takes visitors to the Projects section.
   - The hero includes a professional photograph with meaningful alternative text, presented as a circle inside a partial accent arc.
   - The presentation adapts from a two-column desktop layout to a stacked mobile layout.

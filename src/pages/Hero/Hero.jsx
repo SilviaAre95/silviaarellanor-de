@@ -1,16 +1,6 @@
 import BrandWave from "@/components/BrandWave";
 import silviaPhoto from "@/assets/images/silvia.webp";
 
-// The roster band. Chrome ground, pills cycling abyss → foam → sea.
-const ROSTER = [
-  "Data platform architecture",
-  "GCP / BigQuery",
-  "Streaming & data freshness",
-  "AI-assisted delivery",
-  "FinOps",
-  "NIS2 / DORA / CRA",
-];
-
 export default function Hero() {
   return (
     <>
@@ -53,14 +43,6 @@ export default function Hero() {
             <img src={silviaPhoto} alt="Silvia Arellano" />
             <span className="shot__tag">Data Platform Architect</span>
           </div>
-        </div>
-      </section>
-
-      <section className="strip">
-        <div className="wrap strip__inner">
-          {ROSTER.map((item) => (
-            <span key={item}>{item}</span>
-          ))}
         </div>
       </section>
     </>
