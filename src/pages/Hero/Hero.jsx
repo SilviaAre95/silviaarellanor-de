@@ -9,109 +9,91 @@ export default function Hero() {
     "Big Data Analytics Engineer",
   ];
 
-
   return (
     <section
       id="hero"
-      className="hero-section relative min-h-screen bg-main-white py-16 sm:py-20 md:py-32 flex items-center overflow-x-clip"
+      className="hero-section relative min-h-screen bg-foam flex items-center py-28 md:py-32 overflow-x-clip"
     >
-      {/* Simple background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-main-lightGrey via-main-white to-main-lightGrey pointer-events-none"></div>
+      <div className="w-full max-w-[1180px] mx-auto px-6 sm:px-10 lg:px-14">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-center">
+          {/* Left column — text */}
+          <div>
+            {/* Availability. A chrome dot, not a chrome slab: the accent should
+                register without becoming the loudest thing on the page. */}
+            <p className="flex items-center gap-2.5 text-[0.8125rem] font-semibold tracking-[0.04em] text-deep mb-8">
+              <span className="w-1.5 h-1.5 rounded-full bg-chrome shrink-0" />
+              Available for consulting engagements
+            </p>
 
-          {/* Main content container */}
-          <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between relative z-10 px-4 md:px-8">
-            {/* Left column - Text content */}
-            <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
-              {/* Welcome badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-main-lightGrey backdrop-blur-sm border border-main-mediumGrey/30 mb-8">
-                <div className="w-2 h-2 rounded-full bg-accent-mutedTeal"></div>
-                <span className="text-main-darkGrey text-sm font-medium">
-                  Available for consulting engagements
-                </span>
-              </div>
+            <h1 className="text-abyss font-bold leading-[0.95] tracking-[-0.035em] text-[clamp(2.6rem,1.5rem+3.4vw,4rem)]">
+              Silvia Arellano
+            </h1>
 
-              {/* Name section */}
-              <div className="mb-8">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-main-darkGrey">
-                  Silvia Arellano
-                  <span className="block gradient-text">Data Platform Architect</span>
-                </h1>
-              </div>
+            <p className="mt-4 text-deep font-medium tracking-[-0.02em] text-[clamp(1.25rem,1.05rem+0.8vw,1.65rem)]">
+              Data Platform Architect
+            </p>
 
-              {/* Role badge — max-w-full + responsive text so long titles wrap instead of
-                  overflowing the viewport on small screens (XARI-76) */}
-              <div className="inline-flex items-center gap-3 px-4 sm:px-6 py-3 rounded-xl bg-main-lightGrey border border-main-mediumGrey/30 mb-8 max-w-full">
-                <span className="min-w-0">
-                  <FlipWords
-                    className="text-lg sm:text-xl text-accent-softBlue font-medium"
-                    words={words}
-                  />
-                </span>
-              </div>
+            {/* The one piece of chrome in the composition. */}
+            <div className="mt-6 h-[3px] w-14 bg-chrome" />
 
-              {/* Description */}
-              <div className="mb-12 max-w-xl">
-                <p className="text-lg text-main-darkGrey/80 leading-relaxed">
-                  I design and run data platforms on GCP. Most of my work is ETL
-                  pipelines, BigQuery warehouses, and the infrastructure around
-                  them. Lately I also build open-source tools for AI-assisted
-                  development.
-                </p>
-              </div>
-
-              {/* CTA Buttons — consulting-primary (XARI-78) */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                {/* Work with me (primary) */}
-                <a
-                  href="#contact"
-                  className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-accent-softBlue hover:bg-accent-mutedTeal text-white font-medium transition-colors duration-200"
-                >
-                  <span>Work with me</span>
-                  <i className="fas fa-arrow-right ml-2"></i>
-                </a>
-
-                {/* View Projects (secondary) */}
-                <a
-                  href="#projects"
-                  className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-main-white hover:bg-main-lightGrey text-main-darkGrey font-medium border border-main-mediumGrey/30 transition-colors duration-200"
-                >
-                  <span>View Projects</span>
-                </a>
-              </div>
+            {/* Rotating specialties, kept quiet — it is a caption, not a badge. */}
+            <div className="mt-5 h-7">
+              <FlipWords
+                className="!px-0 text-base font-medium tracking-[0.01em] text-deep/85"
+                words={words}
+              />
             </div>
 
-            {/* Right column - Photo */}
-            <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-              <div className="relative">
-                {/* Decorative background elements */}
-                <div className="absolute inset-0 bg-gradient-to-br from-accent-softBlue/20 to-accent-mutedTeal/20 rounded-full blur-3xl"></div>
-                
-                {/* Photo container */}
-                <div className="relative rounded-2xl overflow-hidden border-4 border-main-lightGrey shadow-2xl">
-                  <img 
-                    src={silviaPhoto} 
-                    alt="Silvia Arellano - Senior Data Engineer"
-                    className="w-full h-full object-cover max-w-md"
-                  />
-                  
-                  {/* Gradient overlay at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-main-darkGrey/50 to-transparent"></div>
-                  
-                  {/* Title overlay */}
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <p className="text-sm font-medium opacity-90">Data Platform Architect</p>
-                    <p className="text-xs opacity-75">Mexico City | Madrid · working with teams worldwide</p>
-                  </div>
-                </div>
-              </div>
+            <p className="mt-6 max-w-[54ch] text-[1.0625rem] leading-[1.65] text-abyss/75">
+              I design and run data platforms on GCP. Most of my work is ETL
+              pipelines, BigQuery warehouses, and the infrastructure around
+              them. Lately I also build open-source tools for AI-assisted
+              development.
+            </p>
+
+            <div className="mt-10 flex flex-col sm:flex-row gap-3">
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center rounded-full bg-abyss px-7 py-3.5 font-semibold text-foam transition-colors duration-200 hover:bg-deep"
+              >
+                Work with me
+              </a>
+              <a
+                href="#projects"
+                className="inline-flex items-center justify-center rounded-full px-7 py-3.5 font-semibold text-abyss ring-1 ring-abyss/25 transition-colors duration-200 hover:ring-abyss/70"
+              >
+                View Projects
+              </a>
             </div>
           </div>
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2">
-        <span className="text-main-mediumGrey text-sm">
+
+          {/* Right column — portrait */}
+          <div className="relative">
+            <div className="relative overflow-hidden rounded-md">
+              <div
+                role="img"
+                aria-label="Silvia Arellano - Senior Data Engineer"
+                className="brand-photo w-full aspect-[4/5] bg-cover"
+                style={{
+                  backgroundImage: `url(${silviaPhoto})`,
+                  backgroundPosition: "center 20%",
+                }}
+              />
+              <div className="brand-photo-tint absolute inset-0 pointer-events-none" />
+            </div>
+            <p className="mt-4 text-[0.8125rem] tracking-[0.04em] text-deep/80">
+              Mexico City | Madrid · working with teams worldwide
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll cue */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
+        <span className="text-[0.75rem] tracking-[0.14em] text-deep/60">
           Scroll to explore
         </span>
-        <i className="fas fa-chevron-down text-main-mediumGrey text-lg"></i>
+        <span className="w-px h-7 bg-deep/25" />
       </div>
     </section>
   );

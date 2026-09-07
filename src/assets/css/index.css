@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ==========================================================================
+   Brand tokens. Introduced section by section — see docs/brand/.
+   Chrome and sea are ACCENTS. Foam and abyss carry the page. Large saturated
+   grounds were what made the first attempt unreadable; do not bring them back
+   without a reason.
+   ========================================================================== */
+:root {
+  --abyss: #0e2019;
+  --deep: #173a2c;
+  --sea: #4fa97f;
+  --chrome: #f2c13d;
+  --foam: #f4f2e7;
+}
+
+/* §6 photography, dialled right back. A full luminosity duotone washes skin
+   out — over chrome it goes yellow, over deep it goes mint. This keeps the
+   photograph readable as a photograph and only harmonises it with the palette:
+   a slight desaturation plus a deep tint laid over the top at low opacity. */
+.brand-photo {
+  filter: saturate(0.82) contrast(1.03);
+}
+
+.brand-photo-tint {
+  background: var(--deep);
+  opacity: 0.14;
+  mix-blend-mode: multiply;
+}
+
 
 .gradient-text {
   background: linear-gradient(90deg, #007A6B, #009E8C);

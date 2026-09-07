@@ -4,6 +4,9 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['"Archivo"', "Helvetica", "Arial", "sans-serif"],
+      },
       animation: {
         meteor: "meteor 5s linear infinite",
       },
@@ -72,6 +75,13 @@ module.exports = {
           4: "hsl(var(--chart-4))",
           5: "hsl(var(--chart-5))",
         },
+        // Brand palette (closed, five tokens). Being introduced section by
+        // section; the OBEX palette below stays until the last one is done.
+        abyss: "#0E2019",
+        deep: "#173A2C",
+        sea: "#4FA97F",
+        chrome: "#F2C13D",
+        foam: "#F4F2E7",
         // OBEX light palette
         main: {
           white: "#FFFFFF",
