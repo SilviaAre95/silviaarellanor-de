@@ -27,7 +27,14 @@ jobs:
       - run: sudo apt-get install -y poppler-utils
       - run: npm run test:resume
       - run: npm run lint
+      # Vite inlines these at build time, so the deployed bundle only carries
+      # them if the job has them. Without them the contact form renders and
+      # silently fails to send.
       - run: npm run build
+        env:
+          VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
+          VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+          VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
       - run: npm run resume:verify-publication
       - uses: actions/upload-pages-artifact@v3
         if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'schedule'
