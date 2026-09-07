@@ -4,6 +4,15 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ---
 
+## 2026-09-07 — Header rebuilt to the reference composition
+
+- **Changed (spec change)**: `fixed` → `sticky`. The reference has the bar sitting inside the crest at rest; sticky keeps that composition while still following the reader down the page, so the destination remains reachable.
+- **Added**: the swallow mark and wordmark as a lockup on the left, linking to the top of Home
+- **Removed**: the per-link icons and the animated gradient border. Links are now plain text with a chrome underline on hover and sea for the active section.
+- **Unchanged**: all six destinations — Home, Skills, Projects, Blog, Contact, About. The reference used a different set (Work, Consulting, wayworks, Writing, Contact); that is an information-architecture change, not a visual one, so the site's own destinations were kept.
+- **Files touched**: src/pages/Header/Header.jsx, src/assets/css/index.css
+
+
 ## 2026-09-07 — brand mark in the header
 
 - **Added**: acceptance criterion — the header carries the swallow mark, which returns to the top of Home

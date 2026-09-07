@@ -4,6 +4,17 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ---
 
+## 2026-09-07 — Hero rebuilt to Silvia's reference composition
+
+- **Built from a supplied reference**: Silvia provided a complete HTML mockup of the crest, hero and roster strip. This implements it rather than my interpretation of the brand book.
+- **Removed (spec change)**: the rotating specialty label and the scroll cue. Neither appears in the reference composition; both acceptance criteria are deleted rather than left failing. `FlipWords` is now unused by the hero.
+- **Changed (spec change)**: the opening criterion no longer requires Silvia's name in the hero itself — the positioning statement leads, and her name sits in the header lockup with the role on the portrait tag.
+- **Added**: a roster strip below the hero on a chrome ground, listing the six services, with pills cycling abyss → foam → sea.
+- **Copy**: the hero now carries Silvia's own headline and lead from the reference and her landing design, replacing the previous name-and-role opening.
+- **Photograph**: circular, inside a three-quarter sea arc, with an abyss role tag. Presented as an unmodified photograph — the reference applies no duotone.
+- **Files touched**: src/pages/Hero/Hero.jsx, src/components/BrandWave.jsx, src/assets/css/index.css
+
+
 ## 2026-09-07 — Hero rebuilt (brand, attempt 2)
 
 - **Changed**: Hero restyled on the brand palette, first section of the section-by-section rebuild

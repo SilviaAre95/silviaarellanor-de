@@ -7,15 +7,14 @@ last_modified: 2026-09-07
 owner: Silvia Arellano
 depends_on: [site-navigation, brand-identity]
 acceptance_criteria:
-  - The Home page opens with Silvia's name and Data Platform Architect positioning.
+  - The Home page opens with Silvia's positioning statement, and her name and role are present in the header lockup and the portrait tag.
   - The hero communicates current availability for consulting engagements.
-  - A rotating role label highlights several areas of data-platform expertise.
   - The introduction summarizes Silvia's focus on GCP platforms, pipelines, warehouses, infrastructure, and AI-assisted development.
   - A primary call to action takes visitors to the Contact section.
+  - A roster strip immediately below the hero lists the services Silvia is brought in for.
   - A secondary call to action takes visitors to the Projects section.
-  - The hero includes a professional photograph with meaningful alternative text.
+  - The hero includes a professional photograph with meaningful alternative text, presented as a circle inside a partial accent arc.
   - The presentation adapts from a two-column desktop layout to a stacked mobile layout.
-  - A visible cue encourages visitors to continue scrolling.
 non_goals:
   - Present an exhaustive biography, career history, or education record.
   - Embed appointment scheduling directly in the hero.
@@ -24,7 +23,6 @@ non_goals:
   - Represent availability as a live staffing calendar or guaranteed start date.
 test_plan:
   - Visit the Home page at desktop and mobile widths and verify the hero content, photograph, and responsive layout.
-  - Observe the rotating role label long enough to verify that multiple specialties appear without overflowing its container.
   - Activate both calls to action and verify that they reach the Contact and Projects sections.
 ---
 

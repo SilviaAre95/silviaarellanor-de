@@ -49,7 +49,7 @@ export default function App() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-main-white">
+    <div className="min-h-screen flex flex-col bg-foam">
       {!isProductsPage && <Header />}
       <main className="flex-grow pb-20">
         <Routes>

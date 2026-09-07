@@ -14,20 +14,282 @@
   --sea: #4fa97f;
   --chrome: #f2c13d;
   --foam: #f4f2e7;
+  --gutter: clamp(1.15rem, 5vw, 4.5rem);
 }
 
-/* §6 photography, dialled right back. A full luminosity duotone washes skin
-   out — over chrome it goes yellow, over deep it goes mint. This keeps the
-   photograph readable as a photograph and only harmonises it with the palette:
-   a slight desaturation plus a deep tint laid over the top at low opacity. */
-.brand-photo {
-  filter: saturate(0.82) contrast(1.03);
+/* --------------------------------------------------------------------------
+   Crest, hero and roster strip. Built to the reference composition Silvia
+   supplied; the wave and the header read as one dark unit at the top of the
+   page and the wave's final band resolves into the foam ground below it.
+   -------------------------------------------------------------------------- */
+
+.wrap {
+  width: 100%;
+  max-width: 1220px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
 }
 
-.brand-photo-tint {
-  background: var(--deep);
-  opacity: 0.14;
-  mix-blend-mode: multiply;
+/* The nav bar. Sticky rather than fixed so it sits inside the crest at rest
+   and still follows the reader down the page. */
+.brand-bar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--foam);
+  color: var(--abyss);
+  border-bottom: 1px solid rgba(23, 58, 44, 0.1);
+}
+
+.brand-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.15rem;
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand-lockup img {
+  width: 38px;
+  height: 38px;
+  display: block;
+  flex: none;
+}
+
+.brand-lockup b {
+  font-weight: 600;
+  font-size: 1.0625rem;
+  letter-spacing: -0.01em;
+}
+
+.navlink {
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.9375rem;
+  padding-bottom: 2px;
+  border-bottom: 1.5px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.navlink:hover {
+  border-bottom-color: var(--chrome);
+}
+
+.navlink.is-active {
+  color: var(--sea);
+}
+
+/* The dark band the wave rises through. */
+.crest {
+  position: relative;
+  background: var(--abyss);
+  overflow: hidden;
+}
+
+.crest__art {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  /* Full height, not 72%: the artwork's grain rect covers the whole SVG, so a
+     short box leaves a hard noise edge across the abyss above the bands. At
+     100% the grain is uniform and the dark air above the crest comes from the
+     wave's own transparent upper region instead. */
+  height: 100%;
+  z-index: 1;
+}
+
+.crest__art svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.crest__pad {
+  height: clamp(10rem, 20vw, 16rem);
+}
+
+/* --- hero ---------------------------------------------------------------- */
+
+.hero {
+  padding-block: clamp(2.75rem, 7vw, 5rem) clamp(3rem, 7vw, 5.5rem);
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: clamp(2rem, 6vw, 4.5rem);
+  align-items: center;
+}
+
+.tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--deep);
+  margin: 0 0 1.25rem;
+}
+
+.tagline::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sea);
+  flex: none;
+}
+
+.hero h1 {
+  font-weight: 700;
+  letter-spacing: -0.038em;
+  line-height: 1;
+  margin: 0;
+  font-size: clamp(2.1rem, 1rem + 5.2vw, 4.4rem);
+  max-width: 16ch;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--sea);
+}
+
+.hero__sub {
+  margin: 1.5rem 0 0;
+  max-width: 52ch;
+  font-size: clamp(1.05rem, 1rem + 0.35vw, 1.2rem);
+  color: var(--deep);
+}
+
+.cta {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.cta a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 0.7rem 1.35rem;
+  border-radius: 100px;
+  display: inline-block;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cta a.solid {
+  background: var(--abyss);
+  color: var(--foam);
+}
+
+.cta a.solid:hover {
+  background: var(--sea);
+  color: var(--abyss);
+}
+
+.cta a.ghost {
+  border: 1.5px solid var(--abyss);
+  color: var(--abyss);
+}
+
+.cta a.ghost:hover {
+  background: var(--chrome);
+}
+
+/* Circular portrait with a three-quarter sea arc. */
+.shot {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 24rem);
+  aspect-ratio: 1;
+}
+
+.shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.shot::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 2px solid var(--sea);
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+
+.shot__tag {
+  position: absolute;
+  right: -0.5rem;
+  bottom: 9%;
+  background: var(--abyss);
+  color: var(--foam);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.45rem 1rem;
+  border-radius: 100px;
+  z-index: 2;
+}
+
+/* --- roster strip -------------------------------------------------------- */
+
+.strip {
+  background: var(--chrome);
+  color: var(--abyss);
+}
+
+.strip__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.6rem;
+  padding-block: 1.5rem;
+  font-size: clamp(0.95rem, 0.9rem + 0.35vw, 1.15rem);
+  font-weight: 500;
+}
+
+.strip__inner span {
+  background: var(--abyss);
+  color: var(--foam);
+  padding: 0.28rem 0.9rem 0.38rem;
+  border-radius: 100px;
+}
+
+.strip__inner span:nth-child(2n) {
+  background: var(--foam);
+  color: var(--abyss);
+}
+
+.strip__inner span:nth-child(3n) {
+  background: var(--sea);
+  color: var(--abyss);
+}
+
+@media (max-width: 860px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .shot {
+    width: min(100%, 17rem);
+  }
 }
 
 

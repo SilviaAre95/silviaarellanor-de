@@ -1,28 +1,32 @@
 import { useId } from "react";
 
 // The brand wave — spec §5. Drawn, never photographed: stacked bezier bands
-// alternating chrome → sea → chrome → deep → abyss so the crest reads as a
-// two-colour print posterization. It is always a horizon: never flipped,
-// rotated, or centred as a standalone logo.
+// alternating chrome → sea → chrome → deep so the crest reads as a two-colour
+// print posterization. It is always a horizon: never flipped or rotated.
 //
-// variant "cover"   — full artwork, anchored to the bottom edge of a hero.
+// variant "crest"   — sits under the header on the abyss ground. Stretched to
+//                     fill, and its final band is FOAM so the artwork resolves
+//                     into the page below instead of ending on a hard edge.
+// variant "cover"   — full artwork, aspect preserved, anchored bottom.
 // variant "divider" — the same artwork cropped to its bottom 200px.
-const VIEW_BOXES = {
-  cover: "0 0 1200 520",
-  divider: "0 320 1200 200",
+const VARIANTS = {
+  crest: { viewBox: "0 0 1200 520", ratio: "none", shore: "#F4F2E7" },
+  cover: { viewBox: "0 0 1200 520", ratio: "xMidYMax slice", shore: "#0E2019" },
+  divider: { viewBox: "0 320 1200 200", ratio: "xMidYMax slice", shore: "#0E2019" },
 };
 
-export default function BrandWave({ variant = "cover", className = "" }) {
+export default function BrandWave({ variant = "crest", className = "" }) {
   // Filter ids must be unique per instance, or a second wave on the page
   // re-uses the first one's filter region and renders without grain.
   const uid = useId().replace(/:/g, "");
   const grain = `wave-grain-${uid}`;
   const soften = `wave-soften-${uid}`;
+  const { viewBox, ratio, shore } = VARIANTS[variant] ?? VARIANTS.crest;
 
   return (
     <svg
-      viewBox={VIEW_BOXES[variant] ?? VIEW_BOXES.cover}
-      preserveAspectRatio="xMidYMax slice"
+      viewBox={viewBox}
+      preserveAspectRatio={ratio}
       className={className}
       aria-hidden="true"
       focusable="false"
@@ -43,7 +47,7 @@ export default function BrandWave({ variant = "cover", className = "" }) {
       </defs>
 
       {/* spray thrown up over whatever sits behind */}
-      <g fill="#F2C13D">
+      <g fill="#F2C13D" opacity=".9">
         <circle cx="250" cy="72" r="4" />
         <circle cx="336" cy="34" r="2.5" />
         <circle cx="410" cy="96" r="5" />
@@ -86,10 +90,10 @@ export default function BrandWave({ variant = "cover", className = "" }) {
         d="M0,424 C272,348 490,310 682,364 C888,420 1020,486 1200,452 L1200,520 L0,520 Z"
         fill="#173A2C"
       />
-      {/* shore */}
+      {/* shore — foam on the crest so the wave resolves into the page ground */}
       <path
         d="M0,478 C296,422 512,392 706,428 C902,464 1032,502 1200,486 L1200,520 L0,520 Z"
-        fill="#0E2019"
+        fill={shore}
       />
 
       {/* foam flecks along the crest line */}
@@ -106,7 +110,7 @@ export default function BrandWave({ variant = "cover", className = "" }) {
         width="1200"
         height="520"
         filter={`url(#${grain})`}
-        opacity=".4"
+        opacity=".38"
         style={{ mixBlendMode: "overlay" }}
       />
     </svg>
