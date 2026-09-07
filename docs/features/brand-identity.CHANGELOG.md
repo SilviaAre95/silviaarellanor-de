@@ -4,6 +4,16 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ---
 
+## 2026-09-07 — swallow mark
+
+- **Spec change (non-goal amended)**: "Draw or ship the swallow mark; Silvia supplies that artwork separately" → "Draw, redraw, or alter the swallow mark; the artwork is Silvia's and ships as supplied." Silvia supplied the mark, so shipping it moved into scope; drawing it remains out.
+- **Added**: four acceptance criteria covering the mark's variants, palette-exact fills, placement, and the sea-ground prohibition
+- **Added**: `public/brand/logo-swallow.svg`, `-dark.svg`, `-mono.svg`, `-mono-foam.svg`, extracted from the supplied logo sheet with no path data changed
+- **Changed**: `public/favicon.svg` is now the primary mark rather than the wave-crest crop from spec §5; §10 lists favicons and avatars as a mark use
+- **Note**: the logo sheet supersedes spec §10 on the four-band ribbon, the compact file, and the small-size floor (32px, mono below)
+- **Files touched**: public/brand/*.svg, public/favicon.svg, index.html
+
+
 ## 2026-09-07
 
 - **Added**: new cross-cutting feature covering the site's visual system, scaffolded from the brand specification v1.0 and the landing-page design

@@ -16,7 +16,8 @@ Silvia's personal site/portfolio — ventures, open-source work, consultancy, bl
 - Palette is **closed**: `abyss #0E2019`, `deep #173A2C`, `sea #4FA97F`, `chrome #F2C13D`, `foam #F4F2E7`. No sixth colour, no second font, no shadows, no decorative gradients.
 - Text on `--sea` MUST be `--abyss`. `--sea` as text on `--foam` measures 2.56 and fails — links on light grounds are `--deep`.
 - Copy is lowercased by `body { text-transform: lowercase }`, never by rewriting source text.
-- Still on the old brand: `public/favicon.ico`, the PNG touch icons, `public/og-image.jpg`. The swallow mark (spec §10) is not drawn — Silvia supplies that artwork.
+- The swallow mark ships in `public/brand/` (primary / dark / mono / mono-foam), extracted from Silvia's logo sheet. Never redraw or alter it. Never place it on `--sea`, never flip or rotate it, never add an outline or containing shape. Use mono below 32px.
+- Still on the old brand: `public/favicon.ico`, the PNG touch icons, `public/og-image.jpg`.
 
 ## Constraints
 - The live domain is **silviadata.dev** — the repo name (`silviaarellanor-de`) is historical; `silviaarellanor.de` does not resolve. Never link or configure the old domain.

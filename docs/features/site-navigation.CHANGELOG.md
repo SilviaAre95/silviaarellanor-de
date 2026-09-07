@@ -4,6 +4,14 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ---
 
+## 2026-09-07 — brand mark in the header
+
+- **Added**: acceptance criterion — the header carries the swallow mark, which returns to the top of Home
+- **Detail**: the mark sits left of the desktop nav links inside the existing abyss pill, and beside the section label on mobile. Placing it inside the pill avoids adding a containing shape, which the mark's rules forbid, and keeps it off any sea ground. Never stacked above the wordmark.
+- **Behaviour**: no navigation destination, route, or scroll behaviour changed
+- **Files touched**: src/pages/Header/Header.jsx
+
+
 ## 2026-09-07
 
 - **Changed**: restyled onto the new brand system (see `brand-identity`)

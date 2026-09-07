@@ -8,6 +8,7 @@ owner: Silvia Arellano
 depends_on: [brand-identity]
 acceptance_criteria:
   - A fixed responsive header is available on the Home, About, and Legal pages.
+  - The header carries the swallow mark, which returns visitors to the top of the Home page.
   - Desktop navigation exposes Home, Skills, Projects, Blog, Contact, and About destinations.
   - Mobile navigation collapses behind a menu button and closes after a destination is selected.
   - Home-section links scroll smoothly to their corresponding sections without hiding content behind the fixed header.

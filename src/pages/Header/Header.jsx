@@ -80,8 +80,13 @@ export default function Header() {
                   e.preventDefault();
                   scrollToSection('hero');
                 }}
-                className="t-tag text-foam font-bold"
+                className="flex items-center gap-2.5 t-tag text-foam font-bold"
               >
+                <img
+                  src="/brand/logo-swallow-dark.svg"
+                  alt=""
+                  className="w-8 h-8 shrink-0"
+                />
                 {navLinks.find(link => link.id === activeLink)?.text || "Portfolio"}
               </a>
               <button 
@@ -95,6 +100,26 @@ export default function Header() {
             {/* Navigation Links */}
             <div className={`${isMenuOpen ? 'block' : 'hidden'} md:block`}>
               <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-1 lg:gap-2 py-4 md:py-0">
+                <a
+                  href="#hero"
+                  aria-label="Silvia Arellano — back to top"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (location.pathname !== '/') {
+                      navigate('/#hero');
+                    } else {
+                      scrollToSection('hero');
+                    }
+                    setIsMenuOpen(false);
+                  }}
+                  className="hidden md:flex items-center pr-2 mr-1"
+                >
+                  <img
+                    src="/brand/logo-swallow-dark.svg"
+                    alt=""
+                    className="w-8 h-8"
+                  />
+                </a>
                 {navLinks.map(({ id, icon: Icon, text }) => (
                   <a
                     key={id}

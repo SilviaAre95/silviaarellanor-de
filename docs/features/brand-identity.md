@@ -20,10 +20,14 @@ acceptance_criteria:
   - Photographs of Silvia render as duotones in the palette rather than in full colour.
   - Large artwork areas carry a grain overlay so the system reads as print rather than vector.
   - Body text measures at most 64 characters per line and lead paragraphs at most 54.
+  - The swallow mark ships in four variants: primary, dark ground, mono, and mono reversed.
+  - Every mark fill is an exact palette token; the mark carries no outline, shadow, or containing shape.
+  - The mark appears in the site header and as the browser tab icon, and is never flipped or rotated.
+  - The mark is never placed on a sea ground, where the ribbon loses contrast.
 non_goals:
   - Restyle the LaTeX resume sources or the generated resume PDFs.
   - Regenerate the raster favicons, touch icons, or the OpenGraph share image.
-  - Draw or ship the swallow mark; Silvia supplies that artwork separately.
+  - Draw, redraw, or alter the swallow mark; the artwork is Silvia's and ships as supplied.
   - Offer a dark-mode theme, a theme toggle, or any visitor-selectable appearance.
   - Introduce a sixth colour, a second typeface, decorative gradients, or drop shadows.
   - Change page structure, section order, routes, or the wording of any existing copy.
@@ -53,7 +57,7 @@ Interactive shapes come in two radii only. Pills carry roster items, role tags, 
 
 ## Out of scope
 
-The system does not restyle the LaTeX resumes, whose own specification pins a restrained black editorial layout for ATS readability, and it does not regenerate the raster favicons, touch icons, or the OpenGraph image — those still carry the previous brand. The swallow mark described in the brand specification is not drawn here; Silvia supplies that artwork. No dark mode is offered: the palette is a fixed light system that already contains its own dark sections.
+The system does not restyle the LaTeX resumes, whose own specification pins a restrained black editorial layout for ATS readability, and it does not regenerate the raster favicons, touch icons, or the OpenGraph image — those still carry the previous brand. The swallow mark is Silvia's own artwork: it is shipped as supplied and never redrawn or altered here. No dark mode is offered: the palette is a fixed light system that already contains its own dark sections.
 
 The system changes no page structure, no section order, no route, and no wording.
 
@@ -66,3 +70,5 @@ Tokens live in the `:root` block of `src/assets/css/index.css` and are mirrored 
 The brand specification's "no icons" guidance is deliberately not applied. Three features — `profile-skills`, `profile-industries`, and `site-footer-social` — carry acceptance criteria that require an icon beside every entry. Those icons stay and inherit palette colour through `currentColor` instead of their vendor colours, which keeps the palette closed without breaking a spec'd behaviour.
 
 The edge treatment on the industries banner is a transparency mask rather than a colour gradient, so `profile-industries` keeps its required edge readability without introducing decorative gradient fill.
+
+The swallow mark lives in `public/brand/` as four files — `logo-swallow.svg` (primary), `logo-swallow-dark.svg`, `logo-swallow-mono.svg`, and `logo-swallow-mono-foam.svg` — extracted verbatim from Silvia's logo sheet. Two adjustments were made to make them usable as assets rather than sheet previews: the dark variant's baked-in abyss backdrop rect was removed so the file is transparent, and each file gained a `<title>` and `role="img"`. No path data was touched. The sheet supersedes brand specification §10 in two places: it drops the four-band ribbon and the separate compact file, and it sets the small-size floor at 32px with mono below that.
