@@ -1,7 +1,7 @@
 ---
 id: brand-identity
 title: Brand Identity
-status: implemented
+status: in-progress
 created_at: 2026-09-07
 last_modified: 2026-09-07
 owner: Silvia Arellano
@@ -47,6 +47,13 @@ test_plan:
 ---
 
 # Brand Identity
+
+> **Status note — 2026-09-07.** The first application of this system to the site
+> was rejected on look and reverted. Only the durable assets remain shipped: the
+> swallow mark, the generated icons, the share card, and the generator scripts.
+> The site itself renders in the pre-brand styling. The visual system is being
+> rebuilt one section at a time; the criteria below describe the target, not
+> what is currently on the page.
 
 ## Summary
 

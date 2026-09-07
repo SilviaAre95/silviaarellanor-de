@@ -6,7 +6,7 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ## 2026-09-07
 
-- **Changed**: restyled onto the new brand system (see `brand-identity`)
+- **Changed**: restyled onto the new brand system (see `brand-identity`) — **reverted the same day**, see the brand-identity changelog
 - **Detail**: Project cards sit on foam with a hairline rule, duotoned sea artwork under grain, foam and chrome pills for organisation and year, and the §4 numeral-and-caption pairing for outcome metrics. The trailing → on the proprietary-project action is removed per §7.
 - **Behaviour**: unchanged — no structure, copy, route, or interaction was altered
 - **Acceptance criteria**: all re-verified against the restyled surface; none amended

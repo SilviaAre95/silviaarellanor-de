@@ -1,8 +1,8 @@
 import {
   FaHome,
-  FaBuilding,
-  FaChartLine,
-  FaRunning,
+  FaBuilding, 
+  FaChartLine, 
+  FaRunning, 
   FaIndustry,
   FaHeartbeat,
   FaShoppingCart,
@@ -27,20 +27,22 @@ const IndustryBanner = () => {
   const duplicatedIndustries = [...industries, ...industries];
 
   return (
-    // Brand spec §3: chrome ground + abyss type is the roster / services band.
-    <div className="relative py-12 bg-chrome text-abyss overflow-hidden">
+    <div className="relative py-12 bg-main-lightGrey border-y border-main-mediumGrey/20 overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-r from-main-lightGrey via-main-white to-main-lightGrey"></div>
+      
       {/* Moving banner container */}
-      <div className="relative industry-track">
+      <div className="relative">
         <div className="flex animate-scroll-left">
           {duplicatedIndustries.map((industry, index) => {
             const Icon = industry.icon;
             return (
               <div
                 key={index}
-                className="brand-pill pill-abyss px-8 py-4 mx-4 min-w-max"
+                className="flex items-center space-x-3 px-8 py-4 mx-4 bg-main-white rounded-lg shadow-sm border border-main-mediumGrey/20 hover:shadow-md transition-shadow duration-300 min-w-max"
               >
-                <Icon className="w-6 h-6" />
-                <span className="t-roster whitespace-nowrap">
+                <Icon className="w-6 h-6 text-accent-softBlue" />
+                <span className="text-main-darkGrey font-medium whitespace-nowrap">
                   {industry.name}
                 </span>
               </div>
@@ -49,10 +51,14 @@ const IndustryBanner = () => {
         </div>
       </div>
 
+      {/* Fade gradients on edges */}
+      <div className="absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-main-lightGrey to-transparent z-10"></div>
+      <div className="absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-main-lightGrey to-transparent z-10"></div>
+
       {/* Section title */}
       <div className="absolute top-2 left-1/2 transform -translate-x-1/2 z-20">
-        <p className="t-caption">
-          Industries I&apos;ve Worked In
+        <p className="text-sm text-main-mediumGrey font-medium">
+          Industries I've Worked In
         </p>
       </div>
 
@@ -67,30 +73,6 @@ const IndustryBanner = () => {
         }
         .animate-scroll-left {
           animation: scroll-left 30s linear infinite;
-        }
-        /* Edge treatment as a transparency mask rather than a colour gradient,
-           so entries stay readable as they enter and leave without adding a
-           decorative gradient fill (brand spec §3). */
-        .industry-track {
-          -webkit-mask-image: linear-gradient(
-            to right,
-            transparent 0,
-            #000 5rem,
-            #000 calc(100% - 5rem),
-            transparent 100%
-          );
-          mask-image: linear-gradient(
-            to right,
-            transparent 0,
-            #000 5rem,
-            #000 calc(100% - 5rem),
-            transparent 100%
-          );
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .animate-scroll-left {
-            animation: none;
-          }
         }
       `}</style>
     </div>

@@ -77,40 +77,48 @@ const allProjects = [
 ];
 
 const ProjectCard = ({ project }) => (
-  <div className="card-foam rounded-card overflow-hidden transition-transform duration-300 hover:-translate-y-1">
-    {/* Project Image — §6: artwork is duotoned into the palette and carries grain. */}
-    <div className="relative h-48 overflow-hidden bg-abyss brand-grain">
+  <div className="bg-main-lightGrey rounded-lg overflow-hidden border border-main-mediumGrey/20 hover:border-main-mediumGrey/40 transition-all duration-300 hover:shadow-lg">
+    {/* Project Image */}
+    <div className="relative h-48 overflow-hidden bg-main-mediumGrey/10">
       <div
-        className="w-full h-full bg-cover bg-center duotone-sea"
-        style={{ backgroundImage: `url(${project.backgroundImage})` }}
+        className="w-full h-full bg-cover bg-center opacity-90 hover:opacity-100 transition-opacity duration-300"
+        style={{
+          backgroundImage: `linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%), url(${project.backgroundImage})`,
+        }}
       />
-      <div className="absolute top-4 left-4 brand-pill pill-foam">
-        <span className="t-tag">{project.company}</span>
+      <div className="absolute top-4 left-4 bg-main-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
+        <span className="text-sm text-main-darkGrey font-medium">
+          {project.company}
+        </span>
       </div>
-      <div className="absolute top-4 right-4 brand-pill pill-chrome">
-        <span className="t-tag">{project.year}</span>
+      <div className="absolute top-4 right-4 bg-accent-softBlue/90 backdrop-blur-sm px-3 py-1 rounded-full">
+        <span className="text-sm text-white font-medium">{project.year}</span>
       </div>
     </div>
 
     {/* Project Content */}
     <div className="p-5">
-      <h3 className="t-h3 mb-2 line-clamp-2">{project.title}</h3>
+      <h3 className="text-lg font-semibold text-main-darkGrey mb-2 line-clamp-2">
+        {project.title}
+      </h3>
 
       {/* Outcome metrics */}
       {project.outcomes?.length > 0 && (
-        <div className="flex gap-6 mb-3 pb-3 border-b-2 border-abyss">
+        <div className="flex gap-4 mb-3 pb-3 border-b border-main-mediumGrey/20">
           {project.outcomes.map((outcome, i) => (
             <div key={i}>
-              <div className="text-[1.75rem] font-bold tracking-[-0.04em] leading-[0.9] text-deep">
+              <div className="text-accent-softBlue font-bold text-base leading-tight">
                 {outcome.value}
               </div>
-              <div className="t-caption text-deep">{outcome.label}</div>
+              <div className="text-main-mediumGrey text-xs leading-tight">
+                {outcome.label}
+              </div>
             </div>
           ))}
         </div>
       )}
 
-      <p className="t-body text-deep mb-4 line-clamp-3 measure">
+      <p className="text-main-mediumGrey mb-4 line-clamp-3 text-sm">
         {project.description}
       </p>
 
@@ -121,10 +129,10 @@ const ProjectCard = ({ project }) => (
             href={project.githubLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="brand-link flex items-center space-x-2"
+            className="flex items-center space-x-2 text-main-mediumGrey hover:text-accent-softBlue transition-colors duration-200"
           >
             <FaGithub size={16} />
-            <span className="t-tag">Code</span>
+            <span className="text-sm">Code</span>
           </a>
         )}
         {project.liveLink && (
@@ -132,17 +140,20 @@ const ProjectCard = ({ project }) => (
             href={project.liveLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="brand-link flex items-center space-x-2"
+            className="flex items-center space-x-2 text-main-mediumGrey hover:text-accent-softBlue transition-colors duration-200"
           >
             <FaExternalLinkAlt size={14} />
-            <span className="t-tag">Live Demo</span>
+            <span className="text-sm">Live Demo</span>
           </a>
         )}
         {project.company !== "Open Source" && !project.githubLink && !project.liveLink && (
           <div className="flex items-center justify-between w-full">
-            <span className="t-caption text-deep italic">Proprietary Project</span>
-            <a href="#contact" className="brand-link t-tag">
-              Ask me about this
+            <span className="text-sm text-main-mediumGrey italic">Proprietary Project</span>
+            <a
+              href="#contact"
+              className="text-sm text-accent-softBlue hover:text-accent-mutedTeal transition-colors duration-200"
+            >
+              Ask me about this →
             </a>
           </div>
         )}
@@ -153,11 +164,11 @@ const ProjectCard = ({ project }) => (
 
 export default function Projects() {
   return (
-    <section id="projects" className="min-h-screen bg-foam brand-section">
-      <div className="brand-container">
+    <section id="projects" className="min-h-screen bg-main-white py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="t-h2 mb-4">Projects</h2>
-          <p className="t-body text-deep measure mx-auto">
+          <h2 className="text-4xl font-bold text-main-darkGrey mb-4">Projects</h2>
+          <p className="text-lg text-main-mediumGrey max-w-2xl mx-auto">
             Recent work and what it did for the business
           </p>
         </div>

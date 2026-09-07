@@ -6,7 +6,7 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ## 2026-09-07
 
-- **Changed**: restyled onto the new brand system (see `brand-identity`)
+- **Changed**: restyled onto the new brand system (see `brand-identity`) — **reverted the same day**, see the brand-identity changelog
 - **Detail**: Legal route restyled onto foam with deep body copy and a chrome rule on the provider block. Provider identification renders lowercase like the rest of the site, as agreed; the text itself is unchanged and the entity stays fully identifiable.
 - **Behaviour**: unchanged — no structure, copy, route, or interaction was altered
 - **Acceptance criteria**: all re-verified against the restyled surface; none amended

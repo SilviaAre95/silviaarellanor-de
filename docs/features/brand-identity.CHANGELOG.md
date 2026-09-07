@@ -4,6 +4,17 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ---
 
+## 2026-09-07 — site application reverted
+
+- **Reverted**: `src/`, `tailwind.config.js` and `index.html` restored to their state on `main`. The whole-site application of the brand system was rejected on look.
+- **Status**: implemented → in-progress. The criteria in the spec now describe a target, not the live page.
+- **Kept**: the swallow mark (`public/brand/`), the generated raster icons, `og-image.jpg`, `site.webmanifest`, `scripts/brand/`, and the brand docs. None of those were the problem, and re-deriving them would be waste.
+- **Re-applied on top of the revert**: the footer Gumroad `aria-label` fix (a real accessibility defect, unrelated to the visual design) and the `og:image:width`/`height` meta, which must match the 2400x1260 file that is still shipped. The SVG favicon link is kept for the same reason — the file exists and is the mark.
+- **Nothing lost**: the revert is a forward commit, not a reset. Commits `ce68c14`..`1d3a324` remain in this branch's history and any piece can be cherry-picked back.
+- **Next**: rebuild section by section, starting with the Hero, with review at each step.
+- **Files touched**: src/*, tailwind.config.js, index.html, docs/features/*
+
+
 ## 2026-09-07 — lowercase treatment retired
 
 - **Spec change**: brand specification §2's "Case — MUST be lowercase throughout" is retired at Silvia's direction. Copy now renders in the case it is authored in. Recorded as a dated amendment in `docs/brand/brand-specification.md` rather than by rewriting the original rule.

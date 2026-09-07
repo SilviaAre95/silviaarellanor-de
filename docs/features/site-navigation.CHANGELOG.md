@@ -14,7 +14,7 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ## 2026-09-07
 
-- **Changed**: restyled onto the new brand system (see `brand-identity`)
+- **Changed**: restyled onto the new brand system (see `brand-identity`) — **reverted the same day**, see the brand-identity changelog
 - **Detail**: Header bar becomes an abyss pill with foam links and a chrome active state. The animated gradient border and its keyframes are removed (§3 forbids decorative gradients, §7 forbids shadows).
 - **Behaviour**: unchanged — no structure, copy, route, or interaction was altered
 - **Acceptance criteria**: all re-verified against the restyled surface; none amended

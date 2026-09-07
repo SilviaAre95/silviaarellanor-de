@@ -3,17 +3,17 @@ import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  // Brand spec §7: pill radius, pill padding, no border.
-  "inline-flex items-center gap-2 rounded-pill px-[0.95rem] pt-[0.3rem] pb-[0.42rem] text-[0.8125rem] font-semibold tracking-[0.03em] transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
   {
     variants: {
       variant: {
-        // Fills cycle abyss → foam → sea; text is always contrast-safe per §3.
-        default: "bg-abyss text-foam hover:bg-deep",
-        secondary: "bg-chrome text-abyss hover:bg-foam",
-        sea: "bg-sea text-abyss hover:bg-chrome",
-        foam: "bg-foam text-abyss hover:bg-chrome",
-        outline: "bg-transparent text-abyss shadow-[inset_0_0_0_1px_theme(colors.deep)]",
+        default:
+          "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
+        secondary:
+          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        destructive:
+          "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
+        outline: "text-foreground",
       },
     },
     defaultVariants: {

@@ -6,7 +6,7 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ## 2026-09-07
 
-- **Changed**: restyled onto the new brand system (see `brand-identity`)
+- **Changed**: restyled onto the new brand system (see `brand-identity`) — **reverted the same day**, see the brand-identity changelog
 - **Detail**: Blog takes the abyss ground with deep article cards, chrome read-time and links, and a chrome Medium action.
 - **Behaviour**: unchanged — no structure, copy, route, or interaction was altered
 - **Acceptance criteria**: all re-verified against the restyled surface; none amended

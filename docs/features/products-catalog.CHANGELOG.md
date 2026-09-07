@@ -6,7 +6,7 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ## 2026-09-07
 
-- **Changed**: restyled onto the new brand system (see `brand-identity`)
+- **Changed**: restyled onto the new brand system (see `brand-identity`) — **reverted the same day**, see the brand-identity changelog
 - **Detail**: Catalog restyled onto foam with a sticky abyss header, product card headers cycling chrome → sea → deep → abyss, price set as the §4 numeral, and the guarantee block on chrome. The route stays out of primary navigation.
 - **Behaviour**: unchanged — no structure, copy, route, or interaction was altered
 - **Acceptance criteria**: all re-verified against the restyled surface; none amended
