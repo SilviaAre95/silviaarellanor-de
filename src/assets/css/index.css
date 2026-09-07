@@ -1129,15 +1129,10 @@
   height: auto;
 }
 
-.bio__motto {
+.bio__roles {
   margin: 1.5rem 0 0;
   font-size: 1.0625rem;
-  font-weight: 700;
-}
-
-.bio__roles {
-  margin: 0.35rem 0 0;
-  font-size: 1.0625rem;
+  font-weight: 600;
 }
 
 .bio h1 {

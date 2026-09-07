@@ -48,6 +48,6 @@ The page does not replicate the complete resume, publish detailed education or s
 
 ## Implementation notes
 
-The page is `src/pages/About/About.jsx`, styled by the brand layer of `src/assets/css/index.css` (`.bio`, `.cv`). The biography sits on a chrome band with the swallow mark above it — everything on chrome is abyss, 10.06 — and the portrait beside it. The timelines sit on the page ground below: a hairline spine per column with a sea marker per entry, the date range as a sea pill with abyss type, then the role and the organization.
+The page is `src/pages/About/About.jsx`, styled by the brand layer of `src/assets/css/index.css` (`.bio`, `.cv`). The biography sits on a chrome band with the swallow mark above it and a one-line role note under it — everything on chrome is abyss, 10.06 — and the portrait beside it. The timelines sit on the page ground below: a hairline spine per column with a sea marker per entry, the date range as a sea pill with abyss type, then the role and the organization.
 
 The mark is the full-colour primary at roughly 128px, well clear of §7's 64px compact threshold. It carries no shadow, outline or containing shape, and chrome is a permitted ground — the one forbidden ground is sea, where the abyss bird loses contrast.

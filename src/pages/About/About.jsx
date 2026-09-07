@@ -31,8 +31,7 @@ export default function About() {
               width="128"
               height="128"
             />
-            <p className="bio__motto">Signal, frequency, flow.</p>
-            <p className="bio__roles">Physicist. Data engineer. Builder.</p>
+            <p className="bio__roles">Data engineer, builder and coffee lover.</p>
 
             <h1>About</h1>
 

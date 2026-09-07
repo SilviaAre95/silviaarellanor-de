@@ -4,6 +4,12 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ---
 
+## 2026-09-07 — role line replaces the motto
+
+- **Removed**: "Signal, frequency, flow." and "Physicist. Data engineer. Builder." — Silvia's call; the motto read as cheese on the page even though it came from the brand book.
+- **Added**: one line under the mark, "Data engineer, builder and coffee lover."
+- **Files touched**: src/pages/About/About.jsx, src/assets/css/index.css
+
 ## 2026-09-07 — rebuilt to the supplied composition
 
 - **Built from a reference**: Silvia supplied a composition for this page. The biography now sits on a chrome band opening with the swallow mark, the motto "Signal, frequency, flow." and "Physicist. Data engineer. Builder."; the timelines follow on the page ground.
