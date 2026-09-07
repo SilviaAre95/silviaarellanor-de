@@ -261,26 +261,23 @@
   padding-block: clamp(3.5rem, 8vw, 6rem);
 }
 
-/* Corner mark. The crest variant's shore band is foam, which is the page
-   ground here, so the artwork resolves at its base instead of ending on an
-   edge. The box keeps the artwork's own 1200:520 ratio, so nothing is
-   stretched, and a transparency mask carries the left edge out rather than
-   cutting the horizon off mid-page. Not a gradient in the palette sense —
-   nothing is tinted, the artwork just stops being drawn. */
+/* The wave, level, spanning the section behind the rectangles — the same
+   treatment as the crest: bottom-anchored, and its final band is foam, which is
+   the page ground here, so the artwork resolves into the page instead of ending
+   on an edge. The cards are opaque, so it reads in the margins around them. */
 .stack__wave {
   position: absolute;
-  top: 0;
+  left: 0;
   right: 0;
-  width: clamp(15rem, 32vw, 30rem);
-  aspect-ratio: 1200 / 520;
+  bottom: 0;
+  /* Full height, not a short box: the artwork's grain rect covers the whole
+     SVG, so a short one leaves a hard noise edge across the section. */
+  height: 100%;
   z-index: 0;
   pointer-events: none;
-  /* Set on the diagonal — see the §5 amendment in the brand specification.
-     Pivoted on its top-right so the artwork runs out through the corner. */
-  transform: rotate(-18deg);
-  transform-origin: 100% 0;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 58%);
-  mask-image: linear-gradient(to right, transparent, #000 58%);
+  /* It is a background. At full strength the bands are the same two colours as
+     the rectangles and the cards stop reading as objects. */
+  opacity: 0.22;
 }
 
 .stack__wave svg {

@@ -4,6 +4,11 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ---
 
+## 2026-09-07 — §5 amendment withdrawn, wave stays a level horizon
+
+- **Reverted**: the diagonal-corner-mark amendment made earlier today. Silvia dropped the corner treatment, so the rule it existed for is gone. §5 reads as it did before — the wave is never flipped, rotated or centered — and the specification is back from v1.2 to v1.1.
+- **Files touched**: docs/brand/brand-specification.md
+
 ## 2026-09-07 — §5 amended: the wave may be a diagonal corner mark
 
 - **Spec change (approved by Silvia)**: §5's blanket "MUST NOT rotate it" is amended. The wave may be set on the diagonal as a corner mark — rotated up to roughly 20°, anchored into a corner, masked at its trailing edge. Silvia asked for the corner wave on the Skills section to run diagonally; a straight crop "looks odd".

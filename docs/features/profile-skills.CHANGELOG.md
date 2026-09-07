@@ -4,6 +4,13 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ---
 
+## 2026-09-07 — wave returns to a level background
+
+- **Changed**: the diagonal corner mark is dropped. The wave is level and full-width behind the rectangles, bottom-anchored, exactly as the crest is — its final band is foam, which is the page ground, so it resolves into the page rather than ending on an edge.
+- **Detail**: it sits at 22%. At full strength its bands are the same sea and chrome as the cards and the cards stop reading as objects. Full section height, not a short box — the artwork's grain rect covers the whole SVG, so a short box leaves a hard noise edge across the section.
+- **Spec**: §5 of the brand specification is back to v1.1 — the rotation amendment existed only for the corner mark and was withdrawn with it.
+- **Files touched**: src/assets/css/index.css, docs/brand/brand-specification.md
+
 ## 2026-09-07 — solid rectangles, contoured chips, diagonal wave
 
 - **Changed**: the rectangles are filled with their accent — sea and chrome alternating — instead of carrying it as a hairline. Chips are contoured on that colour: abyss outline and abyss type over sea or chrome, so the card's colour reads through them. This is what Silvia meant by the reference; the earlier restrained version read as too quiet.
