@@ -4,6 +4,13 @@ Append-only history of changes to this feature. Newest entries appear first.
 
 ---
 
+## 2026-09-08 — personal pursuits get their own section
+
+- **Changed**: the non-goal "turn personal interests into a separate lifestyle profile or photo gallery" is narrowed to the biography itself; personal pursuits now live in the Beyond the code section, specified in `profile-beyond`, rendered at the end of this page after the timelines
+- **Behaviour**: the About route gains a closing section; biography, timelines, and actions are unchanged
+- **Files touched**: docs/features/profile-about-experience.md, src/pages/About/About.jsx (one import, one render)
+- **Approved via**: diff-first escape hatch, Silvia's "build it in dev"
+
 ## 2026-09-07 — role line replaces the motto
 
 - **Removed**: "Signal, frequency, flow." and "Physicist. Data engineer. Builder." — Silvia's call; the motto read as cheese on the page even though it came from the brand book.
