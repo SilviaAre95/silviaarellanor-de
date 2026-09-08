@@ -3,7 +3,7 @@ id: profile-about-experience
 title: About and Experience
 status: implemented
 created_at: 2026-07-27
-last_modified: 2026-09-07
+last_modified: 2026-09-08
 owner: Silvia Arellano
 depends_on: [site-navigation, resume-delivery, contact-inquiry, brand-identity]
 acceptance_criteria:
@@ -20,7 +20,7 @@ non_goals:
   - Publish management headcounts, references, salary expectations, or sensitive employment details.
   - Duplicate complete project case studies already covered by portfolio-projects.
   - Add timeline filtering, expandable job descriptions, or employer-specific subpages.
-  - Turn personal interests into a separate lifestyle profile or photo gallery.
+  - Expand the biography's personal context beyond one paragraph; personal pursuits belong to the Beyond the code section (profile-beyond).
 test_plan:
   - Visit the About route at narrow and wide viewport widths and verify the biography, portrait, actions, and timeline layout.
   - Verify every long-term and contract timeline entry displays its date range, role, and organization.
@@ -42,7 +42,7 @@ Career history is divided into Long-term Engagements and Contracts and Advisory.
 
 ## Out of scope
 
-The page does not replicate the complete resume, publish detailed education or sensitive employment information, repeat project case studies, add interactive timeline controls or employer subpages, or expand the limited personal context into a lifestyle profile.
+The page does not replicate the complete resume, publish detailed education or sensitive employment information, repeat project case studies, add interactive timeline controls or employer subpages, or expand the biography's own personal context; personal pursuits are the Beyond the code section, specified in profile-beyond.
 
 ## Open questions
 

@@ -1,5 +1,6 @@
 import silviaPhoto from "@/assets/images/silvia.webp";
 import { contractExperience, longTermExperience } from "@/data/experience";
+import Beyond from "./Beyond";
 
 const TimelineColumn = ({ experiences, title }) => (
   <div>
@@ -121,6 +122,8 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      <Beyond />
     </>
   );
 }

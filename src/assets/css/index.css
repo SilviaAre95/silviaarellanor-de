@@ -1300,6 +1300,118 @@
 
 
 /* --------------------------------------------------------------------------
+   Beyond the code. Closes the About page after the timelines: rectangles
+   cycling chrome / sea / deep, each with a photo inset at the top, a title
+   and a line in first person. Photos run in full colour: Silvia's call, a
+   stated exception to §6, which covers portraits of her rather than the
+   dogs and the coffee.
+   -------------------------------------------------------------------------- */
+
+.beyond {
+  /* The timelines above carry their own bottom padding; only the foot is ours. */
+  padding-block: 0 clamp(3.5rem, 8vw, 6rem);
+  color: var(--abyss);
+}
+
+.beyond .wrap {
+  border-top: 2px solid var(--abyss);
+  padding-top: clamp(2.5rem, 6vw, 4rem);
+}
+
+/* Silvia's own introduction. Body measure, per §4. */
+.beyond__intro {
+  margin-top: 1.25rem;
+  max-width: 60ch;
+}
+
+.beyond__intro p {
+  margin: 0 0 1rem;
+  font-size: clamp(1.02rem, 0.98rem + 0.3vw, 1.15rem);
+  line-height: 1.55;
+}
+
+.beyond__intro p:last-child {
+  margin-bottom: 0;
+}
+
+.beyond__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: clamp(2.25rem, 5vw, 3.25rem) 0 0;
+  padding: 0;
+  list-style: none;
+  align-items: start;
+}
+
+@media (min-width: 700px) {
+  .beyond__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1060px) {
+  .beyond__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* --tone is the ground. Deep inverts the ink to foam. */
+.bcard {
+  --tone: var(--chrome);
+  --ink: var(--abyss);
+  --ink-soft: rgba(14, 32, 25, 0.74);
+  background: var(--tone);
+  color: var(--ink);
+  border-radius: 6px;
+  padding: 0.6rem 0.6rem 1.4rem;
+}
+
+.bcard--sea {
+  --tone: var(--sea);
+}
+
+.bcard--deep {
+  --tone: var(--deep);
+  --ink: var(--foam);
+  --ink-soft: rgba(244, 242, 231, 0.78);
+}
+
+.bcard__shot {
+  aspect-ratio: 4 / 3;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bcard__shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bcard__body {
+  padding: 1.1rem 0.75rem 0;
+}
+
+.bcard h3 {
+  margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.bcard p {
+  margin: 0.45rem 0 0;
+  max-width: 38ch;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+
+/* --------------------------------------------------------------------------
    Footer. Fixed to the viewport on every route but Products, so it is set dark
    to sit apart from the page rather than compete with it — and the closing
    crest's foam shore runs into a clear edge instead of foam on foam.
