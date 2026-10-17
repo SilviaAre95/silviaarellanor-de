@@ -6,8 +6,22 @@ import profileImage from "@/assets/images/profile_gh.webp";
 import mongoImage from "@/assets/images/mongo_cdc.webp";
 import demoImage from "@/assets/images/demo.webp";
 import wayworksImage from "@/assets/images/wayworks_gh.webp";
+import talkToDataImage from "@/assets/images/talk_to_data.webp";
 
 const allProjects = [
+  {
+    title: "Talk to Your Data: Trusted Self-Serve Analytics",
+    description:
+      "An MCP server on a governed semantic layer, so anyone can ask data questions in plain language from any AI provider. Every answer uses the same certified metrics as the dashboards.",
+    outcomes: [
+      { value: "100+", label: "internal users served" },
+    ],
+    backgroundImage: talkToDataImage,
+    githubLink: null,
+    liveLink: null,
+    company: "Playtomic",
+    year: "2026"
+  },
   {
     title: "Near-Real-Time MongoDB CDC Pipeline",
     description:
